@@ -1,5 +1,7 @@
 # python 100 quizzes
 
+- [011 for를 이용한 기본 활용](/python_100_quizzes/011_for를_이용한_기본_활용.md)
+- [010 별 찍기](/python_100_quizzes/010_별_찍기.md)
 - [009 sep과 end를 활용한 출력방법](/python_100_quizzes/009_sep과_end를_활용한_출력방법.md)
 - [008 딕셔너리 키 이름 중복](/python_100_quizzes/008_딕셔너리_키_이름_중복.md)
 - [007 변수명](/python_100_quizzes/007_변수명.md)
