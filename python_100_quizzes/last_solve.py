@@ -1,5 +1,2 @@
-n = int(input())
-if n % 3 == 0:
-    print("짝")
-else:
-    print(n)
+name = input()
+print("안녕하세요. 저는 %s입니다." % name)
