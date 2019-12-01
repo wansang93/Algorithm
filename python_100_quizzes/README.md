@@ -1,5 +1,6 @@
 # python 100 quizzes
-- [013 몇 번째 행성인가요?](/python_100_quizzes/013_몇_번째_행성인가요?.md)
+- [014 3의 배수 인가요?](/python_100_quizzes/014_3의_배수_인가요.md)
+- [013 몇 번째 행성인가요?](/python_100_quizzes/013_몇_번째_행성인가요.md)
 - [012 게임 캐릭터 클래스 만들기](/python_100_quizzes/012_게임_캐릭터_클래스_만들기.md)
 - [011 for를 이용한 기본 활용](/python_100_quizzes/011_for를_이용한_기본_활용.md)
 - [010 별 찍기](/python_100_quizzes/010_별_찍기.md)
