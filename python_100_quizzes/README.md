@@ -1,4 +1,5 @@
 # python 100 quizzes
+- [020 몫과 나머지](/python_100_quizzes/020_몫과_나머지.md)
 - [019 제곱을 구하자](/python_100_quizzes/019_제곱을_구하자.md)
 - [018 평균 점수](/python_100_quizzes/018_평균_점수.md)
 - [017 놀이기구 키 제한](/python_100_quizzes/017_놀이기구_키_제한.md)
