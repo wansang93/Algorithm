@@ -1,4 +1,5 @@
 # python 100 quizzes
+- [025 원의 넓이를 구하세요](/python_100_quizzes/025_원의_넓이를_구하세요.md)
 - [024 대문자로 바꿔주세요!](/python_100_quizzes/024_대문자로_바꿔주세요!.md)
 - [023 OX문제](/python_100_quizzes/023_OX문제.md)
 - [022 배수인지 확인하기](/python_100_quizzes/022_배수인지_확인하기.md)
