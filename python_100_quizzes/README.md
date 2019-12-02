@@ -1,4 +1,5 @@
 # python 100 quizzes
+- [017 놀이기구 키 제한](/python_100_quizzes/017_놀이기구_키_제한.md)
 - [016 로꾸거](/python_100_quizzes/016_로꾸거.md)
 - [015 자기소개](/python_100_quizzes/015_자기소개.md)
 - [014 3의 배수 인가요?](/python_100_quizzes/014_3의_배수_인가요.md)
