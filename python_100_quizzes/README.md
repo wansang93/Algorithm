@@ -1,4 +1,5 @@
 # python 100 quizzes
+- [027 딕셔너리 만들기](/python_100_quizzes/027_딕셔너리_만들기.md)
 - [026 행성 문제2](/python_100_quizzes/026_행성_문제2.md)
 - [025 원의 넓이를 구하세요](/python_100_quizzes/025_원의_넓이를_구하세요.md)
 - [024 대문자로 바꿔주세요!](/python_100_quizzes/024_대문자로_바꿔주세요!.md)
