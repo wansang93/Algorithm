@@ -1,6 +1,4 @@
 s = input()
-new_s = ""
-for i in s:
-    if i.isupper()==1:
-        new_s += i
-print(new_s)
+find_s = input()
+if find_s in s:
+    print(s.index(find_s))

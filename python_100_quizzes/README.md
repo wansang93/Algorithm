@@ -1,5 +1,6 @@
 # python 100 quizzes
-- [029 대문자만_지나가세요](/python_100_quizzes/029_대문자만_지나가세요.md)
+- [030 문자열 속 문자 찾기](/python_100_quizzes/030_문자열_속_문자_찾기.md)
+- [029 대문자만 지나가세요](/python_100_quizzes/029_대문자만_지나가세요.md)
 - [028 2-gram](/python_100_quizzes/028_2-gram.md)
 - [027 딕셔너리 만들기](/python_100_quizzes/027_딕셔너리_만들기.md)
 - [026 행성 문제2](/python_100_quizzes/026_행성_문제2.md)
