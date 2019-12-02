@@ -1,4 +1,5 @@
 # python 100 quizzes
+- [021 set은 어떻게 만드나요?](/python_100_quizzes/021_set은_어떻게_만드나요.md)
 - [020 몫과 나머지](/python_100_quizzes/020_몫과_나머지.md)
 - [019 제곱을 구하자](/python_100_quizzes/019_제곱을_구하자.md)
 - [018 평균 점수](/python_100_quizzes/018_평균_점수.md)
