@@ -1,5 +1,3 @@
-height = int(input())
-if height > 150:
-    print("YES")
-else:
-    print("NO")
+list1 = list(map(int, input().split()))
+avg = int(sum(list1) / len(list1))
+print(avg)
