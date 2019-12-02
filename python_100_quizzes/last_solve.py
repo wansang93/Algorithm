@@ -1,2 +1,1 @@
-x = {}
-print(type(x))
+print(10/2)

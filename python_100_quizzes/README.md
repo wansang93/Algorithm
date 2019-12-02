@@ -1,4 +1,5 @@
 # python 100 quizzes
+- [023 OX문제](/python_100_quizzes/023_OX문제.md)
 - [022 배수인지 확인하기](/python_100_quizzes/022_배수인지_확인하기.md)
 - [021 set은 어떻게 만드나요?](/python_100_quizzes/021_set은_어떻게_만드나요.md)
 - [020 몫과 나머지](/python_100_quizzes/020_몫과_나머지.md)
