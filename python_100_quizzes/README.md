@@ -1,4 +1,5 @@
 # python 100 quizzes
+- [028 2-gram](/python_100_quizzes/028_2-gram.md)
 - [027 딕셔너리 만들기](/python_100_quizzes/027_딕셔너리_만들기.md)
 - [026 행성 문제2](/python_100_quizzes/026_행성_문제2.md)
 - [025 원의 넓이를 구하세요](/python_100_quizzes/025_원의_넓이를_구하세요.md)

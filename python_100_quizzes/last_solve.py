@@ -1,4 +1,3 @@
-name = input().split()
-score = map(int, input().split())
-dic = dict(zip(name, score))
-print(dic)
+s = input()
+for i in range(len(s)-1):
+    print(s[i]+s[i+1])
