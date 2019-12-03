@@ -1,5 +1,6 @@
-
 mylist = input().split()
-newlist = mylist[::-1]
-for i in range(len(newlist)):
-    print(newlist[i], end=" ")
+newlist = sorted(mylist)
+if mylist != newlist:
+    print("NO")
+else:
+    print("OK")
