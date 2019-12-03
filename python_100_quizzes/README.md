@@ -1,4 +1,5 @@
 # python 100 quizzes
+- [035 Factory 함수 사용하기](/python_100_quizzes/035_Factory_함수_사용하기.md)
 - [034 sort 구현하기](/python_100_quizzes/034_sort_구현하기.md)
 - [033 거꾸로 출력하기](/python_100_quizzes/033_거꾸로_출력하기.md)
 - [032 문자열 만들기](/python_100_quizzes/032_문자열_만들기.md)
