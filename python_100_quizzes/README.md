@@ -1,4 +1,5 @@
 # python 100 quizzes
+- [033 거꾸로 출력하기](/python_100_quizzes/033_거꾸로_출력하기.md)
 - [032 문자열 만들기](/python_100_quizzes/032_문자열_만들기.md)
 - [031 파이썬 자료형의 복잡도](/python_100_quizzes/031_파이썬_자료형의_복잡도.md)
 - [030 문자열 속 문자 찾기](/python_100_quizzes/030_문자열_속_문자_찾기.md)

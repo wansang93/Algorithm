@@ -1,2 +1,5 @@
-s = input()
-print(len(list(s.split())))
+
+mylist = input().split()
+newlist = mylist[::-1]
+for i in range(len(newlist)):
+    print(newlist[i], end=" ")
