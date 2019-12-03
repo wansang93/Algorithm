@@ -1,4 +1,5 @@
 # python 100 quizzes
+- [031 파이썬 자료형의 복잡도](/python_100_quizzes/031_파이썬_자료형의_복잡도.md)
 - [030 문자열 속 문자 찾기](/python_100_quizzes/030_문자열_속_문자_찾기.md)
 - [029 대문자만 지나가세요](/python_100_quizzes/029_대문자만_지나가세요.md)
 - [028 2-gram](/python_100_quizzes/028_2-gram.md)
