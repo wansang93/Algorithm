@@ -4,18 +4,19 @@
 
 - <pass>에 코드를 작성하여 two함수를 완성하세요.
 
-    def one(n):
-        def two(m):
-            <pass>
-        return two
-    
-    a = one(2)
-    b = one(3)
-    c = one(4)
-    print(a(10))
-    print(b(10))
-    print(c(10))
+``` python
+def one(n):
+    def two(m):
+        <pass>
+    return two
 
+a = one(2)
+b = one(3)
+c = one(4)
+print(a(10))
+print(b(10))
+print(c(10))
+```
 
 # 풀이35-1
 
@@ -40,7 +41,7 @@ print(c(10))
     - one함수안의 return 값인 two 함수를 불러오고 종료
     - a = two 함수의 정의로 저장
     - b, c 도 a와 같이 실행
-    
+
     - print(a(10)) 실행
     - a(10)을 실행할 때 two(10)을 실행한거와 마찬가지
     - 파라마타 m=10, 이전에 n=2 가 저장되어있음
