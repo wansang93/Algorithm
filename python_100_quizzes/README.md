@@ -1,4 +1,5 @@
 # python 100 quizzes 
+- [037 count 사용하기](/python_100_quizzes/037_count_사용하기.md)
 - [036 구구단 출력하기](/python_100_quizzes/036_구구단_출력하기.md)
 - [035 Factory 함수 사용하기](/python_100_quizzes/035_Factory_함수_사용하기.md)
 - [034 sort 구현하기](/python_100_quizzes/034_sort_구현하기.md)
