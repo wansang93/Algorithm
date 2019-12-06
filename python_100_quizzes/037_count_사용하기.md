@@ -12,24 +12,57 @@
 
 ``` python
 mylist = input().split()
-newset = set(mylist)
-newlist = list(newset)
+newlist = list(set(mylist))
 
 leader = newlist[0]
-for i in range(len(newlist)-1):
-    if mylist.count(newlist[i]) < mylist.count(newlist[i+1]):
-        leader = newlist[i+1]
+for i in range(len(newlist)):
+    if mylist.count(newlist[i-1]) < mylist.count(newlist[i]):
+        leader = newlist[i]
 
 print(leader + "(이)가 총 " + str(mylist.count(leader)) + "표로 반장이 되었습니다.")
 ```
 
+set 함수를 이용해 자료의 중복성을 제거하고 후보명단을 만들어 후보명단 중에 가장 많은 득표의 사람을 반장으로 선정한다.
+
 # 풀이37-2
 
 ``` python
-data = list(map(str, input().split()))
-count = 0
-for i in range(len(data)):
-	if data.count(data[i-1]) < data.count(data[i]):
-		count = i
-print("{}(이)가 총 {}표로 반장이 되었습니다.".format(data[count], data.count(data[count])))
+mylist = list(map(str, input().split()))
+num = 0
+for i in range(len(mylist)):
+	if mylist.count(mylist[i-1]) < mylist.count(mylist[i]):
+		num = i
+print("{}(이)가 총 {}표로 반장이 되었습니다.".format(mylist[num], mylist.count(mylist[num])))
+```
+
+리스트 안의 요소의 순서대로 자료를 조회해보고 가장 많은 득표의 사람을 반장으로 선정한다.
+
+# 풀이37-3
+
+collections의 Counter를 사용해서 푸는 방법
+
+``` python
+mylist = [1, 3, 3, 2, 2, 5]
+counterlist = Counter(mylist)
+print(counterlist)  # Counter({'3': 2, '2': 2, '1': 1, '5': 1})
+print(dir(counterlist))
+# '_keep_positive', 'clear', 'copy', 'elements', 'fromkeys', 'get', 'items', 'keys',
+# 'most_common', 'pop', 'popitem', 'setdefault', 'subtract', 'update', 'values'
+```
+
+``` python
+from collections import Counter
+mylist = list(map(str, input().split()))
+
+def maxword(words):
+	counter = Counter(words)
+	max_count = -1
+	for letter in counter:
+		if counter[letter] > max_count:
+			max_count = counter[letter]
+			max_letter = letter
+	return max_letter, max_count
+
+name, num = maxword(mylist)
+print("{}(이)가 총 {}표로 반장이 되었습니다.".format(name, num))
 ```
