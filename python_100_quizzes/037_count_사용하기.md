@@ -42,15 +42,6 @@ print("{}(이)가 총 {}표로 반장이 되었습니다.".format(mylist[num], m
 collections의 Counter를 사용해서 푸는 방법
 
 ``` python
-mylist = [1, 3, 3, 2, 2, 5]
-counterlist = Counter(mylist)
-print(counterlist)  # Counter({'3': 2, '2': 2, '1': 1, '5': 1})
-print(dir(counterlist))
-# '_keep_positive', 'clear', 'copy', 'elements', 'fromkeys', 'get', 'items', 'keys',
-# 'most_common', 'pop', 'popitem', 'setdefault', 'subtract', 'update', 'values'
-```
-
-``` python
 from collections import Counter
 mylist = list(map(str, input().split()))
 
@@ -65,4 +56,15 @@ def maxword(words):
 
 name, num = maxword(mylist)
 print("{}(이)가 총 {}표로 반장이 되었습니다.".format(name, num))
+```
+
+collections의 Counter 예시
+
+``` python
+mylist = [1, 3, 3, 2, 2, 5]
+counterlist = Counter(mylist)  # Counter 객체 생성
+print(counterlist)  # Counter({'3': 2, '2': 2, '1': 1, '5': 1})
+print(dir(counterlist))  # 객체에서 사용가능한 함수들
+# '_keep_positive', 'clear', 'copy', 'elements', 'fromkeys', 'get', 'items', 'keys',
+# 'most_common', 'pop', 'popitem', 'setdefault', 'subtract', 'update', 'values'
 ```
