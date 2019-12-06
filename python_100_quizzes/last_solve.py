@@ -1,14 +1,15 @@
-from collections import Counter
-mylist = list(map(str, input().split()))
+# 점수입력 : 97 86 75 66 55 97 85 97 97 95
+# 출력 : 6
 
-def maxword(words):
-	counter = Counter(words)
-	max_count = -1
-	for letter in counter:
-		if counter[letter] > max_count:
-			max_count = counter[letter]
-			max_letter = letter
-	return max_letter, max_count
+l = list(map(int, list(input().strip().split())))
 
-name, num = maxword(mylist)
-print("{}(이)가 총 {}표로 반장이 되었습니다.".format(name, num))
+count = 3
+#3개는 무조건 구매, 배열 정렬 후 1~3위 중 중복되는 숫자까지 포함
+
+data_sorted = sorted(list(l))
+print(l)
+print(data_sorted)
+for i in range(len(l)-1, 0, -1):
+	if data_sorted[-3] == l[i]:
+		count += 1
+print(count)
