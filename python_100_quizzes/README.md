@@ -1,4 +1,5 @@
 # python 100 quizzes 
+- [039 오타 수정하기](/python_100_quizzes/039_오타_수정하기.md)
 - [038 호준이의 아르바이트](/python_100_quizzes/038_호준이의_아르바이트.md)
 - [037 count 사용하기](/python_100_quizzes/037_count_사용하기.md)
 - [036 구구단 출력하기](/python_100_quizzes/036_구구단_출력하기.md)
