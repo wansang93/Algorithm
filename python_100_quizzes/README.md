@@ -1,4 +1,5 @@
-# python 100 quizzes 
+# python 100 quizzes 소수판별
+- [041 소수판별](/python_100_quizzes/041_소수판별.md)
 - [040 놀이동산에 가자](/python_100_quizzes/040_놀이동산에_가자.md)
 - [039 오타 수정하기](/python_100_quizzes/039_오타_수정하기.md)
 - [038 호준이의 아르바이트](/python_100_quizzes/038_호준이의_아르바이트.md)
