@@ -1,4 +1,5 @@
 # python 100 quizzes 
+- [043 10진수를 2진수로](/python_100_quizzes/043_10진수를_2진수로.md)
 - [042 2020년(datetime 모듈 사용)](/python_100_quizzes/042_2020년(datetime_모듈_사용).md)
 - [041 소수판별](/python_100_quizzes/041_소수판별.md)
 - [040 놀이동산에 가자](/python_100_quizzes/040_놀이동산에_가자.md)
