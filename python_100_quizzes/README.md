@@ -1,4 +1,5 @@
-# python 100 quizzes 소수판별
+# python 100 quizzes 
+- [042 2020년(datetime 모듈 사용)](/python_100_quizzes/042_2020년(datetime_모듈_사용).md)
 - [041 소수판별](/python_100_quizzes/041_소수판별.md)
 - [040 놀이동산에 가자](/python_100_quizzes/040_놀이동산에_가자.md)
 - [039 오타 수정하기](/python_100_quizzes/039_오타_수정하기.md)
