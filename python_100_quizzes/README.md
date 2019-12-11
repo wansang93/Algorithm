@@ -1,4 +1,5 @@
 # python 100 quizzes 
+- [045 time함수 사용하기](/python_100_quizzes/045_time함수_사용하기.md)
 - [044 각 자리수의 합](/python_100_quizzes/044_각_자리수의_합.md)
 - [043 10진수를 2진수로](/python_100_quizzes/043_10진수를_2진수로.md)
 - [042 2020년(datetime 모듈 사용)](/python_100_quizzes/042_2020년(datetime_모듈_사용).md)
