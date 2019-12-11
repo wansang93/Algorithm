@@ -1,4 +1,5 @@
 # python 100 quizzes 
+- [048 대소문자 바꿔서 출력하기](/python_100_quizzes/048_대소문자_바꿔서_출력하기.md)
 - [047 set 자료형의 응용](/python_100_quizzes/047_set_자료형의_응용.md)
 - [046 str 자료형의 응용](/python_100_quizzes/046_str_자료형의_응용.md)
 - [045 time함수 사용하기](/python_100_quizzes/045_time함수_사용하기.md)
