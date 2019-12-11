@@ -1,4 +1,5 @@
 # python 100 quizzes 
+- [050 버블정렬 구현하기](/python_100_quizzes/050_버블정렬_구현하기.md)
 - [049 최댓값 구하기](/python_100_quizzes/049_최댓값_구하기.md)
 - [048 대소문자 바꿔서 출력하기](/python_100_quizzes/048_대소문자_바꿔서_출력하기.md)
 - [047 set 자료형의 응용](/python_100_quizzes/047_set_자료형의_응용.md)
