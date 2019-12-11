@@ -1,4 +1,5 @@
 # python 100 quizzes 
+- [047 set 자료형의 응용](/python_100_quizzes/047_set_자료형의_응용.md)
 - [046 str 자료형의 응용](/python_100_quizzes/046_str_자료형의_응용.md)
 - [045 time함수 사용하기](/python_100_quizzes/045_time함수_사용하기.md)
 - [044 각 자리수의 합](/python_100_quizzes/044_각_자리수의_합.md)
