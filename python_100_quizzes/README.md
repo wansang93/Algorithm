@@ -1,4 +1,5 @@
 # python 100 quizzes 
+- [051 merge sort를 만들어보자](/python_100_quizzes/051_merge_sort를_만들어보자.md)
 - [050 버블정렬 구현하기](/python_100_quizzes/050_버블정렬_구현하기.md)
 - [049 최댓값 구하기](/python_100_quizzes/049_최댓값_구하기.md)
 - [048 대소문자 바꿔서 출력하기](/python_100_quizzes/048_대소문자_바꿔서_출력하기.md)
