@@ -1,4 +1,5 @@
 # python 100 quizzes 
+- [054 연속되는 수](/python_100_quizzes/054_연속되는_수.md)
 - [053 괄호 문자열](/python_100_quizzes/053_괄호_문자열.md)
 - [052 quick sort](/python_100_quizzes/052_quick_sort.md)
 - [051 merge sort를 만들어보자](/python_100_quizzes/051_merge_sort를_만들어보자.md)
