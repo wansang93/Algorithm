@@ -6,20 +6,31 @@
 
 # 입력으로 주어진 괄호 문자열이 바른 문자열인지 바르지 않은 문자열인지 "YES"와 "NO"로 구분된 문자열을 출력해보자.
 
-mylist = list(map(str, input()))
-stack = 0
-is_ok = True
-for c in mylist:
-    if c == '(':
-        stack += 1
-    elif c == ')':
-        stack -= 1
-    
-    if stack == -1:
-        is_ok = False
-        break
+mystr = input()
+mylist = []
 
-if stack == 0 and is_ok == True:
+is_ok = True
+for c in mystr:
+    if c == '(' or c == '{' or c == '[':
+        mylist.append(c)
+    elif c == ')':
+        if '(' == mylist.pop():
+            pass
+        else:
+            is_ok = False
+    
+    elif c == '}':
+        if '{' == mylist.pop():
+            pass
+        else:
+            is_ok = False
+    elif c == ']':
+        if '[' == mylist.pop():
+            pass
+        else:
+            is_ok = False
+        
+if mylist == [] and is_ok == True:
     print("YES")
 else:
     print("NO")
