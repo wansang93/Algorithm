@@ -1,17 +1,71 @@
-원판의이동경로 = []
-def 하노이(원반의수, 시작기둥, 목표기둥, 보조기둥):
-    #원판이 한개일 때에는 옮기면 됩니다.
-    if 원반의수 == 1:
-        원판의이동경로.append([시작기둥, 목표기둥]) 
-        return None
+nationWidth = {
+    'Korea': 220877,
+    'Rusia': 17098242,
+    'China': 9596961,
+    'France': 543965,
+    'Japan': 377915,
+    'England' : 242900,
+}
 
-    #원반의 n-1개를 경유기둥으로 옮기고
-    하노이(원반의수-1, 시작기둥, 보조기둥, 목표기둥)
-    #가장 큰 원반은 목표기둥으로
-    원판의이동경로.append([시작기둥, 목표기둥]) 
-    #경유기둥과 시작기둥을 바꿉니다!
-    하노이(원반의수-1, 보조기둥, 목표기둥, 시작기둥)
+print(nationWidth.keys())  # ['Korea', 'Rusia', 'China', 'France', 'Japan', 'England']
+print(nationWidth.values())  # [220877, 17098242, 9596961, 543965, 377915, 242900]
+print(nationWidth.items())
+# [('Korea', 220877), ('Rusia', 17098242), ('China', 9596961), ('France', 543965), ('Japan', 377915), ('England', 242900)]
+print(dir(nationWidth))
+# ['clear', 'copy', 'fromkeys', 'get', 'items', 'keys', 'pop', 'popitem', 'setdefault', 'update', 'values']
 
-하노이(3,'A','C','B')
-print(원판의이동경로)
-print(len(원판의이동경로))
+new = nationWidth.copy()
+new.pop('Korea')
+print(new)
+
+def min_gap(dic):
+    gap = max(dic.values())
+    item = max(dic.keys())
+    print(item, gap)
+    for i in dic:
+        if gap > dic[i]:
+            gap = dic[i]
+            item = i
+    return item
+
+print(min_gap(new))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# w = nationWidth['Korea']
+# nationWidth.pop('Korea')
+# l = list(nationWidth.items())
+# gap = max(nationWidth.values())
+# item = 0
+
+# for i in l:
+#     if gap > abs(i[1] - w):
+#         gap = abs(i[1] - w)
+#         item = i
+# print(item[0], item[1]-w)
