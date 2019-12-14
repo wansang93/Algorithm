@@ -1,4 +1,5 @@
 # python 100 quizzes 
+- [057 내장함수 응용하기](/python_100_quizzes/057_내장함수_응용하기.md)
 - [056 리스트의 함수 응용](/python_100_quizzes/056_리스트의_함수_응용.md)
 - [055 하노이의 탑](/python_100_quizzes/055_하노이의_탑.md)
 - [054 연속되는 수](/python_100_quizzes/054_연속되는_수.md)

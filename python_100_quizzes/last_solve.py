@@ -1,71 +1,37 @@
-nationWidth = {
-    'Korea': 220877,
-    'Rusia': 17098242,
-    'China': 9596961,
-    'France': 543965,
-    'Japan': 377915,
-    'England' : 242900,
-}
+import time
 
-print(nationWidth.keys())  # ['Korea', 'Rusia', 'China', 'France', 'Japan', 'England']
-print(nationWidth.values())  # [220877, 17098242, 9596961, 543965, 377915, 242900]
-print(nationWidth.items())
-# [('Korea', 220877), ('Rusia', 17098242), ('China', 9596961), ('France', 543965), ('Japan', 377915), ('England', 242900)]
-print(dir(nationWidth))
-# ['clear', 'copy', 'fromkeys', 'get', 'items', 'keys', 'pop', 'popitem', 'setdefault', 'update', 'values']
+# 1번째 시간
+start_time = time.time()
+mystr = ""
+for i in range(1001):
+    mystr += str(i)
+print(mystr.count('1'))
 
-new = nationWidth.copy()
-new.pop('Korea')
-print(new)
+end_time = time.time()
+result = end_time-start_time + 1
 
-def min_gap(dic):
-    gap = max(dic.values())
-    item = max(dic.keys())
-    print(item, gap)
-    for i in dic:
-        if gap > dic[i]:
-            gap = dic[i]
-            item = i
-    return item
+# 2번째 시간 
+def count(n):
+	countN = str(list(range(n+1))).count('1')
+	return countN
 
-print(min_gap(new))
+start_time2 = time.time()
+print(count(1000))
+end_time2 = time.time()
+result2 = end_time2-start_time2 + 1
 
+# 3번째 시간
+start_time3 = time.time()
+mystr2 = ''.join(list(map(str, [i for i in range(1001)]))).count('1')
+print(mystr2)
+end_time3 = time.time()
+result3 = end_time3 - start_time3 + 1
 
+print(result)
+print(result2)
+print(result3)
 
+# 1번째: 1.0059840679168701(가장 느림)
+# 2번째: 1.0009987354278564
+# 3번째: 1.0009963512420654
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# w = nationWidth['Korea']
-# nationWidth.pop('Korea')
-# l = list(nationWidth.items())
-# gap = max(nationWidth.values())
-# item = 0
-
-# for i in l:
-#     if gap > abs(i[1] - w):
-#         gap = abs(i[1] - w)
-#         item = i
-# print(item[0], item[1]-w)
