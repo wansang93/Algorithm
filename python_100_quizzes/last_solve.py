@@ -1,22 +1,17 @@
-#    입력1
-#     1 2 4 3 5
+원판의이동경로 = []
+def 하노이(원반의수, 시작기둥, 목표기둥, 보조기둥):
+    #원판이 한개일 때에는 옮기면 됩니다.
+    if 원반의수 == 1:
+        원판의이동경로.append([시작기둥, 목표기둥]) 
+        return None
 
-#     출력1
-#     YES
+    #원반의 n-1개를 경유기둥으로 옮기고
+    하노이(원반의수-1, 시작기둥, 보조기둥, 목표기둥)
+    #가장 큰 원반은 목표기둥으로
+    원판의이동경로.append([시작기둥, 목표기둥]) 
+    #경유기둥과 시작기둥을 바꿉니다!
+    하노이(원반의수-1, 보조기둥, 목표기둥, 시작기둥)
 
-
-#     입력2
-#     1 4 2 6 3
-
-#     출력2
-#     NO
-
-mylist = list(map(int, input().split()))
-
-print(mylist)
-
-first = mylist[0]
-if mylist == [i for i in range(first, first+len(mylist))]:
-    print("YES")
-else:
-    print("NO")
+하노이(3,'A','C','B')
+print(원판의이동경로)
+print(len(원판의이동경로))
