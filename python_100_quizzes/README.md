@@ -1,4 +1,5 @@
 # python 100 quizzes 
+- [058 콤마 찍기](/python_100_quizzes/058_콤마_찍기.md)
 - [057 내장함수 응용하기](/python_100_quizzes/057_내장함수_응용하기.md)
 - [056 리스트의 함수 응용](/python_100_quizzes/056_리스트의_함수_응용.md)
 - [055 하노이의 탑](/python_100_quizzes/055_하노이의_탑.md)
