@@ -1,13 +1,11 @@
 mystr = input()
-restr = mystr[::-1]
-newstr = ""
-if len(restr) > 3:
-    for i, c in enumerate(restr):
-        if i % 3 == 0:
-            newstr = c + "," + newstr
-        else:
-            newstr = c + newstr
-else:
-    newstr = mystr + ","
+newstr = ''
 
-print(newstr[:-1])
+if len(mystr) < 50: 
+    newstr = (50 - len(mystr)) // 2 * '='
+    newstr += mystr
+    newstr += (50 - len(newstr)) * '='
+else:
+    newstr = mystr
+
+print(newstr)
