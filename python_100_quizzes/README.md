@@ -1,4 +1,5 @@
 # python 100 quizzes 
+- [060 enumerate](/python_100_quizzes/060_enumerate.md)
 - [059 빈칸채우기](/python_100_quizzes/059_빈칸채우기.md)
 - [058 콤마 찍기](/python_100_quizzes/058_콤마_찍기.md)
 - [057 내장함수 응용하기](/python_100_quizzes/057_내장함수_응용하기.md)
