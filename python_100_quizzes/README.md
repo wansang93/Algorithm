@@ -1,4 +1,6 @@
 # python 100 quizzes 
+- [065 변형된 리스트](/python_100_quizzes/065_변형된_리스트.md)
+- [064 이상한 엘레베이터](/python_100_quizzes/064_이상한_엘레베이터.md)
 - [063 친해지고 싶어](/python_100_quizzes/063_친해지고_싶어.md)
 - [062 20190923출력하기](/python_100_quizzes/062_20190923출력하기.md)
 - [061 문자열 압축하기](/python_100_quizzes/061_문자열_압축하기.md)
