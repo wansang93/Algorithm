@@ -1,4 +1,5 @@
 # python 100 quizzes 
+- [062 20190923출력하기](/python_100_quizzes/062_20190923출력하기.md)
 - [061 문자열 압축하기](/python_100_quizzes/061_문자열_압축하기.md)
 - [060 enumerate](/python_100_quizzes/060_enumerate.md)
 - [059 빈칸채우기](/python_100_quizzes/059_빈칸채우기.md)

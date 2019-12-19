@@ -1,17 +1,3 @@
-
-#    aaabbbbcdddd
-
-mystr = input()
-newstr = mystr[0]
-
-count = 0
-for c in mystr:
-    if newstr[-1] == c:
-        count += 1
-    else:
-        newstr += str(count)+c
-        count = 1
-
-newstr += str(count)
-
-print(newstr)
+a = 'a'  # 97
+d = 'd'  # 100
+print(ord(a)+ord(d))
