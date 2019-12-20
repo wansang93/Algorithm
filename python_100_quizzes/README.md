@@ -1,4 +1,5 @@
 # python 100 quizzes 
+- [067 민규의 악수](/python_100_quizzes/067_민규의_악수.md)
 - [066 블럭탑쌓기](/python_100_quizzes/066_블럭탑쌓기.md)
 - [065 변형된 리스트](/python_100_quizzes/065_변형된_리스트.md)
 - [064 이상한 엘레베이터](/python_100_quizzes/064_이상한_엘레베이터.md)
