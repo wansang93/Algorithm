@@ -1,29 +1,63 @@
-# ["12:30", "13:20", "14:13"]
-# "12:40"
-# 출력
-# ['지나갔습니다', '0시간 40분', '1시간 33분']
+# 예)
+# 100 == 47 + 53
+# 56 == 19 + 37
+# 2보다 큰 짝수 n이 주어졌을 때, 골드바흐 파티션을 출력하는 코드를 작성하세요. 
 
-time_bus = ["12:30", "13:20", "14:13"]
-now_time = "12:40"
-answer = []
+n = int(input())
 
-def solution(bus, nowtime):
-    nowlist = list(map(int, nowtime.split(':')))
-    sub = []
-    for time in time_bus:
-        time = list(map(int, time.split(':')))
-        for i, j in zip(time, nowlist):
-            sub.append(i-j)
-    print(sub)  # [0, -10, 1, -20, 2, -27]
+def prime(n):
+    primes =[]
+    tmplist = [False, False] + [True] * (n-1)
 
-    for i in range(1, len(sub)+1, 2):
-        if sub[i] < 0:
-            sub[i] += 60
-            sub[i-1] -= 1
-        if sub[i-1] < 0:
-            answer.append('지나갔습니다.')
-        else:
-            answer.append('{}시간 {}분'.format(sub[i-1], sub[i]))
-    return answer
+    for i in range(2, n+1):
+        if tmplist[i]:
+            primes.append(i)
+            for j in range(2*i, n+1, i):
+                tmplist[j] = False
+    
+    return primes
 
-print(solution(time_bus, now_time))
+def solution(n):
+    mylist = []
+    primes = prime(n)
+    for i in primes:
+        a = i
+        b = n - a
+        if b in primes:
+            mylist.append([a, b])
+    return mylist
+
+print(solution(n))
+
+# #골드바흐의 추측
+# def cal():
+#     n=10000*2
+#     primes=[]    
+#     a = [False,False] + [True]*(n-1)
+
+#     for i in range(2,n+1):
+#       if a[i]:
+#         primes.append(i)
+#         for j in range(2*i, n+1, i):
+#             a[j] = False
+            
+#     return primes
+
+
+# a = cal()
+
+# #골드바흐파티션
+# n = int(input())
+# l = []
+# k = []	
+
+# for i in range(2, n//2+1):    
+#     if i in a and n-i in a:
+#         l.append(i)
+#         l.append(n-i)
+
+# for i in range(0,len(l)-1,2):
+#     k.append(l[i+1]-l[i])
+    
+# index = k.index(min(k))*2
+# print(l[index], l[index+1])

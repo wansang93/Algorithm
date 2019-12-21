@@ -1,4 +1,5 @@
 # python 100 quizzes 
+- [069 골드바흐의 추측](/python_100_quizzes/069_골드바흐의_추측.md)
 - [068 버스 시간표](/python_100_quizzes/068_버스_시간표.md)
 - [067 민규의 악수](/python_100_quizzes/067_민규의_악수.md)
 - [066 블럭탑쌓기](/python_100_quizzes/066_블럭탑쌓기.md)
