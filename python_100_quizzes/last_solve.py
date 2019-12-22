@@ -1,48 +1,25 @@
-graph = {
-        'A': set(['B', 'C', 'E']),
-        'B': set(['A']),
-        'C': set(['A']),
-        'D': set(['E', 'F']),
-        'E': set(['A', 'D']),
-        'F': set(['D'])
-}
+graph = {'E': set(['D', 'A']),
+         'F': set(['D']),
+         'A': set(['E', 'C', 'B']),
+         'B': set(['A']),
+         'C': set(['A']),
+         'D': set(['E','F'])}
 
-def dfs(graph, start):
+def bfs(graph, start):
     visited = []
-    stack = [start]
+    queue = [start]
 
-    while stack:
-        n = stack.pop()
+    while queue:
+        n = queue.pop(0)
         if n not in visited:
             visited.append(n)
-            stack += graph[n] - set(visited)
+            queue += graph[n] - set(visited)
     return visited
 
-print(dfs(graph, 'E'))
+print(graph)
+print(bfs(graph, 'E'))
 
 
-tree = {
-        'A': ['B', 'C', 'E'],
-        'B': ['A'],
-        'C': ['A'],
-        'D': ['E', 'F'],
-        'E': ['A', 'D'],
-        'F': ['D']
-}
+# 2. 출력
 
-# 왼쪽
-
-def treedfs(tree, start):
-    visited = []
-    stack = [start]
-
-    while stack:
-        n = stack.pop()
-        if n not in visited:
-            visited.append(n)
-            stack += tree[n] - set(visited)
-
-    return visited
-
-
-print(treedfs(graph, 'E'))
+# ['E', 'D', 'A', 'F', 'C', 'B']

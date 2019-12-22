@@ -1,4 +1,5 @@
 # python 100 quizzes 
+- [072 너비 우선 탐색](/python_100_quizzes/072_너비_우선_탐색.md)
 - [071 깊이 우선 탐색](/python_100_quizzes/071_깊이_우선_탐색.md)
 - [070 행렬 곱하기](/python_100_quizzes/070_행렬_곱하기.md)
 - [069 골드바흐의 추측](/python_100_quizzes/069_골드바흐의_추측.md)
