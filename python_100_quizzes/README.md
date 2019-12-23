@@ -1,4 +1,5 @@
 # python 100 quizzes 
+- [073 최단 경로 찾기](/python_100_quizzes/073_최단_경로_찾기.md)
 - [072 너비 우선 탐색](/python_100_quizzes/072_너비_우선_탐색.md)
 - [071 깊이 우선 탐색](/python_100_quizzes/071_깊이_우선_탐색.md)
 - [070 행렬 곱하기](/python_100_quizzes/070_행렬_곱하기.md)
