@@ -1,30 +1,54 @@
-graph = {'A': set(['B', 'C']),
-         'B': set(['A', 'D', 'E']),
-         'C': set(['A', 'F']),
-         'D': set(['B']),
-         'E': set(['B', 'F']),
-         'F': set(['C', 'E'])}
+graph = {1: [2, 3, 4],
+    2: [1, 3, 4, 5, 6],
+    3: [1, 2, 7],
+    4: [1, 2, 5, 6],
+    5: [2, 4, 6, 7],
+    6: [2, 4, 5, 7],
+    7: [3, 5, 6]}
 
-start, end = [i for i in input().split()]
-    
+# 입력 1 7
+# 출력 6
+
+# a, b = map(int, input().split())
+
+# def solution(start, end, graph):
+#     count = 0
+#     MAX_COUNT = 0
+#     stack = [start]
+
+#     while stack:
+#         n = stack.pop()
+#         stack += graph[n] - set(visited)
+#         count += 1
+#         if end == n:
+#             if count > MAX_COUNT:
+#                 MAX_COUNT = count
+
+
+#     return MAX_COUNT
+
+
+# print(solution(a, b, graph))
+
+
+start, end = [int(i) for i in input().split()]
 queue = [start]
-visited = [start]
-    
-def solution():
-    count = -1
+visited = []
 
-    while len(queue)!=0:
-        count += 1
-        size = len(queue)
+def sol(n, visited):
+	if n[-1] == end:
+		return len(visited)
+	
+	if n[-1] in visited:
+		return len(visited)
+	
+	visited.append(n[-1])
+	length = 0
+	
+	for next_node in graph[n[-1]]:
+		n.append(next_node)
+		length = max(length, sol(n, visited))
+		queue.pop(-1)
+	return length
 
-        for i in range(size):
-            node = queue.pop(0)
-            if node == end:
-                return count
-
-            for next_node in graph[node]:
-                if next_node not in visited:
-                    visited.append(next_node)
-                    queue.append(next_node)
-
-print(solution())
+print(sol(queue, visited))
