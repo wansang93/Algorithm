@@ -1,4 +1,5 @@
 # python 100 quizzes 
+- [075 이상한 369](/python_100_quizzes/075_이상한_369.md)
 - [074 최장 경로 찾기](/python_100_quizzes/074_최장_경로_찾기.md)
 - [073 최단 경로 찾기](/python_100_quizzes/073_최단_경로_찾기.md)
 - [072 너비 우선 탐색](/python_100_quizzes/072_너비_우선_탐색.md)
