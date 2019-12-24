@@ -9,28 +9,6 @@ graph = {1: [2, 3, 4],
 # 입력 1 7
 # 출력 6
 
-# a, b = map(int, input().split())
-
-# def solution(start, end, graph):
-#     count = 0
-#     MAX_COUNT = 0
-#     stack = [start]
-
-#     while stack:
-#         n = stack.pop()
-#         stack += graph[n] - set(visited)
-#         count += 1
-#         if end == n:
-#             if count > MAX_COUNT:
-#                 MAX_COUNT = count
-
-
-#     return MAX_COUNT
-
-
-# print(solution(a, b, graph))
-
-
 start, end = [int(i) for i in input().split()]
 queue = [start]
 visited = []
