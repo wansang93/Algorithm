@@ -1,4 +1,5 @@
 # python 100 quizzes 
+- [076 안전한 땅](/python_100_quizzes/076_안전한_땅.md)
 - [075 이상한 369](/python_100_quizzes/075_이상한_369.md)
 - [074 최장 경로 찾기](/python_100_quizzes/074_최장_경로_찾기.md)
 - [073 최단 경로 찾기](/python_100_quizzes/073_최단_경로_찾기.md)
