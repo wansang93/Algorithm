@@ -1,4 +1,5 @@
 # python 100 quizzes 
+- [079 순회하는 리스트](/python_100_quizzes/079_순회하는_리스트.md)
 - [078 원형테이블](/python_100_quizzes/078_원형테이블.md)
 - [077 가장 긴 공통 부분 문자열](/python_100_quizzes/077_가장_긴_공통_부분_문자열.md)
 - [076 안전한 땅](/python_100_quizzes/076_안전한_땅.md)
