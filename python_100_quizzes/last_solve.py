@@ -1,16 +1,38 @@
-l = [10, 20, 25, 27, 34, 35, 39] #기존 입력 값
-n = int(input('순회 횟수는: '))
+# ㄱ,ㄴ,ㄷ,ㄹ
+# 3
 
-def rotate(inL, inN):
-    newL = inL.copy()
-    sub = []
-    for i in range(inN):
-        newL.insert(0, newL.pop())
-    
-    for i, j in zip(inL, newL):
-        sub.append(abs(i-j))
-    index = sub.index(min(sub))
-    print("index: {}".format(index))
-    print("value: %d %d"%(inL[index], newL[index]))
+# 출력
 
-rotate(l, n)
+# ['ㄱㄴㄷ', 'ㄱㄴㄹ', 'ㄱㄷㄹ', 'ㄴㄷㄹ']
+# 4
+
+import math
+
+# mylist = input().split(',')
+# mynum = int(input())
+
+
+def combination(inL, inN):
+    newlist = []
+    newnum = int(math.factorial(len(inL)) / ((math.factorial(inN)) * math.factorial(len(inL)-inN)))
+
+    for i in range(newnum):
+        newlist.append()
+    print(newlist)
+    print(newnum)
+
+# print(combination(mylist, mynum))
+
+print(combination(['ㄱ', 'ㄴ', 'ㄷ', 'ㄹ', 'ㅁ', 'ㅂ'], 4))
+
+# from itertools import permutations # 이 문제에서는 안쓰지만 어떤 것인지 확인해보세요.
+# from itertools import combinations
+
+# import itertools
+
+# user_input = input().split(',')
+# user_input_int = int(input())
+
+# print(list(itertools.combinations(user_input, 3)))
+
+# print(list(map(''.join, combinations(user_input, user_input_int))))
