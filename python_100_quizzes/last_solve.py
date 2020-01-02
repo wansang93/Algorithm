@@ -7,20 +7,31 @@
 # False
 
 def math(e):
+    mylist =[]
     is_ok = True
-    stack = 0
 
     for c in e:
-        if c == '(':
-            stack += 1
+        if c in '({[':
+            mylist.append(c)
         elif c == ')':
-            stack -= 1
-        
-        if stack == -1:
-            is_ok = False
-            break
-
-    if stack == 0 and is_ok == True:
+            if '(' == mylist.pop():
+                pass
+            else:
+                is_ok = False
+                break
+        elif c == '}':
+            if '{' == mylist.pop():
+                pass
+            else:
+                is_ok = False
+                break
+        elif c == ']':
+            if '[' == mylist.pop():
+                pass
+            else:
+                is_ok = False
+                break
+    if mylist == [] and is_ok == True:
         return True
     else:
         return False
