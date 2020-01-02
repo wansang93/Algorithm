@@ -1,4 +1,5 @@
 # python 100 quizzes 
+- [080 지뢰찾기](/python_100_quizzes/081_지뢰찾기.md)
 - [080 순열과 조합](/python_100_quizzes/080_순열과_조합.md)
 - [079 순회하는 리스트](/python_100_quizzes/079_순회하는_리스트.md)
 - [078 원형테이블](/python_100_quizzes/078_원형테이블.md)
