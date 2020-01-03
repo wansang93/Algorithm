@@ -1,4 +1,5 @@
 # python 100 quizzes 
+- [084 숫자뽑기](/python_100_quizzes/084_숫자뽑기.md)
 - [083 수학 괄호 파싱 2](/python_100_quizzes/083_수학_괄호_파싱_2.md)
 - [082 수학 괄호 파싱](/python_100_quizzes/082_수학_괄호_파싱.md)
 - [081 지뢰찾기](/python_100_quizzes/081_지뢰찾기.md)
