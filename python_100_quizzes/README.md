@@ -1,4 +1,5 @@
 # python 100 quizzes 
+- [086 회전 초밥](/python_100_quizzes/086_회전_초밥.md)
 - [085 숫자 놀이](/python_100_quizzes/085_숫자_놀이.md)
 - [084 숫자뽑기](/python_100_quizzes/084_숫자뽑기.md)
 - [083 수학 괄호 파싱 2](/python_100_quizzes/083_수학_괄호_파싱_2.md)
