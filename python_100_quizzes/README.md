@@ -1,4 +1,5 @@
-# python 100 quizzes 
+# python 100 quizzes
+- [087 천하 제일 먹기 대회](/python_100_quizzes/087_천하_제일_먹기_대회.md)
 - [086 회전 초밥](/python_100_quizzes/086_회전_초밥.md)
 - [085 숫자 놀이](/python_100_quizzes/085_숫자_놀이.md)
 - [084 숫자뽑기](/python_100_quizzes/084_숫자뽑기.md)
