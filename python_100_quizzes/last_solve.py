@@ -1,32 +1,36 @@
-# mydata = ["홍길동","엄석대","연개소문","김첨지"]
-# mydata2 = [2, 1, 10, 0]
+def make_map(row, column, locate_c, obstacle):
+    # 메모리 확보
+    matrix = [[0 for _ in range(row)] for _ in range(column)]
 
-# newlist = [(i, j) for i, j in zip(mydata, mydata2)]
-# newlist = sorted(newlist, key=lambda x: x[1], reverse=True)
+    for i in range(len(matrix)):
+        for j in range(len(matrix[i])):
+            if [i, j] in obstacle:
+                matrix[i][j] = 2
+            if [i, j] == locate_c:
+                matrix[i][j] = 1
 
-# newdic = {}
-# for i in range(len(newlist)):
-#     newdic[newlist[i][0]] = i+1
+    result = padding(matrix, row, column)
+    return result
 
-# print(newdic)
 
-name = 'A C B D'.split(' ')
-point = list(map(int, '70 10 55 40'.split(' ')))
+def padding(matrix, row, column):
+    # 메모리 확보
+    padding_matrix = [[0 for _ in range(row+2)] for _ in range(column+2)]
 
-def hojun(x): #이름과 기능을 바꿔서 적용해보세요.
-    return x[1]
-
-def sol(name, point):
-    d = {}
-    z = [[i, j] for i, j in zip(name, point)]
-    z = sorted(z, key=hojun, reverse=True)
+    for i in range(column+2):
+        for j in range(row+2):
+            if i in (0, column+1) or j in (0, row+1):
+                padding_matrix[i][j] = 2
+            else:
+                padding_matrix[i][j] = matrix[i-1][j-1]
     
-    for i in range(len(z)):
-        d[z[i][0]] = i+1
-    return d
+    return padding_matrix
 
-print(sol(name, point))
+row = 4
+column = 5
+locate_c = [0, 0]
+obstacle = [[0, 1], [1, 1], [2, 3], [1, 3]]
 
-#아래 코드를 실행해보세요.
-test = 'AA CCCC BBB D'.split(' ')
-sorted(test, key=len)
+new_map = make_map(row, column, locate_c, obstacle)
+for i in range(len(new_map)):
+    print(new_map[i])
