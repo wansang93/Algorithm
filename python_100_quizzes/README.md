@@ -1,4 +1,5 @@
 # python 100 quizzes 
+- [089 지식이의 게임개발2](/python_100_quizzes/089_지식이의_게임개발2.md)
 - [088 지식이의 게임개발](/python_100_quizzes/088_지식이의_게임개발.md)
 - [087 천하 제일 먹기 대회](/python_100_quizzes/087_천하_제일_먹기_대회.md)
 - [086 회전 초밥](/python_100_quizzes/086_회전_초밥.md)
