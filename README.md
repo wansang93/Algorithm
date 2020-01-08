@@ -1,14 +1,19 @@
 # Daily Algorithm
 
-## [python 100 quizzes](/python_100_quizzes/)
+매일매일 알고리즘을 풀고 기록합니다. 이용하는 사이트는 다음과 같습니다.
 
-[설명 추후 작성]
-- 추천 문제[링크 작성]
-    - super-eazy: 001 리스트 삭제, 002 리스트 추가, 009 출력 방법, 015 출력 방법, 011 1~100까지 합
-    - eazy: 010 별 찍기, 012 클래스 정의, 016 리스트 거꾸로 출력, 025 함수 정의, 026 행성 문제, 027 딕셔너리 정의, 036 구구단 출력
-    - normal-eazy: 028 문자열 두개씩 찍기, 033 숫자 거꾸로 출력하기, 035 내부 함수 정의, 037 리스트에서 가장 많이 나온 단어 찾기
-    - normal: 058 콤마찍기, 059 format 함수
+## 1. [python 100 quizzes](/python_100_quizzes/)
 
-## Programmers [바로가기](https://programmers.co.kr/)
+[LINK](https://www.notion.so/Python-100-6ee1860ce29a41bc8eb6b9cfa7d7f06c)
 
-[설명 추후 작성]
+우연히 페이스북에서 파이썬 100문제 풀기라는 광고를 보고 시작하게 되었습니다.
+
+제주코딩베이스캠프(Code Festival: Python 100제)라는 세미나에서 시작한 것 같습니다.
+
+## 2. [Programmers](/Programmers/)
+
+[https://programmers.co.kr](https://programmers.co.kr/)
+
+알고리즘 공부를 시작하면서 처음 흥미를 갖게 해준 사이트 입니다.
+
+무엇보다도 웹에서 보기좋은 UI, 코딩과 결과를 쉽게 확인할 수 있어서 좋습니다.

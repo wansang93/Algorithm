@@ -1,4 +1,118 @@
 # python 100 quizzes 
+
+## 추천 문제
+
+<details>
+<summary>[super easy]</summary>
+
+[015 출력 방법2](/python_100_quizzes/015_자기소개.md),
+[009 출력 방법](/python_100_quizzes/009_sep과_end를_활용한_출력방법.md),
+[011 1~100까지 더하기](/python_100_quizzes/011_for를_이용한_기본_활용.md),
+[001 리스트 삭제](/python_100_quizzes/001_리스트의_삭제.md),
+[002 리스트 삽입](/python_100_quizzes/002_리스트의_내장함수.md),
+[018 리스트 평균 구하기](/python_100_quizzes/018_평균_점수.md)
+[013 리스트 불러오기](/python_100_quizzes/013_몇_번째_행성인가요.md),
+[025 함수 만들기](/python_100_quizzes/025_원의_넓이를_구하세요.md)
+
+</details>
+
+<details>
+<summary>[easy]</summary>
+
+[010 별 출력하기](/python_100_quizzes/010_별_찍기.md),
+[012 클래스 만들기](/python_100_quizzes/012_게임_캐릭터_클래스_만들기.md),
+[016 문자열 거꾸로 만들기](/python_100_quizzes/016_로꾸거.md),
+[028 문자열 나눠서 출력하기](/python_100_quizzes/028_2-gram.md),
+[030 문자열 안에서 문자 찾기](/python_100_quizzes/030_문자열_속_문자_찾기.md),
+[026 리스트 매치하기](/python_100_quizzes/026_행성_문제2.md),
+[027 두 리스트로 딕셔너리 만들기](/python_100_quizzes/027_딕셔너리_만들기.md),
+[035 내부 함수 원리](/python_100_quizzes/035_Factory_함수_사용하기.md)
+
+</details>
+
+<details>
+<summary>[normal easy]</summary>
+
+[037 리스트에서 최대 빈도수 출력](/python_100_quizzes/037_count_사용하기.md),
+[038 리스트에서 순위 출력](/python_100_quizzes/038_호준이의_아르바이트.md),
+[040 놀이동산에 가자](/python_100_quizzes/040_놀이동산에_가자.md),
+[046 숫자 펼쳐서 합하기](/python_100_quizzes/046_str_자료형의_응용.md),
+[059 빈칸채우기](/python_100_quizzes/059_빈칸채우기.md)
+
+</details>
+
+<details>
+<summary>[normal]</summary>
+
+[053 괄호](/python_100_quizzes/053_괄호_문자열.md),
+[082 괄호](/python_100_quizzes/082_수학_괄호_파싱.md),
+[083 괄호](/python_100_quizzes/083_수학_괄호_파싱_2.md)
+
+[087 리스트를 딕셔너리로 순위](/python_100_quizzes/087_천하_제일_먹기_대회.md),
+[090 같은 의약성분을 찾아라!](/python_100_quizzes/090_같은_의약성분을_찾아라!.md)
+
+[055 하노이의 탑](/python_100_quizzes/055_하노이의_탑.md),
+[056 딕셔너리 조작](/python_100_quizzes/056_리스트의_함수_응용.md),
+[061 문자열 압축하기](/python_100_quizzes/061_문자열_압축하기.md),
+[064 이상한 엘레베이터](/python_100_quizzes/064_이상한_엘레베이터.md),
+[066 블럭탑쌓기](/python_100_quizzes/066_블럭탑쌓기.md),
+[067 민규의 악수](/python_100_quizzes/067_민규의_악수.md),
+[068 버스 시간표](/python_100_quizzes/068_버스_시간표.md),
+[075 이상한 369](/python_100_quizzes/075_이상한_369.md),
+[078 원형테이블](/python_100_quizzes/078_원형테이블.md),
+[085 숫자 놀이](/python_100_quizzes/085_숫자_놀이.md),
+[086 회전 초밥](/python_100_quizzes/086_회전_초밥.md)
+
+
+</details>
+
+<details>
+<summary>[math & matrix]</summary>
+
+[041 소수판별](/python_100_quizzes/041_소수판별.md),
+[043 2진법](/python_100_quizzes/043_10진수를_2진수로.md),
+[045 time 함수 시간 계산하기](/python_100_quizzes/045_time함수_사용하기.md),
+[069 골드바흐의 추측](/python_100_quizzes/069_골드바흐의_추측.md),
+[077 가장 긴 공통 부분 문자열](/python_100_quizzes/077_가장_긴_공통_부분_문자열.md),
+[080 조합](/python_100_quizzes/080_순열과_조합.md),
+[084 순열](/python_100_quizzes/084_숫자뽑기.md)
+
+[070 행렬 곱하기](/python_100_quizzes/070_행렬_곱하기.md),
+[076 행렬 탐색](/python_100_quizzes/076_안전한_땅.md),
+[081 지뢰찾기](/python_100_quizzes/081_지뢰찾기.md),
+[088 지식이의 게임개발](/python_100_quizzes/088_지식이의_게임개발.md),
+[089 지식이의 게임개발2](/python_100_quizzes/089_지식이의_게임개발2.md)
+
+
+
+</details>
+
+<details>
+<summary>[external library]</summary>
+
+[037 리스트에서 최대 빈도수 출력](/python_100_quizzes/037_count_사용하기.md),
+[042 요일 맞추기](/python_100_quizzes/042_2020년(datetime_모듈_사용).md),
+[045 time 함수 시간 계산하기](/python_100_quizzes/045_time함수_사용하기.md),
+[058 format 함수](/python_100_quizzes/058_콤마_찍기.md)
+
+</details>
+
+
+<details>
+<summary>[sort & search]</summary>
+
+[050 bubble sort](/python_100_quizzes/050_버블정렬_구현하기.md),
+[051 merge sort](/python_100_quizzes/051_merge_sort를_만들어보자.md),
+[052 quick sort](/python_100_quizzes/052_quick_sort.md),
+[071 dfs](/python_100_quizzes/071_깊이_우선_탐색.md),
+[072 bfs](/python_100_quizzes/072_너비_우선_탐색.md),
+[073 최단 경로 찾기](/python_100_quizzes/073_최단_경로_찾기.md),
+[074 최장 경로 찾기](/python_100_quizzes/074_최장_경로_찾기.md)
+
+</details>
+
+## 링크 바로가기
+
 - [090 같은 의약성분을 찾아라!](/python_100_quizzes/090_같은_의약성분을_찾아라!.md)
 - [089 지식이의 게임개발2](/python_100_quizzes/089_지식이의_게임개발2.md)
 - [088 지식이의 게임개발](/python_100_quizzes/088_지식이의_게임개발.md)
