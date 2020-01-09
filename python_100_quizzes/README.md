@@ -44,10 +44,11 @@
 <details>
 <summary>[normal]</summary>
 
-[053 괄호](/python_100_quizzes/053_괄호_문자열.md)(
+[053 스택(괄호 문제)](/python_100_quizzes/053_괄호_문자열.md)(
 [082 괄호](/python_100_quizzes/082_수학_괄호_파싱.md),
 [083 괄호](/python_100_quizzes/083_수학_괄호_파싱_2.md)
-)
+),
+[093 큐(페이지 교체 문제)](/python_100_quizzes/093_페이지교체-선입선출_알고리즘.md)
 
 [055 하노이의 탑](/python_100_quizzes/055_하노이의_탑.md),
 [061 문자열 탐색](/python_100_quizzes/061_문자열_압축하기.md),
@@ -93,25 +94,26 @@
 [042 요일 맞추기](/python_100_quizzes/042_2020년(datetime_모듈_사용).md),
 [045 time 함수 시간 계산하기](/python_100_quizzes/045_time함수_사용하기.md),
 [058 format 함수](/python_100_quizzes/058_콤마_찍기.md),
-[092 os, csv](/python_100_quizzes/092_키보드_고장.md),
+[092 os, csv](/python_100_quizzes/092_키보드_고장.md)
 
 </details>
-
 
 <details>
 <summary>[sort & search]</summary>
 
 [050 bubble sort](/python_100_quizzes/050_버블정렬_구현하기.md),
 [051 merge sort](/python_100_quizzes/051_merge_sort를_만들어보자.md),
-[052 quick sort](/python_100_quizzes/052_quick_sort.md),
+[052 quick sort](/python_100_quizzes/052_quick_sort.md)
+
 [071 dfs](/python_100_quizzes/071_깊이_우선_탐색.md),
 [072 bfs](/python_100_quizzes/072_너비_우선_탐색.md),
 [073 최단 경로 찾기](/python_100_quizzes/073_최단_경로_찾기.md),
 [074 최장 경로 찾기](/python_100_quizzes/074_최장_경로_찾기.md)
 
-</details>
+</details> 
 
 ## 링크 바로가기 
+- [093 페이지 교체-선입선출 알고리즘](/python_100_quizzes/093_페이지교체-선입선출_알고리즘.md)
 - [092 키보드 고장](/python_100_quizzes/092_키보드_고장.md)
 - [091 반평균 등수](/python_100_quizzes/091_반평균_등수.md)
 - [090 같은 의약성분을 찾아라!](/python_100_quizzes/090_같은_의약성분을_찾아라!.md)
