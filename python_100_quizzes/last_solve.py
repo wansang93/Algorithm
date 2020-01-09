@@ -6,6 +6,8 @@ queue = []
 
 for c in page:
     if c in queue:
+        queue.remove(c)
+        queue.append(c)
         time += 1
     else:
         if frame <= len(queue):
