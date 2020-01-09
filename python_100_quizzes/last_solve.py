@@ -1,49 +1,37 @@
-import random  as r
+# 1. 직원은 2000명이며, 3초 이내 수행을 해야합니다.
+# 2. 입력값의 형식은 csv파일이며 이과장 '3,000,000', 'S은행', '100-0000-0000-000' 형식으로 주어집니다.
+# 3. 출력값의 형식은 csv 파일이며 이과장 '1,500,000', '1,500,000', 'S은행', '100-0000-0000-000' 입니다. 또는 '1,000,000', '2,000,000', 'S은행', '100-0000-0000-000' 도 괜찮습니다.
+# 4. 라이브러리 사용할 수 있습니다.
 
-# 총 7개, 30명인 학생, 5과목
-class_num = 7
-student_num = 30
-subject_num = 5
+# import os
+# dirname = os.path.dirname(__file__)
+# print(dirname)
+# filename = os.path.join(dirname, 'csv092.csv')
+# filename = dirname + '\\ex.csv'
 
-# 1. 반 점수 모두가 담긴 전교 점수 다중 리스트를 만들어주세요.
+# f = open(filename, encoding='utf-8')
+# r = csv.reader(f)
+# print(r)  # <_csv.reader object at 0x000001933B2B95F8>
 
-total_score = []
-for i in range(class_num):
-    class_score = []
-    for j in range(student_num):
-        score = []
-        for i in range(subject_num):
-            score.append(r.randint(1, 100))
-        class_score.append(score)
-    total_score.append(class_score)
-print('1번 문제')
-print(total_score)
+import csv
+import os
 
-# 전체 평균, 반 평균, 학생 평균
-total_avg = 0
-class_avg = []
-
-# 2. 반 평균을 구하세요.
-for classes in total_score:
-    student_avg = 0
-    for students in classes:
-        student_avg += sum(students) / subject_num
-    class_avg.append(student_avg / student_num)
-print('2번 문제')
-print(class_avg)
-
-# 3. 반 1등 점수를 구하세요.
-frist_class = []
-for classes in total_score:
-    frist_rank = 0
-    for students in classes:
-        sum_students = sum(students)
-        if frist_rank < sum_students:
-            frist_rank = sum_students
-    frist_class.append(frist_rank)
-print('3번 문제')
-print(frist_class)
-
-# 4. 전교 평균을 구하세요.
-print('4번 문제')
-print(sum(class_avg) / class_num)
+with open(os.path.dirname(__file__)+'\\092.csv', 'r', encoding='utf-8') as f:
+    t = csv.reader(f)
+    for line in t:
+        s1, s2 = '', ''
+        for i in line[1].replace(',', ''):
+            if i == '3':
+                s1 += '1'
+                s2 += '2'
+            elif i == '4':
+                s1 += '2'
+                s2 += '2'
+            elif i == '6':
+                s1 += '1'
+                s2 += '5'
+            else:
+                s1 += i
+                s2 += '0'
+        line[1] = (s1, s2)
+        print(line)

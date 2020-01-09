@@ -44,16 +44,18 @@
 <details>
 <summary>[normal]</summary>
 
-[053 괄호](/python_100_quizzes/053_괄호_문자열.md),
+[053 괄호](/python_100_quizzes/053_괄호_문자열.md)(
 [082 괄호](/python_100_quizzes/082_수학_괄호_파싱.md),
 [083 괄호](/python_100_quizzes/083_수학_괄호_파싱_2.md)
-
-[087 리스트를 딕셔너리로 순위](/python_100_quizzes/087_천하_제일_먹기_대회.md),
-[090 같은 의약성분을 찾아라!](/python_100_quizzes/090_같은_의약성분을_찾아라!.md)
+)
 
 [055 하노이의 탑](/python_100_quizzes/055_하노이의_탑.md),
+[061 문자열 탐색](/python_100_quizzes/061_문자열_압축하기.md),
+[091 리스트 탐색](/python_100_quizzes/091_반평균_등수.md)
+[090 리스트 탐색2](/python_100_quizzes/090_같은_의약성분을_찾아라!.md)
+[087 리스트를 딕셔너리로 순위](/python_100_quizzes/087_천하_제일_먹기_대회.md),
 [056 딕셔너리 조작](/python_100_quizzes/056_리스트의_함수_응용.md),
-[061 문자열 압축하기](/python_100_quizzes/061_문자열_압축하기.md),
+
 [064 이상한 엘레베이터](/python_100_quizzes/064_이상한_엘레베이터.md),
 [066 블럭탑쌓기](/python_100_quizzes/066_블럭탑쌓기.md),
 [067 민규의 악수](/python_100_quizzes/067_민규의_악수.md),
@@ -62,7 +64,6 @@
 [078 원형테이블](/python_100_quizzes/078_원형테이블.md),
 [085 숫자 놀이](/python_100_quizzes/085_숫자_놀이.md),
 [086 회전 초밥](/python_100_quizzes/086_회전_초밥.md)
-
 
 </details>
 
@@ -83,8 +84,6 @@
 [088 지식이의 게임개발](/python_100_quizzes/088_지식이의_게임개발.md),
 [089 지식이의 게임개발2](/python_100_quizzes/089_지식이의_게임개발2.md)
 
-
-
 </details>
 
 <details>
@@ -93,7 +92,8 @@
 [037 리스트에서 최대 빈도수 출력](/python_100_quizzes/037_count_사용하기.md),
 [042 요일 맞추기](/python_100_quizzes/042_2020년(datetime_모듈_사용).md),
 [045 time 함수 시간 계산하기](/python_100_quizzes/045_time함수_사용하기.md),
-[058 format 함수](/python_100_quizzes/058_콤마_찍기.md)
+[058 format 함수](/python_100_quizzes/058_콤마_찍기.md),
+[092 os, csv](/python_100_quizzes/092_키보드_고장.md),
 
 </details>
 
@@ -112,6 +112,7 @@
 </details>
 
 ## 링크 바로가기 
+- [092 키보드 고장](/python_100_quizzes/092_키보드_고장.md)
 - [091 반평균 등수](/python_100_quizzes/091_반평균_등수.md)
 - [090 같은 의약성분을 찾아라!](/python_100_quizzes/090_같은_의약성분을_찾아라!.md)
 - [089 지식이의 게임개발2](/python_100_quizzes/089_지식이의_게임개발2.md)
