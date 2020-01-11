@@ -116,6 +116,7 @@
 </details> 
 
 ## 링크 바로가기 
+- [097 택배배달](/python_100_quizzes/097_택배배달.md)
 - [096 넓은 텃밭 만들기!](/python_100_quizzes/096_넓은_텃밭_만들기!.md)
 - [095 도장찍기](/python_100_quizzes/095_도장찍기.md)
 - [094 페이지 교체-LRU 알고리즘](/python_100_quizzes/094_페이지_교체-LRU_알고리즘.md)
