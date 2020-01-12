@@ -4,7 +4,7 @@
 
 ## 1. [Python 100 quizzes](/python_100_quizzes/)
 
-[LINK](https://www.notion.so/Python-100-6ee1860ce29a41bc8eb6b9cfa7d7f06c)
+[WEB LINK](https://www.notion.so/Python-100-6ee1860ce29a41bc8eb6b9cfa7d7f06c)
 
 파이썬 100문제 풀기는 우연히 페이스북에서 보고 시작하게 되었습니다.
 
