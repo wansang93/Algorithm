@@ -1,19 +1,24 @@
-def solution(n,l):
-    result = 0
-    mylist = [0 for i in range(n)]
-    while l:
-        for i in range(len(mylist)):
-            if mylist[i] == 0 and l:
-                mylist[i] = l.pop(0)
-        mylist = list(map(lambda x: x-1, mylist))
-        result += 1
-    result += max(mylist)
+import re
 
+
+def solution(s):
+    idx = re.split("[0-9]번: ",s)  # ['', '3,1 ', '4 ', '2,1,3 ', '2,1,3,4']
+    idx = idx[1:]                  # ['3,1 ', '4 ', '2,1,3 ', '2,1,3,4']
+    mylist = []
+    for c in idx:
+        mylist.append(list(map(int, c.replace(' ','').split(','))))
+
+    print(mylist)
+
+    result = []
+    for l in mylist:
+        for i in l:
+            if i not in result:
+                result.append(i)
+    
     return result
 
 
-배달원 = 3
-배달시간 = [1,2,1,3,3,3]
+i = '1번: 3,1 2번: 4 3번: 2,1,3 4번: 2,1,3,4'
 
-print(solution(배달원,배달시간))
-# 출력값 = 5
+print(solution(i))
