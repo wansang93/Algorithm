@@ -1,4 +1,6 @@
-# Python 100 quizzes 
+# Python 100 quizzes
+
+201201 ~ 200114(45일)
 
 ## 추천 문제
 
@@ -67,7 +69,7 @@
 <summary>[Stack & Queue]</summary>
 
 - [053 스택(괄호 문제)](File/053_괄호_문자열.md)
-- [082 괄호](File/082_수학_괄호_파싱.md),
+- [082 괄호](File/082_수학_괄호_파싱.md)
 - [083 괄호](File/083_수학_괄호_파싱_2.md)
 
 ---
@@ -120,7 +122,7 @@
 - [051 merge sort](File/051_merge_sort를_만들어보자.md)
 - [052 quick sort](File/052_quick_sort.md)
 
---- 
+---
 
 - [071 DFS](File/071_깊이_우선_탐색.md)
 - [072 BFS](File/072_너비_우선_탐색.md)
