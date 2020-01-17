@@ -20,6 +20,7 @@
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/60057) [문자열 압축](Code/문자열%20압축.py)
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/17681) [비밀지도](Code/비밀지도.py)
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/17682) [다트 게임](Code/다트%20게임.py)
+- [[link]](https://programmers.co.kr/learn/courses/30/lessons/42889) [실패율](Code/실패율.py)
 </details>
 
 <details>
