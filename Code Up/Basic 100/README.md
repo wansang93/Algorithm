@@ -1,6 +1,6 @@
-# 코드 업 기초 100문제입니다.
+# 코드 업 기초 100제 파이썬 풀이
 
-## [코드업 기초 100문제 웹사이트 바로가기](https://codeup.kr/problemsetsol.php?psid=23)
+## [코드업 기초 100제 웹사이트 바로가기](https://codeup.kr/problemsetsol.php?psid=23)
 
 ## 내 풀이
 
