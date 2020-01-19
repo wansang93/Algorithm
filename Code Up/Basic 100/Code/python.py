@@ -211,11 +211,11 @@
 
 # # 1054
 # a, b = [int(i) for i in input().split()]
-# print(int(a & b))
+# print(int(a and b))
 
 # # 1055
 # a, b = [int(i) for i in input().split()]
-# print(int(a | b))
+# print(int(a or b))
 
 # # 1056
 # a, b = [int(i) for i in input().split()]
@@ -227,31 +227,147 @@
 
 # # 1058
 # a, b = [int(i) for i in input().split()]
-# print(int(not int(a | b)))
+# print(int(not int(a or b)))
 
-# 1059
+# # 1059
+# a = int(input())
+# print(~a)
 
+# # 1060
+# a, b = [int(i) for i in input().split()]
+# print(a & b)
 
-# 1060
+# # 1061
+# a, b = [int(i) for i in input().split()]
+# print(a | b)
 
+# # 1062
+# a, b = [int(i) for i in input().split()]
+# print(a ^ b)
 
-# 106
+# # 1063
+# a, b = [int(i) for i in input().split()]
+# print(a if a>b else b)
 
+# # 1064
+# a, b, c = [int(i) for i in input().split()]
+# print(min(a, b, c))
 
-# 106
+# # 1065
+# a = [int(i) for i in input().split()]
+# for i in a:
+#     if i % 2 == 0:
+#         print(i)
 
+# # 1066
+# a = [int(i) for i in input().split()]
+# for i in a:
+#     if i % 2 == 0:
+#         print('even')
+#     else:
+#         print('odd')
 
-# 106
+# # 1067
+# a = int(input())
+# if a < 0:
+#     print('minus')
+# else:
+#     print('plus')
 
+# if a % 2 == 0:
+#     print('even')
+# else:
+#     print('odd')
 
-# 106
+# # 1068
+# a = int(input())
+# if 90 <= a <= 100:
+#     print('A')
+# elif 70 <= a < 90:
+#     print('B')
+# elif 40 <= a < 70:
+#     print('C')
+# elif 0 <= a < 40:
+#     print('D')
 
+# # 1069
+# a = input()
+# if a == 'A':
+#     print('best!!!')
+# elif a == 'B':
+#     print('good!!')
+# elif a == 'C':
+#     print('run!')
+# elif a == 'D':
+#     print('slowly~')
+# else:
+#     print('what?')
 
-# 106
+# # 1070
+# a = int(input())
+# dic = {
+# 12: 'winter',
+# 1: 'winter',
+# 2: 'winter',
+# 3: 'spring',
+# 4: 'spring',
+# 5: 'spring',
+# 6: 'summer',
+# 7: 'summer',
+# 8: 'summer',
+# 9: 'fall',
+# 10: 'fall',
+# 11: 'fall',
+# }
 
+# if a in dic:
+#     print(dic[a])
 
-# 106
+# # 1071
+# a = [int(i) for i in input().split()]
+# for i in a:
+#     if i == 0:
+#         break
+#     print(i)
 
+# # 1072
+# N = int(input())
+# mylist = [int(i) for i in input().split()]
 
-# 106
+# for i in mylist:
+#     print(i)
+
+# # 1073
+# a = [int(i) for i in input().split()]
+# i = 0
+# x = a[0]
+# while x != 0:
+#     print(x)
+#     i += 1
+#     x = a[i]
+
+# # 1074
+# a = int(input())
+# while a > 0:
+#     print(a)
+#     a -= 1
+
+# # 1075
+# a = int(input())
+# while a > 0:
+#     a -= 1
+#     print(a)
+
+# # 1076
+# c = ord(input())
+# i = ord('a')
+# while i <= c:
+#     print(chr(i), end=' ')
+#     i += 1
+
+# 1077
+a = int(input())
+for i in range(a+1):
+    print(i)
+
 
