@@ -1,3 +1,4 @@
+# 풀이1
 def compress(string, length):
     newstr = ''  # 압축을 해줄 문자열
     count = 1

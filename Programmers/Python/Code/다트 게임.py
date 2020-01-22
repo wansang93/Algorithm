@@ -1,3 +1,4 @@
+# 풀이1
 def solution(dartResult):
     answer = 0
     scorelist = [str(i) for i in range(1, 10)]

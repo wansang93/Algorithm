@@ -1,3 +1,4 @@
+# 풀이1
 def solution(n):
     answer = '수박' * int(n // 2)
     if n % 2 == 1:

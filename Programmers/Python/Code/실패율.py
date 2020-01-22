@@ -1,3 +1,4 @@
+# 풀이1
 def solution(N, stages):
     answer = []
     ss = sorted(stages)
