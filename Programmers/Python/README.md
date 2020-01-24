@@ -1,6 +1,7 @@
 # Programmers_Python
 
 2020-01-13 ~ 2020-01-24(Level 1)
+
 2020-01-25 ~ (Level 2)
 
 ## 링크 바로가기
@@ -56,6 +57,11 @@
 <details>
 <summary>[Level 2]</summary>
 
+- [[link]](https://programmers.co.kr/learn/courses/30/lessons/49993) [스킬트리](Code/스킬트리.py)
+- [[link]](https://programmers.co.kr/learn/courses/30/lessons/42583) [다리를 지나는 트럭](Code/다리를%20지나는%20트럭.py)
+- [[link]](https://programmers.co.kr/learn/courses/30/lessons/42588) [탑](Code/탑.py)
+- [[link]](https://programmers.co.kr/learn/courses/30/lessons/) [](Code)
+- [[link]](https://programmers.co.kr/learn/courses/30/lessons/) [](Code)
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/) [](Code)
 
 </details>

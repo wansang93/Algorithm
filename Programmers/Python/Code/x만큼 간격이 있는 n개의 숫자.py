@@ -7,6 +7,6 @@ def solution(x, n):
     return answer
 
 # 풀이2
-def solution(x, n):
+def solution2(x, n):
     answer = [i for i in range(x, ((n+1)*x), x)]
     return answer
