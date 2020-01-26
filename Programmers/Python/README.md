@@ -60,7 +60,7 @@
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/49993) [스킬트리](Code/스킬트리.py)
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/42583) [다리를 지나는 트럭](Code/다리를%20지나는%20트럭.py)
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/42588) [탑](Code/탑.py)
-- [[link]](https://programmers.co.kr/learn/courses/30/lessons/) [](Code)
+- [[link]](https://programmers.co.kr/learn/courses/30/lessons/42587) [프린터](Code/프린터.py)
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/) [](Code)
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/) [](Code)
 
