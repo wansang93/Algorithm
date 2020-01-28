@@ -61,6 +61,11 @@
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/42583) [다리를 지나는 트럭](Code/다리를%20지나는%20트럭.py)
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/42588) [탑](Code/탑.py)
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/42587) [프린터](Code/프린터.py)
+- [[link]](https://programmers.co.kr/learn/courses/30/lessons/12899) [124 나라의 숫자](Code/124%20나라의%20숫자.py)
+- [[link]](https://programmers.co.kr/learn/courses/30/lessons/) [](Code)
+- [[link]](https://programmers.co.kr/learn/courses/30/lessons/) [](Code)
+- [[link]](https://programmers.co.kr/learn/courses/30/lessons/) [](Code)
+- [[link]](https://programmers.co.kr/learn/courses/30/lessons/) [](Code)
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/) [](Code)
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/) [](Code)
 
