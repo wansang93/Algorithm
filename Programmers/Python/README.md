@@ -63,7 +63,7 @@
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/42584) [주식가격](Code/주식가격.py)
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/42587) [프린터](Code/프린터.py)
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/42588) [탑](Code/탑.py)
-- [[link]](https://programmers.co.kr/learn/courses/30/lessons/) [](Code)
+- [[link]](https://programmers.co.kr/learn/courses/30/lessons/62048) [멀쩡한 사각형](Code/멀쩡한%20사각형.py)
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/) [](Code)
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/) [](Code)
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/) [](Code)
