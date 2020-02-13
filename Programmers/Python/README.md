@@ -64,8 +64,8 @@
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/42587) [프린터](Code/프린터.py)
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/42588) [탑](Code/탑.py)
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/62048) [멀쩡한 사각형](Code/멀쩡한%20사각형.py)
-- [[link]](https://programmers.co.kr/learn/courses/30/lessons/) [](Code)
-- [[link]](https://programmers.co.kr/learn/courses/30/lessons/) [](Code)
+- [[link]](https://programmers.co.kr/learn/courses/30/lessons/42839) [소수 찾기2](Code/소수%20찾기2.py)
+- [[link]](https://programmers.co.kr/learn/courses/30/lessons/42626) [더 맵게](Code/더%20맵게.py)
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/) [](Code)
 
 ---
