@@ -1,0 +1,5 @@
+num = int(input())
+
+for i in range(num):
+    a, b = list(map(int, (input().split())))
+    print('#{} {} {}'.format(i+1, a//b, a%b))
