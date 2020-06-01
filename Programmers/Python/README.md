@@ -68,8 +68,12 @@
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/62048) [멀쩡한 사각형](Code/멀쩡한%20사각형.py)
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/42839) [소수 찾기2](Code/소수%20찾기2.py)
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/42885) [구명보트](Code/구명보트.py)
+- [[link]](https://programmers.co.kr/learn/courses/30/lessons/42883) [큰 수 만들기](Code/큰%20수%20만들기.py)
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/) [](Code)
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/) [](Code)
+- [[link]](https://programmers.co.kr/learn/courses/30/lessons/) [](Code)
+- [[link]](https://programmers.co.kr/learn/courses/30/lessons/) [](Code)
+- [[link]](https://programmers.co.kr/learn/courses/30/lessons/12951) [JadenCase 문자열 만들기](Code/JadenCase%20문자열%20만들기.py)
 
 ---
 카카오 문제
