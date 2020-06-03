@@ -10,5 +10,12 @@ for t in range(1, T+1):
                 break
             document += Ci
             Ki -= 1
-    
-    print('#{}\n{}'.format(t, document))
+
+    print('#{}'.format(t))
+    count = 1
+    for c in document:
+        print(c, end='')
+        if count % 10 == 0:
+            print()
+        count += 1
+    print()

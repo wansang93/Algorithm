@@ -2,7 +2,7 @@
 
 T = int(input())
 
-for i in range(T):
+for t in range(1, T+1):
     a, b, c, d, e = 0, 0, 0, 0, 0
     num = int(input())
     
@@ -22,4 +22,4 @@ for i in range(T):
         e += 1
         num //= 11
         
-    print('#{} {} {} {} {} {}'.format(i+1, a, b, c, d, e))
+    print('#{} {} {} {} {} {}'.format(t, a, b, c, d, e))

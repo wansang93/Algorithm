@@ -1,19 +1,16 @@
-import base64
-# Creating a string
-s = "Hello World!"
-# Encoding the string into bytes
-b = s.encode("UTF-8")
-# Base64 Encode the bytes
-e = base64.b64encode(b)
-# Decoding the Base64 bytes to string
-s1 = e.decode("UTF-8")
-# Printing Base64 encoded string
-print("Base64 Encoded:", s1)
-# Encoding the Base64 encoded string into bytes
-b1 = s1.encode("UTF-8")
-# Decoding the Base64 bytes
-d = base64.b64decode(b1)
-# Decoding the bytes to string
-s2 = d.decode("UTF-8")
-print(s2)
+T = int(input())
+for t in range(1, T+1):
+    N = int(input())
+    KRW_list = [50000, 10000, 5000, 1000, 500, 100, 50, 10]
+    KRW_dict = dict.fromkeys(KRW_list, 0)
+    # KRW_dict = {50000: 0, 10000: 0, 5000: 0, 1000: 0, 500: 0, 100: 0, 50: 0, 10: 0}
 
+    for i in KRW_list:
+        KRW_dict[i] += N // i
+        N %= i
+    
+    print(f'#{t}')
+    for i in KRW_list:
+        print(KRW_dict[i], end=' ')
+    print()
+    
