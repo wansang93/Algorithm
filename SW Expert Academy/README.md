@@ -1,1 +1,1 @@
-## [Python](/Python/)
+## [Python](./Python/)
