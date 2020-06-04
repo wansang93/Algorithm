@@ -1,1 +1,3 @@
-# [Python](/Programmers/Python/)
+## [Python](./Python/)
+
+## [Lessons](./Lessons/)
