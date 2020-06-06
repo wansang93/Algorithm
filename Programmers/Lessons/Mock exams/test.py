@@ -1,35 +1,39 @@
-def solution(arr):
+# # 파트4
+# def solution(board):
+#     answer = 0
+#     row = len(board)
 
-    check_list = [0 for _ in range(len(arr))]
+#     dp = [[0 for _ in range(row)] for i in range(row)]
+#     for i in range(row):
+#         column = len(board[i])
+#         for j in range(column):
+#             if board[i][j] == 1:
+#                 dp[i][j] = min(dp[i-1][j], dp[i][j-1], dp[i-1][j-1]) + 1
+#                 answer = max(dp[i][j], answer)
+
+#     return answer
+
+# 파트5
+def solution(land):
+    land.insert(0, [0, 0, 0, 0])
+
+    for i in range(1, len(land)):
+        for j in range(4):
+            first, second, third = [i for i in range(4) if i != j]
+            land[i][j] += max(land[i-1][first], land[i-1][second], land[i-1][third])
+
+    answer = max(land[len(land)-1])
+    return answer
+
+print(solution([[1,2,3,5],[5,6,7,8],[4,3,2,1]]))
+
+# 파트5 풀이2
+def solution2(land):
+    sum_list = [0]*4
     
-    for i in arr:
-        if i > len(check_list):
-            return False
-        check_list[i-1] += 1
+    for row in land:
+        tmp = sum_list.copy()
+        for i in range(4):
+            sum_list[i] = row[i] + max(tmp[:i] + tmp[i+1:])
 
-    for i in check_list:
-        if i != 1:
-            return False
-
-    return True
-
-
-def solution2(arr):
-    arr.sort()
-    
-    for i, j in zip(arr, [i for i in range(1, len(arr)+1)]):
-        if i != j:
-            return False
-
-    return True
-
-
-def solution3(arr):
-    arr.sort()
-    
-    for i in range(len(arr)):
-        if arr[i] != i+1:
-            return False
-    return True
-
-print(solution([4, 1, 3, 2]))
+    return max(sum_list)
