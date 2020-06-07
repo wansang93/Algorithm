@@ -223,10 +223,55 @@
     스티커에 적힌 숫자가 배열 형태로 주어질 때, 스티커를 뜯어내어 얻을 수 있는 숫자의 합의 최댓값을 return 하는 solution 함수를 완성해 주세요.
     
     원형의 스티커 모양을 위해 배열의 첫 번째 원소와 마지막 원소가 서로 연결되어 있다고 간주합니다.
-    
-``` python
 
-```
+- 풀이
+
+    ``` python
+    def solution(sticker):
+
+        if len(sticker) <= 3:
+            return max(sticker)
+
+        # 첫 스티커 뜯은 경우
+        dp = sticker.copy()
+        dp[1] = dp[0]
+        dp.pop()  # 마지막 스티커는 못뜯어서 빼버림
+        for i in range(2, len(dp)):
+            dp[i] = max(dp[i] + dp[i-2], dp[i-1])
+
+        # 첫 스티커 뜯지 않은 경우
+        dp2 = sticker.copy()
+        dp2[0] = 0
+        for i in range(2, len(dp2)):
+            dp2[i] = max(dp2[i] + dp2[i-2], dp2[i-1])
+
+        return max(dp[len(dp)-1], dp2[len(dp2)-1])
+    ```
+
+    cashe 사용하여 풀기
+
+    ``` python
+    def solution(sticker):
+        n = len(sticker)
+        if n <= 3:
+            return max(sticker)
+        
+        # select node 0
+        cashe1 = [sticker[0], sticker[0]]
+        for i in range(2, n-1):
+            cashe1_0th = cashe1[1]
+            cashe1_1st = max(cashe1[1], cashe1[0]+sticker[i])
+            cashe1 = [cashe1_0th, cashe1_1st]
+        
+        # select node 1
+        cashe2 = [0, sticker[1]]
+        for i in range(2, n):
+            cashe2_0th = cashe2[1]
+            cashe2_1st = max(cashe2[1], cashe2[0]+sticker[i])
+            cashe2 = [cashe2_0th, cashe2_1st]
+
+        return max(max(cashe1), max(cashe2))
+    ```
 
 ### 파트7. 단어 퍼즐 문제
 
