@@ -2,9 +2,9 @@
 
 링크: [https://programmers.co.kr/learn/courses/18](https://programmers.co.kr/learn/courses/18)
 
-기간: 2020.06.05 ~ 2020.06.06
+기간: 2020.06.05 ~ 2020.06.08
 
-### 파트1. 자릿수 더하기 문제
+### 파트1. 자릿수 더하기 문제 [Link](https://programmers.co.kr/learn/courses/18/lessons/1876)
 
 - 문제
 
@@ -37,7 +37,7 @@
         return answer
     ```
 
-### 파트2. 순열 검사 문제
+### 파트2. 순열 검사 문제 [Link](https://programmers.co.kr/learn/courses/18/lessons/1877)
 
 - 문제
 
@@ -96,7 +96,7 @@
         return True
     ```
 
-### 파트3. 나머지 한 점 문제
+### 파트3. 나머지 한 점 문제 [Link](https://programmers.co.kr/learn/courses/18/lessons/1878)
 
 - 문제
 
@@ -138,7 +138,7 @@
     return [x2, y2]
     ```
 
-### 파트4. 가장 큰 정사각형 찾기 문제
+### 파트4. 가장 큰 정사각형 찾기 문제 [Link](https://programmers.co.kr/learn/courses/18/lessons/1879)
 
 - 문제
 
@@ -157,13 +157,38 @@
 
 - 풀이
 
+    1. 1 by x 이거나, y by 1이면 0 또는 1이다.
+    2. 2 by 2 이상인 사각형들에 대해서는 (1, 1)부터 탐색을 시작한다.
+    3. (1, 1)에 들어갈 최대 변의 길이는 (0, 0), (0, 1), (1, 0) 의 최솟값이다.
+    4. 탐색을 모두 한 뒤 answer의 값의 제곱을 한다.
 
-``` python
+    ``` python
+    def solution(board):
+        answer = 0
+        if len(board) == 1:  # 1 by x 인 board
+            return max(board[0])
+        elif len(board[0]) == 1:  # y by 1 인 board
+            for i in board:
+                for j in i:
+                    if j == 1:
+                        return 1
+            return 0 
 
-```
+        # 2by2 이상인 사각형들
+        for i in range(1, len(board)):
+            for j in range(1, len(board[i])):
+                if board[i][j] == 0:
+                    continue
+                else:
+                    board[i][j] = min(board[i][j-1], board[i-1][j], board[i-1][j-1]) + 1
+                    if answer < board[i][j]:
+                        answer = board[i][j]
+
+        return answer ** 2
+    ```
 
 
-### 파트5. 땅따먹기 문제
+### 파트5. 땅따먹기 문제 [Link](https://programmers.co.kr/learn/courses/18/lessons/1880)
 
 - 문제
 
@@ -206,7 +231,23 @@
         return max(sum_list)
     ```
 
-### 파트6. 스티커 모으기 문제
+    왼쪽과 윗쪽을 0으로 패딩한 후 계산하는 방법
+
+    ``` python
+    def solution(board):
+        max = 0
+
+        result = [[0 for col in range(len(board[0]) + 1)] for row in range(len(board) + 1)]
+        for i in range(len(board)): 
+            for j in range(len(board[0])):
+                if board[i][j] == 1: 
+                    result[i+1][j+1] = min(result[i][j+1], result[i][j], result[i+1][j]) + 1
+                    if max < result[i+1][j+1]: 
+                        max = result[i+1][j+1]
+        return max ** 2
+    ```
+
+### 파트6. 스티커 모으기 문제 [Link](https://programmers.co.kr/learn/courses/18/lessons/1881)
 
 - 문제
 
@@ -273,7 +314,23 @@
         return max(max(cashe1), max(cashe2))
     ```
 
-### 파트7. 단어 퍼즐 문제
+### 파트7. 단어 퍼즐 문제 [Link](https://programmers.co.kr/learn/courses/18/lessons/1882)
+
+- 문제
+
+    단어 퍼즐은 주어진 단어 조각들을 이용해서 주어진 문장을 완성하는 퍼즐입니다.
+    
+    이때, 주어진 각 단어 조각들은 각각 무한개씩 있다고 가정합니다.
+    
+    예를 들어 주어진 단어 조각이 [“ba”, “na”, “n”, “a”]인 경우 ba, na, n, a 단어 조각이 각각 무한개씩 있습니다.
+    
+    이때, 만들어야 하는 문장이 “banana”라면 “ba”, “na”, “n”, “a”의 4개를 사용하여 문장을 완성할 수 있지만, “ba”, “na”, “na”의 3개만을 사용해도 “banana”를 완성할 수 있습니다.
+    
+    사용 가능한 단어 조각들을 담고 있는 배열 strs와 완성해야 하는 문자열 t가 매개변수로 주어질 때, 주어진 문장을 완성하기 위해 사용해야 하는 단어조각 개수의 최솟값을 return 하도록 solution 함수를 완성해 주세요.
+    
+    만약 주어진 문장을 완성하는 것이 불가능하면 -1을 return 하세요.
+
+- 풀이
 
 ``` python
 

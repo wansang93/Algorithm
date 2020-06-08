@@ -85,8 +85,44 @@
 
 #     return max(cashe1[1], cashe2[1])  # maximums of cashe1, 2 last values
 
-test = '1'
+# # 파트 3
 
-test[0].upper()
+# def solution(board):
+#     answer = 0
+#     if len(board) == 1:  # 1 by x 인 board
+#         return max(board[0])
+#     elif len(board[0]) == 1:  # y by 1 인 board
+#         for i in board:
+#             for j in i:
+#                 if j == 1:
+#                     return 1
+#         return 0 
 
-print(test)
+#     # 2by2 이상인 사각형들
+#     for i in range(1, len(board)):
+#         for j in range(1, len(board[i])):
+#             if board[i][j] == 0:
+#                 continue
+#             else:
+#                 board[i][j] = min(board[i][j-1], board[i-1][j], board[i-1][j-1]) + 1
+#                 if answer < board[i][j]:
+#                     answer = board[i][j]
+
+#     return answer ** 2
+
+# print(solution([[1], [1], [1]]))
+
+# # 파트 3 padding을 통한 방법
+# def solution(board):
+#     max = 0
+
+#     result = [[0 for col in range(len(board[0]) + 1)] for row in range(len(board) + 1)]
+#     for i in range(len(board)): 
+#         for j in range(len(board[0])):
+#             if board[i][j] == 1: 
+#                 result[i+1][j+1] = min(result[i][j+1], result[i][j], result[i+1][j]) + 1
+#                 if max < result[i+1][j+1]: 
+#                     max = result[i+1][j+1]
+#     return max ** 2
+
+# 파트 7 
