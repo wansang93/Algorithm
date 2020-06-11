@@ -1,7 +1,7 @@
 # 베이스 인코딩 설명(사진 참고)
 # http://edentechnology.blogspot.com/2010/04/ascii-to-base64.html
 
-
+# ~~~~~~~~풀이중~~~~~~~~~~
 def base_decoding(string):
     '''
     Basic incoding

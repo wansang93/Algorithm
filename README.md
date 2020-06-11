@@ -29,6 +29,3 @@
 [https://swexpertacademy.com/](https://swexpertacademy.com/)
 
 삼성 소프트웨어 전문가 아카데미 입니다.
-
-SSAFY(Samsung SW Academy For Youth) 교육과정에서 포함 되어 있어서 예습을 하려고 합니다.
-
