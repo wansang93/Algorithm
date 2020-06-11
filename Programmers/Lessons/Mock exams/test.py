@@ -125,4 +125,34 @@
 #                     max = result[i+1][j+1]
 #     return max ** 2
 
-# 파트 7 
+# 파트 7 (풀이 중)
+def solution(strs, t):
+    answer = 0
+    length = len(t)
+    
+    dp = [length+1] * length
+    print(dp)
+    for i in range(length):
+        dp[i] = min(dp[i], dp[i])
+
+    return answer
+
+# 참고 코드(but 효율성 문제)
+def solution2(strs, t):
+    dp = {}
+    for i in range(len(t)):
+        dp[i] = float('inf')  # dp list를 무한대로 초기화
+    for i in range(len(t)-1, -1, -1):
+        for k in range(1, len(t)-i+3):
+            if t[i:i+k] in strs:
+                dp[i] = min(dp.get(i), dp.get(i+k, 0)+1)
+    return dp.get(0) if dp.get(0) != float('inf') else -1
+  # 단어의 뒤에서 부터 탐색한다.
+  # 예) wansang
+  # g,
+  # n, ng,
+  # a, an, ang, ...
+  # w, wa, wan, wans, wansa, wansan, wansang
+
+
+print(solution(['ba', 'na', 'n', 'a'], 'bananaa'))
