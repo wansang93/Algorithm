@@ -2,15 +2,15 @@
 
 ## Python
 
-정답률 순으로 정렬했어요 :tuck_out_tongue_winking_eye:
-
 ### [Python D3](./Python%20D2/)
 
 2020.06.12 ~ 
 
 - [5549. 홀수일까 짝수일까](./Python%20D3/5549.%20홀수일까%20짝수일까.py)
 - []
-- []
+- [4466. 최대 성적표 만들기](./Python%20D3/../Python%20D3/4466.%20최대%20성적표%20만들기.py)
+- [1206. View.py](./Python%20D3/../Python%20D3/1206.%20View.py)
+- [1208. Flatten](./Python%20D3/1208.%20Flatten.py)
 - [9700. USB 꽂기의 미스터리](./Python%20D3/9700.%20USB%20꽂기의%20미스터리.py)
 - []
 - []
