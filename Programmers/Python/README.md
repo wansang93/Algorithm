@@ -8,20 +8,19 @@
 
 ## 링크 바로가기
 
-<details>
-<summary>[Level 3]</summary>
+[Level 3]
 
 - []
 - []
 - []
 
----
+
 카카오 문제
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/64062) [징검다리 건너기](./Code/징검다리%20건너기.py)
-</details>
 
-<details>
-<summary>[Level 2]</summary>
+---
+
+[Level 2]
 
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/12899) [124 나라의 숫자](./Code/124%20나라의%20숫자.py)
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/49993) [스킬트리](./Code/스킬트리.py)
@@ -41,14 +40,12 @@
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/) [](./Code)
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/12951) [JadenCase 문자열 만들기](./Code/JadenCase%20문자열%20만들기.py)
 
----
 카카오 문제
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/60058) [괄호 변환](./Code/괄호%20변환.py)
-</details>
 
+---
 
-<details>
-<summary>[Level 1]</summary>
+[Level 1]
 
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/42576) [완주하지 못한 선수](./Code/완주하지%20못한%20선수.py)
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/42840) [모의고사](./Code/모의고사.py)
@@ -86,11 +83,9 @@
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/12969) [직사각형 별찍기](./Code/직사각형%20별찍기.py)
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/12982) [예산](./Code/예산.py)
 
----
 카카오 문제
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/64061) [크레인 인형뽑기 게임](./Code/크레인%20인형뽑기%20게임.py)
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/60057) [문자열 압축](./Code/문자열%20압축.py)
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/17681) [비밀지도](./Code/비밀지도.py)
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/17682) [다트 게임](./Code/다트%20게임.py)
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/42889) [실패율](./Code/실패율.py)
-</details>
