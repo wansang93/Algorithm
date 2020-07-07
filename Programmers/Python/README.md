@@ -89,3 +89,4 @@
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/17681) [비밀지도](./Code/비밀지도.py)
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/17682) [다트 게임](./Code/다트%20게임.py)
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/42889) [실패율](./Code/실패율.py)
+- [[link]](https://programmers.co.kr/learn/courses/30/lessons/67256) [키패드 누르기](./Code/키패드%20누르기.py)
