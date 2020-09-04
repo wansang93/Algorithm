@@ -1,5 +1,7 @@
-## [Python](./Python/)
+## [Python](./Python/README.md)
 
-## [JavaScirpt](./JavaScript/)
+## [JavaScirpt](./JavaScript/README.md)
 
-## [Lessons](./Lessons/)
+## [Lessons](./Lessons/README.md)
+
+## [SQL](./SQL/README.md)
