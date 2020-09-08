@@ -6,13 +6,25 @@
 
 2020-06-07 ~ (Level 3)
 
+2020-09-07 ~ (Level 4)
+
 ## 링크 바로가기
+
+[Level 4]
+
+- [[link]](https://programmers.co.kr/learn/courses/30/lessons/12983) [단어 퍼즐](./Code/단어%20퍼즐.py)
+- [[link]](https://programmers.co.kr/learn/courses/30/lessons/) [](./Code)
+- [[link]](https://programmers.co.kr/learn/courses/30/lessons/) [](./Code)
+- [[link]](https://programmers.co.kr/learn/courses/30/lessons/) [](./Code)
+  
+  
+---
 
 [Level 3]
 
-- []
-- []
-- []
+- [[link]](https://programmers.co.kr/learn/courses/30/lessons/) [](./Code)
+- [[link]](https://programmers.co.kr/learn/courses/30/lessons/) [](./Code)
+- [[link]](https://programmers.co.kr/learn/courses/30/lessons/) [](./Code)
 
 
 카카오 문제
@@ -34,8 +46,8 @@
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/42839) [소수 찾기2](./Code/소수%20찾기2.py)
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/42885) [구명보트](./Code/구명보트.py)
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/42883) [큰 수 만들기](./Code/큰%20수%20만들기.py)
-- [[link]](https://programmers.co.kr/learn/courses/30/lessons/) [](./Code)
-- [[link]](https://programmers.co.kr/learn/courses/30/lessons/) [](./Code)
+- [[link]](https://programmers.co.kr/learn/courses/30/lessons/12973) [짝지어 제거하기](./Code/짝지어%20제거하기.py)
+- [[link]](https://programmers.co.kr/learn/courses/30/lessons/12985) [예상 대진표](./Code/예상%20대진표.py)
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/) [](./Code)
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/) [](./Code)
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/12951) [JadenCase 문자열 만들기](./Code/JadenCase%20문자열%20만들기.py)
