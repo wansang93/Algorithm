@@ -54,6 +54,9 @@
 
 카카오 문제
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/60058) [괄호 변환](./Code/괄호%20변환.py)
+- [[link]](https://programmers.co.kr/learn/courses/30/lessons/17677) [뉴스 클러스터링](./Code/뉴스%20클러스터링.py)
+- [[link]](https://programmers.co.kr/learn/courses/30/lessons/17679) [프렌즈4블록](./Code/프렌즈4블록.py)
+- [[link]](https://programmers.co.kr/learn/courses/30/lessons/17680) [캐시](./Code/캐시.py)
 
 ---
 
