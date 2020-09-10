@@ -16,8 +16,7 @@
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/) [](./Code)
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/) [](./Code)
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/) [](./Code)
-  
-  
+
 ---
 
 [Level 3]
@@ -48,6 +47,7 @@
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/42883) [큰 수 만들기](./Code/큰%20수%20만들기.py)
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/12973) [짝지어 제거하기](./Code/짝지어%20제거하기.py)
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/12985) [예상 대진표](./Code/예상%20대진표.py)
+- [[link]](https://programmers.co.kr/learn/courses/30/lessons/12939) [최댓값과 최솟값](./Code/최댓값과%20최솟값.py)
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/) [](./Code)
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/) [](./Code)
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/12951) [JadenCase 문자열 만들기](./Code/JadenCase%20문자열%20만들기.py)
@@ -57,6 +57,8 @@
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/17677) [뉴스 클러스터링](./Code/뉴스%20클러스터링.py)
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/17679) [프렌즈4블록](./Code/프렌즈4블록.py)
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/17680) [캐시](./Code/캐시.py)
+- [[link]](https://programmers.co.kr/learn/courses/30/lessons/42888) [오픈채팅방](./Code/오픈채팅방.py)
+- [[link]](https://programmers.co.kr/learn/courses/30/lessons/42890) [후보키](./Code/후보키.py)
 
 ---
 
