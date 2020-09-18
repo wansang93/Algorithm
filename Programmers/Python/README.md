@@ -23,7 +23,7 @@
 
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/) [](./Code)
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/) [](./Code)
-- [[link]](https://programmers.co.kr/learn/courses/30/lessons/) [](./Code)
+- [[link]](https://programmers.co.kr/learn/courses/30/lessons/68646) [풍선 터트리기](./Code/풍선%20터트리기.py)
 
 
 카카오 문제
@@ -51,7 +51,7 @@
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/) [](./Code)
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/) [](./Code)
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/12951) [JadenCase 문자열 만들기](./Code/JadenCase%20문자열%20만들기.py)
-
+- [[link]](https://programmers.co.kr/learn/courses/30/lessons/68645) [삼각 달팽이](./Code/삼각%20달팽이.py)
 카카오 문제
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/60058) [괄호 변환](./Code/괄호%20변환.py)
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/17677) [뉴스 클러스터링](./Code/뉴스%20클러스터링.py)
@@ -99,6 +99,7 @@
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/12954) [x만큼 간격이 있는 n개의 숫자](./Code/x만큼%20간격이%20있는%20n개의%20숫자.py)
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/12969) [직사각형 별찍기](./Code/직사각형%20별찍기.py)
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/12982) [예산](./Code/예산.py)
+- [[link]](https://programmers.co.kr/learn/courses/30/lessons/68644) [두 개 뽑아서 더하기](./Code/두%20개%20뽑아서%20더하기.py)
 
 카카오 문제
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/64061) [크레인 인형뽑기 게임](./Code/크레인%20인형뽑기%20게임.py)

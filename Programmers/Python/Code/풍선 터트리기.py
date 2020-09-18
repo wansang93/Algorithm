@@ -2,11 +2,10 @@ def solution(a):
     answer = 1
     len_a = len(a)
 
-    # min 값 구하기
-    min_index = 0
     min_value = a[0]
-    for i in range(len(a)):
-        if a[i] < min_value:
+    min_index = 0
+    for i in range(len_a):
+        if min_value > a[i]:
             min_index = i
             min_value = a[i]
 
@@ -26,4 +25,17 @@ def solution(a):
         
     return answer
 
-print(solution([-16,27,65,-2,58,-92,-71,-68,-61,-33]))
+# 다른 사람 풀이
+def solution2(a):
+    answer = 1
+    M = min(a)
+    for _ in range(2):
+        m = a[0]
+        i = 1
+        while m != M:
+            if m >= a[i]:
+                m = a[i]
+                answer += 1
+            i += 1
+        a.reverse()
+    return answer

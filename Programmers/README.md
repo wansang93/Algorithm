@@ -5,5 +5,3 @@
 ## [Lessons](./Lessons/README.md)
 
 ## [SQL](./SQL/README.md)
-
-## [Challenge](./Challenge/README.md)
