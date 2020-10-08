@@ -8,6 +8,14 @@
 
 2020-09-07 ~ (Level 4)
 
+## 월간 코드 챌린지 시즌1 10월
+
+2020-10-18 4문제 문제 풀기
+- [[link]](https://programmers.co.kr/learn/courses/30/lessons/) [](./Code)
+- [[link]](https://programmers.co.kr/learn/courses/30/lessons/) [](./Code)
+- [[link]](https://programmers.co.kr/learn/courses/30/lessons/) [](./Code)
+- [[link]](https://programmers.co.kr/learn/courses/30/lessons/) [](./Code)
+
 ## 링크 바로가기
 
 [Level 4]
