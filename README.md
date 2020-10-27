@@ -29,3 +29,9 @@
 [https://swexpertacademy.com/](https://swexpertacademy.com/)
 
 삼성 소프트웨어 전문가 아카데미 입니다.
+
+## 5. [이것이 코딩 테스트다(2021)](./This%20is%20coding%20test/README.md)
+
+[https://www.youtube.com/playlist?list=PLRx0vPvlEmdAghTr5mXQxGpHjWqSz0dgC](https://www.youtube.com/playlist?list=PLRx0vPvlEmdAghTr5mXQxGpHjWqSz0dgC)
+
+이것이 취업을 위한 코딩 테스트다 (나동빈 / 한빛미디어)
