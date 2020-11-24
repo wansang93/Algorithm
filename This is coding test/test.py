@@ -48,41 +48,48 @@
 # print(lcm(21, 14))
 
 
-# def until_one(n, k):
-#     count = 0
-#     while True:
-#         target = (n//k) * k
-#         count += n - target
-#         n = target
-#         if n < k:
-#             break        
-#         count += 1
-#         n //= k
-#     return count + n - 1
+# 2-1-1. 1이 될 때 까지
+def until_one(n, k):
+    count = 0
+    while True:
+        target = (n//k) * k
+        count += n - target
+        n = target
+        if n < k:
+            break        
+        count += 1
+        n //= k
+    return count + n - 1
 
-# def max_num(s):
-#     num = int(s[0])
-#     for c in s[1:]:
-#         i = int(c)
-#         if i == 0 or i == 1:
-#             num += i
-#         else:
-#             num *= i
+
+# 2-1-2. 곱하기 혹은 더하기
+def max_num(s):
+    num = int(s[0])
+    for c in s[1:]:
+        i = int(c)
+        if i == 0 or i == 1:
+            num += i
+        else:
+            num *= i
     
-#     return num
+    return num
 
-# def adventurer_guild(l):
-#     count = 0
-#     mylist = l.sort()
-#     people = 0
-#     for i in mylist:
-#         people += 1
-#         if i <= people:
-#             people = 0
-#             count += 1
+
+# 2-1-3.모험가 길드
+def adventurer_guild(l):
+    count = 0
+    mylist = l.sort()
+    people = 0
+    for i in mylist:
+        people += 1
+        if i <= people:
+            people = 0
+            count += 1
     
-#     return count
+    return count
 
+
+# 2-2-1. 상하좌우
 def udlr(n, plans, now):
     dx = [0, 0, -1, 1]
     dy = [-1, 1, 0, 0]
@@ -96,3 +103,72 @@ def udlr(n, plans, now):
             continue
         now = nx, ny
 
+    return now
+
+
+# 2-2-2. 시각
+def count_three(n):
+   count = 0
+   for i in range(n+1):
+      for j in range(60):
+         for k in range(60):
+            if '3' in str(i) + str(j) + str(k):
+               count += 1
+   
+   return count
+
+
+# 2-2-3. 왕실의 나이트
+def knight_avaliable(location):
+    count = 0
+    x = int(ord(location[0])) - int(ord('a')) + 1
+    y = int(location[1])
+    knight_move = [(-2, 1), (-2, -1), (-1, -2), (1, -2), (2, -1),
+                   (2, 1), (1, 2), (-1, 2)]
+
+    for m in knight_move:
+        nx = m[0] + x
+        ny = m[1] + y
+        if 1 <= nx <= 8 and 1 <= ny <= 8:
+            count += 1
+
+    return count
+
+
+# 2-2-4. 문자열 재정렬
+def sort_string(data):
+    value = 0
+    result = ''
+    for x in data:
+        if x.isalpha():
+            result += x
+        else:
+            value += int(x)
+
+    result.sort()
+    result += str(value)
+    return result
+
+# 3-1-1. 음료수 얼려 먹기
+def ice_sort_drink(space):
+    count = 0
+    ldru = [(-1, 0), (0, 1), (1, 0), (0, -1)]
+    
+    for y in space:
+        for x in space[y]:
+            stack = []
+            if space[y][x] == 0:
+                space[y][x] = 2  # 방문했으면 2로 갱신
+                count += 1  # 상하좌우 체크, 스택 채워나가기 dfs
+                for direction in ldru:
+                    pass  # 스택 채워 나가기
+                if stack:  # 스택에 존재시 탐색
+                    for i in stack:
+                        pass
+                    # 스택의 상하 좌우 체크하기
+                    # 스택의 다음좌표 추가하기
+
+    return count
+
+
+# 3-1-2. 미로 탈출

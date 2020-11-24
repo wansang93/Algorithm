@@ -2,20 +2,21 @@
 
 나동빈 / 한빛 미디어
 
-2020-10-27 ~ 
+- 2020-10-27(1, 2장)
+- 2020-11-24(2, 3장)
 
-교제 사이트 링크 -> [https://github.com/ndb796/Python-Competitive-Programming-Team-Notes](https://github.com/ndb796/Python-Competitive-Programming-Team-Notes)
+교제 사이트 링크 -> [https://github.com/ndb796/python-for-coding-test](https://github.com/ndb796/python-for-coding-test)
 
-## 1. 코딩 테스트 출제 경향 분석 및 파이썬 문법 부수기
+# 1. 코딩 테스트 출제 경향 분석 및 파이썬 문법 부수기
 
-### 코딩 테스트 준비하기, 참고하기
+## 1-1. 코딩 테스트 준비하기, 참고하기
 
 - request, json 라이브러리 익히기
 - 리플잇 링크 -> [repl.it](https://repl.it/)
 - 파이썬 튜터 링크 -> [http://www.pythontutor.com/visualize.html](http://www.pythontutor.com/visualize.html)
 - 팀노트 만들기, 예시 링크 -> [https://github.com/ndb796/Python-Competitive-Programming-Team-Notes](https://github.com/ndb796/Python-Competitive-Programming-Team-Notes)
 
-### 파이썬 스킬
+## 1-2. 파이썬 스킬
 
 1. x*y 의 리스트 초기화
    ```python
@@ -78,13 +79,13 @@
    print(lcm(21, 14))
    ```
 
-## 2. 그리디 & 구현
+# 2. 그리디 & 구현
 
-### 그리디(Greedy)
+## 2-1. 그리디(Greedy)
 
 탐욕법으로 얻은 해가 최적의 해가 되는 상황에서 사용
 
-### 1이 될 때 까지
+### 2-1-1. 1이 될 때 까지
 
 ``` python
 def until_one(n, k):
@@ -100,8 +101,7 @@ def until_one(n, k):
     return count + n - 1
 ```
 
-### 곱하기 혹은 더하기
-
+### 2-1-2. 곱하기 혹은 더하기
 
 ```python
 def max_num(s):
@@ -116,7 +116,7 @@ def max_num(s):
     return num
 ```
 
-### 모험가 길드
+### 2-1-3.모험가 길드
 
 ```python
 def adventurer_guild(l):
@@ -132,7 +132,7 @@ def adventurer_guild(l):
     return count
 ```
 
-### 구현(Implementation)
+## 2-2. 구현(Implementation)
 
 풀이는 쉽지만 소스코드로 옮기기 어려운 문제
 
@@ -142,7 +142,7 @@ def adventurer_guild(l):
 - 문자열을 특정한 기준에 따라서 끊어 처리해야 하는 문제
 - 적절한 라이브러리를 찾아서 사용해야 하는 문제
 
-### 상하좌우
+### 2-2-1. 상하좌우
 
 ```python
 def udlr(n, plans, now):
@@ -161,7 +161,7 @@ def udlr(n, plans, now):
     return now
 ```
 
-### 시각
+### 2-2-2. 시각
 
 ```python
 def count_three(n):
@@ -175,9 +175,66 @@ def count_three(n):
    return count
 ```
 
-## 6. DP
+### 2-2-3. 왕실의 나이트
+
+```python
+def knight_avaliable(location):
+    count = 0
+    x = int(ord(location[0])) - int(ord('a')) + 1
+    y = int(location[1])
+    knight_move = [(-2, 1), (-2, -1), (-1, -2), (1, -2), (2, -1),
+                   (2, 1), (1, 2), (-1, 2)]
+
+    for m in knight_move:
+        nx = m[0] + x
+        ny = m[1] + y
+        if 1 <= nx <= 8 and 1 <= ny <= 8:
+            count += 1
+
+    return count
+```
+
+### 2-2-4. 문자열 재정렬
+
+```python
+def sort_string(data):
+    value = 0
+    result = ''
+    for x in data:
+        if x.isalpha():
+            result += x
+        else:
+            value += int(x)
+
+    result.sort()
+    result += str(value)
+    return result
+```
+
+# 3. DFS & BFS
+
+- 탐색: **원하는 데이터를 찾는 과정**
+  
+  DFS(Depth First Search), BFS(Breadth-First Search)는 대표적 탐색 알고리즘 중 하나
+
+- 스택과 큐 구현
+
+  ```python
+  # 스택(list 활용)
+  stack = []
+  
+  # 큐(deque 활용)
+  from collections import deque
+  queue = deque()
+  ```
+
+- 재귀 함수(Recursive Function)는 파이썬에서 최대 깊이 초과가 있다.
+
+
+
+# 6. DP
 
 - 메모리를 적절히 사용, 다시 계산하지 않도록
 - DP를 사용할 수 있는 경우
   1. 최적 부분 구조: 큰 문제를 작은 문제로 나눌 수 있는지
-  2. 중복되는 부분 문제: 동일한 작은 문제를 반복적으로 해결
+  2. 중복되는 부분 문제: 동일한 작은 문제 를 반복적으로 해결
