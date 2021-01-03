@@ -1,14 +1,17 @@
+# ## 1-1. x*y 의 리스트 초기화
 # x, y = 3, 5
 # mylist = [[0] * x for _ in range(y)]
 
+# ## 1-2. 정렬
 # mylist = {('a', 50), ('b', 30), ('c', 60)}
 # sorted(mylist, key=lambda x: x[1])
 
-
+# ## 1-3. map
 # list1 = [1, 2, 3, 4, 5]
 # list2 = [50, 40, 30, 20, 10]
 # map(lambda a, b: a+b, list1, list2)
 
+# ## 1-4. 라이브러리들
 # import itertools  # 순열과 조합
 # import heapq  # 힙 자료구조
 # import bisect  # 이진 탐색
@@ -149,26 +152,98 @@ def sort_string(data):
     result += str(value)
     return result
 
+
 # 3-1-1. 음료수 얼려 먹기
-def ice_sort_drink(space):
+def ice_sort_drink(n, space):
     count = 0
-    ldru = [(-1, 0), (0, 1), (1, 0), (0, -1)]
     
-    for y in space:
-        for x in space[y]:
-            stack = []
-            if space[y][x] == 0:
-                space[y][x] = 2  # 방문했으면 2로 갱신
-                count += 1  # 상하좌우 체크, 스택 채워나가기 dfs
-                for direction in ldru:
-                    pass  # 스택 채워 나가기
-                if stack:  # 스택에 존재시 탐색
-                    for i in stack:
-                        pass
-                    # 스택의 상하 좌우 체크하기
-                    # 스택의 다음좌표 추가하기
+
 
     return count
 
 
 # 3-1-2. 미로 탈출
+
+
+# 4-1. 선택정렬
+import copy
+
+
+def selection_sort(array_unsorted):
+    array = copy.deepcopy(array_unsorted)
+
+    n = len(array)
+    for i in range(n-1):
+        min_index = i
+        for j in range(1+i, n):
+            if array[j] < array[min_index]:
+                min_index = j
+        array[i], array[min_index] = array[min_index], array[i]
+    return array
+
+
+# 4-2. 삽입 정렬 소스코드(Python)
+import copy
+
+
+def insert_sort(array_unsorted):
+    array = copy.deepcopy(array_unsorted)
+
+    n = len(array)
+    for i in range(n):
+        for j in range(i, 0, -1):
+            if array[j] < array[j-1]:
+                array[j], array[j-1] = array[j-1], array[j]
+            else:
+                break
+    return array
+
+
+array = [7, 5, 9, 0, 3, 1, 6, 2, 4, 8]
+print(selection_sort(array))
+print(insert_sort(array))
+print(array)
+
+
+
+# # 10-1. Requests 예시
+# import requests
+
+# target = 'http://google.com'
+# response = requests.get(url=target)
+# print(response.text)  # <!doctype html><html itemscope="" ...
+
+
+# # 10-4-4. JSON 객체 파일 저장 예시
+# import json
+
+
+# # 사전 자료형(dict) 데이터 선언
+# user = {
+#     "id": "gildong",
+#     "password": "1!2@3#4$",
+#     "age": 30,
+#     "hobby": ["football", "programming"]
+# }
+
+# # JSON 데이터로 변환하는 파일로 저장
+# with open("user.json", "w", encoding="utf-8") as file:
+#     json.dump(user, file, indent=4)
+
+# # 10-4-6. REST API를 호출하여 회원 정보를 처리하는 예제
+# import requests
+
+# # REST API 경로에 접속하여 응답(Response) 데이터 받아오기
+# target = "https://jsonplaceholder.typicode.com/users"
+# response = requests.get(url=target)
+
+# # 응답(Response) 데이터가 JSON 형식이므로 바로 파이썬 객체로 반환
+# data = response.json()
+
+# # 모든 사용자(user) 정보를 확이하며 이름 정보만 삽입
+# name_list = []
+# for user in data:
+#     name_list.append(user['name'])
+
+# print(name_list)
+# # ['Leanne Graham', 'Ervin Howell', ... ,'Clementina DuBuque']

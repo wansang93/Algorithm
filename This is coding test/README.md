@@ -4,8 +4,11 @@
 
 - 2020-10-27(1, 2장)
 - 2020-11-24(2, 3장)
+- 2020-01-04(4, 10장)
 
 교제 사이트 링크 -> [https://github.com/ndb796/python-for-coding-test](https://github.com/ndb796/python-for-coding-test)
+
+유튜브 링크 -> [https://www.youtube.com/playlist?list=PLRx0vPvlEmdAghTr5mXQxGpHjWqSz0dgC](https://www.youtube.com/playlist?list=PLRx0vPvlEmdAghTr5mXQxGpHjWqSz0dgC)
 
 # 1. 코딩 테스트 출제 경향 분석 및 파이썬 문법 부수기
 
@@ -228,9 +231,43 @@ def sort_string(data):
   queue = deque()
   ```
 
-- 재귀 함수(Recursive Function)는 파이썬에서 최대 깊이 초과가 있다.
+- 재귀 함수(Recursive Function)
+  - 파이썬에서 최대 깊이 초과가 있음, 재귀 함수가 무한으로 발생(recursive depth exceeded) 방지
+  - 모든 재귀 함수는 반복문으로 작성 가능
+  - 컴퓨터가 함수를 연속적으로 호출하면 컴퓨터 내부에 스택 프레임이 쌓임
+    - 스택을 사용할 때, 스택 라이브러리 대신 재귀 함수를 사용하는 경우가 많음
+
+## 3-1. DFS(Depth First Search)
+
+## 3-2. BFS(Breath First Search)
 
 
+
+# 4. 정렬 알고리즘
+
+Sorting: Arrange systematically in groups; separate according to type
+
+## 4-1. 선택 정렬
+
+연산 횟수: N-1, N-2, ... , 3, 2
+
+```python
+import copy
+
+def selection_sort(array_unsorted):
+    array = copy.deepcopy(array_unsorted)
+
+    n = len(array)
+    for i in range(n-1):
+        min_index = i
+        for j in range(1+i, n):
+            if array[j] < array[min_index]:
+                min_index = j
+        array[i], array[min_index] = array[min_index], array[i]
+    return array
+```
+
+## 4-2. 삽입 정렬
 
 # 6. DP
 
@@ -238,3 +275,158 @@ def sort_string(data):
 - DP를 사용할 수 있는 경우
   1. 최적 부분 구조: 큰 문제를 작은 문제로 나눌 수 있는지
   2. 중복되는 부분 문제: 동일한 작은 문제 를 반복적으로 해결
+
+# 10. 개발형 코딩 테스트
+
+## 10-1. 개발형 코딩 테스트
+
+코딩테스트의 유형
+- 정해진 목적에 따라 동작하는 완성된 프로그램을 개발
+  - 예1) 모바일 클라이언트 개발: 안드로이드, IOS 앱 개발
+  - 예2) 웹 서버 개발: 스프링(Spring), 장고(Django) 등의 서버 개발 프레임 워크 활용
+
+- 해커톤(Hackathon): 단기간에 아이디어를 제품화하는 프로젝트 이벤트
+
+- 분야와 상관없이 알아야 하는 개념들
+  - 서버, 클라이언트, JSON, REST API, ...
+
+## 10-2. 서버와 클라이언트
+
+- 클라이언트 -> Request
+  - Request를 보내고 Response를 도착할 때 까지 기다림
+- 서버 -> Response
+  - Request를 처리후 Response를 함
+
+## 10-3. HTTP 프로토콜
+
+- HTTP(HyperText Transfer Protocol): 웹 상에서 데이터를 주고 받기 위한 프로토콜
+- 클라이언트는 Request 목적에 따라 적절한 HTTP method를 이용
+  - GET: 특정 데이터 조회, 정보 검색 등
+  - POST: 특정 데이터 생성, 회원 가입 등
+  - PUT: 특정 데이터 수정, 회원 정보 수정 등
+  - DELETE: 특정 데이터 삭제, 회원 정보 등
+
+파이썬 GET 예시
+
+```bash
+# ImportError: No module named requests
+pip install requests
+```
+
+```python
+import requests
+
+target = 'http://google.com'
+response = requests.get(url=target)
+print(response.text)  # <!doctype html><html itemscope="" ...
+```
+
+## 10-4. REST
+
+### 10-4-1. REST 등장 배경
+
+- HTTP는 다양한 HTTP메서드를 지원
+- 실제로는 서버가 각 메서드의 기본 설명을 따르지 않아도 프로그램을 개발 가능
+- 저마다 다른 방식을 개발시 문제가 될 수 있어 기준이 되는 아키텍처가 필요
+
+### 10-4-2. REST 개요
+
+- **REST(Representational State Transfer)** 는 *각 자원(Resource)에 대해 자원의 상태에 대한 정보를 주고받는 개발 방식*
+  - 자원(Resource): URI를 이용
+  - 행위(Verb): HTTP 메서드를 이용
+  - 표현(Representations): 페이로드를 이용
+
+> URI: Uniform Resource Identifier(구분자)
+> 1. rewrite 기술을 사용하여 만든 의미있는 식별자
+> 2. REST 서비스(url로 실행되는 서비스)
+> 3. Web-oriented architecture(웹 기반의 구조문법)
+> 
+> URL: Uniform Resource Locator(위치)
+> > 출처: [https://blog.lael.be/post/61](https://blog.lael.be/post/61)
+
+### 10-4-3. REST API 란?
+
+- **API(Application Programming Interface)**: 프로그램이 상호작용하기 위한 인터페이스를 의미
+- **REST API**: REST 아키텍처를 따르는 API
+- **REST API 호출**: REST 방식을 따르고 있는 서버에 특정한 요청을 전송
+
+REST 방식을 따르고 있는 서버에 특정한 요청을 전송하면 어떠한 데이터 형식으로 받을 것인가?
+
+### 10-4-4. JSON
+
+JSON(JavaScript Object Notation): 데이터를 주고받는 데 사용하는 경량의 데이터 형식
+
+JSON 데이터는 키와 값의 쌍으로 이루어진 데이터 객체, 파이썬 딕셔너리와 매우 비슷
+
+JSON 객체 파일 저장 예제
+
+```python
+import json
+
+# 사전 자료형(dict) 데이터 선언
+user = {
+    "id": "gildong",
+    "password": "1!2@3#4$",
+    "age": 30,
+    "hobby": ["football", "programming"]
+}
+
+# JSON 데이터로 변환하는 파일로 저장
+with open("user.json", "w", encoding="utf-8") as file:
+    json.dump(user, file, indent=4)
+```
+
+### 10-4-5. REST API 연습용 서비스
+
+- 목킹(Mocking)이란 어떠한 기능이 있는 것처럼 흉내내어 구현한 것
+- 가상의 REST API 제공 서비스 -> [https://jsonplaceholder.typicode.com/](https://jsonplaceholder.typicode.com/)
+  - 사용자, 개시물 등 가상의 API를 클라이언트 측에서 호출해 사용
+    ```json
+    // 20210103214557
+    // https://jsonplaceholder.typicode.com/users/1
+
+    {
+    "id": 1,
+    "name": "Leanne Graham",
+    "username": "Bret",
+    "email": "Sincere@april.biz",
+    "address": {
+        "street": "Kulas Light",
+        "suite": "Apt. 556",
+        "city": "Gwenborough",
+        "zipcode": "92998-3874",
+        "geo": {
+        "lat": "-37.3159",
+        "lng": "81.1496"
+        }
+    },
+    "phone": "1-770-736-8031 x56442",
+    "website": "hildegard.org",
+    "company": {
+        "name": "Romaguera-Crona",
+        "catchPhrase": "Multi-layered client-server neural-net",
+        "bs": "harness real-time e-markets"
+        }
+    }
+    ```
+
+### 10-4-6. REST API를 호출하여 회원 정보를 처리하는 예제
+
+```python
+import requests
+
+# REST API 경로에 접속하여 응답(Response) 데이터 받아오기
+target = "https://jsonplaceholder.typicode.com/users"
+response = requests.get(url=target)
+
+# 응답(Response) 데이터가 JSON 형식이므로 바로 파이썬 객체로 반환
+data = response.json()
+
+# 모든 사용자(user) 정보를 확이하며 이름 정보만 삽입
+name_list = []
+for user in data:
+    name_list.append(user['name'])
+
+print(name_list)
+# ['Leanne Graham', 'Ervin Howell', ... ,'Clementina DuBuque']
+```
