@@ -1,5 +1,9 @@
 import sys
-sys.stdin = open(r'C:/Users/wansang/Desktop/Gitrep/Algorithm/SW Expert Academy/Python/Python D3/input.txt', 'r')
+file_path = (
+    r'C:/Users/wansang/Desktop/Gitrep/Algorithm/' + 
+    r'SW Expert Academy/Python/Python D3/input.txt'
+)
+sys.stdin = open(file_path, 'r')
 
 T = int(input())
 for t in range(1, T+1):
