@@ -97,6 +97,7 @@ def udlr(n, plans, now):
     dx = [0, 0, -1, 1]
     dy = [-1, 1, 0, 0]
     move_types = ['L', 'R', 'U', 'D']
+    nx, ny = 0, 0
     for plan in plans:
         for i in range(len(move_types)):
             if move_types[i] == plan:
@@ -199,12 +200,78 @@ def insert_sort(array_unsorted):
     return array
 
 
-array = [7, 5, 9, 0, 3, 1, 6, 2, 4, 8]
-print(selection_sort(array))
-print(insert_sort(array))
-print(array)
+# array = [7, 5, 9, 0, 3, 1, 6, 2, 4, 8]
+# print(selection_sort(array))
+# print(insert_sort(array))
+# print(array)
 
 
+# 9-1. 소수
+
+def is_prime_number(x):
+    for i in range(2, x):
+        if x % i == 0:
+            return False
+    return True
+
+
+def is_prime_number2(x):
+    for i in range(2, int(x**1/2)+1):
+        if x % i == 0:
+            return False
+    return True
+
+
+# print(is_prime_number(2**7-1))
+# print(is_prime_number2(2**7-1))
+
+def prime_list(n):
+    sieve = [False, False] + [True] * (n-1)
+    m = int(n ** 0.5)
+    for i in range(2, m + 1):
+        if sieve[i] == True:
+            for j in range(i+i, n, i):
+                sieve[j] = False
+
+    return [i for i in range(2, n) if sieve[i] == True]
+
+# print(prime_list(100))
+
+# 9-2. 투 포인터
+
+def two_pointer(lst, m):
+    n = len(lst)
+    count = 0
+    end = 0
+    interval_sum = 0
+
+    for start in range(n):
+        while interval_sum < m and end < n:
+            interval_sum += lst[end]
+            end += 1
+        if interval_sum == m:
+            count += 1
+        interval_sum -= lst[start]
+
+    return count
+
+# print(two_pointer([1, 2, 3, 2, 5], 5))
+
+# 9-3. 구간 합
+
+def interval_sum(lst, query):
+    p = [0] * (len(lst) + 1)
+    result = [0] * len(query)
+
+    for i, v in enumerate(lst):
+        p[i+1] = p[i] + v
+
+    for i, v in enumerate(query):
+        result[i] = p[v[1]] - p[v[0]-1]
+
+    return result
+
+# print(interval_sum([10, 20, 30, 40, 50], [(3, 4), (2, 3), (1, 4)]))
 
 # # 10-1. Requests 예시
 # import requests

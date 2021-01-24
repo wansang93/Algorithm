@@ -1,5 +1,7 @@
 # Daily Algorithm
 
+[TEAM NOTE](./Team%20Note/README.md)
+
 매일매일 알고리즘을 풀고 기록합니다. 이용하는 사이트는 다음과 같습니다.
 
 ## 1. [Python 100 quizzes](./Python_100_quizzes/README.md)

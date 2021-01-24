@@ -276,6 +276,117 @@ def selection_sort(array_unsorted):
   1. 최적 부분 구조: 큰 문제를 작은 문제로 나눌 수 있는지
   2. 중복되는 부분 문제: 동일한 작은 문제 를 반복적으로 해결
 
+# 9. 코딩 테스트에서 자주 출제되는 기타 알고리즘
+
+## 9-1. 소수(Prime Number)
+
+### 9-1-1. 해당 수가 소수인지 판별
+
+기본적인 알고리즘
+- 시간복잡도: O(x)
+
+```python
+def is_prime_number(x):
+    for i in range(2, x-1):
+        if x % i == 0:
+            return False
+    return True
+```
+
+개선된 알고리즘
+- 시간복잡도: O(x**1/2)
+
+```python
+def is_prime_number(x):
+    for i in range(2, int(x**1/2)+1):
+        if x % i == 0:
+            return False
+    return True
+```
+
+### 9-1-2. 다수의 수가 소수인지 판별
+
+다수의 소수 판별: 에라토스테네스의 체
+- 시간복잡도: O(NloglogN)
+- 장점: 큰 수의 이하인 소수들을 구할 때 빠름
+- 단점: 메모리 공간, 하나의 소수만 궁금할 때 효율성 낮음
+
+```python
+def prime_list(n):
+    sieve = [False, False] + [True] * (n-1)
+    m = int(n ** 0.5)
+    for i in range(2, m + 1):
+        if sieve[i] == True:
+            for j in range(i+i, n, i):
+                sieve[j] = False
+
+    return [i for i in range(2, n) if sieve[i] == True]
+```
+
+## 9-2. 투포인터(Two Pointers)
+
+리스트에 순차적으로 접근해야 할 때 두 점의 위치를 기록하면서 처리
+
+### 9-2-1. 특정한 합을 가지는 부분 연속 수열 찾기
+
+문제
+- N개의 자연수로 구성된 수열
+- 합이 M인 부분 연속 수열의 갯수를 구해라
+- 수행 시간 제한은 O(N)
+- 완전 탐색의 경우 O(N**2)
+
+해결법
+
+```python
+def two_pointer(lst, m):
+    n = len(lst)
+    count = 0
+    end = 0
+    interval_sum = 0
+
+    for start in range(n):
+        while interval_sum < m and end < n:
+            interval_sum += lst[end]
+            end += 1
+        if interval_sum == m:
+            count += 1
+        interval_sum -= lst[start]
+
+    return count
+```
+
+## 9-3. 구간 합(Interval Sum)
+
+연속적으로 나열된 N개의수가 있을 때 특정 구간의 모든수를 합한 값을 계산
+
+### 9-3-1. 구간 합 빠르게 계산하기
+
+문제
+- N개의 정수로 구성된수열
+- M개의 쿼리(Query) 정보가 주어짐
+  - 각 쿼리는 Left, Right로 구성
+  - 각 쿼리에 대해 [Left, Right] 구간에 포함된 데이터의 합을 출력
+- 수행 시간 제한은 O(N + M)
+
+해결법
+- 접두사 합(Prefix Sum): 배열의 맨 앞부터 특정 위치까지 합을 미리 구해 놓는 것
+  - N개의 수 위치 각각에 접두사 합을 계산하여 P에 저장
+  - 매 M개의 쿼리 정보를 확일 할 때 구간합은 P[Right] - P[Left-1]이다.
+
+```python
+def interval_sum(lst, query):
+    p = [0] * (len(lst) + 1)
+    result = [0] * len(query)
+
+    for i, v in enumerate(lst):
+        p[i+1] = p[i] + v
+
+    for i, v in enumerate(query):
+        result[i] = p[v[1]] - p[v[0]-1]
+
+    return result
+```
+
 # 10. 개발형 코딩 테스트
 
 ## 10-1. 개발형 코딩 테스트
