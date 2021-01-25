@@ -1,17 +1,39 @@
 # BACKJOON
 
-## 단계별 문제 풀이
+- 21-01-25 ~ 
 
-### 입출력과 사칙연산
+백준 난이도 chrome extension link -> [https://github.com/shiftpsh/solvedac-plugin](https://github.com/shiftpsh/solvedac-plugin)
+
+단계별 문제 풀이 순서대로 풀고 있습니다.
 
 - [1000](./problems/1000.md)
 - [1001](./problems/1001.md)
 - [1008](./problems/1008.md)
+- [1110](./problems/1110.md)
+- [1330](./problems/1330.md)
+- [2438](./problems/2438.md)
+- [2439](./problems/2439.md)
 - [2557](./problems/2557.md)
 - [2588](./problems/2588.md)
+- [2739](./problems/2739.md)
+- [2741](./problems/2741.md)
+- [2742](./problems/2742.md)
+- [2753](./problems/2753.md)
+- [2884](./problems/2884.md)
+- [8393](./problems/8393.md)
+- [9498](./problems/9498.md)
 - [10171](./problems/10171.md)
 - [10172](./problems/10172.md)
 - [10430](./problems/10430.md)
 - [10718](./problems/10718.md)
 - [10869](./problems/10869.md)
+- [10871](./problems/10871.md)
+- [10872](./problems/10872.md)
+- [10950](./problems/10950.md)
+- [10951](./problems/10951.md)
+- [10952](./problems/10952.md)
 - [10998](./problems/10998.md)
+- [11021](./problems/11021.md)
+- [11022](./problems/11022.md)
+- [14681](./problems/14681.md)
+- [15552](./problems/15552.md)
