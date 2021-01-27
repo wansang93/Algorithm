@@ -1,8 +1,9 @@
 # 모의테스트 해설강의
 
+2020-06-05 ~ 2020-06-08 (4Days)
+
 링크: [https://programmers.co.kr/learn/courses/18](https://programmers.co.kr/learn/courses/18)
 
-기간: 2020.06.05 ~ 2020.06.08
 
 ### 파트1. 자릿수 더하기 문제 [Link](https://programmers.co.kr/learn/courses/18/lessons/1876)
 

@@ -5,6 +5,7 @@
 - 2020-10-27(1, 2장)
 - 2020-11-24(2, 3장)
 - 2020-01-04(4, 10장)
+- 2020-01-24(9장)
 
 교제 사이트 링크 -> [https://github.com/ndb796/python-for-coding-test](https://github.com/ndb796/python-for-coding-test)
 

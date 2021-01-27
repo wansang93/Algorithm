@@ -18,7 +18,7 @@
 
 알고리즘 공부를 시작하면서 처음 흥미를 갖게 해준 사이트 입니다.
 
-무엇보다도 웹에서 보기좋은 UI, 코딩과 결과를 쉽게 확인할 수 있어서 좋습니다.
+무엇보다도 웹에서 보기좋은 UI, 코딩과 다른 사람의 결과를 쉽게 확인할 수 있어서 좋습니다.
 
 ## 3. [Code up](./Code%20Up/README.md)
 
@@ -38,7 +38,7 @@
 
 이것이 취업을 위한 코딩 테스트다 (나동빈 / 한빛미디어)
 
-## 6. [백준](./BACKJOON/README.md)
+## 6. [BAEKJOON](./BAEKJOON/README.md)
 
 [https://www.acmicpc.net/](https://www.acmicpc.net/)
 

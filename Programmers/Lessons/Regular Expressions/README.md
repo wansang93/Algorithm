@@ -1,6 +1,6 @@
 # Regular Expressions
 
-20.06.11 ~ 20.06.12
+2020-06-11 ~ 2020-06-12 (2Days) Finished
 
 Site Link -> [https://programmers.co.kr/learn/courses/11](https://programmers.co.kr/learn/courses/11)
 

@@ -1,5 +1,7 @@
 # 코드 업 기초 100제 파이썬 풀이
 
+- 2020-01-17 ~ 2020-01-21 (5days) Finished
+
 ## [코드업 기초 100제 웹사이트 바로가기](https://codeup.kr/problemsetsol.php?psid=23)
 
 ## 내 풀이

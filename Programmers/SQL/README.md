@@ -1,6 +1,6 @@
 # SQL 고득점 Kit
 
-2020.09.04 ~ 2020.09.07
+- 2020-09-04 ~ 2020-09-07 (4Days) Finished
 
 SQL Site Link -> [https://programmers.co.kr/learn/challenges?tab=sql_practice_kit](https://programmers.co.kr/learn/challenges?tab=sql_practice_kit)
 
