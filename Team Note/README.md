@@ -5,9 +5,62 @@
 - 알고리즘 대회를 위한 **파이썬 (Python) 소스코드 저장소**입니다.
 - **동빈나** 님의 사이트를 참고해서 만들었습니다. -> [동빈나님 Team Notes](https://github.com/ndb796/Python-Competitive-Programming-Team-Notes/blob/master/README.md)
 
-# Contents
+# 잡기술
 
-수정 및 추가 예정
+## 단어 중복 체크, 연속된 단어는 허용
+
+백준 1316번 그룹 단어 체커
+
+```python
+cnt += list(word) == sorted(word, key=word.find)
+```
+
+```python
+temp = []
+now_chr = ' '
+for c in s:
+    if now_chr != c:
+        if c in temp:
+            break
+        temp.append(c)
+        now_chr = c
+else:
+    cnt += 1
+```
+
+## 특정 문자를 지정 문자로 바꿔서 처리하면 편함
+
+백준 2941번 크로아티아 알파벳
+
+```python
+croatian = ['c=', 'c-', 'dz=', 'd-', 'lj', 'nj', 's=', 'z=']
+for cr in croatian:
+    s = s.replace(cr, '!')
+```
+
+## 알파벳 찾기, find와 index의 차이 익히기
+
+백준 10809번 알파벳 찾기
+
+```python
+# A~Z까지 다 찾기
+lst = list(range(ord('a'), ord('z')+1))
+for i in lst:
+    print(S.find(chr(i)), end=' ')
+```
+
+```python
+# 단어를 찾아 index 바꾸기
+lst = [-1] * 26
+for i, v in enumerate(S):
+    if lst[ord(v) - ord('a')] == -1:
+        lst[ord(v) - ord('a')] = i
+
+for i in lst:
+    print(i, end=' ')
+```
+
+# Contents
 
 ### Sorting
 

@@ -1,16 +1,24 @@
 # BACKJOON
 
-- 21-01-25 ~ 
+- 21-01-25 ~ 🍂 BRONZE
 
-백준 난이도 chrome extension link -> [https://github.com/shiftpsh/solvedac-plugin](https://github.com/shiftpsh/solvedac-plugin)
+[![wansang93](http://mazassumnida.wtf/api/generate_badge?boj=wansang93)](https://solved.ac/wansang93)
+
+- [Solved.ac 내 정보 표시](https://github.com/mazassumnida/mazassumnida)
+- [Solved.ac 난이도 보기](https://github.com/shiftpsh/solvedac-plugin)
 
 단계별 문제 풀이 순서대로 풀고 있습니다.
+
+## Problems
 
 - [1000](./problems/1000.md)
 - [1001](./problems/1001.md)
 - [1008](./problems/1008.md)
 - [1065](./problems/1065.md)
 - [1110](./problems/1110.md)
+- [1152](./problems/1152.md)
+- [1157](./problems/1157.md)
+- [1316](./problems/1316.md)
 - [1330](./problems/1330.md)
 - [1546](./problems/1546.md)
 - [2438](./problems/2438.md)
@@ -19,14 +27,18 @@
 - [2562](./problems/2562.md)
 - [2577](./problems/2577.md)
 - [2588](./problems/2588.md)
+- [2625](./problems/2625.md)
 - [2739](./problems/2739.md)
 - [2741](./problems/2741.md)
 - [2742](./problems/2742.md)
 - [2753](./problems/2753.md)
 - [2884](./problems/2884.md)
+- [2908](./problems/2908.md)
+- [2941](./problems/2941.md)
 - [3052](./problems/3052.md)
 - [4344](./problems/4344.md)
 - [4673](./problems/4673.md)
+- [5622](./problems/5622.md)
 - [8393](./problems/8393.md)
 - [8958](./problems/8958.md)
 - [9498](./problems/9498.md)
@@ -34,6 +46,7 @@
 - [10172](./problems/10172.md)
 - [10430](./problems/10430.md)
 - [10718](./problems/10718.md)
+- [10809](./problems/10809.md)
 - [10818](./problems/10818.md)
 - [10869](./problems/10869.md)
 - [10871](./problems/10871.md)
@@ -44,6 +57,8 @@
 - [10998](./problems/10998.md)
 - [11021](./problems/11021.md)
 - [11022](./problems/11022.md)
+- [11654](./problems/11654.md)
+- [11720](./problems/11720.md)
 - [14681](./problems/14681.md)
 - [15552](./problems/15552.md)
 - [15596](./problems/15596.md)
