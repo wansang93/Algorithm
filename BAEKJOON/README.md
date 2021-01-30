@@ -1,6 +1,8 @@
 # BACKJOON
 
-- 21-01-25 ~ 🍂 BRONZE2
+- 21-01-25 ~ 21-01-30 🍂 BRONZE
+- 21-01-31 ~ 💍 SILVER
+- 🏅 GOLD
 
 [![wansang93](http://mazassumnida.wtf/api/generate_badge?boj=wansang93)](https://solved.ac/wansang93)
 
@@ -24,6 +26,9 @@
 - [1330](./problems/1330.md)
 - [1546](./problems/1546.md)
 - [1712](./problems/1712.md)
+- [1929](./problems/1929.md)
+- [1978](./problems/1978.md)
+- [2231](./problems/2231.md)
 - [2292](./problems/2292.md)
 - [2438](./problems/2438.md)
 - [2439](./problems/2439.md)
@@ -31,6 +36,7 @@
 - [2557](./problems/2557.md)
 - [2562](./problems/2562.md)
 - [2577](./problems/2577.md)
+- [2581](./problems/2581.md)
 - [2588](./problems/2588.md)
 - [2625](./problems/2625.md)
 - [2739](./problems/2739.md)
@@ -67,6 +73,7 @@
 - [10998](./problems/10998.md)
 - [11021](./problems/11021.md)
 - [11022](./problems/11022.md)
+- [11653](./problems/11653.md)
 - [11654](./problems/11654.md)
 - [11720](./problems/11720.md)
 - [14681](./problems/14681.md)

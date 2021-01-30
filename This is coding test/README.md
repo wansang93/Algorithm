@@ -295,11 +295,11 @@ def is_prime_number(x):
 ```
 
 개선된 알고리즘
-- 시간복잡도: O(x**1/2)
+- 시간복잡도: O(x**(1/2))
 
 ```python
 def is_prime_number(x):
-    for i in range(2, int(x**1/2)+1):
+    for i in range(2, int(x**0.5+1):
         if x % i == 0:
             return False
     return True
@@ -318,7 +318,7 @@ def prime_list(n):
     m = int(n ** 0.5)
     for i in range(2, m + 1):
         if sieve[i] == True:
-            for j in range(i+i, n, i):
+            for j in range(i+i, n+1, i):
                 sieve[j] = False
 
     return [i for i in range(2, n) if sieve[i] == True]
