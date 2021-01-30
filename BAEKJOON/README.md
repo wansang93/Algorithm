@@ -1,6 +1,6 @@
 # BACKJOON
 
-- 21-01-25 ~ 🍂 BRONZE
+- 21-01-25 ~ 🍂 BRONZE2
 
 [![wansang93](http://mazassumnida.wtf/api/generate_badge?boj=wansang93)](https://solved.ac/wansang93)
 
@@ -14,15 +14,20 @@
 - [1000](./problems/1000.md)
 - [1001](./problems/1001.md)
 - [1008](./problems/1008.md)
+- [1011](./problems/1011.md)
 - [1065](./problems/1065.md)
 - [1110](./problems/1110.md)
 - [1152](./problems/1152.md)
 - [1157](./problems/1157.md)
+- [1193](./problems/1193.md)
 - [1316](./problems/1316.md)
 - [1330](./problems/1330.md)
 - [1546](./problems/1546.md)
+- [1712](./problems/1712.md)
+- [2292](./problems/2292.md)
 - [2438](./problems/2438.md)
 - [2439](./problems/2439.md)
+- [2447](./problems/2447.md)
 - [2557](./problems/2557.md)
 - [2562](./problems/2562.md)
 - [2577](./problems/2577.md)
@@ -32,6 +37,9 @@
 - [2741](./problems/2741.md)
 - [2742](./problems/2742.md)
 - [2753](./problems/2753.md)
+- [2775](./problems/2775.md)
+- [2839](./problems/2839.md)
+- [2869](./problems/2869.md)
 - [2884](./problems/2884.md)
 - [2908](./problems/2908.md)
 - [2941](./problems/2941.md)
@@ -44,8 +52,10 @@
 - [9498](./problems/9498.md)
 - [10171](./problems/10171.md)
 - [10172](./problems/10172.md)
+- [10250](./problems/10250.md)
 - [10430](./problems/10430.md)
 - [10718](./problems/10718.md)
+- [10757](./problems/10757.md)
 - [10809](./problems/10809.md)
 - [10818](./problems/10818.md)
 - [10869](./problems/10869.md)
