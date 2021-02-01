@@ -1,18 +1,30 @@
-# BACKJOON
+'''
+Ver0.01(21-02-01)
+이 파일은 내가 푼 문제 모두가 README.md의 리스트에 잘 들어갔는지 체크하는 문서입니다.
+1. 파일 목록을 체크한다.
+3. readme.md 목록을 복사하여 체크한다.
+3. 백준 정답을 복사하여 체크한다.
 
-- 21-01-25 ~ 21-01-30 🍂 BRONZE
-- 21-01-31 ~ 💍 SILVER
-- 🏅 GOLD
+1, 2, 3번의 3가지를 비교하여 없거나 추가한 것을 체크한다.
+비교된 것을 수동으로 바꿔준다.
+'''
+import re
+import os
 
-[![wansang93](http://mazassumnida.wtf/api/generate_badge?boj=wansang93)](https://solved.ac/wansang93)
+# check how many md files in my folder
+targerdir = r"C:/Users/wansang/Desktop/Gitrep/Algorithm/BAEKJOON/problems"
+ 
+file_list = os.listdir(targerdir)
+file_list_py = [file for file in file_list if file.endswith('.md')]
+print('폴더의 파일 갯수:', len(file_list_py) - 1)  # 1 is README.md
 
-- [Solved.ac 내 정보 표시](https://github.com/mazassumnida/mazassumnida)
-- [Solved.ac 난이도 보기](https://github.com/shiftpsh/solvedac-plugin)
+# 백준 문제 번호 넣기
+tt = '''
+1000 1001 1008 1011 1065 1085 1110 1152 1157 1193 1316 1330 1436 1546 1712 1929 1978 2231 2292 2438 2439 2557 2562 2577 2581 2588 2675 2739 2741 2742 2750 2753 2775 2798 2839 2869 2884 2908 2941 3009 3052 3053 4153 4344 4673 4948 5622 8393 8958 9020 9498 10171 10172 10250 10430 10718 10757 10809 10818 10869 10870 10871 10872 10950 10951 10952 10998 11021 11022 11653 11654 11720 14681 15552 15596
+'''
 
-단계별 문제 풀이 순서대로 풀고 있습니다.
-
-## Problems
-
+# md 파일 문제 넣기
+t = '''
 - [1000](./problems/1000.md)
 - [1001](./problems/1001.md)
 - [1008](./problems/1008.md)
@@ -88,3 +100,27 @@
 - [14681](./problems/14681.md)
 - [15552](./problems/15552.md)
 - [15596](./problems/15596.md)
+'''
+
+baekjoon = set(re.findall(r'\d+', tt))
+read_me = set(re.findall(r'\d+', t))
+print('README 파일 갯수:', len(read_me))
+print('백준   파일 갯수:', len(baekjoon))
+print('backjoon, README 대칭차집합', baekjoon ^ read_me)
+print('README   에만 있는 파일:', read_me - baekjoon)
+print('baekjoon 에만 있는 파일:', baekjoon - read_me)
+
+'''
+폴더의 파일 갯수: 75
+README 파일 갯수: 75
+백준   파일 갯수: 75
+backjoon, README 대칭차집합 {'2447', '2750'}
+README   에만 있는 파일: {'2447'}
+baekjoon 에만 있는 파일: {'2750'}
+'''
+
+'''
+참고
+2447: 별찍기
+2750: 정렬
+'''

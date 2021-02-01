@@ -163,15 +163,15 @@ print(prime_factorization(75)) # [(3, 1), (5, 2)]  # 3이 1번, 5가 2번
 non-function(from 0 to n)
 
 ```python
-n = 53
-sieve = [False, False] + [True] * (n-1)
-m = int(n ** 0.5)
-for i in range(2, m + 1):
+num = 53
+sieve = [False, False] + [True] * (num-1)
+ns = int(num ** 0.5)
+for i in range(2, ns + 1):
     if sieve[i]:
-        for j in range(i+i, n+1, i):
+        for j in range(i+i, num+1, i):
             sieve[j] = False
 
-print([i for i in range(n+1) if sieve[i]])
+print([i for i in range(num+1) if sieve[i]])
 # [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53]
 ```
 
