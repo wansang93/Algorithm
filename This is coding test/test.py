@@ -1,53 +1,55 @@
-# ## 1-1. x*y 의 리스트 초기화
-# x, y = 3, 5
-# mylist = [[0] * x for _ in range(y)]
+# 1-1. x*y 의 리스트 초기화
+x, y = 3, 5
+mylist = [[0] * x for _ in range(y)]
+# print(mylist)
 
-# ## 1-2. 정렬
-# mylist = {('a', 50), ('b', 30), ('c', 60)}
-# sorted(mylist, key=lambda x: x[1])
+# 1-2. 정렬
+mylist = {('a', 50), ('b', 30), ('c', 60)}
+sorted(mylist, key=lambda x: x[1])
+# print(mylist)
 
-# ## 1-3. map
-# list1 = [1, 2, 3, 4, 5]
-# list2 = [50, 40, 30, 20, 10]
-# map(lambda a, b: a+b, list1, list2)
+# 1-3. map
+list1 = [1, 2, 3, 4, 5]
+list2 = [50, 40, 30, 20, 10]
+mylist = list(map(lambda a, b: a+b, list1, list2))
+# print(mylist)
 
-# ## 1-4. 라이브러리들
-# import itertools  # 순열과 조합
-# import heapq  # 힙 자료구조
-# import bisect  # 이진 탐색
-# import collections  # 덱, 카운터
-# import math  # 수학
+# 1-4. 라이브러리들
+import itertools  # 순열과 조합
+import heapq  # 힙 자료구조
+import bisect  # 이진 탐색
+import collections  # 덱, 카운터
+import math  # 수학
 
-# # 1. 표준 라이브러리
-# eval('(3+5)*7')  # 56
+# 1. 표준 라이브러리
+eval('(3+5)*7')  # 56
 
-# # 2. 순열, 조합, 중복순열, 중복조합
-# mylist = ['1', '2', 'b', 'a']
+# 2. 순열, 조합, 중복순열, 중복조합
+from itertools import permutations  # 순열
+from itertools import combinations  # 조합
+from itertools import product  # 중복순열
+from itertools import combinations_with_replacement  # 중복조합
 
-# from itertools import permutations  # 순열
-# from itertools import combinations  # 조합
-# from itertools import product  # 중복순열
-# from itertools import combinations_with_replacement  # 중복조합
-
+mylist = ['1', '2', 'b', 'a']
 # print(list(permutations(mylist, 2)))
 # print(list(combinations(mylist, 2)))
 # print(list(product(mylist, repeat=2)))
 # print(list(combinations_with_replacement(mylist, 2)))
 
-# # 3. Count
-# from collections import Counter
-# counter = Counter(['a', 'a', 'b', 'b', 'a', 'c', 'd', 'c'])
+# 3. Count
+from collections import Counter
+counter = Counter(['a', 'a', 'b', 'b', 'a', 'c', 'd', 'c'])
 # print(counter['a'])
 # print(dict(counter))
 
-# import math
+import math
 
-# # 최대 공약수(GCD)
+# 최대 공약수(GCD)
 # print(math.gcd(21, 14))
 
 # # 최고 공배수
-# def lcm(a, b):
-#     return a * b // math.gcd(a, b)
+def lcm(a, b):
+    return a * b // math.gcd(a, b)
 # print(lcm(21, 14))
 
 
@@ -154,50 +156,164 @@ def sort_string(data):
     return result
 
 
+# 3. 팩토리얼 구현
+def factorial_recursive(n):
+    if n <= 1:
+        return 1
+    return n * factorial_recursive(n-1)
+
+
+# 3. 최대 공약수 구현
+def gcd(a, b):
+    if a % b == 0:
+        return b
+    else:
+        return gcd(b, a % b)
+
+
+# 3-1. DFS(Depth-First Search)
+def dfs(graph, v, visited):
+    visited[v] = True
+    # print(v, end=' ')
+    for i in graph[v]:
+        if not visited[i]:
+            dfs(graph, i, visited)
+
+
+# 3-2. BFS
+from collections import deque
+
+def bfs(graph, start, visited):
+    queue = deque([start])
+    visited[start] = True
+
+    while queue:
+        v = queue.popleft()
+        # print(v, end=' ')
+        for i in graph[v]:
+            if not visited[i]:
+                queue.append(i)
+                visited[i] = True
+
+
+
+graph = [
+    [],
+    [2, 3, 8],
+    [1, 7],
+    [1, 4, 5],
+    [3, 5],
+    [3, 4],
+    [7],
+    [2, 6, 8],
+    [1, 7]
+]
+# visited = [False] * 9
+# dfs(graph, 1, visited)
+# print()
+# visited = [False] * 9
+# bfs(graph, 1, visited)
+
+
 # 3-1-1. 음료수 얼려 먹기
-def ice_sort_drink(n, space):
-    count = 0
-    
-
-
-    return count
+def dfs(x, y, n, m):
+    if not (0 <= x < n and 0 <= y < m):
+        return False
+    if graph[y][x] == 0:
+        graph[y][x] = 1
+        dfs(x-1, y, n, m)
+        dfs(x, y-1, n, m)
+        dfs(x+1, y, n, m)
+        dfs(x, y+1, n, m)
+        return True
+    return False
 
 
 # 3-1-2. 미로 탈출
+from collections import deque
 
+def bfs(x, y, n, m, graph):
 
-# 4-1. 선택정렬
+    dx = [-1, 1, 0, 0]
+    dy = [0, 0, -1, 1]
+    queue = deque()
+    queue.append((x, y))
+    
+    while queue:
+        x, y = queue.popleft()
+        for i in range(4):
+            nx = x + dx[i]
+            ny = y + dy[i]
+            if not (0 <= nx < n and 0 <= ny < m):
+                continue
+            
+            if graph[nx][ny] == 1:
+                graph[nx][ny] = graph[x][y] + 1
+                queue.append((nx, ny))
+    
+    return graph[n-1][m-1]
+        
+    
+
+# 4-1. 선택 정렬
 import copy
 
 
-def selection_sort(array_unsorted):
-    array = copy.deepcopy(array_unsorted)
+def selection_sort(lst_unsorted):
+    lst = copy.deepcopy(lst_unsorted)
 
-    n = len(array)
+    n = len(lst)
     for i in range(n-1):
         min_index = i
         for j in range(1+i, n):
-            if array[j] < array[min_index]:
+            if lst[j] < lst[min_index]:
                 min_index = j
-        array[i], array[min_index] = array[min_index], array[i]
-    return array
+        lst[i], lst[min_index] = lst[min_index], lst[i]
+    return lst
 
 
-# 4-2. 삽입 정렬 소스코드(Python)
+# 4-2. 삽입 정렬
 import copy
 
 
-def insert_sort(array_unsorted):
-    array = copy.deepcopy(array_unsorted)
+def insert_sort(lst_unsorted):
+    lst = copy.deepcopy(lst_unsorted)
 
-    n = len(array)
+    n = len(lst)
     for i in range(n):
         for j in range(i, 0, -1):
-            if array[j] < array[j-1]:
-                array[j], array[j-1] = array[j-1], array[j]
+            if lst[j] < lst[j-1]:
+                lst[j], lst[j-1] = lst[j-1], lst[j]
             else:
                 break
-    return array
+    return lst
+
+# 4-3. 퀵 정렬
+
+def partition(lst, start, end):
+    pivot = lst[start]
+    left = start + 1
+    right = end
+    done = False
+    while not done:
+        while left <= right and lst[left] <= pivot:
+            left += 1
+        while left <= right and pivot <= lst[right]:
+            right -= 1
+        if right < left:
+            done = True
+        else:
+            lst[left], lst[right] = lst[right], lst[left]
+    lst[start], lst[right] = lst[right], lst[start]
+    return right
+
+
+def quick_sort(lst, start, end):
+    if start < end:
+        pivot = partition(lst, start, end)
+        quick_sort(lst, start, pivot - 1)
+        quick_sort(lst, pivot + 1, end)
+    return lst
 
 
 # array = [7, 5, 9, 0, 3, 1, 6, 2, 4, 8]

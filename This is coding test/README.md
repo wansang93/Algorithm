@@ -4,8 +4,9 @@
 
 - 2020-10-27(1, 2장)
 - 2020-11-24(2, 3장)
-- 2020-01-04(4, 10장)
-- 2020-01-24(9장)
+- 2021-02-04(3, 4장)
+- 2021-01-24(9장)
+- 2021-01-04(4, 10장)
 
 교제 사이트 링크 -> [https://github.com/ndb796/python-for-coding-test](https://github.com/ndb796/python-for-coding-test)
 
@@ -229,7 +230,10 @@ def sort_string(data):
   
   # 큐(deque 활용)
   from collections import deque
-  queue = deque()
+  queue = deque()  # queue 생성
+  queue.append('a')  # a 추가
+  queue.popleft()  # 제거
+  queue.reverse()  # 역순
   ```
 
 - 재귀 함수(Recursive Function)
@@ -237,12 +241,101 @@ def sort_string(data):
   - 모든 재귀 함수는 반복문으로 작성 가능
   - 컴퓨터가 함수를 연속적으로 호출하면 컴퓨터 내부에 스택 프레임이 쌓임
     - 스택을 사용할 때, 스택 라이브러리 대신 재귀 함수를 사용하는 경우가 많음
+  
+  팩토리얼 구현
+  ```python
+  def factorial_recursive(n):
+      if n <= 1:
+          return 1
+      return n * factorial_recursive(n-1)
+  ```
+
+  유클리드 호제법 구현
+  ```python
+  def gcd(a, b):
+      if a % b == 0:
+          return b
+      else:
+          return gcd(b, a % b)
+  ```
 
 ## 3-1. DFS(Depth First Search)
 
+- 깊이 우선 탐색, 깊은 부분을 우선적으로 탐색
+- 스택 자료구조(혹은 재귀 함수)를 이용
+
+```python
+def dfs(graph, start, visited):
+    visited[start] = True
+    # print(start, end=' ')
+    for i in graph[start]:
+        if not visited[i]:
+            dfs(graph, i, visited)
+```
+
 ## 3-2. BFS(Breath First Search)
 
+- 넓이 우선 탐색, 가까운 노드들을 우선적으로 탐색
+- 큐 자료구조를 이용
 
+```python
+from collections import deque
+
+def bfs(graph, start, visited):
+    queue = deque([start])
+    visited[start] = True
+
+    while queue:
+        v = queue.popleft()
+        # print(v, end=' ')
+        for i in graph[v]:
+            if not visited[i]:
+                queue.append(i)
+                visited[i] = True
+```
+
+### 3-3-1. 음료수 얼려 먹기
+
+```python
+def dfs(x, y, n, m):
+    if not (0 <= x < n and 0 <= y < m):
+        return False
+    if graph[y][x] == 0:
+        graph[y][x] = 1
+        dfs(x-1, y, n, m)
+        dfs(x, y-1, n, m)
+        dfs(x+1, y, n, m)
+        dfs(x, y+1, n, m)
+        return True
+    return False
+```
+
+### 3-3-2. 미로 탈출
+
+```python
+from collections import deque
+
+def bfs(x, y, n, m, graph):
+
+    dx = [-1, 1, 0, 0]
+    dy = [0, 0, -1, 1]
+    queue = deque()
+    queue.append((x, y))
+    
+    while queue:
+        x, y = queue.popleft()
+        for i in range(4):
+            nx = x + dx[i]
+            ny = y + dy[i]
+            if not (0 <= nx < n and 0 <= ny < m):
+                continue
+            
+            if graph[nx][ny] == 1:
+                graph[nx][ny] = graph[x][y] + 1
+                queue.append((nx, ny))
+    
+    return graph[n-1][m-1]
+```
 
 # 4. 정렬 알고리즘
 
@@ -250,25 +343,48 @@ Sorting: Arrange systematically in groups; separate according to type
 
 ## 4-1. 선택 정렬
 
-연산 횟수: N-1, N-2, ... , 3, 2
+```python
+import copy
+
+def selection_sort(lst_unsorted):
+    lst = copy.deepcopy(lst_unsorted)
+
+    n = len(lst)
+    for i in range(n-1):
+        min_index = i
+        for j in range(1+i, n):
+            if lst[j] < lst[min_index]:
+                min_index = j
+        lst[i], lst[min_index] = lst[min_index], lst[i]
+    return lst
+```
+
+## 4-2. 삽입 정렬
 
 ```python
 import copy
 
-def selection_sort(array_unsorted):
-    array = copy.deepcopy(array_unsorted)
+def insert_sort(lst_unsorted):
+    lst = copy.deepcopy(lst_unsorted)
 
-    n = len(array)
-    for i in range(n-1):
-        min_index = i
-        for j in range(1+i, n):
-            if array[j] < array[min_index]:
-                min_index = j
-        array[i], array[min_index] = array[min_index], array[i]
-    return array
+    n = len(lst)
+    for i in range(1, n):
+        for j in range(i, 0, -1):
+            if lst[j] < lst[j-1]:
+                lst[j], lst[j-1] = lst[j-1], lst[j]
+            else:
+                break
+    return lst
 ```
 
-## 4-2. 삽입 정렬
+## 4-3. 퀵 정렬
+
+```python
+
+```
+
+## 4-4. 계수 정렬
+
 
 # 6. DP
 

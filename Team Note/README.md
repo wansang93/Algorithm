@@ -4,6 +4,7 @@
 - When you need an implementation of a specific algorithm, please let me know.
 - 알고리즘 대회를 위한 **파이썬 (Python) 소스코드 저장소**입니다.
 - **동빈나** 님의 사이트를 참고해서 만들었습니다. -> [동빈나님 Team Notes](https://github.com/ndb796/Python-Competitive-Programming-Team-Notes/blob/master/README.md)
+- 이 문서는 누구나 자유롭게 수정, 복제가 가능합니다.
 
 # Contents
 
@@ -209,25 +210,52 @@ print(prime_list(53))
 # [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47]
 ```
 
-### Sorting
+# Sorting
 
-- [Selection Sort]
-- [Insertion Sort]
-- [Quick Sort]
-- [Counting Sort]
-- [Python Sort Library]
+## 버블 정렬(Bobble Sort)
+## 선택 정렬(Selection Sort)
+## 삽입 정렬(Insertion Sort)
+## 병합 정렬(Merge Sort)
+## 힙 정렬(Heap Sort)
+## 퀵 정렬(Quick Sort)
+## 계수 정렬(Counting Sort)
+## 파이썬 정렬 라이브러리(Python Sort Library)
 
-### Searching
+```python
+n = 5
+
+''' Python Sort Library (Basic) '''
+data = [8, 5, 4, 7, 2]
+data.sort()
+
+for x in data:
+    print(x, end=' ')
+
+''' Python Sort Library (Based on a key) '''
+data = [(25, 'Na'), (20, 'Kim'), (23, 'Seo'), (28, 'Park'), (20, 'Ahn')]
+data.sort(key=lambda x: x[0]) # Stable Sort (When using a key)
+
+for x in data:
+    print(x, end=' ')
+
+''' Python Sort Library '''
+data = [(25, 'Na'), (20, 'Kim'), (23, 'Seo'), (28, 'Park'), (20, 'Ahn')]
+data.sort() # Non-stable Sort (When not using a key)
+
+for x in data:
+    print(x, end=' ')
+```
+
+# Searching
 
 - [Binary Search]
 - [Python Binary Search Library]
     - [Count the number of frequencies of elements whose value is between \[left, right\] in a sorted array]
-- DFS
-- BFS
-    - [Find the number of connected components]
-- [DFS & BFS Examples 1]
+## DFS
+## BFS
+## [DFS & BFS Examples 1]
 
-### Graph
+# Graph
 
 - [Dijkstra Shortest Path]
 - [Minimum Spanning Tree (MST)]
@@ -235,20 +263,20 @@ print(prime_list(53))
 - Floyd–Warshall algorithm
 - Bipartite Matching
 
-### Data Structure
+# Data Structure
 
 - [Disjoint-Set (Union-Find)]
 - Tree
 - Line
 - Plane
 
-### String
+# String
 
 - Rabin-Karp
 - KMP
 - Trie
 
-### Dynamic Programming
+# Dynamic Programming
 
 - Tiling Problem
 - 0-1 Knapsack Problem
@@ -256,23 +284,23 @@ print(prime_list(53))
 - LCS (Longest Common Subsequence)
 - Matrix Chain Multiplication
 
-### Geometry
+# Geometry
 
 - [Number of intersection points of two lines in 1 dimension]
 - CCW
 - Convex Hull
 - Polygon
 
-### Probability Theory
+# Probability Theory
 
 - Permutation
 - Combination
 
-### Signal Processing
+# Signal Processing
 
 - FFT
 
-### Miscellaneous
+# Miscellaneous
 
 - Two Pointers
     - [Number of intervals whose sum is M]
