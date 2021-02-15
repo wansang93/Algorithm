@@ -210,7 +210,7 @@ print(prime_list(53))
 # [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47]
 ```
 
-# Sorting
+# 탐색(Sorting)
 
 ## 버블 정렬(Bobble Sort)
 ## 선택 정렬(Selection Sort)
@@ -248,9 +248,9 @@ for x in data:
 
 # Searching
 
-- [Binary Search]
-- [Python Binary Search Library]
-    - [Count the number of frequencies of elements whose value is between \[left, right\] in a sorted array]
+## 이진 탐색(Binary Search)
+## 파이썬 탐색 라이브러리(Python Binary Search Library)
+### [Count the number of frequencies of elements whose value is between \[left, right\] in a sorted array]
 ## DFS
 ## BFS
 ## [DFS & BFS Examples 1]
@@ -293,8 +293,22 @@ for x in data:
 
 # Probability Theory
 
-- Permutation
-- Combination
+```python
+mylist = ['1', '2', 'b', 'a']
+
+from itertools import permutations  # 순열
+from itertools import combinations  # 조합
+from itertools import product  # 중복순열
+from itertools import combinations_with_replacement  # 중복조합
+
+print(list(permutations(mylist, 2)))
+print(list(combinations(mylist, 2)))
+print(list(product(mylist, repeat=2)))
+print(list(combinations_with_replacement(mylist, 2)))
+```
+
+## 순열(Permutation)
+## 조합(Combination)
 
 # Signal Processing
 
