@@ -45,6 +45,7 @@
 - [2739](./problems/2739.md)
 - [2741](./problems/2741.md)
 - [2742](./problems/2742.md)
+- [2750](./problems/2750.md)
 - [2753](./problems/2753.md)
 - [2775](./problems/2775.md)
 - [2798](./problems/2798.md)

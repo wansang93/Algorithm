@@ -9,9 +9,11 @@ Ver0.01(21-02-01)
 비교된 것을 수동으로 바꿔준다.
 
 # 추후 업데이트 하기
+파일 목록을 자동으로 체크하기
 백준 문제 크롤링해서 자동으로 따오기
 README.md파일 자동으로 따오기
 '''
+
 import re
 import os
 
@@ -60,6 +62,7 @@ t = '''
 - [2739](./problems/2739.md)
 - [2741](./problems/2741.md)
 - [2742](./problems/2742.md)
+- [2750](./problems/2750.md)
 - [2753](./problems/2753.md)
 - [2775](./problems/2775.md)
 - [2798](./problems/2798.md)
@@ -119,16 +122,15 @@ print('README   에만 있는 파일:', read_me - baekjoon)
 print('baekjoon 에만 있는 파일:', baekjoon - read_me)
 
 '''
-폴더의 파일 갯수: 75
-README 파일 갯수: 75
-백준   파일 갯수: 75
-backjoon, README 대칭차집합 {'2447', '2750'}
-README   에만 있는 파일: {'2447'}
-baekjoon 에만 있는 파일: {'2750'}
+폴더의 파일 갯수: 81
+README 파일 갯수: 81
+백준   파일 갯수: 80
+backjoon, README 대칭차집합 {'2447'}
+README   에만 있는 파일: {'2447'}   
+baekjoon 에만 있는 파일: set()
 '''
 
 '''
 참고
 2447: 별찍기
-2750: 정렬
 '''
