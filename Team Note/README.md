@@ -8,64 +8,11 @@
 
 # Contents
 
-# 잡기술(Technical skills)
-
-## 단어 중복 체크, 연속된 단어는 허용
-
-백준 1316번 그룹 단어 체커
-
-```python
-cnt += list(word) == sorted(word, key=word.find)
-```
-
-내 코드
-
-```python
-temp = []
-now_chr = ' '
-for c in s:
-    if now_chr != c:
-        if c in temp:
-            break
-        temp.append(c)
-        now_chr = c
-else:
-    cnt += 1
-```
-
-## 특정 문자를 지정 문자로 바꿔서 처리하면 편함
-
-백준 2941번 크로아티아 알파벳
-
-```python
-croatian = ['c=', 'c-', 'dz=', 'd-', 'lj', 'nj', 's=', 'z=']
-for cr in croatian:
-    s = s.replace(cr, '!')
-```
-
-## 알파벳 찾기, find와 index의 차이 익히기
-
-백준 10809번 알파벳 찾기
-
-```python
-# A~Z까지 다 찾기
-lst = list(range(ord('a'), ord('z')+1))
-for i in lst:
-    print(S.find(chr(i)), end=' ')
-```
-
-```python
-# 단어를 찾아 index 바꾸기
-lst = [-1] * 26
-for i, v in enumerate(S):
-    if lst[ord(v) - ord('a')] == -1:
-        lst[ord(v) - ord('a')] = i
-
-for i in lst:
-    print(i, end=' ')
-```
+[수론](#수론number-theory), [정렬](#정렬sorting), [탐색](#탐색searching), [그래프](#그래프graph), [자료구조](#자료구조data-structure), [기하](#기하geometry), [확률이론](#확률이론probability-theory), [동적 프로그래밍(DP)](#동적-프로그래밍dynamic-programming),
 
 # 수론(Number Theory)
+
+목차: 최대 공약수, 최소 공배수, 모든 약수 찾기, 소수, 가장 큰 소인수, 소인수분해, 에라토스테네스의 체
 
 ## 최대 공약수(GCD(Greatest Common Divisor))
 ## 최소 공배수(LCM(Least Common Multiple))
@@ -210,7 +157,7 @@ print(prime_list(53))
 # [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47]
 ```
 
-# 탐색(Sorting)
+# 정렬(Sorting)
 
 ## 버블 정렬(Bobble Sort)
 ## 선택 정렬(Selection Sort)
@@ -246,7 +193,7 @@ for x in data:
     print(x, end=' ')
 ```
 
-# Searching
+# 탐색(Searching)
 
 ## 이진 탐색(Binary Search)
 ## 파이썬 탐색 라이브러리(Python Binary Search Library)
@@ -255,7 +202,7 @@ for x in data:
 ## BFS
 ## [DFS & BFS Examples 1]
 
-# Graph
+# 그래프(Graph)
 
 - [Dijkstra Shortest Path]
 - [Minimum Spanning Tree (MST)]
@@ -263,7 +210,7 @@ for x in data:
 - Floyd–Warshall algorithm
 - Bipartite Matching
 
-# Data Structure
+# 자료구조(Data Structure)
 
 - [Disjoint-Set (Union-Find)]
 - Tree
@@ -276,7 +223,7 @@ for x in data:
 - KMP
 - Trie
 
-# Dynamic Programming
+# 동적 프로그래밍(Dynamic Programming)
 
 - Tiling Problem
 - 0-1 Knapsack Problem
@@ -284,14 +231,16 @@ for x in data:
 - LCS (Longest Common Subsequence)
 - Matrix Chain Multiplication
 
-# Geometry
+# 기하(Geometry)
 
 - [Number of intersection points of two lines in 1 dimension]
 - CCW
 - Convex Hull
 - Polygon
 
-# Probability Theory
+# 확률이론(Probability Theory)
+
+순열, 조합, 중복순열, 중복조합 라이브러리들
 
 ```python
 mylist = ['1', '2', 'b', 'a']
@@ -316,10 +265,68 @@ print(list(combinations_with_replacement(mylist, 2)))
 
 # Miscellaneous
 
-- Two Pointers
+## Two Pointers
     - [Number of intervals whose sum is M]
-- Interval Sum
+## Interval Sum
     - [Prefix Sum]
     - [Fenwick Tree (Binary Indexed Tree)]
-- [Matrix Rotation]
-- Handling Recursion Limit
+## [Matrix Rotation]
+## Handling Recursion Limit
+
+
+# 잡기술(Technical skills)
+
+## 단어 중복 체크, 연속된 단어는 허용
+
+백준 1316번 그룹 단어 체커
+
+```python
+cnt += list(word) == sorted(word, key=word.find)
+```
+
+내 코드
+
+```python
+temp = []
+now_chr = ' '
+for c in s:
+    if now_chr != c:
+        if c in temp:
+            break
+        temp.append(c)
+        now_chr = c
+else:
+    cnt += 1
+```
+
+## 특정 문자를 지정 문자로 바꿔서 처리하면 편함
+
+백준 2941번 크로아티아 알파벳
+
+```python
+croatian = ['c=', 'c-', 'dz=', 'd-', 'lj', 'nj', 's=', 'z=']
+for cr in croatian:
+    s = s.replace(cr, '!')
+```
+
+## 알파벳 찾기, find와 index의 차이 익히기
+
+백준 10809번 알파벳 찾기
+
+```python
+# A~Z까지 다 찾기
+lst = list(range(ord('a'), ord('z')+1))
+for i in lst:
+    print(S.find(chr(i)), end=' ')
+```
+
+```python
+# 단어를 찾아 index 바꾸기
+lst = [-1] * 26
+for i, v in enumerate(S):
+    if lst[ord(v) - ord('a')] == -1:
+        lst[ord(v) - ord('a')] = i
+
+for i in lst:
+    print(i, end=' ')
+```
