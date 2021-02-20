@@ -8,14 +8,24 @@
 
 # Contents
 
-[수론](#수론number-theory), [정렬](#정렬sorting), [탐색](#탐색searching), [그래프](#그래프graph), [자료구조](#자료구조data-structure), [기하](#기하geometry), [확률이론](#확률이론probability-theory), [동적 프로그래밍(DP)](#동적-프로그래밍dynamic-programming),
+[수론](#수론number-theory), [정렬](#정렬sorting), [탐색](#탐색searching), [그래프](#그래프graph), [자료구조](#자료구조data-structure), [문자열](#문자열string), [동적 프로그래밍(DP)](#동적-프로그래밍dynamic-programming), [기하](#기하geometry), [통계](), [확률이론](#확률이론probability-theory), [신호 처리](#신호-처리signal-processing), [잡기술](#잡기술miscellaneous)
 
 # 수론(Number Theory)
 
 목차: 최대 공약수, 최소 공배수, 모든 약수 찾기, 소수, 가장 큰 소인수, 소인수분해, 에라토스테네스의 체
 
 ## 최대 공약수(GCD(Greatest Common Divisor))
+
+```python
+
+```
+
 ## 최소 공배수(LCM(Least Common Multiple))
+
+```python
+
+```
+
 ## 모든 약수 찾기(Find All Divisors)
 
 ```python
@@ -46,6 +56,10 @@ print(is_prime_number(7))  # True
 ```
 
 ## 가장 큰 소인수(Largest Prime Factor)
+
+```python
+
+```
 
 ## 소인수분해(Prime Factorization)
 
@@ -159,13 +173,50 @@ print(prime_list(53))
 
 # 정렬(Sorting)
 
+목차: 버블, 선택, 삽입, 퀵, 병합, 힙, 계수, 정렬 라이브러리
+
 ## 버블 정렬(Bobble Sort)
+
+```python
+
+```
+
 ## 선택 정렬(Selection Sort)
+
+```python
+
+```
+
 ## 삽입 정렬(Insertion Sort)
-## 병합 정렬(Merge Sort)
-## 힙 정렬(Heap Sort)
+
+```python
+
+```
+
 ## 퀵 정렬(Quick Sort)
+
+```python
+
+```
+
+## 병합 정렬(Merge Sort)
+
+```python
+
+```
+
+## 힙 정렬(Heap Sort)
+
+```python
+
+```
+
 ## 계수 정렬(Counting Sort)
+
+```python
+
+```
+
 ## 파이썬 정렬 라이브러리(Python Sort Library)
 
 ```python
@@ -195,52 +246,210 @@ for x in data:
 
 # 탐색(Searching)
 
+목차: 이진 탐색, 탐색 라이브러리, DFS, BFS
+
 ## 이진 탐색(Binary Search)
+
+```python
+
+```
+
 ## 파이썬 탐색 라이브러리(Python Binary Search Library)
-### [Count the number of frequencies of elements whose value is between \[left, right\] in a sorted array]
+
+### Count the number of frequencies of elements whose value is between \[left, right\] in a sorted array
+
+```python
+
+```
+
 ## DFS
+
+```python
+
+```
+
 ## BFS
-## [DFS & BFS Examples 1]
+
+```python
+
+```
+
+## DFS & BFS Examples 1
+
+```python
+
+```
 
 # 그래프(Graph)
 
-- [Dijkstra Shortest Path]
-- [Minimum Spanning Tree (MST)]
-- [Topology Sort]
-- Floyd–Warshall algorithm
-- Bipartite Matching
+목차: 다익스트라, 최소 신장 트리, 위상 정렬, 플로이드 와샬 알고리즘, 이분 매칭
+
+## 다익스트라(Dijkstra Shortest Path)
+
+```python
+
+```
+
+## 최소 신장 트리(Minimum Spanning Tree (MST))
+
+```python
+
+```
+
+## 위상 정렬(Topology Sort)
+
+```python
+
+```
+
+## 플로이드 와샬 알고리즘(Floyd–Warshall algorithm)
+
+```python
+
+```
+
+## 이분 매칭(Bipartite Matching)
+
+```python
+
+```
 
 # 자료구조(Data Structure)
 
-- [Disjoint-Set (Union-Find)]
-- Tree
-- Line
-- Plane
+## 서로소 집합(Disjoint-Set (Union-Find))
 
-# String
+```python
 
-- Rabin-Karp
-- KMP
-- Trie
+```
+
+## 트리(Tree)
+
+```python
+
+```
+
+## Line
+## Plane
+
+# 문자열(String)
+
+목차:
+
+## Rabin-Karp
+
+```python
+
+```
+
+## KMP
+
+```python
+
+```
+
+## Trie
+
+```python
+
+```
 
 # 동적 프로그래밍(Dynamic Programming)
 
-- Tiling Problem
-- 0-1 Knapsack Problem
-- LIS (Longest Increasing Subsequence)
-- LCS (Longest Common Subsequence)
-- Matrix Chain Multiplication
+## Tiling Problem
+
+```python
+
+```
+
+## 0-1 Knapsack Problem
+
+```python
+
+```
+
+## LIS(Longest Increasing Subsequence)
+
+```python
+
+```
+
+## LCS(Longest Common Subsequence)
+
+```python
+
+```
+
+## Matrix Chain Multiplication
+
+```python
+
+```
 
 # 기하(Geometry)
 
-- [Number of intersection points of two lines in 1 dimension]
-- CCW
-- Convex Hull
-- Polygon
+## Number of intersection points of two lines in 1 dimension
+
+```python
+
+```
+
+## CCW
+
+```python
+
+```
+
+## Convex Hull
+
+```python
+
+```
+
+## Polygon
+
+```python
+
+```
+
+# 통계(Statistics)
+
+목차: 최빈값
+
+## 최빈값
+
+Collection Counter 모듈 없는 버전
+
+```python
+def get_counts(sequence):
+    counts = {}
+    for x in sequence:
+        if x in counts:
+            counts[x] += 1
+        else:
+            counts[x] = 1
+    return counts
+
+def get_mode(dic):
+    most = max(dic.values())
+    most_keys = [k for k, v in dic.items() if v == most]
+    # 추가할 사항 넣기
+    return most_keys
+
+lst = [1, 1, 2, 3, 4, 5, 5]
+print(get_mode(get_counts(lst)))  # [1, 5]
+```
+
+```python
+from collections import Counter
+
+lst = [1, 1, 2, 3, 4, 5, 5]
+mode_dict = Counter(lst).most_common()
+print(mode_dict)  # [(1, 2), (5, 2), (2, 1), (3, 1), (4, 1)]
+```
 
 # 확률이론(Probability Theory)
 
-순열, 조합, 중복순열, 중복조합 라이브러리들
+## 순열, 조합, 중복순열, 중복조합 라이브러리들
 
 ```python
 mylist = ['1', '2', 'b', 'a']
@@ -257,34 +466,73 @@ print(list(combinations_with_replacement(mylist, 2)))
 ```
 
 ## 순열(Permutation)
+
+```python
+
+```
+
 ## 조합(Combination)
 
-# Signal Processing
+```python
 
-- FFT
+```
 
-# Miscellaneous
+# 신호 처리(Signal Processing)
 
-## Two Pointers
-    - [Number of intervals whose sum is M]
-## Interval Sum
-    - [Prefix Sum]
-    - [Fenwick Tree (Binary Indexed Tree)]
-## [Matrix Rotation]
-## Handling Recursion Limit
+## 고속 푸리에 변환(FFT(Fast Fourier Transform))
+
+```python
+
+```
+
+# 잡기술(Miscellaneous)
+
+## 투 포인터(Two Pointers)
+### Number of intervals whose sum is M
+
+```python
+
+```
+
+## 구간 합(Interval Sum)
+### Prefix Sum
+
+```python
+
+```
+
+### Fenwick Tree(Binary Indexed Tree)
 
 
-# 잡기술(Technical skills)
+```python
 
-## 단어 중복 체크, 연속된 단어는 허용
+```
+## 회전 행렬(Rotation Matrix)
+
+
+```python
+
+```
+
+## 재귀 제한하기(Handling Recursion Limit)
+
+```python
+
+```
+
+## 실전에서 느낀 것(What I felt in practice)
+
+### 단어 중복 체크, 연속된 단어는 허용
 
 백준 1316번 그룹 단어 체커
+
+짧은 코드
 
 ```python
 cnt += list(word) == sorted(word, key=word.find)
 ```
 
-내 코드
+긴 코드
 
 ```python
 temp = []
@@ -299,7 +547,7 @@ else:
     cnt += 1
 ```
 
-## 특정 문자를 지정 문자로 바꿔서 처리하면 편함
+### 특정 문자를 지정 문자로 바꿔서 처리하면 편함
 
 백준 2941번 크로아티아 알파벳
 
@@ -309,7 +557,7 @@ for cr in croatian:
     s = s.replace(cr, '!')
 ```
 
-## 알파벳 찾기, find와 index의 차이 익히기
+### 알파벳 찾기, find와 index의 차이 익히기
 
 백준 10809번 알파벳 찾기
 
