@@ -26,6 +26,7 @@
 - [1193](./problems/1193.md)
 - [1316](./problems/1316.md)
 - [1330](./problems/1330.md)
+- [1427](./problems/1427.md)
 - [1436](./problems/1436.md)
 - [1546](./problems/1546.md)
 - [1712](./problems/1712.md)

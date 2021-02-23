@@ -522,6 +522,24 @@ print(list(combinations_with_replacement(mylist, 2)))
 
 ## 실전에서 느낀 것(What I felt in practice)
 
+### 정렬 2번째 요소도 고려
+
+백준 11650번 좌표 정렬하기
+
+```python
+lst.sort(key=lambda x: (x[0], x[1]))
+```
+
+### 정렬 문자로 된 숫자
+
+백준 1427번 소트 인사이드
+
+[sorted docs](https://docs.python.org/3/howto/sorting.html)
+
+```python
+sorted(N)[::-1]  # sorted는 아스키 기준으로 정렬하는거 같음
+```
+
 ### 단어 중복 체크, 연속된 단어는 허용
 
 백준 1316번 그룹 단어 체커
