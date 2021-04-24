@@ -178,19 +178,72 @@ print(prime_list(53))
 ## 버블 정렬(Bobble Sort)
 
 ```python
+# Bubble Sort
+N = int(input())
+lst = [0] * N
 
+for i in range(N):
+    lst[i] = int(input())
+
+for i in range(N-1):
+    for j in range(N-1-i):
+        if lst[j] > lst[j+1]:
+            lst[j], lst[j+1] = lst[j+1], lst[j]
+
+for i in range(N):
+    print(lst[i])
 ```
 
 ## 선택 정렬(Selection Sort)
 
 ```python
+# Selection Sort
+N = int(input())
+lst = [0] * N
 
+for i in range(N):
+    lst[i] = int(input())
+
+for i in range(N-1):
+    min_idx = i
+    for j in range(i+1, N):
+        if lst[j] < lst[min_idx]:
+            min_idx = j
+    if min_idx != i:
+        lst[min_idx], lst[i] = lst[i], lst[min_idx]
+
+for i in range(N):
+    print(lst[i])
 ```
 
 ## 삽입 정렬(Insertion Sort)
 
 ```python
+# Insertion Sort
+N = int(input())
+lst = [0] * N
 
+for i in range(N):
+    lst[i] = int(input())
+
+for i in range(1, N):
+    # # 1. For loop
+    for j in range(i, 0, -1):
+        if lst[j] < lst[j-1]:
+            lst[j], lst[j-1] = lst[j-1], lst[j]
+        else:
+            break
+
+    # # 2. While loop
+    # key = lst[i]
+    # j = i-1
+    # while j >=0 and key < lst[j]:
+    #         lst[j+1] = lst[j]
+    #         j -= 1
+    # lst[j+1] = key
+
+for i in range(N):
+    print(lst[i])
 ```
 
 ## 퀵 정렬(Quick Sort)
@@ -228,6 +281,7 @@ data.sort()
 
 for x in data:
     print(x, end=' ')
+# 2 4 5 7 8
 
 ''' Python Sort Library (Based on a key) '''
 data = [(25, 'Na'), (20, 'Kim'), (23, 'Seo'), (28, 'Park'), (20, 'Ahn')]
@@ -235,6 +289,7 @@ data.sort(key=lambda x: x[0]) # Stable Sort (When using a key)
 
 for x in data:
     print(x, end=' ')
+# (20, 'Kim') (20, 'Ahn') (23, 'Seo') (25, 'Na') (28, 'Park')
 
 ''' Python Sort Library '''
 data = [(25, 'Na'), (20, 'Kim'), (23, 'Seo'), (28, 'Park'), (20, 'Ahn')]
@@ -242,6 +297,7 @@ data.sort() # Non-stable Sort (When not using a key)
 
 for x in data:
     print(x, end=' ')
+# (20, 'Ahn') (20, 'Kim') (23, 'Seo') (25, 'Na') (28, 'Park')
 ```
 
 # 탐색(Searching)
@@ -265,19 +321,68 @@ for x in data:
 ## DFS
 
 ```python
-
+''' Depth First Search (DFS) '''
+def dfs(x):
+    # print(x, end=' ')
+    visited[x] = True
+    for y in graph[x]:
+        if not(visited[y]):
+            dfs(y)
 ```
 
 ## BFS
 
 ```python
+from collections import deque
 
+''' Breadth First Search (BFS) '''
+def bfs(x):
+    q = deque([x])
+    visited[x] = True
+    while q:
+        x = q.popleft()
+        # print(x, end=' ')
+        for y in graph[x]:
+            if not visited[y]:
+                q.append(y)
+                visited[y] = True
 ```
 
 ## DFS & BFS Examples 1
 
 ```python
+n, m, start = map(int, input().split())
+graph = [[] for _ in range(n + 1)]
+for _ in range(m):
+    x, y = map(int, input().split())
+    graph[x].append(y)
+    graph[y].append(x)
 
+for e in graph:
+    e.sort()
+
+visited = [False] * (n + 1)
+dfs(start)
+print()
+visited = [False] * (n + 1)
+bfs(start)
+
+'''
+[Input Example 1]
+4 5 1
+1 2
+1 3
+1 4
+2 4
+3 4
+[Output Example 1]
+1 2 4 3 
+1 2 3 4
+
+graph = [[], [2, 3, 4], [1, 4], [1, 4], [1, 2, 3]]
+dfs 경로 -> 1 2 4 3
+bfs 경로 -> 1 2 3 4
+'''
 ```
 
 # 그래프(Graph)

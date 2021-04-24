@@ -129,15 +129,10 @@ print('README   에만 있는 파일:', read_me - baekjoon)
 print('baekjoon 에만 있는 파일:', baekjoon - read_me)
 
 '''
-폴더의 파일 갯수: 81
-README 파일 갯수: 81
-백준   파일 갯수: 80
-backjoon, README 대칭차집합 {'2447'}
-README   에만 있는 파일: {'2447'}   
+폴더의 파일 갯수: 87
+README 파일 갯수: 87
+백준   파일 갯수: 87
+backjoon, README 대칭차집합 set()
+README   에만 있는 파일: set()
 baekjoon 에만 있는 파일: set()
-'''
-
-'''
-참고
-2447: 별찍기
 '''
