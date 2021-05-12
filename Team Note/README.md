@@ -593,6 +593,7 @@ print(list(combinations_with_replacement(mylist, 2)))
 # 잡기술(Miscellaneous)
 
 ## 투 포인터(Two Pointers)
+
 ### Number of intervals whose sum is M
 
 ```python
@@ -600,6 +601,7 @@ print(list(combinations_with_replacement(mylist, 2)))
 ```
 
 ## 구간 합(Interval Sum)
+
 ### Prefix Sum
 
 ```python
@@ -623,6 +625,18 @@ print(list(combinations_with_replacement(mylist, 2)))
 
 ```python
 
+```
+
+## 행렬 뒤집기
+
+```python
+mylist = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+new_list = list(map(list, zip(*mylist)))
+
+'''
+print(new_list)
+# [[1, 4, 7], [2, 5, 8], [3, 6, 9]]
+'''
 ```
 
 ## 실전에서 느낀 것(What I felt in practice)

@@ -1,4 +1,4 @@
-katok = ['']
+katok = []
 
 def add_data(friend):
     # 리스트 끝에 빈칸 추가하기
