@@ -16,14 +16,31 @@
 
 ## 최대 공약수(GCD(Greatest Common Divisor))
 
-```python
+gcd 모듈 없는 버전
 
+```python
+def gcd(x, y):
+    while y:
+        x, y = y, x % y
+    return x
+
+print(gcd(1071, 1029))  # 21
+```
+
+```python
+from math import gcd
+print(gcd(1071, 1029))
 ```
 
 ## 최소 공배수(LCM(Least Common Multiple))
 
 ```python
+from math import gcd
 
+def lcm(x, y):
+    return x * y // gcd(x, y)
+
+print(lcm(1071, 1029))  # 52479
 ```
 
 ## 모든 약수 찾기(Find All Divisors)
@@ -58,7 +75,23 @@ print(is_prime_number(7))  # True
 ## 가장 큰 소인수(Largest Prime Factor)
 
 ```python
-
+def max_prime_factor(n):
+   # number must be even
+   while n % 2 == 0:
+      max_prime = 2
+      n /= 1
+   # number must be odd
+   for i in range(3, int(n**(1/2)) + 1, 2):
+      while n % i == 0:
+         max_prime = i
+         n = n / i
+   # prime number greator than two
+   if n > 2:
+      max_prime = n
+   return int(max_prime)
+# Driver code to test above function
+n = 15
+print(max_prime_factor(n))
 ```
 
 ## 소인수분해(Prime Factorization)
@@ -248,8 +281,56 @@ for i in range(N):
 
 ## 퀵 정렬(Quick Sort)
 
-```python
+간단한 방식
 
+```python
+def quick_sort(array):
+    if len(array) <= 1:
+        return array
+
+    pivot = array[0]
+    tail = array[1:]
+
+    left_side = [x for x in tail if x <= pivot]
+    right_side = [x for x in tail if x > pivot]
+
+    return quick_sort(left_side) + [pivot] + quick_sort(right_side)
+
+array = [7, 5, 9, 0, 3, 1, 6, 2, 4, 8]
+print(quick_sort(array))
+```
+
+알고리즘 기반 로직
+
+```python
+def partition(lst, start, end):
+    pivot = lst[start]
+    left = start + 1
+    right = end
+    done = False
+    while not done:
+        while left <= right and lst[left] <= pivot:
+            left += 1
+        while left <= right and pivot <= lst[right]:
+            right -= 1
+        if right < left:
+            done = True
+        else:
+            lst[left], lst[right] = lst[right], lst[left]
+    lst[start], lst[right] = lst[right], lst[start]
+    return right
+
+
+def quick_sort(lst, start, end):
+    if start < end:
+        pivot = partition(lst, start, end)
+        quick_sort(lst, start, pivot - 1)
+        quick_sort(lst, pivot + 1, end)
+    return lst
+
+
+array = [7, 5, 9, 0, 3, 1, 6, 2, 4, 8]
+print(quick_sort(array, 0, len(array)-1))
 ```
 
 ## 병합 정렬(Merge Sort)
@@ -306,8 +387,48 @@ for x in data:
 
 ## 이진 탐색(Binary Search)
 
-```python
+재귀 호출 방법
 
+```python
+def binary_search(array, target, start, end):
+    if start > end:
+        return None
+    mid = (start + end) // 2
+
+    if array[mid] == target:
+        return mid
+    elif array[mid] > target:
+        return binary_search(array, target, start, mid - 1)
+    else:
+        return binary_search(array, target, mid+1, end)
+```
+
+반복문 방법
+
+```python
+def binary_search2(array, target, start, end):
+    while start <= end:
+        mid = (start + end) // 2
+        if array[mid] == target:
+            return mid
+        elif array[mid] > target:
+            end = mid - 1
+        else:
+            start = mid + 1
+    return None
+```
+
+```python
+# 데이터 예시
+n, target = 10, 7
+array = [1, 3, 5, 7, 9, 11, 13, 15, 17, 19]
+
+result = binary_search(array, target, 0, n-1)
+result = binary_search2(array, target, 0, n-1)
+if result == None:
+    print(-1)
+else:
+    print(result)  # 3
 ```
 
 ## 파이썬 탐색 라이브러리(Python Binary Search Library)
@@ -315,7 +436,21 @@ for x in data:
 ### Count the number of frequencies of elements whose value is between \[left, right\] in a sorted array
 
 ```python
+from bisect import bisect_left, bisect_right
 
+def count_by_range(array, left_value, right_value):
+    right_index = bisect_right(array, right_value)
+    left_index = bisect_left(array, left_value)
+    return right_index - left_index
+
+n, x = 7, 2
+array = [1, 1, 2, 2, 2, 2, 3]
+
+count = count_by_range(array, x, x)
+if count == 0:
+    print(-1)
+else:
+    print(count)  # 4
 ```
 
 ## DFS
@@ -597,7 +732,24 @@ print(list(combinations_with_replacement(mylist, 2)))
 ### Number of intervals whose sum is M
 
 ```python
+def two_pointer(lst, m):
+    n = len(lst)
+    count = 0
+    end = 0
+    interval_sum = 0
 
+    for start in range(n):
+        while interval_sum < m and end < n:
+            interval_sum += lst[end]
+            end += 1
+        if interval_sum == m:
+            count += 1
+        interval_sum -= lst[start]
+
+    return count
+
+print(two_pointer([1, 2, 3, 2, 5], 5))
+# 3
 ```
 
 ## 구간 합(Interval Sum)
@@ -605,15 +757,29 @@ print(list(combinations_with_replacement(mylist, 2)))
 ### Prefix Sum
 
 ```python
+def interval_sum(lst, query):
+    p = [0] * (len(lst) + 1)
+    result = [0] * len(query)
 
+    for i, v in enumerate(lst):
+        p[i+1] = p[i] + v
+    # print(p)  # [0, 10, 30, 60, 100, 150]
+
+    for i, v in enumerate(query):
+        result[i] = p[v[1]] - p[v[0]-1]
+
+    return result
+
+print(interval_sum([10, 20, 30, 40, 50], [(3, 4), (2, 3), (1, 4)]))
+# [70, 50, 100]
 ```
 
 ### Fenwick Tree(Binary Indexed Tree)
 
-
 ```python
 
 ```
+
 ## 회전 행렬(Rotation Matrix)
 
 
@@ -634,7 +800,9 @@ mylist = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 new_list = list(map(list, zip(*mylist)))
 
 '''
+print(mylist)
 print(new_list)
+# [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 # [[1, 4, 7], [2, 5, 8], [3, 6, 9]]
 '''
 ```

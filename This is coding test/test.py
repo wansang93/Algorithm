@@ -316,11 +316,134 @@ def quick_sort(lst, start, end):
     return lst
 
 
+# 간단하게 짜기
+def quick_sort2(array):
+    if len(array) <= 1:
+        return array
+
+    pivot = array[0]
+    tail = array[1:]
+
+    left_side = [x for x in tail if x <= pivot]
+    right_side = [x for x in tail if x > pivot]
+
+    return quick_sort2(left_side) + [pivot] + quick_sort2(right_side)
+
+array = [7, 5, 9, 0, 3, 1, 6, 2, 4, 8]
+
 # array = [7, 5, 9, 0, 3, 1, 6, 2, 4, 8]
 # print(selection_sort(array))
 # print(insert_sort(array))
+# print(quick_sort(array, 0, len(array)-1))
+# print(quick_sort2(array))
 # print(array)
 
+
+# 4-4. 계수 정렬
+array = [7, 5, 9, 0, 3, 1, 6, 2, 9, 1, 4, 8, 0, 5, 2]
+
+count = [0] * (max(array) + 1)
+for i in range(len(array)):
+    count[array[i]] += 1
+
+# 출력
+# for i in range(len(count)):
+#     for j in range(count[i]):
+#         print(i, end=' ')
+
+
+# 4-4-1. 예제 문제
+n, k = 5, 3
+a = [1, 2, 5, 4, 3]
+b = [5, 5, 6, 6, 5]
+
+a.sort()
+b.sort(reverse=True)
+
+for i in range(k):
+    if a[i] < b[i]:
+        a[i], b[i] = b[i], a[i]
+    else:
+        break
+
+# print(sum(a))  # 26
+
+# 5-1. 이진 탐색 재귀적 구현
+def binary_search(array, target, start, end):
+    if start > end:
+        return None
+    mid = (start + end) // 2
+
+    if array[mid] == target:
+        return mid
+    elif array[mid] > target:
+        return binary_search(array, target, start, mid - 1)
+    else:
+        return binary_search(array, target, mid+1, end)
+
+
+def binary_search2(array, target, start, end):
+    while start <= end:
+        mid = (start + end) // 2
+        if array[mid] == target:
+            return mid
+        elif array[mid] > target:
+            end = mid - 1
+        else:
+            start = mid + 1
+    return None
+
+
+# n, target = 10, 7
+# array = [1, 3, 5, 7, 9, 11, 13, 15, 17, 19]
+
+# result = binary_search2(array, target, 0, n-1)
+# if result == None:
+#     print(-1)
+# else:
+#     print(result)  # 3
+
+
+# 5-1-1. 떡볶이 떡 만들기
+N, M = 4, 6
+array = [19, 15, 10, 17]
+
+
+def solution(array, start, end, M):
+    result = 0
+    while start <= end:
+        mid = (start + end) // 2
+        total = 0
+        for x in array:
+            if x > mid:
+                total += x - mid
+        if total < M:
+            end = mid - 1
+        else:
+            result = mid 
+            start = mid + 1
+
+    return result
+
+
+print(solution(array, 0, max(array), M))
+
+# 5-1-2. 정렬된 배열에서 특정 수의 갯수 구하기
+from bisect import bisect_left, bisect_right
+
+def count_by_range(array, left_value, right_value):
+    right_index = bisect_right(array, right_value)
+    left_index = bisect_left(array, left_value)
+    return right_index - left_index
+
+n, x = 7, 2
+array = [1, 1, 2, 2, 2, 2, 3]
+
+# count = count_by_range(array, x, x)
+# if count == 0:
+#     print(-1)
+# else:
+#     print(count)  # 4
 
 # 9-1. 소수
 
@@ -387,7 +510,7 @@ def interval_sum(lst, query):
 
     return result
 
-# print(interval_sum([10, 20, 30, 40, 50], [(3, 4), (2, 3), (1, 4)]))
+# print(interval_sum([10, 20, 30, 40, 50], [(3, 4), (2, 3), (1, 4)]))  # [70, 50, 100]
 
 # # 10-1. Requests 예시
 # import requests

@@ -7,7 +7,7 @@
 - 2021-01-04(4, 10장)
 - 2021-01-24(9장)
 - 2021-02-04(3, 4장)
-- 
+- 2021-05-14(5장)
 
 교제 사이트 링크 -> [https://github.com/ndb796/python-for-coding-test](https://github.com/ndb796/python-for-coding-test)
 
@@ -380,14 +380,104 @@ def insert_sort(lst_unsorted):
 
 ## 4-3. 퀵 정렬
 
-```python
+간단한 방식
 
+```python
+def quick_sort(array):
+    if len(array) <= 1:
+        return array
+
+    pivot = array[0]
+    tail = array[1:]
+
+    left_side = [x for x in tail if x <= pivot]
+    right_side = [x for x in tail if x > pivot]
+
+    return quick_sort(left_side) + [pivot] + quick_sort(right_side)
+
+array = [7, 5, 9, 0, 3, 1, 6, 2, 4, 8]
+print(quick_sort(array))
+```
+
+```python
+def partition(lst, start, end):
+    pivot = lst[start]
+    left = start + 1
+    right = end
+    done = False
+    while not done:
+        while left <= right and lst[left] <= pivot:
+            left += 1
+        while left <= right and pivot <= lst[right]:
+            right -= 1
+        if right < left:
+            done = True
+        else:
+            lst[left], lst[right] = lst[right], lst[left]
+    lst[start], lst[right] = lst[right], lst[start]
+    return right
+
+
+def quick_sort(lst, start, end):
+    if start < end:
+        pivot = partition(lst, start, end)
+        quick_sort(lst, start, pivot - 1)
+        quick_sort(lst, pivot + 1, end)
+    return lst
+
+
+array = [7, 5, 9, 0, 3, 1, 6, 2, 4, 8]
+print(quick_sort(array, 0, len(array)-1))
 ```
 
 ## 4-4. 계수 정렬
 
-```python
+공간 복잡도가 더 높을 수 있지만 매우 빠름
 
+데이터의 크기 범위가 제한되어 정수 형태로 표현할 수 있을 때 사용
+
+데이터 갯수가 N, 데이터(양수) 중 최댓값이 K일 때 최악의경우에도 O(N+K)를 보장
+
+```python
+array = [7, 5, 9, 0, 3, 1, 6, 2, 9, 1, 4, 8, 0, 5, 2]
+
+count = [0] * (max(array) + 1)
+for i in range(len(array)):
+    count[array[i]] += 1
+
+for i in range(len(count)):
+    for j in range(count[i]):
+        print(i, end=' ')
+```
+
+# 5. 이진 탐색
+
+## 5-1. 이진 탐색 개요
+
+- 탐색 범위를 절반으로 줄여 데이터를 탐색 하는 방법
+- 시작점, 끝점, 중간점을 이용하여 탐색 범위를 설정
+
+```python
+def binary_search(array, target, start, end):
+    if start > end:
+        return None
+    mid = (start + end) // 2
+
+    if array[mid] == target:
+        return mid
+    elif array[mid] > target:
+        return binary_search(array, target, start, mid - 1)
+    else:
+        return binary_search(array, target, mid+1, end)
+
+
+n, target = 10, 7
+array = [1, 3, 5, 7, 9, 11, 13, 15, 17, 19]
+result = binary_search(array, target, 0, n-1)
+if result == None:
+    print(-1)
+else:
+    print(result)  # 3
 ```
 
 # 6. DP
