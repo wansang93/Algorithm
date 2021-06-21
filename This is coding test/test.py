@@ -196,7 +196,6 @@ def bfs(graph, start, visited):
                 visited[i] = True
 
 
-
 graph = [
     [],
     [2, 3, 8],
@@ -252,8 +251,7 @@ def bfs(x, y, n, m, graph):
                 queue.append((nx, ny))
     
     return graph[n-1][m-1]
-        
-    
+
 
 # 4-1. 선택 정렬
 import copy
@@ -288,8 +286,8 @@ def insert_sort(lst_unsorted):
                 break
     return lst
 
-# 4-3. 퀵 정렬
 
+# 4-3. 퀵 정렬
 def partition(lst, start, end):
     pivot = lst[start]
     left = start + 1
@@ -405,10 +403,6 @@ def binary_search2(array, target, start, end):
 
 
 # 5-1-1. 떡볶이 떡 만들기
-N, M = 4, 6
-array = [19, 15, 10, 17]
-
-
 def solution(array, start, end, M):
     result = 0
     while start <= end:
@@ -425,8 +419,9 @@ def solution(array, start, end, M):
 
     return result
 
-
-print(solution(array, 0, max(array), M))
+# N, M = 4, 6
+# array = [19, 15, 10, 17]
+# print(solution(array, 0, max(array), M))
 
 # 5-1-2. 정렬된 배열에서 특정 수의 갯수 구하기
 from bisect import bisect_left, bisect_right
@@ -444,6 +439,205 @@ array = [1, 1, 2, 2, 2, 2, 3]
 #     print(-1)
 # else:
 #     print(count)  # 4
+
+
+# 6-2. 개미 전사
+def ant_warriors(lst):
+    N = len(lst)
+    d = [0] * N
+    d[0] = lst[0]
+    d[1] = max(lst[0], lst[1])
+    for i in range(2, N):
+        d[i] = max(d[i-1], d[i-2] + lst[i])
+
+    # print(d)
+    return d[N-1]
+
+# lst = [1, 2, 3, 4, 5, 3, 0, 3]
+# print(ant_warriors(lst))
+
+# 6-3. 1로 만들기
+def make_the_one(x):
+    d = [0] * (x+1)
+
+    for i in range(2, x+1):
+        d[i] = d[i-1] + 1
+        if i % 2 == 0:
+            d[i] = min(d[i], d[i//2] + 1)
+        if i % 3 == 0:
+            d[i] = min(d[i], d[i//3] + 1)
+        if i % 5 == 0:
+            d[i] = min(d[i], d[i//5] + 1)
+    # print(d)
+    
+    return d[x]
+
+# x = 26
+# print(make_the_one(x))
+
+# 6-4. 효율적인 화폐 구성
+INF = 10000
+def money_solution(lst, m):
+    n = len(lst)
+    d = [0] + [INF] * m
+    for i in range(n):
+        for j in range(lst[i], m+1):
+            if d[j - lst[i]] != INF:
+                d[j] = min(d[j], d[j-lst[i]]+1)
+    # print(d)
+
+    return d[m]
+
+# data = [2, 3]
+# m = 12
+# print(money_solution(data, m))  # 4
+
+# 6-5. 금광
+def gold_mine(n, m, lst):
+
+    dp = []
+    idx = 0
+    for i in range(n):
+        dp.append(lst[idx:idx+m])
+        idx += m
+
+    for x in range(1, m):
+        for y in range(n):
+            if y == 0:
+                left_up = 0
+            else:
+                left_up = dp[y-1][x-1]
+            if y == n-1:
+                left_down = 0
+            else:
+                left_down = dp[y+1][x-1]
+            left = dp[y][x-1]
+            dp[y][x] = dp[y][x] + max(left, left_up, left_down)
+
+    result = 0
+    for i in range(n):
+        result = max(result, dp[i][m-1])
+    
+    return result
+
+# print(gold_mine(3, 4, [1, 3, 3, 2, 2, 1, 4, 1, 0, 6, 4, 7]))
+
+# 6-6. 병사 배치하기(LIS 응용)
+def deploy_soldiers(n, lst):
+    result = 0
+    dp = [1] * n
+    for i in range(1, n):
+        for j in range(i):
+            if lst[j] < lst[i]:
+                dp[i] = max(dp[i], dp[j] + 1)
+
+    # print(dp)
+    result = n - max(dp)
+    return result
+
+# print(deploy_soldiers(7, [4, 2, 5, 8, 4, 11, 15]))
+
+# 7-1. 다익스트라 알고리즘 간단 구현
+def get_smallest_node():
+    min_value = INF
+    index = 0
+    for i in range(1, n+1):
+        if distance[i] < min_value and not visited[i]:
+            min_value = distance[i]
+            index = i
+    return index
+
+
+def dijkstra2(start):
+    distance[start] = 0
+    visited[start] = True
+
+    for j in graph[start]:
+        distance[j[0]] = j[1]
+
+    for i in range(n-1):
+        now = get_smallest_node()
+        visited[now] = True
+
+        for j in graph[now]:
+            cost = distance[now] + j[1]
+            if cost < distance[j[0]]:
+                distance[j[0]] = cost
+
+
+
+# INF = int(1e9)  # 10억
+
+# # n: 노드의 갯수
+# # m: 간선의 갯수
+# n, m = map(int, input().split())
+# start = int(input())
+graph = [[] for i in range(n+1)]
+distance = [INF] * (n+1)
+visited = [False] * (n+1)
+
+# # 모든 간선 정보 입력받기
+# for _ in range(m):
+#     a, b, c = map(int, input().split())
+#     graph[a].append((b, c))
+
+
+# dijkstra2(start)
+# print(distance)
+'''
+[Input Example 1]
+5 6
+1
+5 1 1
+1 2 2
+1 3 3
+2 3 4
+2 4 5
+3 4 6
+[Output Example 1]
+0
+2
+3
+7
+INFINITY
+'''
+
+
+import heapq
+def dijkstra(start):
+    q = []
+    # 시작 노드로 가기 위한 최단 거리는 0으로 설정, 큐에 삽입
+    heapq.heappush(q, (0, start))
+    distance[start] = 0
+    while q:
+        dist, now = heapq.heappop(q)
+        if distance[now] < dist:
+            continue
+        for i in graph[now]:
+            cost = dist + i[1]
+            if cost < distance[i[0]]:
+                distance[i[0]] = cost
+                heapq.heappush(q, (cost, i[0]))
+
+
+# INF = int(1e9)  # 10억
+
+# # n: 노드의 갯수
+# # m: 간선의 갯수
+# n, m = map(int, input().split())
+# start = int(input())
+# graph = [[] for i in range(n+1)]
+# distance = [INF] * (n+1)
+
+# # 모든 간선 정보 입력받기
+# for _ in range(m):
+#     a, b, c = map(int, input().split())
+#     graph[a].append((b, c))
+
+
+# print(graph)
+# dijkstra(start)
+# print(distance)
 
 # 9-1. 소수
 

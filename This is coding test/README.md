@@ -8,6 +8,8 @@
 - 2021-01-24(9장)
 - 2021-02-04(3, 4장)
 - 2021-05-14(5장)
+- 2021-05-16(6장)
+- 2021-06-20(7장)
 
 교제 사이트 링크 -> [https://github.com/ndb796/python-for-coding-test](https://github.com/ndb796/python-for-coding-test)
 
@@ -483,9 +485,322 @@ else:
 # 6. DP
 
 - 메모리를 적절히 사용, 다시 계산하지 않도록
-- DP를 사용할 수 있는 경우
-  1. 최적 부분 구조: 큰 문제를 작은 문제로 나눌 수 있는지
-  2. 중복되는 부분 문제: 동일한 작은 문제 를 반복적으로 해결
+- DP를 사용할 수 있는 **조건**
+  1. 최적 부분 구조(Optimal Substructure): 큰 문제를 작은 문제로 나눌 수 있는지
+  2. 중복되는 부분 문제(Overlapping Subproblem): 동일한 작은 문제를 반복적으로 해결
+- 방법
+  1. **하향식(Top Down)**
+     - 메모이제이션(Memoization) 방식
+       - 한 번 계산한 결과를 메모리 공간에 메모
+       - 값을 기록해 놓아 **캐싱(Caching)**라고도 불림
+  2. **상향식(Bottom Up)**
+     - 결과 저장용 리스트를 **DP 테이블**
+- DP vs 분할 정복
+  - 공통점: 큰 문제를 작은 문제로 나눠 작은 문제의 답을 모아 큰 문제를 해결
+  - 차이점: 부분 문제의 중복
+    - DP: 각 부분 문제들이 서로 영향을 미치며 부분 문제의 중복
+    - 분할 정복: 동일한 부분 문제의 반복 계산x
+- **접근 방법**
+  1. DP 유형인지 확인, 다른 방법이 가능하면 다르게 풀기
+  2. 재귀 함수로 비효율적인 완전 탐색 프로그램으로 작성
+  3. 작은 문제에서 구한 답이 큰 문제로 그대로 사용할 수 있으면 코드 개선
+
+## 6-1. 피보나치 수열
+
+단순 재귀함수 사용(시간 복잡도: O(2**N))
+
+```python
+def fibo(x):
+    if x == 1 or x == 2:
+        return 1
+    else:
+        return fibo(x-1) + fibo(x-2)
+```
+
+Top-Down DP(시간 복잡도: O(N))
+
+```python
+d = [0] * 100
+
+def fibo(x):
+    if x == 1 or x == 2:
+        return 1
+    if d[x] != 0:
+        return d[x]
+    
+    d[x] = fibo(x-1) + fibo(x-2)
+    return d[x]
+
+print(fibo(99))
+```
+
+## 6-2. 개미 전사
+
+```python
+def ant_warriors(lst):
+    N = len(lst)
+    d = [0] * N
+    d[0] = lst[0]
+    d[1] = max(lst[0], lst[1])
+    for i in range(2, N):
+        d[i] = max(d[i-1], d[i-2] + lst[i])
+
+    # print(d)
+    return d[N-1]
+
+lst = [1, 2, 3, 4, 5, 3, 0, 3]
+print(ant_warriors(lst))  # 12
+```
+
+## 6-3. 1로 만들기
+
+```python
+def make_the_one(x):
+    d = [0] * (x+1)
+
+    for i in range(2, x+1):
+        d[i] = d[i-1] + 1
+        if i % 2 == 0:
+            d[i] = min(d[i], d[i//2] + 1)
+        if i % 3 == 0:
+            d[i] = min(d[i], d[i//3] + 1)
+        if i % 5 == 0:
+            d[i] = min(d[i], d[i//5] + 1)
+    # print(d)
+    
+    return d[x]
+
+# x = 26
+# print(make_the_one(x))
+```
+
+## 6-4. 효율적인 화폐 구성
+
+```python
+INF = 10000
+def money_solution(lst, m):
+    n = len(lst)
+    d = [0] + [INF] * m
+    for i in range(n):
+        for j in range(lst[i], m+1):
+            if d[j - lst[i]] != INF:
+                d[j] = min(d[j], d[j-lst[i]]+1)
+    # print(d)
+
+    return d[m]
+
+data = [2, 3]
+m = 12
+print(money_solution(data, m))  # 4
+```
+
+## 6-5. 금광
+
+```python
+def gold_mine(n, m, lst):
+
+    dp = []
+    idx = 0
+    for i in range(n):
+        dp.append(lst[idx:idx+m])
+        idx += m
+
+    for x in range(1, m):
+        for y in range(n):
+            if y == 0:
+                left_up = 0
+            else:
+                left_up = dp[y-1][x-1]
+            if y == n-1:
+                left_down = 0
+            else:
+                left_down = dp[y+1][x-1]
+            left = dp[y][x-1]
+            dp[y][x] = dp[y][x] + max(left, left_up, left_down)
+
+    result = 0
+    for i in range(n):
+        result = max(result, dp[i][m-1])
+    
+    return result
+
+# print(gold_mine(3, 4, [1, 3, 3, 2, 2, 1, 4, 1, 0, 6, 4, 7]))
+```
+
+## 6-6. 병사 배치하기(LIS 응용)
+
+```python
+def deploy_soldiers(n, lst):
+    result = 0
+    dp = [1] * n
+    for i in range(1, n):
+        for j in range(i):
+            if lst[j] < lst[i]:
+                dp[i] = max(dp[i], dp[j] + 1)
+
+    # print(dp)
+    result = n - max(dp)
+    return result
+
+print(deploy_soldiers(7, [4, 2, 5, 8, 4, 11, 15]))
+```
+
+# 7. 최단 경로 알고리즘
+
+- 문제 상황
+  - 한 지점에서 다른 한 지점까지의 최단 경로
+  - 한 지점에서 다른 모든 지점까지의 최단 경로
+  - 모든 지점에서 다른 모든 지점까지의 최단 경로
+
+## 7-1. 다익스트라 최단 경로 알고리즘
+
+- 특정 노드 -> 다른 모든 노드로 가는 최단 경로 계산
+- 그리디로 분류
+- 동작 과정
+  - 출발 노드 설정
+  - 최단 거리 테이블을 초기화
+  - 방문하지 않은 노드 중 최단 거리가 가장 짧은 노드 선택
+  - 해당 노드를 거쳐 다른 노드로 가는 비용을 계산, 최단 거리 테이블 갱신
+
+예시 코드(단순)
+
+```python
+def get_smallest_node():
+    min_value = INF
+    index = 0
+    for i in range(1, n+1):
+        if distance[i] < min_value and not visited[i]:
+            min_value = distance[i]
+            index = i
+    return index
+
+
+def dijkstra2(start):
+    distance[start] = 0
+    visited[start] = True
+
+    for j in graph[start]:
+        distance[j[0]] = j[1]
+
+    for i in range(n-1):
+        now = get_smallest_node()
+        visited[now] = True
+
+        for j in graph[now]:
+            cost = distance[now] + j[1]
+            if cost < distance[j[0]]:
+                distance[j[0]] = cost
+
+
+INF = int(1e9)  # 10억
+
+# n: 노드의 갯수
+# m: 간선의 갯수
+n, m = map(int, input().split())
+start = int(input())
+graph = [[] for i in range(n+1)]
+distance = [INF] * (n+1)
+visited = [False] * (n+1)
+
+# 모든 간선 정보 입력받기
+for _ in range(m):
+    a, b, c = map(int, input().split())
+    graph[a].append((b, c))
+
+
+dijkstra2(start)
+print(distance)
+```
+
+힙(Heap)자료구조를 이용
+
+예시 코드(우선순위 큐)
+
+```python
+import heapq
+def dijkstra(start):
+    q = []
+    # 시작 노드로 가기 위한 최단 거리는 0으로 설정, 큐에 삽입
+    heapq.heappush(q, (0, start))
+    distance[start] = 0
+    while q:
+        dist, now = heapq.heappop(q)
+        if distance[now] < dist:
+            continue
+        for i in graph[now]:
+            cost = dist + i[1]
+            if cost < distance[i[0]]:
+                distance[i[0]] = cost
+                heapq.heappush(q, (cost, i[0]))
+
+INF = int(1e9)  # 10억
+
+# n: 노드의 갯수
+# m: 간선의 갯수
+n, m = map(int, input().split())
+start = int(input())
+graph = [[] for i in range(n+1)]
+distance = [INF] * (n+1)
+
+# 모든 간선 정보 입력받기
+for _ in range(m):
+    a, b, c = map(int, input().split())
+    graph[a].append((b, c))
+
+
+print(graph)
+dijkstra(start)
+print(distance)
+'''
+[Input Example 1]
+5 6
+1
+5 1 1
+1 2 2
+1 3 3
+2 3 4
+2 4 5
+3 4 6
+'''
+```
+
+## 7-2. 플로이드 워셜 알고리즘
+
+- 모든 노드에서 다른 모든 노드까지의 최단 경로를 모두 계산
+- 플로이드 워셜(Floyd-Warshall)알고리즘은 다익스트라 알고리즘과 마찬가지로 단계별로 거쳐 가는 노드를 기준으로 알고리즘을 수행
+  - 다만 매 단계마다 방문하지 않은 노드 중 최단 거리를 갖는 노드를 찾는 과정이 필요x
+- 2차원 테이블에 최단 거리 정보를 저장
+- 다이나믹 프로그래밍로 분류
+- 동작 과정
+  - 그래프를 준비하고 최단 거리 테이블을 초기화
+  - 각 노드별로 점화식 수행(Dab = min(Dab, Dak + Dkb))
+- 성능 분석
+  - 노드의 개수가 N개일 때 알고리즘 상 N번의 단계를 수행
+  - 각 단계마다 O(N**2)의 연산을 통해 모든 경로 고려
+  - 시간복잡도 O(N**3)
+
+코드
+
+```python
+
+```
+
+## 7-3. 전보
+
+```python
+
+```
+
+
+## 7-4. 미래 도시
+
+```python
+
+```
+
+# 8. 기타 그래프 이론
+
+추후 업데이트
 
 # 9. 코딩 테스트에서 자주 출제되는 기타 알고리즘
 

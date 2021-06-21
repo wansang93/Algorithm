@@ -43,6 +43,7 @@
 [https://www.youtube.com/playlist?list=PLRx0vPvlEmdAghTr5mXQxGpHjWqSz0dgC](https://www.youtube.com/playlist?list=PLRx0vPvlEmdAghTr5mXQxGpHjWqSz0dgC)
 
 이것이 취업을 위한 코딩 테스트다 (나동빈 / 한빛미디어)
+
 ## 7. [파이썬 자료구조와 알고리즘](./파이썬%20자료구조와%20알고리즘/README.md)
 
 파이썬 자료구조와 알고리즘 for Biginner (우재남 / 한빛미디어) 특강을 요약해 봤습니다.
