@@ -809,6 +809,18 @@ print(new_list)
 
 ## 실전에서 느낀 것(What I felt in practice)
 
+### 문자열 자리수마다 끊기
+
+```python
+# SPLIT STRING INTO N-SIZE
+string='12312312312312'
+length=3
+[string[i:i+length] for i in range(0, len(string), length)]
+
+# result
+# ['123', '123', '123', '123', '12']
+```
+
 ### 정렬 2번째 요소도 고려
 
 백준 11650번 좌표 정렬하기
