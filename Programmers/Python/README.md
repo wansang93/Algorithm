@@ -50,6 +50,7 @@
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/77485) [행렬 테두리 회전하기](./Code/행렬%20테두리%20회전하기.py)
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/77485) [괄호 회전하기](./Code/괄호%20회전하기.py)
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/77885) [2개 이하로 다른 비트](./Code/2개%20이하로%20다른%20비트.py)
+- [[link]](https://programmers.co.kr/learn/courses/30/lessons/42746) [가장 큰 수](./Code/가장%20큰%20수.py)
 카카오 문제
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/60058) [괄호 변환](./Code/괄호%20변환.py)
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/17677) [뉴스 클러스터링](./Code/뉴스%20클러스터링.py)
