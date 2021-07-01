@@ -42,7 +42,6 @@ def solution(rows, columns, queries):
 print(solution(6, 6, [[2, 2, 5, 4], [3, 3, 6, 6], [5, 1, 6, 3]]))
 # [8, 10, 25]
 
-
 # 1. matrix 배열 생성(0으로 채운 row행 columns열로 2차원 생성)
 # 2. matrix에 1 ~ row*columns으로 채워 넣은 배열 완성
 # 3. 쿼리문의 쿼리들을 하나씩 꺼냄
@@ -57,4 +56,3 @@ print(solution(6, 6, [[2, 2, 5, 4], [3, 3, 6, 6], [5, 1, 6, 3]]))
         # 1. 예외가 아니면(해당 방향으로 계속)
             # nowvalue의 값과 다음 값을 바꿔주기
             # 최솟값이면 최솟값 갱신
-
