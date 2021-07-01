@@ -103,6 +103,8 @@
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/68935) [3진법 뒤집기](./Code/3진법%20뒤집기.py)
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/77884) [약수의 개수와 덧셈](./Code/약수의%20개수와%20덧셈.py)
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/76501) [음양 더하기](./Code/음양%20더하기.py)
+- [[link]](https://programmers.co.kr/learn/courses/30/lessons/77484) [로또의 최고 순위와 최저 순위](./Code/로또의%20최고%20순위와%20최저%20순위.py)
+- [[link]](https://programmers.co.kr/learn/courses/30/lessons/1845) [폰켓몬](./Code/폰켓몬.py)
 
 카카오 문제
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/64061) [크레인 인형뽑기 게임](./Code/크레인%20인형뽑기%20게임.py)

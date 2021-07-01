@@ -1,5 +1,7 @@
 # Programmers_JavaScript
 
+알고리즘 Level 1을 빠르게 풀면서 JS를 연습해 봅니다.
+
 2020-07-05 ~ (Level 1)
 
 ## 링크 바로가기
