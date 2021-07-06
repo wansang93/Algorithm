@@ -18,8 +18,10 @@
 
 [Level 3]
 
+- [[link]](https://programmers.co.kr/learn/courses/30/lessons/42579) [베스트앨범](./Code/베스트앨범.py)
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/68646) [풍선 터트리기](./Code/풍선%20터트리기.py)
-
+- [[link]](https://programmers.co.kr/learn/courses/30/lessons/42627) [디스크 컨트롤러](./Code/디스크%20컨트롤러.py)
+- [[link]](https://programmers.co.kr/learn/courses/30/lessons/42628) [이중우선순위큐](./Code/이중우선순위큐.py)
 
 카카오 문제
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/64062) [징검다리 건너기](./Code/징검다리%20건너기.py)
@@ -50,6 +52,7 @@
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/77485) [행렬 테두리 회전하기](./Code/행렬%20테두리%20회전하기.py)
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/77485) [괄호 회전하기](./Code/괄호%20회전하기.py)
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/77885) [2개 이하로 다른 비트](./Code/2개%20이하로%20다른%20비트.py)
+- [[link]](https://programmers.co.kr/learn/courses/30/lessons/42578) [위장](./Code/위장.py)
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/42746) [가장 큰 수](./Code/가장%20큰%20수.py)
 카카오 문제
 - [[link]](https://programmers.co.kr/learn/courses/30/lessons/60058) [괄호 변환](./Code/괄호%20변환.py)

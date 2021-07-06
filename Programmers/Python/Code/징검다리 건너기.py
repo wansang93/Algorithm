@@ -1,5 +1,6 @@
 # 정확성 테스트: 100%
-# 효율성 테스트: 0% (새로운 탐색방법 공부하기)
+# TODO: 효율성 테스트: 0% (새로운 탐색방법 공부하기)
+
 def solution(stones, k):
     answer = 0
     while True:

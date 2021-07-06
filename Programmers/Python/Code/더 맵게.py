@@ -38,6 +38,9 @@ def solution2(scoville, K):
         answer += 1  
 
     return answer
+
+print(solution2([1, 2, 3, 9, 10, 12], 7))
+
 # heapq library documents in english
 # https://docs.python.org/3/library/heapq.html
 

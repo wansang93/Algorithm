@@ -447,9 +447,13 @@ count = [0] * (max(array) + 1)
 for i in range(len(array)):
     count[array[i]] += 1
 
+# 출력1
+print(count)  # [2, 2, 2, 1, 1, 2, 1, 1, 1, 2]
+# 출력2
 for i in range(len(count)):
     for j in range(count[i]):
         print(i, end=' ')
+# 0 0 1 1 2 2 3 4 5 5 6 7 8 9 9
 ```
 
 # 5. 이진 탐색

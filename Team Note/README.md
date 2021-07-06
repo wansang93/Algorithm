@@ -348,7 +348,19 @@ print(quick_sort(array, 0, len(array)-1))
 ## 계수 정렬(Counting Sort)
 
 ```python
+array = [7, 5, 9, 0, 3, 1, 6, 2, 9, 1, 4, 8, 0, 5, 2]
 
+count = [0] * (max(array) + 1)
+for i in range(len(array)):
+    count[array[i]] += 1
+
+# 출력1
+print(count)  # [2, 2, 2, 1, 1, 2, 1, 1, 1, 2]
+# 출력2
+for i in range(len(count)):
+    for j in range(count[i]):
+        print(i, end=' ')
+# 0 0 1 1 2 2 3 4 5 5 6 7 8 9 9
 ```
 
 ## 파이썬 정렬 라이브러리(Python Sort Library)
@@ -573,7 +585,7 @@ bfs 경로 -> 1 2 3 4
 
 # 문자열(String)
 
-목차:
+목차: Rabin-Karp, KMP, Trie
 
 ## Rabin-Karp
 
@@ -731,6 +743,8 @@ print(list(combinations_with_replacement(mylist, 2)))
 
 ### Number of intervals whose sum is M
 
+구간 합이 M인 갯수
+
 ```python
 def two_pointer(lst, m):
     n = len(lst)
@@ -738,18 +752,20 @@ def two_pointer(lst, m):
     end = 0
     interval_sum = 0
 
+    # move 'start' pointer to the right.
     for start in range(n):
+        # move 'end' pointer to the right.
         while interval_sum < m and end < n:
             interval_sum += lst[end]
             end += 1
+        # If the sum of interval is 'm', count the number.
         if interval_sum == m:
             count += 1
         interval_sum -= lst[start]
 
     return count
 
-print(two_pointer([1, 2, 3, 2, 5], 5))
-# 3
+print(two_pointer([1, 2, 3, 2, 5], 5))  # 3
 ```
 
 ## 구간 합(Interval Sum)
@@ -784,7 +800,35 @@ print(interval_sum([10, 20, 30, 40, 50], [(3, 4), (2, 3), (1, 4)]))
 
 
 ```python
+def rotate(m, d):
+    """
+    input
+    m: 회전하고자 하는 2차원 배열. 입력이 정방형 행렬이라고 가정
+    d: 90도씩의 회전 단위. -1: -90도, 1: 90도, 2: 180도, ...
+    """
+    N = len(m)
+    ret = [[0] * N for _ in range(N)]
 
+    if d % 4 == 1:
+        for r in range(N):
+            for c in range(N):
+                ret[c][N-1-r] = m[r][c]
+    elif d % 4 == 2:
+        for r in range(N):
+            for c in range(N):
+                ret[N-1-c][N-1-r] = m[r][c]
+    elif d % 4 == 3:
+        for r in range(N):
+            for c in range(N):
+                ret[N-1-c][r] = m[r][c]
+    else:
+        for r in range(N):
+            for c in range(N):
+                ret[r][c] = m[r][c]
+
+    return ret
+
+# 출처: https://deepwelloper.tistory.com/117 [DEVLOG]
 ```
 
 ## 재귀 제한하기(Handling Recursion Limit)
@@ -808,6 +852,27 @@ print(new_list)
 ```
 
 ## 실전에서 느낀 것(What I felt in practice)
+
+## 딕셔너리 빠르게 선언하기(.get 활용)
+
+```python
+
+test_dict = {}
+keys = [0, 1, 2, 3]
+values = ['10', '20', '30', '40']
+# .get 활용
+for key, value in zip(keys, values):
+    #.get(key값, 기본 타입) + 기본 타입에 추가할 값
+    test_dict[key] = test_dict.get(key, 0) + int(value)
+
+# 기존
+for key, value in zip(keys, values):
+    #.get(key값, 기본 타입) + 기본 타입에 추가할 값
+    if key not in test_dict:
+        test_dict[key] = key
+    else:
+        test_dict[key] += key
+```
 
 ### 1의자리 숫자를 N개만큼의 수 만들기(int형만 사용해서)
 
