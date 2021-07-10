@@ -55,7 +55,8 @@ def find_all_divisors_of_a_number(x):
                 result.append(x // i)
     return result
 
-print(find_all_divisors_of_a_number(12)) # [1, 12, 2, 6, 3, 4]
+print(find_all_divisors_of_a_number(12))
+# [1, 12, 2, 6, 3, 4]
 ```
 
 ## 소수(Check Prime Number)
@@ -69,7 +70,8 @@ def is_prime_number(x):
             return False
     return True
 
-print(is_prime_number(7))  # True
+print(is_prime_number(7))
+# True
 ```
 
 ## 가장 큰 소인수(Largest Prime Factor)
@@ -92,6 +94,7 @@ def max_prime_factor(n):
 # Driver code to test above function
 n = 15
 print(max_prime_factor(n))
+# 5
 ```
 
 ## 소인수분해(Prime Factorization)
@@ -111,7 +114,8 @@ while i * i <= n:
 if n > 1:
     factors.append(n)
 
-print(factors)  # [97, 103]
+print(factors)
+# [97, 103]
 ```
 
 function
@@ -130,7 +134,9 @@ def prime_factors(n):
         factors.append(n)
     return factors
 
-print(prime_factors(9991))  # [97, 103]
+n = 9991
+print(prime_factors(n))
+# [97, 103]
 ```
 
 동빈나 코드
@@ -149,8 +155,9 @@ def prime_factorization(x):
         result.append((x, 1))
     return result
 
+print(prime_factorization(75))
+# [(3, 1), (5, 2)]  # 3이 1번, 5가 2번
 # Note: 1 is neither a prime number (소수) nor a composite number (합성수).
-print(prime_factorization(75)) # [(3, 1), (5, 2)]  # 3이 1번, 5가 2번
 ```
 
 ## 에라토스테네스의 체(Sieve of Eratosthenes)
@@ -445,7 +452,7 @@ else:
 
 ## 파이썬 탐색 라이브러리(Python Binary Search Library)
 
-### Count the number of frequencies of elements whose value is between \[left, right\] in a sorted array
+### Count the number of frequencies of elements whose value is between [left, right] in a sorted array
 
 ```python
 from bisect import bisect_left, bisect_right
@@ -550,8 +557,123 @@ bfs 경로 -> 1 2 3 4
 
 ## 위상 정렬(Topology Sort)
 
-```python
+queue(큐)를 이용한 위상 정렬
 
+```python
+'''
+Input:
+4 2
+4 2
+3 1
+'''
+N, M = map(int, input().split())
+indegree_lst = [0 for _ in range(N+1)]
+graph = [[] for _ in range(N+1)]
+for _ in range(M):
+    A, B = map(int, input().split())
+    graph[A].append(B)
+    indegree_lst[B] += 1
+```
+
+```python
+from collections import deque
+
+def topology_sort():
+    result = []
+    q = deque()
+    for i in range(1, N+1):
+        if indegree_lst[i] == 0:
+            q.append(i)
+
+    while q:
+        now = q.popleft()
+        result.append(now)
+        for i in graph[now]:
+            indegree_lst[i] -= 1
+            if indegree_lst[i] == 0:
+                q.append(i)
+    
+    return result
+
+print(topology_sort())
+# [3, 4, 1, 2]
+```
+
+priority queue(우선순위 큐)를 이용한 위상 정렬
+
+```python
+import heapq
+def topology_sort():
+    result = []
+    heap = []
+    for i in range(1, N+1):
+        if indegree_lst[i] == 0:
+            heapq.heappush(heap, i)
+
+    while heap:
+        now = heapq.heappop(heap)
+        result.append(now)
+        for i in graph[now]:
+            indegree_lst[i] -= 1
+            if indegree_lst[i] == 0:
+                heapq.heappush(heap, i)
+    
+    return result
+
+print(topology_sort())
+# [3, 1, 4, 2]
+```
+
+동빈나 코드
+
+```python
+from collections import deque
+
+v, e = map(int, input().split())
+indegree = [0] * (v + 1)
+graph = [[] for i in range(v + 1)]
+
+for _ in range(e):
+   a, b = map(int, input().split())
+   graph[a].append(b)
+   indegree[b] += 1
+
+''' Topology Sort '''
+def topology_sort():
+    result = []
+    q = deque()
+
+    for i in range(1, v + 1):
+        if indegree[i] == 0:
+            q.append(i)
+
+    while q:
+        now = q.popleft()
+        result.append(now)
+        for i in graph[now]:
+            indegree[i] -= 1
+            if indegree[i] == 0:
+                q.append(i)
+
+    for i in result:
+        print(i, end=' ')
+
+topology_sort()
+
+'''
+[Input Example 1]
+7 8
+1 2
+1 5
+2 3
+2 6
+3 4
+4 7
+5 6
+6 4
+[Output Example 1]
+1 2 5 3 6 4 7
+'''
 ```
 
 ## 플로이드 와샬 알고리즘(Floyd–Warshall algorithm)
@@ -581,6 +703,7 @@ bfs 경로 -> 1 2 3 4
 ```
 
 ## Line
+
 ## Plane
 
 # 문자열(String)
@@ -765,7 +888,8 @@ def two_pointer(lst, m):
 
     return count
 
-print(two_pointer([1, 2, 3, 2, 5], 5))  # 3
+print(two_pointer([1, 2, 3, 2, 5], 5))
+# 3
 ```
 
 ## 구간 합(Interval Sum)
@@ -797,7 +921,6 @@ print(interval_sum([10, 20, 30, 40, 50], [(3, 4), (2, 3), (1, 4)]))
 ```
 
 ## 회전 행렬(Rotation Matrix)
-
 
 ```python
 def rotate(m, d):

@@ -57,9 +57,11 @@ my_files_list.sort()
 
 # 2-1. 백준 파일과 나의 파일 목록 확인하기
 none_files_list = list(set(solved_BAEKJOON_list) - set(my_files_list))
+none_baek_list = list(set(my_files_list) - set(solved_BAEKJOON_list))
 print(' 백준 의 파일:', len(solved_BAEKJOON_list))
 print('내폴더의 파일:', len(my_files_list))
 print('내폴더에 없는 파일:', none_files_list)
+print('내폴더에 없는 파일:', none_baek_list)
 
 
 # 3. TODO: md 파일에 번호 순서대로 문제 넣기
