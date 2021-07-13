@@ -1,3 +1,139 @@
+########## 카카오페이 채용연계형 인턴 ###############
+
+# 1번 문제
+def solution(money, minratio, maxratio, ranksize, threshold, months):
+
+    now_money = money
+    for _ in range(months):
+        if now_money < threshold:
+            return now_money
+        소유가정금액 = (now_money // 100) * 100
+        idx = 0
+        for now_ratio in range(minratio, maxratio+1):
+            if now_ratio >= maxratio:
+                now_money -= 소유가정금액 * now_ratio // 100
+                break
+            if threshold + idx * ranksize <= 소유가정금액 < threshold + (idx+1) * ranksize:
+                now_money -= 소유가정금액 * now_ratio // 100
+                break
+            now_ratio += 1
+            idx += 1
+
+    return now_money
+
+
+money = 1000000000
+minratio = 50
+maxratio = 99
+ranksize = 100000
+threshold = 0
+months = 6
+print(solution(money, minratio, maxratio, ranksize, threshold, months))
+
+# 2번 문제
+def solution(rows, columns, swipes):
+    answer = []
+    
+    # 메트릭스 생성
+    matrix = [[0] * columns for i in range(rows)]
+    idx = 1
+    for x in range(rows):
+        for y in range(columns):
+            matrix[x][y] = idx
+            idx += 1
+    # print(matrix)
+ 
+    for swipe in swipes:
+        d = swipe[0]
+        r1, c1, r2, c2 = map(lambda x: x-1, swipe[1:])
+        overflow = []
+
+        if d == 1:
+            for c in range(c1, c2+1, 1):
+                temp = 0
+                for r in range(r1, r2+1, 1):
+                    temp, matrix[r][c] = matrix[r][c], temp
+                matrix[r1][c] = temp
+                overflow.append(temp)
+        
+        elif d == 2:
+            for c in range(c2, c1-1, -1):
+                temp = 0
+                for r in range(r2, r1-1, -1):
+                    temp, matrix[r][c] = matrix[r][c], temp
+                matrix[r2][c] = temp
+                overflow.append(temp)
+
+        elif d == 3:
+            for r in range(r1, r2+1, 1):
+                temp = 0
+                for c in range(c1, c2+1, 1):
+                    temp, matrix[r][c] = matrix[r][c], temp
+                matrix[r][c1] = temp
+                overflow.append(temp)
+
+        elif d == 4:
+            for r in range(r2, r1-1, -1):
+                temp = 0
+                for c in range(c2, c1-1, -1):
+                    temp, matrix[r][c] = matrix[r][c], temp
+                matrix[r][c2] = temp
+                overflow.append(temp)
+
+        # print(matrix)
+        answer.append(sum(overflow)) 
+
+    return answer
+
+rows = 4
+columns = 3
+swipes = [
+    [1, 1, 2, 4, 3],
+    [3, 2, 1, 2, 3],
+    [4, 1, 1, 4, 3],
+    [2, 2, 1, 3, 3]
+]
+print(solution(rows, columns, swipes))
+
+# 3번 문제
+def solution(line1, line2):
+    answer = 0
+
+    return answer
+
+line1 = 'abbbcbbb'
+line2 = 'bbb'
+print(solution(line1, line2))
+
+
+# 4번 문제
+import heapq
+
+def solution(ages, wires):
+    answer = []
+    l = len(ages)
+
+    # 그래프 생성, 발전기 정보 생성
+    generators = [(age, idx+1) for idx, age in enumerate(ages)]
+    graph = [[] for _ in range(l+1)]
+    for wire in wires:
+        start, end, length = wire
+        graph[start].append((end, length))
+    print(graph)  # [[], [(2, 5), (3, 2)], [(1, 5)], [(4, 2), (5, 20)], [(5, 1)], []]
+    print(generators)  # [(35, 1), (25, 2), (3, 3), (8, 4), (7, 5)]
+
+
+    return answer
+
+ages = [35, 25, 3, 8, 7]
+wires = [[1, 2, 5], [2, 1, 5], [1, 3, 2], [3, 4, 2], [3, 5, 20], [4, 5, 1]]
+print(solution(ages, wires))
+
+
+
+
+
+
 def solution(param0):
     lst = []
     for param in param0:
@@ -67,6 +203,8 @@ def solution2(param0):
 
 params = ["INT", "SHORT", "FLOAT", "INT", "BOOL", "LONG"]
 print(solution2(params))
+
+
 
 def solution(n, delivery):
     # a[0] = 'O', '?', 'X'
