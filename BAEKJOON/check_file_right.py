@@ -73,7 +73,7 @@ with open(file_path, 'r', encoding='utf-8') as f:
 
 none_files_list = []
 with open(file_path, 'a', encoding='utf-8') as f:
-    for i in none_files_list:
+    for i in solved_BAEKJOON_list:
         # f.writelines(f'- [{i}](./problems/{i}.md)\n')
         pass
 

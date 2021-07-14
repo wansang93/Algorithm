@@ -2,7 +2,7 @@
 import sys
 file_path = (
     r'C:/Users/wansang/Desktop/Gitrep/Algorithm/' + 
-    r'BAEKJOON/problems/test_input.txt'
+    r'BAEKJOON/test_input.txt'
 )
 sys.stdin = open(file_path, 'r')
 
