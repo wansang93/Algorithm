@@ -1,3 +1,13 @@
+import sys
+
+file_name = (
+    r'C:\Users\wansang\Desktop\Gitrep\Algorithm' +
+    r'\This is coding test\test_input.txt'
+)
+
+sys.stdin = open(file_name, 'r')
+
+
 # 1-1. x*y 의 리스트 초기화
 x, y = 3, 5
 mylist = [[0] * x for _ in range(y)]
@@ -344,13 +354,13 @@ count = [0] * (max(array) + 1)
 for i in range(len(array)):
     count[array[i]] += 1
 
-# 출력1
-print(count)  # [2, 2, 2, 1, 1, 2, 1, 1, 1, 2]
-# 출력2
-for i in range(len(count)):
-    for j in range(count[i]):
-        print(i, end=' ')
-# 0 0 1 1 2 2 3 4 5 5 6 7 8 9 9
+# # 출력1
+# print(count)  # [2, 2, 2, 1, 1, 2, 1, 1, 1, 2]
+# # 출력2
+# for i in range(len(count)):
+#     for j in range(count[i]):
+#         print(i, end=' ')
+# # 0 0 1 1 2 2 3 4 5 5 6 7 8 9 9
 
 # 4-4-1. 예제 문제
 n, k = 5, 3
@@ -640,6 +650,123 @@ def dijkstra(start):
 # print(graph)
 # dijkstra(start)
 # print(distance)
+
+# # 입력
+# # 노드(Vertex), 간선(Edge) 수 입력
+# V = int(input())
+# E = int(input())
+
+# 무한 설정하기
+INF = int(1e9)
+
+# 그래프 선언 후 초기화
+def graph(V, E):
+    graph = [[INF] * (V+1) for _ in range(V+1)]
+    for row in range(1, V+1):
+        for col in range(1, V+1):
+            if row == col:
+                graph[row][col] = 0
+
+    for _ in range(E):
+        start, end, distance = map(int, input().split())
+        graph[start][end] = distance
+
+
+    for k in range(1, V+1):
+        for a in range(1, V+1):
+            for b in range(1, V+1):
+                graph[a][b] = min(graph[a][b], graph[a][k] + graph[k][b])
+
+# # 출력
+# for a in range(1, V+1):
+#     for b in range(1, V+1):
+#         distance = 0
+#         if graph[a][b] == INF:
+#             distance = INF
+#         else:
+#             distance = graph[a][b]
+#         print(f'{a} 에서 {b} 까지 거리는 {distance} 입니다.')
+#     print('---')
+
+'''
+[Input Example 1]
+4
+7
+1 2 4
+1 4 6
+2 1 3
+2 3 7
+3 1 5
+3 4 4
+4 3 2
+[Output Example 1]
+...
+1 에서 3 까지 거리는 8 입니다.
+1 에서 4 까지 거리는 6 입니다.
+---
+2 에서 1 까지 거리는 3 입니다.
+2 에서 2 까지 거리는 0 입니다.
+...
+'''
+
+# 7-3. 전보
+
+# # 입력
+# N, M, C = map(int, input().split())
+
+# graph = [[] * N for _ in range(N+1)]
+# for _ in range(M):
+#     start, end, dist = map(int, input().split())
+#     graph[start].append((end, dist))
+# distance = [INF] * (N+1)
+
+def solve(C):
+    INF = int(1e10)
+
+    # 다익스트라 알고리즘
+    import heapq
+
+    q = []
+    heapq.heappush(q, (0, C))
+    distance[C] = 0
+    while q:
+        dist, now = heapq.heappop(q)
+
+        if distance[now] < dist:
+            continue
+
+        for i in graph[now]:
+            new, new_dist = i[0], i[1]
+            cost = dist + new_dist
+            if distance[new] > cost:
+                distance[new] = cost
+                heapq.heappush(q, (cost, new))
+
+    max_distance = 0
+    count = 0
+    for d in distance:
+        if d != INF:
+            max_distance = max(d, max_distance)
+            count += 1
+
+# # 출력
+# print(count - 1, max_distance)
+
+# 7-4. 미래 도시
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # 9-1. 소수
 

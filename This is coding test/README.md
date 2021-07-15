@@ -496,18 +496,18 @@ else:
   1. **하향식(Top Down)**
      - 메모이제이션(Memoization) 방식
        - 한 번 계산한 결과를 메모리 공간에 메모
-       - 값을 기록해 놓아 **캐싱(Caching)**라고도 불림
+       - 값을 기록해 놓아 **캐싱(Caching)** 라고도 불림
   2. **상향식(Bottom Up)**
      - 결과 저장용 리스트를 **DP 테이블**
 - DP vs 분할 정복
   - 공통점: 큰 문제를 작은 문제로 나눠 작은 문제의 답을 모아 큰 문제를 해결
-  - 차이점: 부분 문제의 중복
-    - DP: 각 부분 문제들이 서로 영향을 미치며 부분 문제의 중복
-    - 분할 정복: 동일한 부분 문제의 반복 계산x
+  - 차이점: 부분 문제의 중복성
+    - DP: 각 부분 문제들이 서로 영향을 미침, 부분 문제의 중복
+    - 분할 정복: 동일한 부분 문제가 반복적으로 계산되지 않음
 - **접근 방법**
   1. DP 유형인지 확인, 다른 방법이 가능하면 다르게 풀기
-  2. 재귀 함수로 비효율적인 완전 탐색 프로그램으로 작성
-  3. 작은 문제에서 구한 답이 큰 문제로 그대로 사용할 수 있으면 코드 개선
+  2. 재귀 함수로 비효율적인 완전 탐색 프로그램으로 작성 후
+     1. 작은 문제에서 구한 답이 큰 문제로 그대로 사용할 수 있으면 코드 개선
 
 ## 6-1. 피보나치 수열
 
@@ -535,7 +535,19 @@ def fibo(x):
     d[x] = fibo(x-1) + fibo(x-2)
     return d[x]
 
-print(fibo(99))
+print(fibo(99))  # 218922995834555169026
+```
+
+Bottom-Up DP(시간 복잡도: O(N))
+
+```python
+n = 99
+d = [0] * (n+1)
+d[1] = 1
+d[2] = 1
+for i in range(3, n+1):
+    d[i] = d[i-1] + d[i-2]
+print(d[n])  # 218922995834555169026
 ```
 
 ## 6-2. 개미 전사
@@ -576,6 +588,34 @@ def make_the_one(x):
 
 # x = 26
 # print(make_the_one(x))
+```
+
+탑다운 방식 연습
+
+```python
+N = 26
+INF = int(1e2)
+dp = [INF] * (N+1)
+dp[N] = 0
+
+def top_down(n, cnt):
+    if n == 0:
+        return
+    dp[n-1] = min(cnt+1, dp[n-1])
+
+    if n % 2 == 0:
+        dp[n//2] = min(cnt+1, dp[n//2])
+        top_down(n//2, cnt+1)
+    if n % 3 == 0:
+        dp[n//3] = min(cnt+1, dp[n//3])
+        top_down(n//3, cnt+1)
+    if n % 5 == 0:
+        dp[n//5] = min(cnt+1, dp[n//5])
+        top_down(n//5, cnt+1)
+    top_down(n-1, cnt+1)
+
+top_down(N, 0)
+print(dp[1])
 ```
 
 ## 6-4. 효율적인 화폐 구성
@@ -717,6 +757,13 @@ print(distance)
 ```
 
 힙(Heap)자료구조를 이용
+- 시간 복잡도는 O(ElogV)
+- 노드 하나씩 꺼내 검사하는 반복문은 노드의 개수 V이상의 횟수로 처리되지 않음
+  - 결과적으로 현재 우선순위 큐에 꺼낸 노드와 연결된 다른 노드들을 확인하는 총 횟수는 최대 간선(E)의 갯수만큼 연산이 수행
+- 전체 과정은 E개의 원소를 우선순위 큐에 넣었다가 모두 빼내는 연산과 매우 흡사
+  - 시간 복잡도를 O(ElogE)로 판단 가능
+  - 중복 간선을 포함하지 않은 경우에 이를 O(ElogV)로 정리 가능
+  - O(ElogE) -> O(ElogV**2) -> O(2ElogV) -> O(ElogV)
 
 예시 코드(우선순위 큐)
 
@@ -786,7 +833,61 @@ print(distance)
 코드
 
 ```python
+# 노드(Vertex), 간선(Edge) 수 입력
+V = int(input())
+E = int(input())
 
+# 무한 설정하기
+INF = int(1e9)
+
+# 그래프 선언 후 초기화
+graph = [[INF] * (V+1) for _ in range(V+1)]
+for row in range(1, V+1):
+    for col in range(1, V+1):
+        if row == col:
+            graph[row][col] = 0
+
+for _ in range(E):
+    start, end, distance = map(int, input().split())
+    graph[start][end] = distance
+
+
+for k in range(1, V+1):
+    for a in range(1, V+1):
+        for b in range(1, V+1):
+            graph[a][b] = min(graph[a][b], graph[a][k] + graph[k][b])
+
+# 출력
+for a in range(1, V+1):
+    for b in range(1, V+1):
+        distance = 0
+        if graph[a][b] == INF:
+            distance = INF
+        else:
+            distance = graph[a][b]
+        print(f'{a} 에서 {b} 까지 거리는 {distance} 입니다.')
+    print('---')
+
+'''
+[Input Example 1]
+4
+7
+1 2 4
+1 4 6
+2 1 3
+2 3 7
+3 1 5
+3 4 4
+4 3 2
+[Output Example 1]
+...
+1 에서 3 까지 거리는 8 입니다.
+1 에서 4 까지 거리는 6 입니다.
+---
+2 에서 1 까지 거리는 3 입니다.
+2 에서 2 까지 거리는 0 입니다.
+...
+'''
 ```
 
 ## 7-3. 전보

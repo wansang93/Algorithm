@@ -1,4 +1,4 @@
-# Python Competitive Programming Team Notes
+# Python Competitive Programming Team Note
 
 - This repository is a python library for PS(Problem-Solving) Competition.
 - When you need an implementation of a specific algorithm, please let me know.
@@ -8,7 +8,35 @@
 
 # Contents
 
-[수론](#수론number-theory), [정렬](#정렬sorting), [탐색](#탐색searching), [그래프](#그래프graph), [자료구조](#자료구조data-structure), [문자열](#문자열string), [동적 프로그래밍(DP)](#동적-프로그래밍dynamic-programming), [기하](#기하geometry), [통계](), [확률이론](#확률이론probability-theory), [신호 처리](#신호-처리signal-processing), [잡기술](#잡기술miscellaneous)
+[기본](#파이썬-기본-문법)[수론](#수론number-theory), [정렬](#정렬sorting), [탐색](#탐색searching), [그래프](#그래프graph), [자료구조](#자료구조data-structure), [문자열](#문자열string), [동적 프로그래밍(DP)](#동적-프로그래밍dynamic-programming), [기하](#기하geometry), [통계](), [확률이론](#확률이론probability-theory), [신호 처리](#신호-처리signal-processing), [잡기술](#잡기술miscellaneous)
+
+# 파이썬 기본 문법
+
+## row*col 의 리스트 초기화
+
+```python
+row, col = 3, 5
+mylist = [[0] * col for _ in range(row)]
+```
+
+## 라이브러리들
+
+```python
+import itertools  # 순열과 조합
+import heapq  # 힙 자료구조
+import bisect  # 이진 탐색
+import collections  # 덱, 카운터
+import math  # 수학
+
+# 1. 표준 라이브러리
+eval('(3+5)*7')  # 56
+
+# 2. Count
+from collections import Counter
+counter = Counter(['a', 'a', 'b', 'b', 'a', 'c', 'd', 'c'])
+print(counter['a'])  # 3
+print(dict(counter))  # {'a': 3, 'b': 2, 'c': 2, 'd': 1}
+```
 
 # 수론(Number Theory)
 
