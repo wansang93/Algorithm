@@ -720,52 +720,117 @@ def graph(V, E):
 #     graph[start].append((end, dist))
 # distance = [INF] * (N+1)
 
-def solve(C):
-    INF = int(1e10)
+# def solve(C):
+#     INF = int(1e10)
 
-    # 다익스트라 알고리즘
-    import heapq
+#     # 다익스트라 알고리즘
+#     import heapq
 
-    q = []
-    heapq.heappush(q, (0, C))
-    distance[C] = 0
-    while q:
-        dist, now = heapq.heappop(q)
+#     q = []
+#     heapq.heappush(q, (0, C))
+#     distance[C] = 0
+#     while q:
+#         dist, now = heapq.heappop(q)
 
-        if distance[now] < dist:
-            continue
+#         if distance[now] < dist:
+#             continue
 
-        for i in graph[now]:
-            new, new_dist = i[0], i[1]
-            cost = dist + new_dist
-            if distance[new] > cost:
-                distance[new] = cost
-                heapq.heappush(q, (cost, new))
+#         for i in graph[now]:
+#             new, new_dist = i[0], i[1]
+#             cost = dist + new_dist
+#             if distance[new] > cost:
+#                 distance[new] = cost
+#                 heapq.heappush(q, (cost, new))
 
-    max_distance = 0
-    count = 0
-    for d in distance:
-        if d != INF:
-            max_distance = max(d, max_distance)
-            count += 1
+#     max_distance = 0
+#     count = 0
+#     for d in distance:
+#         if d != INF:
+#             max_distance = max(d, max_distance)
+#             count += 1
 
-# # 출력
-# print(count - 1, max_distance)
+#     # 출력
+#     print(count - 1, max_distance)
+
+# solve(C)
 
 # 7-4. 미래 도시
 
+# INF = int(1e9)
+# n, m = map(int, input().split())
+# graph = [[INF] * (n+1) for _ in range(n+1)]
+
+# for a in range(1, n+1):
+#     for b in range(1, n+1):
+#         if a == b:
+#             graph[a][b] = 0
+
+# for _ in range(m):
+#     a, b = map(int, input().split())
+#     graph[a][b] = 1
+#     graph[b][a] = 1
+
+# x, k = map(int, input().split())
+
+# for k in range(1, n+1):
+#     for a in range(1, n+1):
+#         for b in range(1, n+1):
+#             graph[a][b] = min(graph[a][b], graph[a][k] + graph[k][b])
+
+# for l in graph:
+#     print(*l)
+# distance = graph[1][k] + graph[k][x]
+# if distance == INF:
+#     print(-1)
+# else:
+#     print(distance)
 
 
+# 8-1. 서로소 집합
+# 특정 원소가 속한 집합을 찾기
+def find_parent(parent, x):
+    if parent[x] != x:
+        parent[x] = find_parent(parent, parent[x])
+    return parent[x]
 
+# 두 원소가 속한 집합 합치기
+def union_parent(parent, a, b):
+    a = find_parent(parent, a)
+    b = find_parent(parent, b)
+    if a < b:
+        parent[b] = a
+    else:
+        parent[a] = b
 
+v, e = map(int, input().split())
+parent = [0] * (v + 1)
 
+# 부모를 자신으로 초기화
+for i in range(1, v+1):
+    parent[i] = i
 
+# # 입력 받은 두 원소를 유니온 하기
+# for i in range(e):
+#     a, b = map(int, input().split())
+#     union_parent(parent, a, b)
 
+# 사이클을 판별하면서 union 연산 수행
+cycle = False
+for i in range(e):
+    a, b = map(int, input().split())
+    if find_parent(parent, a) == find_parent(parent, b):
+        cycle = True
+    union_parent(parent, a, b)
 
+print(cycle)
+# 각 원소 집합 출력하기
+for i in range(1, v+1):
+    print(find_parent(parent, i), end=' ')
+print()
 
-
-
-
+# 부모 테이블 내용 출력하기
+for i in range(1, v+1):
+    print(f'{i} -> {parent[i]}')
 
 
 # 9-1. 소수

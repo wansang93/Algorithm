@@ -8,7 +8,7 @@
 
 # Contents
 
-[기본](#파이썬-기본-문법)[수론](#수론number-theory), [정렬](#정렬sorting), [탐색](#탐색searching), [그래프](#그래프graph), [자료구조](#자료구조data-structure), [문자열](#문자열string), [동적 프로그래밍(DP)](#동적-프로그래밍dynamic-programming), [기하](#기하geometry), [통계](), [확률이론](#확률이론probability-theory), [신호 처리](#신호-처리signal-processing), [잡기술](#잡기술miscellaneous)
+[기본](#파이썬-기본-문법), [자료구조](#자료구조data-structure), [수론](#수론number-theory), [정렬](#정렬sorting), [탐색](#탐색searching), [그래프](#그래프graph), [문자열](#문자열string), [동적 프로그래밍(DP)](#동적-프로그래밍dynamic-programming), [기하](#기하geometry), [통계](), [확률이론](#확률이론probability-theory), [신호 처리](#신호-처리signal-processing), [잡기술](#잡기술miscellaneous)
 
 # 파이썬 기본 문법
 
@@ -17,6 +17,55 @@
 ```python
 row, col = 3, 5
 mylist = [[0] * col for _ in range(row)]
+```
+
+## 리스트 평평하게 하기(List flatten)
+
+```python
+lst = [[1, 2, 3], [4, 5, 6]]
+
+# 평평하게 만들기(flatten)
+# 방법 1
+def flatten(t):
+    return [item for sublist in t for item in sublist]
+flatten_lst =flatten(lst)
+
+# 방법 2
+import itertools
+flatten_lst2 =list(itertools.chain(*lst))
+
+# 방법 3
+flatten_lst3 =[i for s in lst for i in s]
+
+print(lst)  # [[1, 2, 3], [4, 5, 6]]
+print(flatten_lst)  # [1, 2, 3, 4, 5, 6]
+print(flatten_lst2)  # [1, 2, 3, 4, 5, 6]
+print(flatten_lst3)  # [1, 2, 3, 4, 5, 6]
+```
+
+## 딕셔너리 빠르게 선언하기(.get 활용)
+
+```python
+
+test_dict = {}
+test_dict2 = {}
+keys = [0, 1, 2, 3, 3]
+values = ['10', '20', '30', '40', '40']
+# .get 활용
+for key, value in zip(keys, values):
+    #.get(key값, 기본 타입) + 기본 타입에 추가할 값
+    test_dict[key] = test_dict.get(key, 0) + int(value)
+    test_dict2[key] = test_dict2.get(key, []) + [int(value)]
+
+print(test_dict)  # {0: 10, 1: 20, 2: 30, 3: 80}
+print(test_dict2)  # {0: [10], 1: [20], 2: [30], 3: [40, 40]}
+
+# 기존
+for key, value in zip(keys, values):
+    if key not in test_dict:
+        test_dict[key] = key
+    else:
+        test_dict[key] += key
 ```
 
 ## 라이브러리들
@@ -36,6 +85,109 @@ from collections import Counter
 counter = Counter(['a', 'a', 'b', 'b', 'a', 'c', 'd', 'c'])
 print(counter['a'])  # 3
 print(dict(counter))  # {'a': 3, 'b': 2, 'c': 2, 'd': 1}
+```
+
+# 자료구조(Data Structure)
+
+## 서로소 집합(Disjoint-Set (Union-Find))
+
+```python
+# 특정 원소가 속한 집합을 찾기
+def find_parent(parent, x):
+    if parent[x] != x:
+        parent[x] = find_parent(parent, parent[x])
+    return parent[x]
+
+# 두 원소가 속한 집합 합치기
+def union_parent(parent, a, b):
+    a = find_parent(parent, a)
+    b = find_parent(parent, b)
+    if a < b:
+        parent[b] = a
+    else:
+        parent[a] = b
+
+v, e = map(int, input().split())
+parent = [0] * (v + 1)
+
+# 부모를 자신으로 초기화
+for i in range(1, v+1):
+    parent[i] = i
+
+# # 입력 받은 두 원소를 유니온 하기
+# for i in range(e):
+#     a, b = map(int, input().split())
+#     union_parent(parent, a, b)
+
+# 사이클을 판별하면서 union 연산 수행
+cycle = False
+for i in range(e):
+    a, b = map(int, input().split())
+    if find_parent(parent, a) == find_parent(parent, b):
+        cycle = True
+    union_parent(parent, a, b)
+
+print(cycle)
+# 각 원소 집합 출력하기
+for i in range(1, v+1):
+    print(find_parent(parent, i), end=' ')
+print()
+
+# 부모 테이블 내용 출력하기
+for i in range(1, v+1):
+    print(f'{i} -> {parent[i]}')
+
+```
+
+동빈나 코드
+
+```python
+# Find the root node of x recursively.
+def find_parent(parent, x):
+    if parent[x] != x:
+        parent[x] = find_parent(parent, parent[x])
+    return parent[x]
+
+# Union the two sets.
+def union_parent(parent, a, b):
+    a = find_parent(parent, a)
+    b = find_parent(parent, b)
+    if a < b:
+        parent[b] = a
+    else:
+        parent[a] = b
+
+v, e = map(int, input().split())
+parent = [0] * (v + 1)
+for i in range(1, v + 1):
+    parent[i] = i
+
+# Process union operations.
+for i in range(e):
+    a, b = map(int, input().split())
+    union_parent(parent, a, b)
+
+print('Root nodes for all nodes: ', end='')
+for i in range(1, v + 1):
+    print(find_parent(parent, i), end=' ')
+
+print()
+
+print('Parent Table: ', end='')
+for i in range(1, v + 1):
+    print(parent[i], end=' ')
+
+'''
+[Input Example 1]
+6 4
+1 4
+2 3
+2 4
+5 6
+[Output Example 1]
+Root nodes for all nodes: 1 1 1 1 5 5 
+Parent Table: 1 1 1 1 5 5
+'''
 ```
 
 # 수론(Number Theory)
@@ -574,26 +726,105 @@ bfs 경로 -> 1 2 3 4
 ## 다익스트라(Dijkstra Shortest Path)
 
 ```python
+import heapq
 
+def dijkstra(start):
+    q = []
+    # 시작 노드로 가기 위한 최단 거리는 0으로 설정, 큐에 삽입
+    heapq.heappush(q, (0, start))
+    distance[start] = 0
+    while q:
+        dist, now = heapq.heappop(q)
+        if distance[now] < dist:
+            continue
+        for i in graph[now]:
+            cost = dist + i[1]
+            if cost < distance[i[0]]:
+                distance[i[0]] = cost
+                heapq.heappush(q, (cost, i[0]))
+
+INF = int(1e9)  # 10억
+
+# n: 노드의 갯수
+# m: 간선의 갯수
+n, m = map(int, input().split())
+start = int(input())
+graph = [[] for i in range(n+1)]
+distance = [INF] * (n+1)
+
+# 모든 간선 정보 입력받기
+for _ in range(m):
+    a, b, c = map(int, input().split())
+    graph[a].append((b, c))
+
+
+dijkstra(start)  
+print(graph)  # [[], [(2, 2), (3, 3)], [(3, 4), (4, 5)], [(4, 6)], [], [(1, 1)]]
+print(distance)  # [1000000000, 0, 2, 3, 7, 1000000000]
+'''
+[Input Example 1]
+5 6
+1
+5 1 1
+1 2 2
+1 3 3
+2 3 4
+2 4 5
+3 4 6
+'''
 ```
 
 ## 최소 신장 트리(Minimum Spanning Tree (MST))
 
 ```python
+# 특정 원소가 속한 집합을 찾기
+def find_parent(parent, x):
+    if parent[x] != x:
+        parent[x] = find_parent(parent, parent[x])
+    return parent[x]
+
+# 두 원소가 속한 집합 합치기
+def union_parent(parent, a, b):
+    a = find_parent(parent, a)
+    b = find_parent(parent, b)
+    if a < b:
+        parent[b] = a
+    else:
+        parent[a] = b
+
+v, e = map(int, input().split())
+parent = [0] * (v + 1)
+
+edges = []
+result = 0
+
+# 부모를 자신으로 초기화
+for i in range(1, v+1):
+    parent[i] = i
+
+# 간선 정보 입력 받기
+for i in range(e):
+    a, b, cost = map(int, input().split())
+    edges.append((cost, a, b))
+
+edges.sort()
+
+for edge in edges:
+    cost, a, b = edge
+    # 사이클 발생하지 않은 경우만
+    if find_parent(parent, a) != find_parent(parent, b):
+        union_parent(parent, a, b)
+        result += cost
+
+print(result)
 
 ```
 
 ## 위상 정렬(Topology Sort)
 
-queue(큐)를 이용한 위상 정렬
+입력값 입력받기
 
 ```python
-'''
-Input:
-4 2
-4 2
-3 1
-'''
 N, M = map(int, input().split())
 indegree_lst = [0 for _ in range(N+1)]
 graph = [[] for _ in range(N+1)]
@@ -601,7 +832,14 @@ for _ in range(M):
     A, B = map(int, input().split())
     graph[A].append(B)
     indegree_lst[B] += 1
+''' Input:
+4 2
+4 2
+3 1
+'''
 ```
+
+queue(큐)를 이용한 위상 정렬
 
 ```python
 from collections import deque
@@ -707,7 +945,61 @@ topology_sort()
 ## 플로이드 와샬 알고리즘(Floyd–Warshall algorithm)
 
 ```python
+# 노드(Vertex), 간선(Edge) 수 입력
+V = int(input())
+E = int(input())
 
+# 무한 설정하기
+INF = int(1e9)
+
+# 그래프 선언 후 초기화
+graph = [[INF] * (V+1) for _ in range(V+1)]
+for row in range(1, V+1):
+    for col in range(1, V+1):
+        if row == col:
+            graph[row][col] = 0
+
+for _ in range(E):
+    start, end, distance = map(int, input().split())
+    graph[start][end] = distance
+
+
+for k in range(1, V+1):
+    for a in range(1, V+1):
+        for b in range(1, V+1):
+            graph[a][b] = min(graph[a][b], graph[a][k] + graph[k][b])
+
+# 출력
+for a in range(1, V+1):
+    for b in range(1, V+1):
+        distance = 0
+        if graph[a][b] == INF:
+            distance = INF
+        else:
+            distance = graph[a][b]
+        print(f'{a} 에서 {b} 까지 거리는 {distance} 입니다.')
+    print('---')
+
+'''
+[Input Example 1]
+4
+7
+1 2 4
+1 4 6
+2 1 3
+2 3 7
+3 1 5
+3 4 4
+4 3 2
+[Output Example 1]
+...
+1 에서 3 까지 거리는 8 입니다.
+1 에서 4 까지 거리는 6 입니다.
+---
+2 에서 1 까지 거리는 3 입니다.
+2 에서 2 까지 거리는 0 입니다.
+...
+'''
 ```
 
 ## 이분 매칭(Bipartite Matching)
@@ -715,24 +1007,6 @@ topology_sort()
 ```python
 
 ```
-
-# 자료구조(Data Structure)
-
-## 서로소 집합(Disjoint-Set (Union-Find))
-
-```python
-
-```
-
-## 트리(Tree)
-
-```python
-
-```
-
-## Line
-
-## Plane
 
 # 문자열(String)
 
@@ -942,7 +1216,7 @@ print(interval_sum([10, 20, 30, 40, 50], [(3, 4), (2, 3), (1, 4)]))
 # [70, 50, 100]
 ```
 
-### Fenwick Tree(Binary Indexed Tree)
+### 바이너리 인덱스 트리(Binary Indexed Tree(Fenwick Tree))
 
 ```python
 
@@ -984,8 +1258,14 @@ def rotate(m, d):
 
 ## 재귀 제한하기(Handling Recursion Limit)
 
-```python
+파이썬의 재귀는 대략 1000 정도까지 제한되어 있음
 
+이를 풀어주려면 아래와 같은 함수를 사용하면 됨
+
+```python
+#  the recursion limit of python is usually set to a small value (approx, 10^4).
+import sys
+sys.setrecursionlimit(10**6)
 ```
 
 ## 행렬 뒤집기
@@ -1003,27 +1283,6 @@ print(new_list)
 ```
 
 ## 실전에서 느낀 것(What I felt in practice)
-
-## 딕셔너리 빠르게 선언하기(.get 활용)
-
-```python
-
-test_dict = {}
-keys = [0, 1, 2, 3]
-values = ['10', '20', '30', '40']
-# .get 활용
-for key, value in zip(keys, values):
-    #.get(key값, 기본 타입) + 기본 타입에 추가할 값
-    test_dict[key] = test_dict.get(key, 0) + int(value)
-
-# 기존
-for key, value in zip(keys, values):
-    #.get(key값, 기본 타입) + 기본 타입에 추가할 값
-    if key not in test_dict:
-        test_dict[key] = key
-    else:
-        test_dict[key] += key
-```
 
 ### 1의자리 숫자를 N개만큼의 수 만들기(int형만 사용해서)
 

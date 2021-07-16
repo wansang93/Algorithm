@@ -10,6 +10,7 @@
 - 2021-05-14(5장)
 - 2021-05-16(6장)
 - 2021-06-20(7장)
+- 2021-07-16(8장) Finished
 
 교제 사이트 링크 -> [https://github.com/ndb796/python-for-coding-test](https://github.com/ndb796/python-for-coding-test)
 
@@ -893,19 +894,239 @@ for a in range(1, V+1):
 ## 7-3. 전보
 
 ```python
+# 입력
+N, M, C = map(int, input().split())
 
+graph = [[] * N for _ in range(N+1)]
+for _ in range(M):
+    start, end, dist = map(int, input().split())
+    graph[start].append((end, dist))
+distance = [INF] * (N+1)
+
+def solve(C):
+    INF = int(1e10)
+
+    # 다익스트라 알고리즘
+    import heapq
+
+    q = []
+    heapq.heappush(q, (0, C))
+    distance[C] = 0
+    while q:
+        dist, now = heapq.heappop(q)
+
+        if distance[now] < dist:
+            continue
+
+        for i in graph[now]:
+            new, new_dist = i[0], i[1]
+            cost = dist + new_dist
+            if distance[new] > cost:
+                distance[new] = cost
+                heapq.heappush(q, (cost, new))
+
+    max_distance = 0
+    count = 0
+    for d in distance:
+        if d != INF:
+            max_distance = max(d, max_distance)
+            count += 1
+
+    # 출력
+    print(count - 1, max_distance)
+
+solve(C)
 ```
-
 
 ## 7-4. 미래 도시
 
 ```python
+INF = int(1e9)
+n, m = map(int, input().split())
+graph = [[INF] * (n+1) for _ in range(n+1)]
 
+for a in range(1, n+1):
+    for b in range(1, n+1):
+        if a == b:
+            graph[a][b] = 0
+
+for _ in range(m):
+    a, b = map(int, input().split())
+    graph[a][b] = 1
+    graph[b][a] = 1
+
+x, k = map(int, input().split())
+
+for k in range(1, n+1):
+    for a in range(1, n+1):
+        for b in range(1, n+1):
+            graph[a][b] = min(graph[a][b], graph[a][k] + graph[k][b])
+
+for l in graph:
+    print(*l)
+distance = graph[1][k] + graph[k][x]
+if distance == INF:
+    print(-1)
+else:
+    print(distance)
 ```
 
 # 8. 기타 그래프 이론
 
-추후 업데이트
+## 8-1. 서로소 집합
+
+공통 원소가 없는 두 집합은 서로소 집합이다.
+
+- 서로소 부분 집합들로 나누어진 원소들의 데이터를 처리하기 위한 자료구조
+- 서로소 집합 자료구조는 두 종류의 연산을 지원
+  - 합집합(Union): 두 개의 원소가 포함된 집합을 하나의 집합으로 합치는 연산
+  - 찾기(Find): 특정한 원소가 속한 집합이 어떤 집합인지 알려주는 연산
+- 서로소 집합 자료구조는 Union-Find 자료구조라고도 불림
+
+여러 개의 합치기 연산이 주어졌을 때 서로소 집합 자료구조의 동작 과정
+1. 합집합(Union)연산을 확인, 서로 연결된 두 노드 A, B를 확인
+   1. A와 B의 루트 노드 A', B'를 각각 찾음
+   2. A', B'의 부모 노드로 설정
+2. 모든 합집합(Union) 연산을 처리할 때 까지 1번의 과정을 반복
+
+```python
+# 특정 원소가 속한 집합을 찾기
+def find_parent(parent, x):
+    if parent[x] != x:
+        parent[x] = find_parent(parent, parent[x])
+    return parent[x]
+
+# 두 원소가 속한 집합 합치기
+def union_parent(parent, a, b):
+    a = find_parent(parent, a)
+    b = find_parent(parent, b)
+    if a < b:
+        parent[b] = a
+    else:
+        parent[a] = b
+
+v, e = map(int, input().split())
+parent = [0] * (v + 1)
+
+# 부모를 자신으로 초기화
+for i in range(1, v+1):
+    parent[i] = i
+
+# # 입력 받은 두 원소를 유니온 하기
+# for i in range(e):
+#     a, b = map(int, input().split())
+#     union_parent(parent, a, b)
+
+# 사이클을 판별하면서 union 연산 수행
+cycle = False
+for i in range(e):
+    a, b = map(int, input().split())
+    if find_parent(parent, a) == find_parent(parent, b):
+        cycle = True
+    union_parent(parent, a, b)
+
+print(cycle)
+# 각 원소 집합 출력하기
+for i in range(1, v+1):
+    print(find_parent(parent, i), end=' ')
+print()
+
+# 부모 테이블 내용 출력하기
+for i in range(1, v+1):
+    print(f'{i} -> {parent[i]}')
+```
+
+## 8-2. 최소 신장 트리
+
+크루스칼 알고리즘
+- 대표적인 최소 신장 트리 알고리즘
+- 그리디 알고리즘으로 분류
+
+1. 간선 데이터를 비용에 따라 오름차순으로 정렬
+2. 간선을 하나씩 확인하며 현재의 간선이 사이클을 발생시키는지 확인
+   1. 사이클이 발생하지 않는 경우 최소 신장 트리에 포함
+   2. 사이클이 발생하는 경우 최소 신장 트레에 포함 시키지 않음
+3. 모든 간선에 대하여 2번의 과정을 반복
+
+```python
+# 특정 원소가 속한 집합을 찾기
+def find_parent(parent, x):
+    if parent[x] != x:
+        parent[x] = find_parent(parent, parent[x])
+    return parent[x]
+
+# 두 원소가 속한 집합 합치기
+def union_parent(parent, a, b):
+    a = find_parent(parent, a)
+    b = find_parent(parent, b)
+    if a < b:
+        parent[b] = a
+    else:
+        parent[a] = b
+
+v, e = map(int, input().split())
+parent = [0] * (v + 1)
+
+edges = []
+result = 0
+
+# 부모를 자신으로 초기화
+for i in range(1, v+1):
+    parent[i] = i
+
+# 간선 정보 입력 받기
+for i in range(e):
+    a, b, cost = map(int, input().split())
+    edges.append((cost, a, b))
+
+edges.sort()
+
+for edge in edges:
+    cost, a, b = edge
+    # 사이클 발생하지 않은 경우만
+    if find_parent(parent, a) != find_parent(parent, b):
+        union_parent(parent, a, b)
+        result += cost
+
+print(result)
+```
+
+## 8-3. 위상 정렬
+
+- **사이클이 없는 방향 그래프(DAG, Directed acyclic graph)**의 모든 노드를 방향성에 거스르지 않도록 순서대로 나열
+- 예시) 과목 우선 수강 해야 다음 과목 수강 가능
+- 진입차수(Indegree): 특정한 노드로 들어오는 간선의 갯수
+- 진출차수(Outdegree): 특정한 노드에서 나가는 간선의 갯수
+
+위상 정렬 알고리즘(큐 사용)
+1. 진입차수가 0인 모든 노드를 큐에 넣는다.
+2. 큐가 빌 때까지 아래 과정을 반복한다.
+   1. 큐에서 원소를 꺼내 해당 노드에서 나가는 간선을 그래프에서 제거
+   2. 새롭게 진입차수가 0이 된 노드를 큐에 넣는다.
+
+결과적으로 각 노드가 큐에 들어온 순서가 위상정렬을 수행한 결과와 같음
+
+```python
+import heapq
+def topology_sort():
+    result = []
+    heap = []
+    for i in range(1, N+1):
+        if indegree_lst[i] == 0:
+            heapq.heappush(heap, i)
+
+    while heap:
+        now = heapq.heappop(heap)
+        result.append(now)
+        for i in graph[now]:
+            indegree_lst[i] -= 1
+            if indegree_lst[i] == 0:
+                heapq.heappush(heap, i)
+    
+    return result
+
+print(topology_sort())
+```
 
 # 9. 코딩 테스트에서 자주 출제되는 기타 알고리즘
 
