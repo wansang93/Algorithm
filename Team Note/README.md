@@ -664,6 +664,29 @@ def dfs(x):
             dfs(y)
 ```
 
+Without Recursion
+
+```python
+def dfs(graph, node):
+    visited = [node]
+    stack = [node]
+    while stack:
+        node = stack[-1]
+        if node not in visited:
+            visited.extend(node)
+        remove_from_stack = True
+        for next in graph[node]:
+            if next not in visited:
+                stack.extend(next)
+                remove_from_stack = False
+                break
+        if remove_from_stack:
+            stack.pop()
+    return visited
+
+print (dfs(graph1, 'A'))
+```
+
 ## BFS
 
 ```python
@@ -719,6 +742,53 @@ bfs 경로 -> 1 2 3 4
 '''
 ```
 
+BEAKJOON Code Example(함수형)
+
+```python
+import sys
+N, M, V = map(int, sys.stdin.readline().strip().split())
+edge = [[] for _ in range(N+1)]
+
+for __ in range(M):
+    n1, n2 = map(int, sys.stdin.readline().strip().split())
+    edge[n1].append(n2)
+    edge[n2].append(n1)
+
+for e in edge:
+    e.sort(reverse=True)
+
+def dfs():
+    d_visit = []
+    stack = [V]
+    d_check = [0 for _ in range(N+1)]
+    while stack:
+        v1 = stack.pop()
+        if not d_check[v1]:
+            d_check[v1] = 1
+            d_visit.append(v1)
+            stack += edge[v1]
+    return d_visit
+
+
+def bfs():
+    b_visit = []
+    queue = [V]
+    b_check = [0 for _ in range(N+1)]
+    b_check[V] = 1
+    while queue:
+        v2 = queue.pop()
+        b_visit.append(v2)
+        for i in reversed(edge[v2]):
+            if not b_check[i]:
+                b_check[i] = 1
+                queue = [i] + queue
+    return b_visit
+
+print(*dfs())
+print(*bfs())
+```
+
+
 # 그래프(Graph)
 
 목차: 다익스트라, 최소 신장 트리, 위상 정렬, 플로이드 와샬 알고리즘, 이분 매칭
@@ -734,14 +804,14 @@ def dijkstra(start):
     heapq.heappush(q, (0, start))
     distance[start] = 0
     while q:
-        dist, now = heapq.heappop(q)
-        if distance[now] < dist:
+        now_d, now = heapq.heappop(q)
+        if distance[now] < now_d:
             continue
-        for i in graph[now]:
-            cost = dist + i[1]
-            if cost < distance[i[0]]:
-                distance[i[0]] = cost
-                heapq.heappush(q, (cost, i[0]))
+        for next_v, next_d in graph[now]:
+            cost = now_d + next_d
+            if cost < distance[next_v]:
+                distance[next_v] = cost
+                heapq.heappush(q, (cost, next_v))
 
 INF = int(1e9)  # 10억
 
@@ -749,7 +819,7 @@ INF = int(1e9)  # 10억
 # m: 간선의 갯수
 n, m = map(int, input().split())
 start = int(input())
-graph = [[] for i in range(n+1)]
+graph = [[] for _ in range(n+1)]
 distance = [INF] * (n+1)
 
 # 모든 간선 정보 입력받기
@@ -758,7 +828,7 @@ for _ in range(m):
     graph[a].append((b, c))
 
 
-dijkstra(start)  
+dijkstra(start)
 print(graph)  # [[], [(2, 2), (3, 3)], [(3, 4), (4, 5)], [(4, 6)], [], [(1, 1)]]
 print(distance)  # [1000000000, 0, 2, 3, 7, 1000000000]
 '''
