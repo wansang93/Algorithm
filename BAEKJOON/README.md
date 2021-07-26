@@ -40,6 +40,7 @@
 - [1748](./problems/1748.md)
 - [1753](./problems/1753.md)
 - [1766](./problems/1766.md)
+- [1806](./problems/1806.md)
 - [1874](./problems/1874.md)
 - [1920](./problems/1920.md)
 - [1927](./problems/1927.md)
@@ -159,3 +160,4 @@
 - [21965](./problems/21965.md)
 - [21966](./problems/21966.md)
 - [21967](./problems/21967.md)
+- [21968](./problems/21968.md)
