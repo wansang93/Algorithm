@@ -28,14 +28,14 @@ lst = [[1, 2, 3], [4, 5, 6]]
 # 방법 1
 def flatten(t):
     return [item for sublist in t for item in sublist]
-flatten_lst =flatten(lst)
+flatten_lst = flatten(lst)
 
 # 방법 2
 import itertools
-flatten_lst2 =list(itertools.chain(*lst))
+flatten_lst2 = list(itertools.chain(*lst))
 
 # 방법 3
-flatten_lst3 =[i for s in lst for i in s]
+flatten_lst3 = [i for s in lst for i in s]
 
 print(lst)  # [[1, 2, 3], [4, 5, 6]]
 print(flatten_lst)  # [1, 2, 3, 4, 5, 6]
@@ -553,9 +553,15 @@ for i in range(len(count)):
 ## 파이썬 정렬 라이브러리(Python Sort Library)
 
 ```python
-n = 5
+# 딕셔너리 정렬
+dicts = {}
+new_dict = sorted(dicts.items(), key=lambda x: x[0]))  # key로 정렬
+new_dict = sorted(dicts.items(), key=lambda x: x[1]))  # value로 정렬
+# value[1], value[0] 순으로 정렬
+new_dict = sorted(dicts.items(), key=lambda x: (x[1][1], x[1][0]))
 
 ''' Python Sort Library (Basic) '''
+n = 5
 data = [8, 5, 4, 7, 2]
 data.sort()
 

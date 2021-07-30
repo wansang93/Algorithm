@@ -6,11 +6,5 @@ file_path = (
 )
 sys.stdin = open(file_path, 'r')
 
-# # Variable Template
-# T = int(input())
-# N, M = map(int, input().split())
-# lst = list(map(int, input().split()))
-
-
 # Solve here
 
