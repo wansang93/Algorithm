@@ -19,6 +19,26 @@ row, col = 3, 5
 mylist = [[0] * col for _ in range(row)]
 ```
 
+## 가중치 그래프 빠르게 그리기
+
+```python
+import heapq
+
+V, E = map(int, input().split())
+K = int(input())
+
+graph = [[] * V for _ in range(V+1)]
+for _ in range(E):
+    s, e, d = map(int, input().split())
+    graph[s].append((e, d))
+
+
+INF = int(1e9)
+distance = [INF] * (V+1)
+distance[K] = 0
+heap = []
+```
+
 ## 리스트 평평하게 하기(List flatten)
 
 ```python
@@ -1359,6 +1379,62 @@ print(new_list)
 ```
 
 ## 실전에서 느낀 것(What I felt in practice)
+
+### 배열 돌리기 여러가지 스킬
+
+17406번 백준 [골드4]`배열 돌리기 4` 를 풀면서 [링크](../BAEKJOON/problems/17406.md)
+
+2차원 리스트 deepcopy without deepcopy module
+
+``` python
+lst = [[1, 2], [3, 4]]
+# 2차원 리스트 deepcopy
+copy_lst = [x[:] for x in lst]
+# 아래 방법으로 하면 오류가 생길 수 있음(주의!)
+shallow_lst = lst[:]
+```
+
+회전(시계방향)하면서 값 바꿔주기
+
+``` python
+'''
+arr: 배열, r, c = 가운데 점, s: 확대반경
+'''
+def _rotate(arr, r, c, s):
+    for ss in range(1, s+1):
+        x, y, tmp = r-ss, c-ss, arr[r-ss][c-ss]
+        for dx, dy in [(1, 0), (0, 1), (-1, 0), (0, -1)]:
+            for _ in range(ss * 2):
+                arr[x][y] = arr[x+dx][y+dy]
+                x, y = x + dx, y + dy
+
+        arr[r-ss][c-ss+1] = tmp
+```
+
+
+``` python
+# 예시 코드
+lst = [[1, 2], [3, 4]]
+shallow_lst = lst[:]
+copy_lst = [x[:] for x in lst]
+
+# 얕은 복사는 id가 같음
+print(id(lst[0]))  # 1994660564480
+print(id(shallow_lst[0]))  # 1994660564480
+print(id(copy_lst[0]))  # 1994665346432
+
+# 재할당은 문제없음
+lst[0] = [0, 1]
+print(lst)  # [[0, 1], [3, 4]]
+print(shallow_lst)  # [[1, 2], [3, 4]]
+print(copy_lst)  # [[1, 2], [3, 4]]
+
+# 추가는 문제가 생김
+lst[1].append(5)
+print(lst)  # [[0, 1], [3, 4, 5]]
+print(shallow_lst)  # [[1, 2], [3, 4, 5]]
+print(copy_lst)  # [[1, 2], [3, 4]]
+```
 
 ### 1의자리 숫자를 N개만큼의 수 만들기(int형만 사용해서)
 
