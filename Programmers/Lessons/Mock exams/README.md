@@ -333,6 +333,22 @@
 
 - 풀이
 
-``` python
+    ``` python
+    def solution(strs, t):
+        INF = int(1e9)
+        n = len(t)
+        dp = [0] * (n+1)
 
-```
+        for i in range(1, n+1):
+            dp[i] = INF
+            for k in range(1, 6):
+                if i < k:
+                    s = 0
+                else:
+                    s = i - k
+                if t[s:i] in strs:
+                    dp[i] = min(dp[i], dp[i-k] + 1)
+
+        answer = dp[-1] if dp[-1] != INF else -1
+        return answer
+    ```

@@ -1380,9 +1380,20 @@ print(new_list)
 
 ## 실전에서 느낀 것(What I felt in practice)
 
+- 백준 [실버4] `1244: 스위치 켜고 끄기` 를 풀면서 [링크](../BAEKJOON/problems/1244.md)
+
+### 파이썬 토글(toggle)
+
+``` python
+a, b = 1, 0
+# 1 - 자기 자신을 하면 토글이 됨
+a = 1 - a
+b = 1 - b
+```
+
 ### 배열 돌리기 여러가지 스킬
 
-17406번 백준 [골드4]`배열 돌리기 4` 를 풀면서 [링크](../BAEKJOON/problems/17406.md)
+- 백준 [골드4] `17406: 배열 돌리기 4` 를 풀면서 [링크](../BAEKJOON/problems/17406.md)
 
 2차원 리스트 deepcopy without deepcopy module
 
@@ -1410,7 +1421,6 @@ def _rotate(arr, r, c, s):
 
         arr[r-ss][c-ss+1] = tmp
 ```
-
 
 ``` python
 # 예시 코드

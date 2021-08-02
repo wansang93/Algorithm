@@ -125,16 +125,23 @@
 #                     max = result[i+1][j+1]
 #     return max ** 2
 
-# 파트 7 (풀이 중)
+# 파트 7
 def solution(strs, t):
-    answer = 0
-    length = len(t)
-    
-    dp = [length+1] * length
-    print(dp)
-    for i in range(length):
-        dp[i] = min(dp[i], dp[i])
+    INF = int(1e9)
+    n = len(t)
+    dp = [0] * (n+1)
 
+    for i in range(1, n+1):
+        dp[i] = INF
+        for k in range(1, 6):
+            if i < k:
+                s = 0
+            else:
+                s = i - k
+            if t[s:i] in strs:
+                dp[i] = min(dp[i], dp[i-k] + 1)
+
+    answer = dp[-1] if dp[-1] != INF else -1
     return answer
 
 # 참고 코드(but 효율성 문제)
