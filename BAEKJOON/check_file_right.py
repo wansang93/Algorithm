@@ -26,9 +26,10 @@ from bs4 import BeautifulSoup    # HTML을 파싱하는 모듈
 
 
 # 1. Check how many solved problems in BAEKJOON
+USER_NAME = 'wansang93'
 solved_BAEKJOON_list = []
 
-link = 'https://www.acmicpc.net/user/wansang93'
+link = 'https://www.acmicpc.net/user/' + USER_NAME
 response = requests.get(link)
 soup = BeautifulSoup(response.content, 'html.parser')
 baekjoon_lst = soup.find('div', class_='panel-body')
@@ -37,13 +38,13 @@ for atag in baekjoon_lst:
     string = atag.string
     if string.isdecimal():
         solved_BAEKJOON_list.append(int(string))
-# result
+
 # print(solved_BAEKJOON_list, len(solved_BAEKJOON_list))
 
 
 # 2. Check how many solved problems files are in my folder
-target_dir = r"C:/Users/wansang/Desktop/Gitrep/Algorithm/BAEKJOON/problems"
-all_file_list = os.listdir(target_dir)
+TARGET_DIR = r"C:/Users/wansang/Desktop/Gitrep/Algorithm/BAEKJOON/problems"
+all_file_list = os.listdir(TARGET_DIR)
 
 my_files_list = []
 for file in all_file_list:
@@ -52,7 +53,6 @@ for file in all_file_list:
         my_files_list.append(int(file_name))
 
 my_files_list.sort()
-# result
 # print(my_files_list, len(my_files_list))
 
 # 2-1. 백준 파일과 나의 파일 목록 확인하기
@@ -65,26 +65,15 @@ print('내폴더에 없는 파일:', none_baek_list)
 
 
 # 3. TODO: md 파일에 번호 순서대로 문제 넣기
-file_path = r'C:/Users/wansang/Desktop/Gitrep/Algorithm/BAEKJOON/README.md'
+MD_FILE = r'C:/Users/wansang/Desktop/Gitrep/Algorithm/BAEKJOON/README.md'
 
+# TODO: 나중에 수정하기
 file_not_in_mdlist = []
-with open(file_path, 'r', encoding='utf-8') as f:
+with open(MD_FILE, 'r', encoding='utf-8') as f:
     pass
 
 none_files_list = []
-with open(file_path, 'a', encoding='utf-8') as f:
+with open(MD_FILE, 'a', encoding='utf-8') as f:
     for i in solved_BAEKJOON_list:
         # f.writelines(f'- [{i}](./problems/{i}.md)\n')
         pass
-
-# t = ''
-# read_me = set(re.findall(r'\d+', t))
-# print(read_me)
-
-# baekjoon = set(re.findall(r'\d+', baekjoon_lst))
-# read_me = set(re.findall(r'\d+', md_file_list))
-# print('README 파일 갯수:', len(read_me))
-# print('백준   파일 갯수:', len(baekjoon))
-# print('backjoon, README 대칭차집합', baekjoon ^ read_me)
-# print('README   에만 있는 파일:', read_me - baekjoon)
-# print('baekjoon 에만 있는 파일:', baekjoon - read_me)
