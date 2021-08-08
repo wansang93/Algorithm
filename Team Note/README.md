@@ -1240,8 +1240,42 @@ print(list(combinations_with_replacement(mylist, 2)))
 
 ## 순열(Permutation)
 
-```python
+DFS로 푸는 순열
 
+```python
+N = int(input())
+lst = [i for i in input()]
+visited = [False] * (N+1)
+answer = []
+
+def permutation(number):
+    if number == N:
+        print(*answer)
+
+    for i in range(1, N+1):
+        if visited[i]:
+            continue
+        else:
+            visited[i] = True
+            answer.append(lst[i-1])
+            permutation(number+1)
+            visited[i] = False
+            answer.pop()
+
+permutation(0)
+
+'''
+[Input Example 1]
+3
+ABC
+[Output Example 1]
+A B C
+A C B
+B A C
+B C A
+C A B
+C B A
+'''
 ```
 
 ## 조합(Combination)
