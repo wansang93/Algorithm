@@ -66,7 +66,6 @@ print(flatten_lst3)  # [1, 2, 3, 4, 5, 6]
 ## 딕셔너리 빠르게 선언하기(.get 활용)
 
 ```python
-
 test_dict = {}
 test_dict2 = {}
 keys = [0, 1, 2, 3, 3]
@@ -86,6 +85,42 @@ for key, value in zip(keys, values):
         test_dict[key] = key
     else:
         test_dict[key] += key
+```
+
+## 파이썬 정렬 라이브러리(Python Sort Library)
+
+```python
+# 딕셔너리 정렬
+dicts = {}
+new_dict = sorted(dicts.items(), key=lambda x: x[0]))  # key로 정렬
+new_dict = sorted(dicts.items(), key=lambda x: x[1]))  # value로 정렬
+# value[1], value[0] 순으로 정렬
+new_dict = sorted(dicts.items(), key=lambda x: (x[1][1], x[1][0]))
+
+''' Python Sort Library (Basic) '''
+n = 5
+data = [8, 5, 4, 7, 2]
+data.sort()
+
+for x in data:
+    print(x, end=' ')
+# 2 4 5 7 8
+
+''' Python Sort Library (Based on a key) '''
+data = [(25, 'Na'), (20, 'Kim'), (23, 'Seo'), (28, 'Park'), (20, 'Ahn')]
+data.sort(key=lambda x: x[0]) # Stable Sort (When using a key)
+
+for x in data:
+    print(x, end=' ')
+# (20, 'Kim') (20, 'Ahn') (23, 'Seo') (25, 'Na') (28, 'Park')
+
+''' Python Sort Library '''
+data = [(25, 'Na'), (20, 'Kim'), (23, 'Seo'), (28, 'Park'), (20, 'Ahn')]
+data.sort() # Non-stable Sort (When not using a key)
+
+for x in data:
+    print(x, end=' ')
+# (20, 'Ahn') (20, 'Kim') (23, 'Seo') (25, 'Na') (28, 'Park')
 ```
 
 ## 라이브러리들
@@ -413,7 +448,7 @@ print(prime_list(53))
 
 # 정렬(Sorting)
 
-목차: 버블, 선택, 삽입, 퀵, 병합, 힙, 계수, 정렬 라이브러리
+목차: 버블, 선택, 삽입, 퀵, 병합, 힙, 계수 정렬
 
 ## 버블 정렬(Bobble Sort)
 
@@ -568,42 +603,6 @@ for i in range(len(count)):
     for j in range(count[i]):
         print(i, end=' ')
 # 0 0 1 1 2 2 3 4 5 5 6 7 8 9 9
-```
-
-## 파이썬 정렬 라이브러리(Python Sort Library)
-
-```python
-# 딕셔너리 정렬
-dicts = {}
-new_dict = sorted(dicts.items(), key=lambda x: x[0]))  # key로 정렬
-new_dict = sorted(dicts.items(), key=lambda x: x[1]))  # value로 정렬
-# value[1], value[0] 순으로 정렬
-new_dict = sorted(dicts.items(), key=lambda x: (x[1][1], x[1][0]))
-
-''' Python Sort Library (Basic) '''
-n = 5
-data = [8, 5, 4, 7, 2]
-data.sort()
-
-for x in data:
-    print(x, end=' ')
-# 2 4 5 7 8
-
-''' Python Sort Library (Based on a key) '''
-data = [(25, 'Na'), (20, 'Kim'), (23, 'Seo'), (28, 'Park'), (20, 'Ahn')]
-data.sort(key=lambda x: x[0]) # Stable Sort (When using a key)
-
-for x in data:
-    print(x, end=' ')
-# (20, 'Kim') (20, 'Ahn') (23, 'Seo') (25, 'Na') (28, 'Park')
-
-''' Python Sort Library '''
-data = [(25, 'Na'), (20, 'Kim'), (23, 'Seo'), (28, 'Park'), (20, 'Ahn')]
-data.sort() # Non-stable Sort (When not using a key)
-
-for x in data:
-    print(x, end=' ')
-# (20, 'Ahn') (20, 'Kim') (23, 'Seo') (25, 'Na') (28, 'Park')
 ```
 
 # 탐색(Searching)
