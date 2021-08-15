@@ -1127,17 +1127,7 @@ for a in range(1, V+1):
 
 # 동적 프로그래밍(Dynamic Programming)
 
-## Tiling Problem
-
-```python
-
-```
-
-## 0-1 Knapsack Problem
-
-```python
-
-```
+목차: LIS, LCS
 
 ## LIS(Longest Increasing Subsequence)
 
