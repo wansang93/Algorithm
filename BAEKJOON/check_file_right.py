@@ -75,5 +75,5 @@ with open(MD_FILE, 'r', encoding='utf-8') as f:
 none_files_list = []
 with open(MD_FILE, 'a', encoding='utf-8') as f:
     for i in solved_BAEKJOON_list:
-        # f.writelines(f'- [{i}](./problems/{i}.md)\n')
+        f.writelines(f'- [{i}](./problems/{i}.md)\n')
         pass
