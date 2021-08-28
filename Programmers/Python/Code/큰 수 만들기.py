@@ -1,4 +1,15 @@
-############### 보류 ###############
+# 풀이 1(스택을 이용)
+def solution(number, k):
+    answer = []
+    for i in number:
+        while k > 0 and answer and answer[-1] < i:
+            answer.pop()
+            k -= 1
+        answer.append(i)
+    
+    answer = ''.join(answer[:len(answer)-k])
+
+    return answer
 
 
 # 실패한 풀이1(이유: 런타임 오류)
@@ -37,18 +48,3 @@ https://www.youtube.com/watch?v=hqijNdQTBH8
 #             indices[j] = indices[j-1] + 1
 #         yield list(pool[i] for i in indices)
 
-
-# 풀이2(진행 중) 너무나 어렵ㅜㅜ
-def solution2(number, k):
-    answer = [0] * (len(number) - k)
-
-
-#   0    0    0
-#   4    1    6
-#  cur
-#   0   1    2    
-        
-# answer = ''.join(answer)
-    return answer
-
-print(solution2('4177252841', 4))
