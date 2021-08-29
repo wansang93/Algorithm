@@ -215,6 +215,7 @@
 - [11728](./problems/11728.md)
 - [11729](./problems/11729.md)
 - [11866](./problems/11866.md)
+- [12927](./problems/12927.md)
 - [14681](./problems/14681.md)
 - [14888](./problems/14888.md)
 - [15552](./problems/15552.md)
