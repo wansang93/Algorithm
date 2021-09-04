@@ -18,7 +18,6 @@ Ver0.02(21-07-06)
 3. README.md파일을 탐색하면서 파일 목록에 없는 것 추가하기 -> 쓰기
 '''
 
-import re
 import os
 
 import requests                  # 웹 페이지의 HTML을 가져오는 모듈
@@ -68,12 +67,14 @@ print('내폴더에 없는 파일:', none_baek_list)
 MD_FILE = r'C:/Users/wansang/Desktop/Gitrep/Algorithm/BAEKJOON/README.md'
 
 # TODO: 나중에 수정하기
-file_not_in_mdlist = []
+# file_not_in_mdlist = []
 with open(MD_FILE, 'r', encoding='utf-8') as f:
-    pass
+    lst_of_lines = f.readlines()
+    template = lst_of_lines[:15]
 
-none_files_list = []
-with open(MD_FILE, 'a', encoding='utf-8') as f:
+# none_files_list = []
+with open(MD_FILE, 'w', encoding='utf-8') as f:
+    f.writelines(template)
     for i in solved_BAEKJOON_list:
         f.writelines(f'- [{i}](./problems/{i}.md)\n')
         pass
