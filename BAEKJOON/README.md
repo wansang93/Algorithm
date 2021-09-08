@@ -120,6 +120,7 @@
 - [2753](./problems/2753.md)
 - [2775](./problems/2775.md)
 - [2798](./problems/2798.md)
+- [2805](./problems/2805.md)
 - [2812](./problems/2812.md)
 - [2839](./problems/2839.md)
 - [2869](./problems/2869.md)
