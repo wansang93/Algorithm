@@ -19,7 +19,7 @@ row, col = 3, 5
 mylist = [[0] * col for _ in range(row)]
 ```
 
-## 가중치 그래프 빠르게 그리기
+## 그래프 빠르게 그리기
 
 ```python
 import heapq
@@ -812,7 +812,6 @@ def bfs():
 print(*dfs())
 print(*bfs())
 ```
-
 
 # 그래프(Graph)
 
