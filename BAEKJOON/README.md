@@ -9,7 +9,7 @@
 - [Solved.ac 내 정보 표시](https://github.com/mazassumnida/mazassumnida)
 - [Solved.ac 난이도 보기](https://github.com/shiftpsh/solvedac-plugin)
 
-단계별 문제 풀이 순서대로 풀고 있습니다.
+자동으로 푼 문제 업로드하기 -> [check_file_right.py](./check_file_right.py)
 
 ## Problems
 
@@ -149,7 +149,6 @@
 - [6588](./problems/6588.md)
 - [6603](./problems/6603.md)
 - [7287](./problems/7287.md)
-- [7568](./problems/7568.md)
 - [7576](./problems/7576.md)
 - [8393](./problems/8393.md)
 - [8958](./problems/8958.md)
@@ -252,3 +251,4 @@
 - [21966](./problems/21966.md)
 - [21967](./problems/21967.md)
 - [21968](./problems/21968.md)
+- [22864](./problems/22864.md)
