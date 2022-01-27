@@ -44,12 +44,12 @@ def count_solved_in_BAEKJOON():
     soup = BeautifulSoup(response.content, 'html.parser')
     baekjoon_lst = soup.find('div', class_='problem-list')
     for atag in baekjoon_lst:
-        print(atag)
+        # print(atag)
         string = atag.string
         if string.isdecimal():
             solved_BAEKJOON_list.append(int(string))
 
-    print(solved_BAEKJOON_list, "갯수: ", len(solved_BAEKJOON_list))
+    # print(solved_BAEKJOON_list, "갯수:", len(solved_BAEKJOON_list))
 
 
 # 2. Check how many solved problems files are in my folder
@@ -62,17 +62,17 @@ def count_files_in_my_folder():
             my_files_list.append(int(file_name))
 
     my_files_list.sort()
-# print(my_files_list, len(my_files_list))
+    # print(my_files_list, len(my_files_list))
 
 
 # 2-1. 백준 파일과 나의 파일 목록 확인하기
 def check_what_is_diff():
     none_files_list = list(set(solved_BAEKJOON_list) - set(my_files_list))
     none_baek_list = list(set(my_files_list) - set(solved_BAEKJOON_list))
-    print(' 백준 의 파일:', len(solved_BAEKJOON_list))
-    print('내폴더의 파일:', len(my_files_list))
+    print('  백준의 파일 갯수:', len(solved_BAEKJOON_list), '개')
+    print('내폴더의 파일 갯수:', len(my_files_list), '개')
+    print('  백준에 없는 파일:', none_baek_list)
     print('내폴더에 없는 파일:', none_files_list)
-    print('내폴더에 없는 파일:', none_baek_list)
 
 
 # 3. TODO: 삭제 후 지우기가 아닌 덮어쓰기 형식으로 변경하기
