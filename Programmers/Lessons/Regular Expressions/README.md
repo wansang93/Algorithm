@@ -20,7 +20,6 @@ result = re.findall(regex, search_target)
 print("\n".join(result))
 ```
 
-
 ## Another Sites
 
 Site Link -> [https://cs.lmu.edu/~ray/notes/regex/](https://cs.lmu.edu/~ray/notes/regex/)
@@ -31,48 +30,64 @@ Practice Link -> [https://regexone.com/](https://regexone.com/)
 
 #### Problem 1: Matching a decimal numbers
 
-    my answer: -?\d+[\.,]?\d+[\.,e]?\d*[^p]$
+```text
+my answer: -?\d+[\.,]?\d+[\.,e]?\d*[^p]$
 
-    solution: ^-?\d+(,\d+)*(\.\d+(e\d+)?)?$
+solution: ^-?\d+(,\d+)*(\.\d+(e\d+)?)?$
+```
 
 #### Problem 2: Matching phone numbers
 
-    my answer: (\d{3})
+```text
+my answer: (\d{3})
 
-    solution: (\d{3})
+solution: (\d{3})
+```
 
 #### Problem 3: Matching emails
 
-    my answer: ^([a-z\.]*)
+```text
+my answer: ^([a-z\.]*)
 
-    solution: ^([\w\.]*)
+solution: ^([\w\.]*)
+```
 
 #### Problem 4: Matching HTML
 
-    my answer: <(\w+).
+```text
+my answer: <(\w+).
 
-    solution: <(\w+)
+solution: <(\w+)
+```
 
 #### Problem 5: Matching specific filenames
 
-    my answer: (.*)\.(jpg|png|gif)$
+```text
+my answer: (.*)\.(jpg|png|gif)$
 
-    solution: (\w+)\.(jpg|png|gif)$
+solution: (\w+)\.(jpg|png|gif)$
+```
 
 #### Problem 6: Trimming whitespace from start and end of line
 
-    my answer: ^[\s]*(.*)
+```text
+my answer: ^[\s]*(.*)
 
-    solution: ^\s*(.*)\s*$
+solution: ^\s*(.*)\s*$
+```
 
 #### Problem 7: Extracting information from a log file
 
-    my answer: (\w+)\(([\w\.]+):(\d+)\)
+```text
+my answer: (\w+)\(([\w\.]+):(\d+)\)
 
-    solution: (\w+)\(([\w\.]+):(\d+)\)
+solution: (\w+)\(([\w\.]+):(\d+)\)
+```
 
 #### Problem 8: Parsing and extracting data from a URL
 
-    my answer: (\w+)://([\w\-\.]+)(:(\d+))?
+```text
+my answer: (\w+)://([\w\-\.]+)(:(\d+))?
 
-    solution: (\w+)://([\w\-\.]+)(:(\d+))?
+solution: (\w+)://([\w\-\.]+)(:(\d+))?
+```

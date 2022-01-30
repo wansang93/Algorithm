@@ -16,30 +16,33 @@
 
 유튜브 링크 -> [https://www.youtube.com/playlist?list=PLRx0vPvlEmdAghTr5mXQxGpHjWqSz0dgC](https://www.youtube.com/playlist?list=PLRx0vPvlEmdAghTr5mXQxGpHjWqSz0dgC)
 
-# 1. 코딩 테스트 출제 경향 분석 및 파이썬 문법 부수기
+## 1. 코딩 테스트 출제 경향 분석 및 파이썬 문법 부수기
 
-## 1-1. 코딩 테스트 준비하기, 참고하기
+### 1-1. 코딩 테스트 준비하기, 참고하기
 
 - request, json 라이브러리 익히기
 - 리플잇 링크 -> [repl.it](https://repl.it/)
 - 파이썬 튜터 링크 -> [http://www.pythontutor.com/visualize.html](http://www.pythontutor.com/visualize.html)
 - 팀노트 만들기, 예시 링크 -> [https://github.com/ndb796/Python-Competitive-Programming-Team-Notes](https://github.com/ndb796/Python-Competitive-Programming-Team-Notes)
 
-## 1-2. 파이썬 스킬
+### 1-2. 파이썬 스킬
 
 1. x*y 의 리스트 초기화
+
    ```python
    x, y = 3, 5
    mylist = [[0] * x for _ in range(y)]
    ```
 
 2. 정렬
+
    ```python
    mylist = {('a', 50), ('b', 30), ('c', 60)}
    sorted(mylist, key=lambda x: x[1])
    ```
 
 3. map
+
    ```python
    list1 = [1, 2, 3, 4, 5]
    list2 = [50, 40, 30, 20, 10]
@@ -47,6 +50,7 @@
    ```
 
 4. 라이브러리들
+
    ```python
    import itertools  # 순열과 조합
    import heapq  # 힙 자료구조
@@ -88,13 +92,13 @@
    print(lcm(21, 14))
    ```
 
-# 2. 그리디 & 구현
+## 2. 그리디 & 구현
 
-## 2-1. 그리디(Greedy)
+### 2-1. 그리디(Greedy)
 
 탐욕법으로 얻은 해가 최적의 해가 되는 상황에서 사용
 
-### 2-1-1. 1이 될 때 까지
+#### 2-1-1. 1이 될 때 까지
 
 ``` python
 def until_one(n, k):
@@ -110,7 +114,7 @@ def until_one(n, k):
     return count + n - 1
 ```
 
-### 2-1-2. 곱하기 혹은 더하기
+#### 2-1-2. 곱하기 혹은 더하기
 
 ```python
 def max_num(s):
@@ -125,7 +129,7 @@ def max_num(s):
     return num
 ```
 
-### 2-1-3.모험가 길드
+#### 2-1-3.모험가 길드
 
 ```python
 def adventurer_guild(l):
@@ -141,17 +145,18 @@ def adventurer_guild(l):
     return count
 ```
 
-## 2-2. 구현(Implementation)
+### 2-2. 구현(Implementation)
 
 풀이는 쉽지만 소스코드로 옮기기 어려운 문제
 
 구현의 유형
+
 - 알고리즘은 간단, 코드가 지나칠 만큼 길어지는 문제
 - 실수 연산을 다루고, 특정 소수점 자리까지 출력해야 하는 문제
 - 문자열을 특정한 기준에 따라서 끊어 처리해야 하는 문제
 - 적절한 라이브러리를 찾아서 사용해야 하는 문제
 
-### 2-2-1. 상하좌우
+#### 2-2-1. 상하좌우
 
 ```python
 def udlr(n, plans, now):
@@ -170,7 +175,7 @@ def udlr(n, plans, now):
     return now
 ```
 
-### 2-2-2. 시각
+#### 2-2-2. 시각
 
 ```python
 def count_three(n):
@@ -184,7 +189,7 @@ def count_three(n):
    return count
 ```
 
-### 2-2-3. 왕실의 나이트
+#### 2-2-3. 왕실의 나이트
 
 ```python
 def knight_avaliable(location):
@@ -203,7 +208,7 @@ def knight_avaliable(location):
     return count
 ```
 
-### 2-2-4. 문자열 재정렬
+#### 2-2-4. 문자열 재정렬
 
 ```python
 def sort_string(data):
@@ -220,10 +225,10 @@ def sort_string(data):
     return result
 ```
 
-# 3. DFS & BFS
+## 3. DFS & BFS
 
 - 탐색: **원하는 데이터를 찾는 과정**
-  
+
   DFS(Depth First Search), BFS(Breadth-First Search)는 대표적 탐색 알고리즘 중 하나
 
 - 스택과 큐 구현
@@ -247,6 +252,7 @@ def sort_string(data):
     - 스택을 사용할 때, 스택 라이브러리 대신 재귀 함수를 사용하는 경우가 많음
   
   팩토리얼 구현
+
   ```python
   def factorial_recursive(n):
       if n <= 1:
@@ -255,6 +261,7 @@ def sort_string(data):
   ```
 
   유클리드 호제법 구현
+
   ```python
   def gcd(a, b):
       if a % b == 0:
@@ -263,7 +270,7 @@ def sort_string(data):
           return gcd(b, a % b)
   ```
 
-## 3-1. DFS(Depth First Search)
+### 3-1. DFS(Depth First Search)
 
 - 깊이 우선 탐색, 깊은 부분을 우선적으로 탐색
 - 스택 자료구조(혹은 재귀 함수)를 이용
@@ -277,7 +284,7 @@ def dfs(graph, start, visited):
             dfs(graph, i, visited)
 ```
 
-## 3-2. BFS(Breath First Search)
+### 3-2. BFS(Breath First Search)
 
 - 넓이 우선 탐색, 가까운 노드들을 우선적으로 탐색
 - 큐 자료구조를 이용
@@ -298,7 +305,7 @@ def bfs(graph, start, visited):
                 visited[i] = True
 ```
 
-### 3-3-1. 음료수 얼려 먹기
+#### 3-3-1. 음료수 얼려 먹기
 
 ```python
 def dfs(x, y, n, m):
@@ -314,7 +321,7 @@ def dfs(x, y, n, m):
     return False
 ```
 
-### 3-3-2. 미로 탈출
+#### 3-3-2. 미로 탈출
 
 ```python
 from collections import deque
@@ -341,11 +348,11 @@ def bfs(x, y, n, m, graph):
     return graph[n-1][m-1]
 ```
 
-# 4. 정렬 알고리즘
+## 4. 정렬 알고리즘
 
 Sorting: Arrange systematically in groups; separate according to type
 
-## 4-1. 선택 정렬
+### 4-1. 선택 정렬
 
 ```python
 import copy
@@ -363,7 +370,7 @@ def selection_sort(lst_unsorted):
     return lst
 ```
 
-## 4-2. 삽입 정렬
+### 4-2. 삽입 정렬
 
 ```python
 import copy
@@ -381,7 +388,7 @@ def insert_sort(lst_unsorted):
     return lst
 ```
 
-## 4-3. 퀵 정렬
+### 4-3. 퀵 정렬
 
 간단한 방식
 
@@ -433,7 +440,7 @@ array = [7, 5, 9, 0, 3, 1, 6, 2, 4, 8]
 print(quick_sort(array, 0, len(array)-1))
 ```
 
-## 4-4. 계수 정렬
+### 4-4. 계수 정렬
 
 공간 복잡도가 더 높을 수 있지만 매우 빠름
 
@@ -457,9 +464,9 @@ for i in range(len(count)):
 # 0 0 1 1 2 2 3 4 5 5 6 7 8 9 9
 ```
 
-# 5. 이진 탐색
+## 5. 이진 탐색
 
-## 5-1. 이진 탐색 개요
+### 5-1. 이진 탐색 개요
 
 - 탐색 범위를 절반으로 줄여 데이터를 탐색 하는 방법
 - 시작점, 끝점, 중간점을 이용하여 탐색 범위를 설정
@@ -487,7 +494,7 @@ else:
     print(result)  # 3
 ```
 
-# 6. DP
+## 6. DP
 
 - 메모리를 적절히 사용, 다시 계산하지 않도록
 - DP를 사용할 수 있는 **조건**
@@ -510,7 +517,7 @@ else:
   2. 재귀 함수로 비효율적인 완전 탐색 프로그램으로 작성 후
      1. 작은 문제에서 구한 답이 큰 문제로 그대로 사용할 수 있으면 코드 개선
 
-## 6-1. 피보나치 수열
+### 6-1. 피보나치 수열
 
 단순 재귀함수 사용(시간 복잡도: O(2**N))
 
@@ -551,7 +558,7 @@ for i in range(3, n+1):
 print(d[n])  # 218922995834555169026
 ```
 
-## 6-2. 개미 전사
+### 6-2. 개미 전사
 
 ```python
 def ant_warriors(lst):
@@ -569,7 +576,7 @@ lst = [1, 2, 3, 4, 5, 3, 0, 3]
 print(ant_warriors(lst))  # 12
 ```
 
-## 6-3. 1로 만들기
+### 6-3. 1로 만들기
 
 ```python
 def make_the_one(x):
@@ -619,7 +626,7 @@ top_down(N, 0)
 print(dp[1])
 ```
 
-## 6-4. 효율적인 화폐 구성
+### 6-4. 효율적인 화폐 구성
 
 ```python
 INF = 10000
@@ -639,7 +646,7 @@ m = 12
 print(money_solution(data, m))  # 4
 ```
 
-## 6-5. 금광
+### 6-5. 금광
 
 ```python
 def gold_mine(n, m, lst):
@@ -672,7 +679,7 @@ def gold_mine(n, m, lst):
 # print(gold_mine(3, 4, [1, 3, 3, 2, 2, 1, 4, 1, 0, 6, 4, 7]))
 ```
 
-## 6-6. 병사 배치하기(LIS 응용)
+### 6-6. 병사 배치하기(LIS 응용)
 
 ```python
 def deploy_soldiers(n, lst):
@@ -690,14 +697,14 @@ def deploy_soldiers(n, lst):
 print(deploy_soldiers(7, [4, 2, 5, 8, 4, 11, 15]))
 ```
 
-# 7. 최단 경로 알고리즘
+## 7. 최단 경로 알고리즘
 
 - 문제 상황
   - 한 지점에서 다른 한 지점까지의 최단 경로
   - 한 지점에서 다른 모든 지점까지의 최단 경로
   - 모든 지점에서 다른 모든 지점까지의 최단 경로
 
-## 7-1. 다익스트라 최단 경로 알고리즘
+### 7-1. 다익스트라 최단 경로 알고리즘
 
 - 특정 노드 -> 다른 모든 노드로 가는 최단 경로 계산
 - 그리디로 분류
@@ -758,6 +765,7 @@ print(distance)
 ```
 
 힙(Heap)자료구조를 이용
+
 - 시간 복잡도는 O(ElogV)
 - 노드 하나씩 꺼내 검사하는 반복문은 노드의 개수 V이상의 횟수로 처리되지 않음
   - 결과적으로 현재 우선순위 큐에 꺼낸 노드와 연결된 다른 노드들을 확인하는 총 횟수는 최대 간선(E)의 갯수만큼 연산이 수행
@@ -816,7 +824,7 @@ print(distance)
 '''
 ```
 
-## 7-2. 플로이드 워셜 알고리즘
+### 7-2. 플로이드 워셜 알고리즘
 
 - 모든 노드에서 다른 모든 노드까지의 최단 경로를 모두 계산
 - 플로이드 워셜(Floyd-Warshall)알고리즘은 다익스트라 알고리즘과 마찬가지로 단계별로 거쳐 가는 노드를 기준으로 알고리즘을 수행
@@ -891,7 +899,7 @@ for a in range(1, V+1):
 '''
 ```
 
-## 7-3. 전보
+### 7-3. 전보
 
 ```python
 # 입력
@@ -938,7 +946,7 @@ def solve(C):
 solve(C)
 ```
 
-## 7-4. 미래 도시
+### 7-4. 미래 도시
 
 ```python
 INF = int(1e9)
@@ -971,9 +979,9 @@ else:
     print(distance)
 ```
 
-# 8. 기타 그래프 이론
+## 8. 기타 그래프 이론
 
-## 8-1. 서로소 집합
+### 8-1. 서로소 집합
 
 공통 원소가 없는 두 집합은 서로소 집합이다.
 
@@ -984,6 +992,7 @@ else:
 - 서로소 집합 자료구조는 Union-Find 자료구조라고도 불림
 
 여러 개의 합치기 연산이 주어졌을 때 서로소 집합 자료구조의 동작 과정
+
 1. 합집합(Union)연산을 확인, 서로 연결된 두 노드 A, B를 확인
    1. A와 B의 루트 노드 A', B'를 각각 찾음
    2. A', B'의 부모 노드로 설정
@@ -1036,9 +1045,10 @@ for i in range(1, v+1):
     print(f'{i} -> {parent[i]}')
 ```
 
-## 8-2. 최소 신장 트리
+### 8-2. 최소 신장 트리
 
 크루스칼 알고리즘
+
 - 대표적인 최소 신장 트리 알고리즘
 - 그리디 알고리즘으로 분류
 
@@ -1091,7 +1101,7 @@ for edge in edges:
 print(result)
 ```
 
-## 8-3. 위상 정렬
+### 8-3. 위상 정렬
 
 - **사이클이 없는 방향 그래프(DAG, Directed acyclic graph)**의 모든 노드를 방향성에 거스르지 않도록 순서대로 나열
 - 예시) 과목 우선 수강 해야 다음 과목 수강 가능
@@ -1099,6 +1109,7 @@ print(result)
 - 진출차수(Outdegree): 특정한 노드에서 나가는 간선의 갯수
 
 위상 정렬 알고리즘(큐 사용)
+
 1. 진입차수가 0인 모든 노드를 큐에 넣는다.
 2. 큐가 빌 때까지 아래 과정을 반복한다.
    1. 큐에서 원소를 꺼내 해당 노드에서 나가는 간선을 그래프에서 제거
@@ -1128,13 +1139,14 @@ def topology_sort():
 print(topology_sort())
 ```
 
-# 9. 코딩 테스트에서 자주 출제되는 기타 알고리즘
+## 9. 코딩 테스트에서 자주 출제되는 기타 알고리즘
 
-## 9-1. 소수(Prime Number)
+### 9-1. 소수(Prime Number)
 
-### 9-1-1. 해당 수가 소수인지 판별
+#### 9-1-1. 해당 수가 소수인지 판별
 
 기본적인 알고리즘
+
 - 시간복잡도: O(x)
 
 ```python
@@ -1146,6 +1158,7 @@ def is_prime_number(x):
 ```
 
 개선된 알고리즘
+
 - 시간복잡도: O(x**(1/2))
 
 ```python
@@ -1156,9 +1169,10 @@ def is_prime_number(x):
     return True
 ```
 
-### 9-1-2. 다수의 수가 소수인지 판별
+#### 9-1-2. 다수의 수가 소수인지 판별
 
 다수의 소수 판별: 에라토스테네스의 체
+
 - 시간복잡도: O(NloglogN)
 - 장점: 큰 수의 이하인 소수들을 구할 때 빠름
 - 단점: 메모리 공간, 하나의 소수만 궁금할 때 효율성 낮음
@@ -1175,13 +1189,14 @@ def prime_list(n):
     return [i for i in range(2, n) if sieve[i] == True]
 ```
 
-## 9-2. 투포인터(Two Pointers)
+### 9-2. 투포인터(Two Pointers)
 
 리스트에 순차적으로 접근해야 할 때 두 점의 위치를 기록하면서 처리
 
-### 9-2-1. 특정한 합을 가지는 부분 연속 수열 찾기
+#### 9-2-1. 특정한 합을 가지는 부분 연속 수열 찾기
 
 문제
+
 - N개의 자연수로 구성된 수열
 - 합이 M인 부분 연속 수열의 갯수를 구해라
 - 수행 시간 제한은 O(N)
@@ -1207,13 +1222,14 @@ def two_pointer(lst, m):
     return count
 ```
 
-## 9-3. 구간 합(Interval Sum)
+### 9-3. 구간 합(Interval Sum)
 
 연속적으로 나열된 N개의수가 있을 때 특정 구간의 모든수를 합한 값을 계산
 
-### 9-3-1. 구간 합 빠르게 계산하기
+#### 9-3-1. 구간 합 빠르게 계산하기
 
 문제
+
 - N개의 정수로 구성된수열
 - M개의 쿼리(Query) 정보가 주어짐
   - 각 쿼리는 Left, Right로 구성
@@ -1221,6 +1237,7 @@ def two_pointer(lst, m):
 - 수행 시간 제한은 O(N + M)
 
 해결법
+
 - 접두사 합(Prefix Sum): 배열의 맨 앞부터 특정 위치까지 합을 미리 구해 놓는 것
   - N개의 수 위치 각각에 접두사 합을 계산하여 P에 저장
   - 매 M개의 쿼리 정보를 확일 할 때 구간합은 P[Right] - P[Left-1]이다.
@@ -1239,11 +1256,12 @@ def interval_sum(lst, query):
     return result
 ```
 
-# 10. 개발형 코딩 테스트
+## 10. 개발형 코딩 테스트
 
-## 10-1. 개발형 코딩 테스트
+### 10-1. 개발형 코딩 테스트
 
 코딩테스트의 유형
+
 - 정해진 목적에 따라 동작하는 완성된 프로그램을 개발
   - 예1) 모바일 클라이언트 개발: 안드로이드, IOS 앱 개발
   - 예2) 웹 서버 개발: 스프링(Spring), 장고(Django) 등의 서버 개발 프레임 워크 활용
@@ -1253,14 +1271,14 @@ def interval_sum(lst, query):
 - 분야와 상관없이 알아야 하는 개념들
   - 서버, 클라이언트, JSON, REST API, ...
 
-## 10-2. 서버와 클라이언트
+### 10-2. 서버와 클라이언트
 
 - 클라이언트 -> Request
   - Request를 보내고 Response를 도착할 때 까지 기다림
 - 서버 -> Response
   - Request를 처리후 Response를 함
 
-## 10-3. HTTP 프로토콜
+### 10-3. HTTP 프로토콜
 
 - HTTP(HyperText Transfer Protocol): 웹 상에서 데이터를 주고 받기 위한 프로토콜
 - 클라이언트는 Request 목적에 따라 적절한 HTTP method를 이용
@@ -1284,15 +1302,15 @@ response = requests.get(url=target)
 print(response.text)  # <!doctype html><html itemscope="" ...
 ```
 
-## 10-4. REST
+### 10-4. REST
 
-### 10-4-1. REST 등장 배경
+#### 10-4-1. REST 등장 배경
 
 - HTTP는 다양한 HTTP메서드를 지원
 - 실제로는 서버가 각 메서드의 기본 설명을 따르지 않아도 프로그램을 개발 가능
 - 저마다 다른 방식을 개발시 문제가 될 수 있어 기준이 되는 아키텍처가 필요
 
-### 10-4-2. REST 개요
+#### 10-4-2. REST 개요
 
 - **REST(Representational State Transfer)** 는 *각 자원(Resource)에 대해 자원의 상태에 대한 정보를 주고받는 개발 방식*
   - 자원(Resource): URI를 이용
@@ -1300,14 +1318,15 @@ print(response.text)  # <!doctype html><html itemscope="" ...
   - 표현(Representations): 페이로드를 이용
 
 > URI: Uniform Resource Identifier(구분자)
+>
 > 1. rewrite 기술을 사용하여 만든 의미있는 식별자
 > 2. REST 서비스(url로 실행되는 서비스)
 > 3. Web-oriented architecture(웹 기반의 구조문법)
-> 
+>
 > URL: Uniform Resource Locator(위치)
 > > 출처: [https://blog.lael.be/post/61](https://blog.lael.be/post/61)
 
-### 10-4-3. REST API 란?
+#### 10-4-3. REST API 란?
 
 - **API(Application Programming Interface)**: 프로그램이 상호작용하기 위한 인터페이스를 의미
 - **REST API**: REST 아키텍처를 따르는 API
@@ -1315,7 +1334,7 @@ print(response.text)  # <!doctype html><html itemscope="" ...
 
 REST 방식을 따르고 있는 서버에 특정한 요청을 전송하면 어떠한 데이터 형식으로 받을 것인가?
 
-### 10-4-4. JSON
+#### 10-4-4. JSON
 
 JSON(JavaScript Object Notation): 데이터를 주고받는 데 사용하는 경량의 데이터 형식
 
@@ -1339,11 +1358,12 @@ with open("user.json", "w", encoding="utf-8") as file:
     json.dump(user, file, indent=4)
 ```
 
-### 10-4-5. REST API 연습용 서비스
+#### 10-4-5. REST API 연습용 서비스
 
 - 목킹(Mocking)이란 어떠한 기능이 있는 것처럼 흉내내어 구현한 것
 - 가상의 REST API 제공 서비스 -> [https://jsonplaceholder.typicode.com/](https://jsonplaceholder.typicode.com/)
   - 사용자, 개시물 등 가상의 API를 클라이언트 측에서 호출해 사용
+
     ```json
     // 20210103214557
     // https://jsonplaceholder.typicode.com/users/1
@@ -1373,7 +1393,7 @@ with open("user.json", "w", encoding="utf-8") as file:
     }
     ```
 
-### 10-4-6. REST API를 호출하여 회원 정보를 처리하는 예제
+#### 10-4-6. REST API를 호출하여 회원 정보를 처리하는 예제
 
 ```python
 import requests

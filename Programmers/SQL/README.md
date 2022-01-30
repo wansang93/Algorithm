@@ -144,7 +144,7 @@ WHERE @hour < 23
   - HOUR 값이 0부터 시작할 수 있습니다.
   - WHERE @hour < 23일 때까지, @hour 값이 계속 + 1씩 증가합니다.
   
-> source from https://chanhuiseok.github.io/posts/db-6/
+> source from <https://chanhuiseok.github.io/posts/db-6/>
 
 ### 이름이 없는 동물의 아이디
 
