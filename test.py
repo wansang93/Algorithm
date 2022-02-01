@@ -1,10 +1,11 @@
 # I/O template
 import sys
-file_path = (
+
+FILE_INPUT_PATH = (
     r'C:/Users/wansang/Desktop/Gitrep/Algorithm/' +
     r'test_input.txt'
 )
-sys.stdin = open(file_path, 'r')
+sys.stdin = open(FILE_INPUT_PATH, 'r')
 
 # Solve here
 

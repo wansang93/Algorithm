@@ -1104,7 +1104,43 @@ for a in range(1, V+1):
 
 # 문자열(String)
 
-목차: Rabin-Karp, KMP, Trie
+목차: Manacher Algorithm, Rabin-Karp, KMP, Trie
+
+## Manacher Algorithm
+
+Find the longest palindromic substring in the given string
+
+```python
+import sys
+input = sys.stdin.readline
+
+def manacher(s):
+    string = '#' + '#'.join(s)+'#'
+    l = len(string)
+    a = [0] * l 
+    c = 0 
+    r = 0 
+
+    for n in range(l):
+        if r < n:
+            a[n] = 0
+        else:
+            a[n] = min(a[2 * c - n], r - n)
+
+        while n-a[n]-1 >= 0 and n+a[n]+1 < l and \
+            string[n-a[n]-1] == string[n+a[n]+1]:
+            a[n] = a[n] + 1
+
+        if r < n + a[n]:
+            r = n + a[n]
+            c = n
+
+    return max(a)
+
+s = input()
+print(manacher(s))
+
+```
 
 ## Rabin-Karp
 
@@ -1126,7 +1162,7 @@ for a in range(1, V+1):
 
 # 동적 프로그래밍(Dynamic Programming)
 
-목차: LIS, LCS
+목차: LIS, LCS, Matrix Chain Multiplication
 
 ## LIS(Longest Increasing Subsequence)
 
@@ -1147,6 +1183,8 @@ for a in range(1, V+1):
 ```
 
 # 기하(Geometry)
+
+목차: CCW, Convex Hull, Polygon
 
 ## Number of intersection points of two lines in 1 dimension
 
@@ -1402,13 +1440,49 @@ print(new_list)
 
 ## 실전에서 느낀 것(What I felt in practice)
 
-- 백준 [실버4] `1244: 스위치 켜고 끄기` 를 풀면서 [링크](../BAEKJOON/problems/1244.md)
+### 숫자를 문자로 바꾼 후 알파벳 순으로 정렬
+
+- 백준 [실버4] `1755: 숫자놀이` 를 풀면서 [링크](../BAEKJOON/problems/1755.md)
+
+```python
+dic = {
+    "1": "one", "2": "two", "3": "three", "4": "four", "5": "five",
+    "6": "six", "7": "seven", "8": "eight", "9": "nine", "0": "zero",
+}
+
+M, N = map(int, input().split())
+
+# [숫자, 문자]를 2차원 리스트로 만들기
+nums = []
+for i in range(M, N+1):
+    alpha_num = ' '.join([dic[c] for c in str(i)])
+    nums.append([i, alpha_num])
+
+# 문자순으로 정렬하기
+nums.sort(key=lambda x: x[1])
+```
+
+### 10개씩 끊어서 출력하기
+
+```python
+# 방법1
+for i in range(len(nums)):
+    print(nums[i][0], end=' ')
+    if i % 10 == 9:
+        print()
+
+# 방법2
+for i in range(0, N, 10):
+    print(*nums[i:i+10])
+```
 
 ### 파이썬 토글(toggle)
 
+- 백준 [실버4] `1244: 스위치 켜고 끄기` 를 풀면서 [링크](../BAEKJOON/problems/1244.md)
+
 ``` python
 a, b = 1, 0
-# 1 - 자기 자신을 하면 토글이 됨
+# (1 - 자기 자신) 하면 토글이 됨
 a = 1 - a
 b = 1 - b
 ```
@@ -1431,7 +1505,7 @@ shallow_lst = lst[:]
 
 ``` python
 '''
-arr: 배열, r, c = 가운데 점, s: 확대반경
+arr: 배열, r, c = 가운데 점(축), s: 확대반경
 '''
 def _rotate(arr, r, c, s):
     for ss in range(1, s+1):
@@ -1448,24 +1522,24 @@ def _rotate(arr, r, c, s):
 # 예시 코드
 lst = [[1, 2], [3, 4]]
 shallow_lst = lst[:]
-copy_lst = [x[:] for x in lst]
+deep_lst = [x[:] for x in lst]
 
 # 얕은 복사는 id가 같음
 print(id(lst[0]))  # 1994660564480
 print(id(shallow_lst[0]))  # 1994660564480
-print(id(copy_lst[0]))  # 1994665346432
+print(id(deep_lst[0]))  # 1994665346432
 
-# 재할당은 문제없음
+# 얕은 복사의 재할당은 문제없음
 lst[0] = [0, 1]
 print(lst)  # [[0, 1], [3, 4]]
 print(shallow_lst)  # [[1, 2], [3, 4]]
-print(copy_lst)  # [[1, 2], [3, 4]]
+print(deep_lst)  # [[1, 2], [3, 4]]
 
-# 추가는 문제가 생김
+# 얕은 복사의 추가는 문제가 생김
 lst[1].append(5)
 print(lst)  # [[0, 1], [3, 4, 5]]
 print(shallow_lst)  # [[1, 2], [3, 4, 5]]
-print(copy_lst)  # [[1, 2], [3, 4]]
+print(deep_lst)  # [[1, 2], [3, 4]]
 ```
 
 ### 1의자리 숫자를 N개만큼의 수 만들기(int형만 사용해서)
