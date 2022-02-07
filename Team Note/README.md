@@ -63,6 +63,13 @@ print(flatten_lst2)  # [1, 2, 3, 4, 5, 6]
 print(flatten_lst3)  # [1, 2, 3, 4, 5, 6]
 ```
 
+## 전치행렬
+
+```python
+# 열탐색 할 때 좋음
+lst = [list(x) for x in zip(*lst)]
+```
+
 ## 딕셔너리 빠르게 선언하기(.get 활용)
 
 ```python
@@ -1167,7 +1174,30 @@ print(manacher(s))
 ## LIS(Longest Increasing Subsequence)
 
 ```python
+nums = [0, 3, 1, 6, 2, 2, 7]
+N = len(nums)
 
+# Solve1: NlogN
+from bisect import bisect_left
+
+tmp = [nums[0]]
+for n in nums:
+    x = bisect_left(tmp, n)
+    if x == len(tmp):
+        tmp.append(n)
+    elif tmp[x] > n:
+        tmp[x] = n
+
+print(len(tmp), tmp)  # 4 [0, 1, 2, 7]
+
+# Solve2: N^2
+dp = [1] * N
+for n in range(N):
+    for i in range(n):
+        if nums[i] < nums[n]:
+            dp[n] = max(dp[n], dp[i] + 1)
+
+print(max(dp))  # 4
 ```
 
 ## LCS(Longest Common Subsequence)
@@ -1264,7 +1294,7 @@ print(list(product(mylist, repeat=2)))
 print(list(combinations_with_replacement(mylist, 2)))
 ```
 
-## 순열(Permutation)
+## 순열(Permutation) nPr
 
 DFS로 푸는 순열
 
@@ -1277,6 +1307,7 @@ answer = []
 def permutation(number):
     if number == N:
         print(*answer)
+        return
 
     for i in range(1, N+1):
         if visited[i]:
@@ -1304,10 +1335,120 @@ C B A
 '''
 ```
 
-## 조합(Combination)
+## 조합(Combination) nCr
+
+DFS로 푸는 조합
 
 ```python
+N = int(input())
+R = int(input())
+lst = [i for i in input()]
+answer = []
 
+def combination(cnt, start):
+    if cnt == R:
+        print(*answer)
+        return
+    
+    for i in range(start, N):
+        answer.append(lst[i])
+        combination(cnt+1, i+1)
+        answer.pop()
+
+combination(0, 0)
+
+'''
+[Input Example 1]
+4
+2
+ABCD
+[Output Example 1]
+A B
+A C
+A D
+B C
+B D
+C D
+'''
+```
+
+## 중복순열(Permuation with Repetition) nπr
+
+```python
+N = int(input())
+lst = [i for i in input()]
+answer = []
+
+def permutation_repetition(number):
+    if number == N:
+        print(*answer)
+        return
+
+    for i in range(1, N+1):
+        answer.append(lst[i-1])
+        permutation_repetition(number+1)
+        answer.pop()
+
+permutation_repetition(0)
+
+'''
+[Input Example 1]
+3
+ABC
+[Output Example 1]
+A A A
+A A B
+A A C
+A B A
+A B B
+A B C
+A C A
+A C B
+A C C
+C B C
+C C A
+C C B
+C C C
+'''
+```
+
+## 중복조합(Combination with Repetition) nHr
+
+```python
+N = int(input())
+R = int(input())
+lst = [i for i in input()]
+answer = []
+
+def combination_repetition(cnt, start):
+    if cnt == R:
+        print(*answer)
+        return
+    
+    for i in range(start, N):
+        answer.append(lst[i])
+        combination_repetition(cnt+1, i)
+        answer.pop()
+
+combination_repetition(0, 0)
+
+'''
+[Input Example 1]
+4
+2
+ABCD
+[Output Example 1]
+A A
+A B
+A C
+A D
+B B
+B C
+B D
+C C
+C D
+D D
+'''
 ```
 
 # 신호 처리(Signal Processing)
