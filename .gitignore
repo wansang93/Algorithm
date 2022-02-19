@@ -2,5 +2,6 @@ venv
 
 .idea
 .vscode
+.env
 
 bash.exe.stackdump

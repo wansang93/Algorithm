@@ -254,7 +254,7 @@ Parent Table: 1 1 1 1 5 5
 
 # 수론(Number Theory)
 
-목차: 최대 공약수, 최소 공배수, 모든 약수 찾기, 소수, 가장 큰 소인수, 소인수분해, 에라토스테네스의 체
+목차: 최대 공약수, 최소 공배수, 모든 약수 찾기, 소수, 가장 큰 소인수, 소인수분해, 에라토스테네스의 체, 나머지 분배법칙
 
 ## 최대 공약수(GCD(Greatest Common Divisor))
 
@@ -453,6 +453,20 @@ print(prime_list(53))
 # [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47]
 ```
 
+## 나머지 분배법칙
+
+```python
+# 큰 두 수
+x = 11e20
+y = 11e20
+m = 20
+
+# plus, minus, multifly
+print((x + y) % m == (x % m) + (y % m))
+print((x - y) % m == ((x % m) - (y % m) + m) % m)
+print((x * y) % m == ((x % m) * (y % m)) % m)
+```
+
 # 정렬(Sorting)
 
 목차: 버블, 선택, 삽입, 퀵, 병합, 힙, 계수 정렬
@@ -614,7 +628,7 @@ for i in range(len(count)):
 
 # 탐색(Searching)
 
-목차: 이진 탐색, 탐색 라이브러리, DFS, BFS
+목차: 이진 탐색, 탐색 라이브러리, DFS, BFS, 분할정복을 이용한 거듭제곱
 
 ## 이진 탐색(Binary Search)
 
@@ -660,6 +674,40 @@ if result == None:
     print(-1)
 else:
     print(result)  # 3
+```
+
+## 분할정복을 이용한 거듭제곱(Power with divide and conquer)
+
+Time complex: log(N)
+
+Use recursive function
+
+```python
+def fpow(base, exponent, divide=1):
+    if exponent == 1:
+        return base % divide
+    else:
+        x = fpow(base, exponent//2, divide)
+        if exponent % 2 == 0:
+            return x * x % divide
+        else:
+            return x * x * base % divide
+```
+
+Use while loop
+
+```python
+def fpow(base, exponent):
+    res = 1
+    while exponent:
+        # if exponent is odd, Do
+        if exponent & 1:
+            res *= base
+        base *= base
+        # same as exponent = exponent//2
+        exponent >> 1
+
+    return res
 ```
 
 ## 파이썬 탐색 라이브러리(Python Binary Search Library)
@@ -1296,32 +1344,37 @@ print(list(combinations_with_replacement(mylist, 2)))
 
 ## 순열(Permutation) nPr
 
-DFS로 푸는 순열
+DFS로 푸는 순열(num_in_same_depth 지울 것!)
+
+비오름차순 정렬 추가(같은 깊이의 숫자 중복은 제거하는 코드 추가)
 
 ```python
-N = int(input())
-lst = [i for i in input()]
-visited = [False] * (N+1)
+N, M = map(int, input().split())
 answer = []
+lst = sorted(list(map(int ,input().split())))
+is_visted = [False] * N
 
-def permutation(number):
-    if number == N:
+def permutation(cnt):
+    if cnt == M:
         print(*answer)
         return
 
-    for i in range(1, N+1):
-        if visited[i]:
+    # check num in same depth
+    num_in_same_depth = -1
+    for i in range(N):
+        if is_visted[i] or num_in_same_depth == lst[i]:
             continue
-        else:
-            visited[i] = True
-            answer.append(lst[i-1])
-            permutation(number+1)
-            visited[i] = False
-            answer.pop()
+        answer.append(lst[i])
+        is_visted[i] = True
+        num_in_same_depth = lst[i]
+        permutation(cnt+1)
+        answer.pop()
+        is_visted[i] = False
 
 permutation(0)
 
 '''
+num_in_same_depth 를 지운 경우
 [Input Example 1]
 3
 ABC
@@ -1337,27 +1390,35 @@ C B A
 
 ## 조합(Combination) nCr
 
-DFS로 푸는 조합
+DFS로 푸는 조합(num_in_same_depth 지울 것!)
+
+비오름차순 정렬 추가(같은 깊이의 숫자 중복은 제거하는 코드 추가)
 
 ```python
-N = int(input())
-R = int(input())
-lst = [i for i in input()]
+N, M = map(int, input().split())
 answer = []
+lst = sorted(list(map(int ,input().split())))
 
 def combination(cnt, start):
-    if cnt == R:
+    if cnt == M:
         print(*answer)
         return
-    
+
+    # check num in same depth
+    num_in_same_depth = -1
     for i in range(start, N):
+        if num_in_same_depth == lst[i]:
+            continue
         answer.append(lst[i])
+        num_in_same_depth = lst[i]
         combination(cnt+1, i+1)
         answer.pop()
 
 combination(0, 0)
 
+
 '''
+num_in_same_depth 를 지운 경우
 [Input Example 1]
 4
 2
@@ -1374,24 +1435,34 @@ C D
 
 ## 중복순열(Permuation with Repetition) nπr
 
-```python
-N = int(input())
-lst = [i for i in input()]
-answer = []
+DFS로 푸는 중복순열(num_in_same_depth 지울 것!)
 
-def permutation_repetition(number):
-    if number == N:
+비오름차순 정렬 추가(같은 깊이의 숫자 중복은 제거하는 코드 추가)
+
+```python
+N, M = map(int, input().split())
+answer = []
+lst = sorted(list(map(int ,input().split())))
+
+def permutation_repetition(cnt):
+    if cnt == M:
         print(*answer)
         return
 
-    for i in range(1, N+1):
-        answer.append(lst[i-1])
-        permutation_repetition(number+1)
+    num_in_same_depth = -1
+    for i in range(N):
+        if num_in_same_depth == lst[i]:
+            continue
+        answer.append(lst[i])
+        num_in_same_depth = lst[i]
+        permutation_repetition(cnt+1)
         answer.pop()
 
 permutation_repetition(0)
 
+
 '''
+num_in_same_depth 를 지운 경우
 [Input Example 1]
 3
 ABC
@@ -1414,25 +1485,35 @@ C C C
 
 ## 중복조합(Combination with Repetition) nHr
 
+DFS로 푸는 중복조합(num_in_same_depth 지울 것!)
+
+비오름차순 정렬 추가(같은 깊이의 숫자 중복은 제거하는 코드 추가)
+
 ```python
-N = int(input())
-R = int(input())
-lst = [i for i in input()]
+N, M = map(int, input().split())
 answer = []
+lst = sorted(list(map(int ,input().split())))
 
 def combination_repetition(cnt, start):
-    if cnt == R:
+    if cnt == M:
         print(*answer)
         return
-    
+
+    # check num in same depth
+    num_in_same_depth = -1
     for i in range(start, N):
+        if num_in_same_depth == lst[i]:
+            continue
         answer.append(lst[i])
+        num_in_same_depth = lst[i]
         combination_repetition(cnt+1, i)
         answer.pop()
 
 combination_repetition(0, 0)
 
+
 '''
+num_in_same_depth 를 지운 경우
 [Input Example 1]
 4
 2
@@ -1451,12 +1532,60 @@ D D
 '''
 ```
 
+## 다음 순열(Next Permutation)
+
+```python
+
+```
+
 # 신호 처리(Signal Processing)
 
 ## 고속 푸리에 변환(FFT(Fast Fourier Transform))
 
 ```python
 
+```
+
+# 비트 마스크(Bit Mask)
+
+```python
+"""
+bit mask의 핵심!!!!!!
+bit mask의 num은 숫자가 아닌 32진수 boolean으로 볼 것!!!
+(1 << i)는 움직이고 싶은 비트를 2^i 할지(i <= 32)
+"""
+
+# 8 = 0b1000 = 00000000_00000000_00000000_00001000(32bit)
+num = 8
+i = 2
+print(bin(num)) # 0b1000
+
+# 비트 i번째 켜기
+num = num | (1 << i)
+# before: 0b1000
+# after:  0b1100 (2^i의 비트가 켜짐)
+
+# 비트 i번째 삭제
+num = num & ~(1 << i)
+# before: 0b1100
+# after:  0b1000
+
+# 비트 i번째 조회(존재하면 1, 없으면 0)
+print(num & (1 << i))  # 0
+
+# 비트 반전(flag 처럼 사용 가능)
+num = num ^ (1 << i)
+num = num ^ (1 << i)
+# before: 0b1000
+# after:  0b1100 (2^i의 비트가 켜짐)
+# after:  0b1100 (2^i의 비트가 꺼짐)
+
+# 모든 비트 끄기
+num = 0
+
+# 모든 비트 켜기(n = bit_size)
+n = 32
+num = num | (2**n - 1)
 ```
 
 # 잡기술(Miscellaneous)
@@ -1563,20 +1692,6 @@ def rotate(m, d):
 #  the recursion limit of python is usually set to a small value (approx, 10^4).
 import sys
 sys.setrecursionlimit(10**6)
-```
-
-## 행렬 뒤집기
-
-```python
-mylist = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-new_list = list(map(list, zip(*mylist)))
-
-'''
-print(mylist)
-print(new_list)
-# [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-# [[1, 4, 7], [2, 5, 8], [3, 6, 9]]
-'''
 ```
 
 ## 실전에서 느낀 것(What I felt in practice)

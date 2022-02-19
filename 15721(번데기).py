@@ -23,16 +23,22 @@ T = int(input())
 C = int(input())
 
 lst = []
-
+cnt = 0
+i = 2
 while True:
+    if cnt < T:
+        break
+
     for i in range(4):
         if i % 2 == 0:
             lst.append(0)
         elif i % 2 == 1:
             lst.append(1)
 
-
-    break
+    lst += [0] * i
+    lst += [1] * i
+    cnt += 4 + i * 2
+    i += 1
 
 """
 List를 1만개로 잡고 ㄱㄱ
