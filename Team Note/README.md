@@ -151,6 +151,8 @@ print(dict(counter))  # {'a': 3, 'b': 2, 'c': 2, 'd': 1}
 
 # 자료구조(Data Structure)
 
+## [List, Set, Dictionary] Time Complexity -> <https://wiki.python.org/moin/TimeComplexity>
+
 ## 서로소 집합(Disjoint-Set (Union-Find))
 
 ```python
@@ -1532,10 +1534,90 @@ D D
 '''
 ```
 
+## 멱집합 & 부분 집합(PowerSet & SubSet)
+
+> 출저: <https://velog.io/@tks7205/파이썬에서-부분집합-구하기>
+
+```python
+# itertools 라이브러리 사용
+from itertools import combinations 
+
+lst = [1, 2, 3]
+N = len(lst)
+subsets = []
+for i in range(N+1):
+    subsets += list(combinations(lst, i))
+
+print(subsets)
+# [(), (1,), (2,), (3,), (1, 2), (1, 3), (2, 3), (1, 2, 3)]
+
+# for문 활용
+lst = [1, 2, 3]
+subsets = [[]]
+
+for i in lst:
+    N = len(subsets)
+    for j in range(N):
+        subsets.append(subsets[j] + [i])
+
+print(subsets)
+# [[], [1], [2], [1, 2], [3], [1, 3], [2, 3], [1, 2, 3]]
+
+
+# 재귀
+```
+
 ## 다음 순열(Next Permutation)
 
 ```python
+"""\
+Next Permutation 원리
 
+원리: i, j값을 찾은 뒤 교환하고 다시 정렬한다.
+
+1. i 값 찾기(바꿀 첫번째 값)
+1-1. 가장 뒤에 값 i로 설정
+1-2. i값을 빼면서(<-이쪽으로 탐색)하기
+    1-3. 오름차순 아닌거 찾기(i, i-1 비교!)
+
+1-4. i값이 0이면(즉 모두다 뒤에서부터 오름차순이면)
+    1-5. 다음 순열은 없음!
+
+2. j 값 찾기(바꿀 두번째 값)
+2-1. 가장 뒤에 값 j로 설정
+2-2. j값을 빼면서 뒤에서부터 i전까지 탐색(무조건 탐색이 됨)
+    2-3. 오름차순 아닌거 찾기(i-1, j 비교!)
+
+3. 교환하기(i-1과 j 교환)
+4. 마지막부터 i까지 오름차순으로 정렬하기
+"""
+
+N = int(input())
+lst = list(map(int, input().split()))
+
+def next_permutation(lst):
+    N = len(lst)
+    i, j, k = [N-1] * 3
+
+    while i > 0 and lst[i-1] >= lst[i]:
+        i -= 1
+    if i == 0:
+        return [-1]
+
+    while lst[i-1] >= lst[j]:
+        j -= 1
+
+    lst[i-1], lst[j] = lst[j], lst[i-1]
+
+    while i < k:
+        lst[i], lst[k] = lst[k], lst[i]
+        i += 1
+        k -= 1
+
+    return lst
+
+answer = next_permutation(lst)
+print(*answer)
 ```
 
 # 신호 처리(Signal Processing)

@@ -30,6 +30,7 @@ from bs4 import BeautifulSoup
 
 USER_NAME = 'wansang93'
 LINK = 'https://www.acmicpc.net/user/' + USER_NAME
+headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'}
 solved_BAEKJOON_list = []
 
 TARGET_DIR = r"C:/Users/wansang/Desktop/Gitrep/Algorithm/BAEKJOON/problems"
@@ -40,7 +41,7 @@ MD_FILE = r'C:/Users/wansang/Desktop/Gitrep/Algorithm/BAEKJOON/README.md'
 
 # 1. Check how many solved problems in BAEKJOON
 def count_solved_in_BAEKJOON():
-    response = requests.get(LINK)
+    response = requests.get(LINK, headers=headers)
     soup = BeautifulSoup(response.content, 'html.parser')
     baekjoon_lst = soup.find('div', class_='problem-list')
     for atag in baekjoon_lst:
