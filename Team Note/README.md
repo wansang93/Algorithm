@@ -1778,6 +1778,45 @@ sys.setrecursionlimit(10**6)
 
 ## 실전에서 느낀 것(What I felt in practice)
 
+### 2차원 list의 총 합, 같은 2차원 list 더하기, 행렬 회전
+
+- 백준[골드4] `17144: 미세먼지 안녕!` 을 풀면서 [링크](../BAEKJOON/problems/17144.md)
+
+```python
+# 2차원 list의 총 합
+sum(map(sum, lst))
+
+# 2차원 list의 열의 합
+[sum(x) for x in zip(*lst)]
+
+# 2차원 list의 행의 합
+list(map(sum, lst))
+
+# 2개의 2차원 list의 합
+list1 = [[1, 2], [3, 4]]
+list2 = [[10, 20], [30, 40]]
+new_list = [[sum(x) for x in zip(list1[i], list2[i])] for i in range(N))]
+
+# 회전 반시계
+y, x = cleaner_loc[0]
+now_v = _list[y][x]
+# temp = 0
+for dy, dx in((0, 1), (-1, 0), (0, -1), (1, 0)):
+    while True:
+        ny = y + dy
+        nx = x + dx
+        if 0 <= ny < R and 0 <= nx < C:
+            now_v, _list[ny][nx] = _list[ny][nx], now_v
+            # # 타언어 스타일
+            # temp = _list[ny][nx]
+            # _list[ny][nx] = now_v
+            # now_v = temp
+            y = ny
+            x = nx
+        else:
+            break
+```
+
 ### 숫자를 문자로 바꾼 후 알파벳 순으로 정렬
 
 - 백준 [실버4] `1755: 숫자놀이` 를 풀면서 [링크](../BAEKJOON/problems/1755.md)
