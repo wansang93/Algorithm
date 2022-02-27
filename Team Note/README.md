@@ -46,27 +46,27 @@ lst = [[1, 2, 3], [4, 5, 6]]
 
 # 평평하게 만들기(flatten)
 # 방법 1
+flatten_lst = [i for s in lst for i in s]
+flatten_lst = [item for sbulst in lst for item in sublst]
+
+# 방법 2(itertools 활용)
+import itertools
+flatten_lst = list(itertools.chain(*lst))
+
+# 방법 3(함수형)
 def flatten(t):
     return [item for sublist in t for item in sublist]
 flatten_lst = flatten(lst)
 
-# 방법 2
-import itertools
-flatten_lst2 = list(itertools.chain(*lst))
-
-# 방법 3
-flatten_lst3 = [i for s in lst for i in s]
-
 print(lst)  # [[1, 2, 3], [4, 5, 6]]
 print(flatten_lst)  # [1, 2, 3, 4, 5, 6]
-print(flatten_lst2)  # [1, 2, 3, 4, 5, 6]
-print(flatten_lst3)  # [1, 2, 3, 4, 5, 6]
 ```
 
-## 전치행렬
+## 전치행렬(Transpose 2d list)
 
 ```python
 # 열탐색 할 때 좋음
+lst = list(map(list, zip(*l)))
 lst = [list(x) for x in zip(*lst)]
 ```
 
@@ -256,7 +256,41 @@ Parent Table: 1 1 1 1 5 5
 
 # 수론(Number Theory)
 
-목차: 최대 공약수, 최소 공배수, 모든 약수 찾기, 소수, 가장 큰 소인수, 소인수분해, 에라토스테네스의 체, 나머지 분배법칙
+목차: N진법 변환, 최대 공약수, 최소 공배수, 모든 약수 찾기, 소수, 가장 큰 소인수, 소인수분해, 에라토스테네스의 체, 나머지 분배법칙
+
+## N(2~16)진법 변환(Convert an integer to a string in any base)
+
+```python
+# 방법 1: while문
+num, base = map(int, input().split())
+answer = []
+dic = list('0123456789ABCDEF')
+
+if num == 0:
+    answer.append('0')
+while num:
+    answer.append(dic[num % base])
+    num //= base
+
+print(''.join(answer)[::-1])
+
+# 방법 2: Recursion
+# WARNING: maximum recursion depth
+def baseN(num, b, numerals="0123456789ABCDEF"):
+    return ((num == 0) and numerals[0]) or (baseN(num // b, b, numerals).lstrip(numerals[0]) + numerals[num % b])
+
+# 2, 8, 16진수는 빠르게 변환 가능
+n = 100
+bin(n)[2:]; f"{n:b}" # bin: 1100100
+oct(n)[2:]; f"{n:x}" # hex: 64
+hex(n)[2:]; f"{n:o}" # oct: 144
+
+# 문자열 N진법을 int로 바꾸는 법
+# str_num은 0~9, A~Z까찌 base는 2 ~ 36까지 가능
+str_num, b = "2Z", 36
+a = int(str_num, b)
+print(a)  # 107(72+35)
+```
 
 ## 최대 공약수(GCD(Greatest Common Divisor))
 
@@ -1296,9 +1330,27 @@ print(max(dp))  # 4
 
 ## 최빈값
 
-Collection Counter 모듈 없는 버전
-
 ```python
+# 최빈 값 빠르게 1개 찾기(중복 시 가장 앞에)
+print(max(nums, key=nums.count))
+
+
+# 중복 시 2개 이상 리스트로 추출
+from collections import Counter
+
+def modefinder(numbers):
+    c = Counter(numbers)
+    order = c.most_common()
+    maximum = order[0][1]
+    modes = []
+    
+    for num in order:
+        if num[1] == maximum:
+            modes.append(num[0])
+
+    return modes
+
+# Collection Counter 모듈 없는 버전
 def get_counts(sequence):
     counts = {}
     for x in sequence:
@@ -1316,9 +1368,8 @@ def get_mode(dic):
 
 lst = [1, 1, 2, 3, 4, 5, 5]
 print(get_mode(get_counts(lst)))  # [1, 5]
-```
 
-```python
+# Counter 함수 예시
 from collections import Counter
 
 lst = [1, 1, 2, 3, 4, 5, 5]
@@ -1536,7 +1587,7 @@ D D
 
 ## 멱집합 & 부분 집합(PowerSet & SubSet)
 
-> 출저: <https://velog.io/@tks7205/파이썬에서-부분집합-구하기>
+> 출처: <https://velog.io/@tks7205/파이썬에서-부분집합-구하기>
 
 ```python
 # itertools 라이브러리 사용
@@ -1704,7 +1755,7 @@ print(two_pointer([1, 2, 3, 2, 5], 5))
 
 ## 구간 합(Interval Sum)
 
-### Prefix Sum
+### 누적 합(Prefix Sum) 1차원
 
 ```python
 def interval_sum(lst, query):
@@ -1722,6 +1773,29 @@ def interval_sum(lst, query):
 
 print(interval_sum([10, 20, 30, 40, 50], [(3, 4), (2, 3), (1, 4)]))
 # [70, 50, 100]
+```
+
+### 누적 합(Prefix Sum) 2차원
+
+```python
+N, M = map(int, input().split())
+lst = []
+for _ in range(N):
+    lst.append(list(map(int, input().split())))
+
+dp = [[0] * (M+1) for _ in range(N+1)]
+
+for i in range(N):
+    for j in range(M):
+        dp[i+1][j+1] += lst[i][j] + dp[i+1][j] + dp[i][j+1] - dp[i][j]
+
+# for row in dp:
+#     print(*row)
+
+K = int(input())
+for _ in range(K):
+    y2, x2, y1, x1 = map(int, input().split())
+    print(dp[y1][x1] - dp[y1][x2 - 1] - dp[y2 - 1][x1] + dp[y2 - 1][x2 - 1])
 ```
 
 ### 바이너리 인덱스 트리(Binary Indexed Tree(Fenwick Tree))
@@ -1777,6 +1851,15 @@ sys.setrecursionlimit(10**6)
 ```
 
 ## 실전에서 느낀 것(What I felt in practice)
+
+### 알파벳 대소문자 변경
+
+- 백준[브론즈2] `2744: 대소문자 바꾸기` 를 풀면서 [링크](../BAEKJOON/problems/2744.md)
+
+```python
+S = "WrongAnswer"
+s2 = S.swapcase()  # wRONGaNSWER
+```
 
 ### 2차원 list의 총 합, 같은 2차원 list 더하기, 행렬 회전
 
