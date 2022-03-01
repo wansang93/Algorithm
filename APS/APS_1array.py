@@ -163,7 +163,7 @@ for i in range(len(vect)):
 
 # 함수 주고 받기
 # pass
-
+####################################################################################################
 
 lst = [3, 5, 3, 3, 2, 3]
 
@@ -263,6 +263,8 @@ for i in range(8):
     for j in range(i, -1, -1):
         print(lst[j], end="")
     print()
+
+####################################################################################################
 
 ##### 2d array & for loop #####
 
@@ -403,6 +405,7 @@ for i in range(2):
 
 print(_min, _max)
 
+####################################################################################################
 # struct // class in python
 class KFC:
     a, b = 0, 0
@@ -445,3 +448,49 @@ while i >= 1:
     print(i, end=" ")
     i -= 1
 print()
+
+####################################################################################################
+
+# stack
+"""
+stack은 리스트, 배열 아무거나 구현 가능
+stack은 규칙임, 자료구조x
+stack은 3가지만 알면 됨
+위에서 넣기: push
+위에서 읽기: top
+위에서 빼기: pop
+"""
+
+lst = [0] * 10
+sp = -1
+
+def push(a):
+    global sp
+    sp += 1
+    lst[sp] = a
+
+
+def top():
+    return lst[sp]
+
+
+def pop():
+    global sp
+    temp = lst[sp]
+    lst[sp] = 0
+    sp -= 1
+    return temp
+
+push(1)
+push(2)
+push(3)
+push(5)
+push(7)
+print(top())
+print(pop())
+print(top())
+print(pop())
+push(3)
+print(top())
+print(lst)
+

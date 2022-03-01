@@ -286,7 +286,7 @@ oct(n)[2:]; f"{n:x}" # hex: 64
 hex(n)[2:]; f"{n:o}" # oct: 144
 
 # 문자열 N진법을 int로 바꾸는 법
-# str_num은 0~9, A~Z까찌 base는 2 ~ 36까지 가능
+# str_num은 0~9, A~Z까지 base는 2 ~ 36까지 가능
 str_num, b = "2Z", 36
 a = int(str_num, b)
 print(a)  # 107(72+35)
@@ -506,6 +506,8 @@ print((x * y) % m == ((x % m) * (y % m)) % m)
 # 정렬(Sorting)
 
 목차: 버블, 선택, 삽입, 퀵, 병합, 힙, 계수 정렬
+
+> 좋은 강의: [Sorting Algorithms Visualizations](https://www.youtube.com/playlist?list=PL2aHrV9pFqNS79ZKnGLw-RG5gH01bcjRZ)
 
 ## 버블 정렬(Bobble Sort)
 
@@ -1255,7 +1257,7 @@ print(manacher(s))
 
 목차: LIS, LCS, Matrix Chain Multiplication
 
-## LIS(Longest Increasing Subsequence)
+## 가장 긴 증가하는 부분 수열(LIS: Longest Increasing Subsequence)
 
 ```python
 nums = [0, 3, 1, 6, 2, 2, 7]

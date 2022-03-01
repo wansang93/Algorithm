@@ -38,12 +38,14 @@
 
 국내 최대 알고리즘 사이트 중 하나라고 평가받는 사이트 백준 입니다.
 
+[![Wansang93](http://mazassumnida.wtf/api/generate_badge?boj=wansang93)](https://solved.ac/wansang93)
+
 ## 6. [이것이 코딩 테스트다(2021)](./This%20is%20coding%20test/README.md)
 
 [https://www.youtube.com/playlist?list=PLRx0vPvlEmdAghTr5mXQxGpHjWqSz0dgC](https://www.youtube.com/playlist?list=PLRx0vPvlEmdAghTr5mXQxGpHjWqSz0dgC)
 
 이것이 취업을 위한 코딩 테스트다 (나동빈 / 한빛미디어)
 
-## 7. [파이썬 자료구조와 알고리즘](./파이썬%20자료구조와%20알고리즘/README.md)
+## 7. [파이썬 자료구조와 알고리즘](./Algorithm&DataStructure_with_Python/README.md)
 
 파이썬 자료구조와 알고리즘 for Biginner (우재남 / 한빛미디어) 특강을 요약해 봤습니다.

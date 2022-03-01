@@ -4,9 +4,9 @@
 
 TODO: Add list
 
-## Basic
+## 0. Basic
 
-### I/O
+### 0-1. I/O
 
 ```python
 # 문자 받기
@@ -35,30 +35,24 @@ R, C = map(int, input().split())
 lst2d = [list(map(int, input().split()) for _ in range())]
 ```
 
-### Condition
+### 0-2. Condition
 
-### For Loop
+### 0-3. For Loop
 
 ```python
-
-
-
 # 10개 출력
 
 # 1~N까지 출력
 
 # 17~8까지 출력
 
-
-
 # Z부터 A까지 출력
 
 # 별 1, 2, 3, 4, 5 찍기
 
 # 99단 찍기
-
 ```
 
-### While Loop
+### 0-4. While Loop
 
-### Recursive Fuction
+### 0-5. Recursive Fuction
