@@ -6,13 +6,13 @@
 - **동빈나** 님의 사이트를 참고해서 만들었습니다. -> [동빈나님 Team Notes](https://github.com/ndb796/Python-Competitive-Programming-Team-Notes/blob/master/README.md)
 - 이 문서는 누구나 자유롭게 수정, 복제가 가능합니다.
 
-# Contents
+## Contents
 
 [기본](#파이썬-기본-문법), [자료구조](#자료구조data-structure), [수론](#수론number-theory), [정렬](#정렬sorting), [탐색](#탐색searching), [그래프](#그래프graph), [문자열](#문자열string), [동적 프로그래밍(DP)](#동적-프로그래밍dynamic-programming), [기하](#기하geometry), [통계](), [확률이론](#확률이론probability-theory), [신호 처리](#신호-처리signal-processing), [잡기술](#잡기술miscellaneous)
 
 # 파이썬 기본 문법
 
-## row*col 의 리스트 초기화
+## Row * Col 의 리스트 초기화
 
 ```python
 row, col = 3, 5
@@ -44,10 +44,8 @@ heap = []
 ```python
 lst = [[1, 2, 3], [4, 5, 6]]
 
-# 평평하게 만들기(flatten)
 # 방법 1
 flatten_lst = [i for s in lst for i in s]
-flatten_lst = [item for sbulst in lst for item in sublst]
 
 # 방법 2(itertools 활용)
 import itertools
@@ -294,9 +292,13 @@ print(a)  # 107(72+35)
 
 ## 최대 공약수(GCD(Greatest Common Divisor))
 
-gcd 모듈 없는 버전
+```python
+from math import gcd
+print(gcd(1071, 1029))  # 21
+```
 
 ```python
+# gcd 모듈 없는 버전
 def gcd(x, y):
     while y:
         x, y = y, x % y
@@ -305,16 +307,15 @@ def gcd(x, y):
 print(gcd(1071, 1029))  # 21
 ```
 
-```python
-from math import gcd
-print(gcd(1071, 1029))
-```
-
 ## 최소 공배수(LCM(Least Common Multiple))
 
 ```python
-from math import gcd
+from math import lcm
+print(lcm(1071, 1029))  # 52479
+```
 
+```python
+# lcm 모듈 없는 버전
 def lcm(x, y):
     return x * y // gcd(x, y)
 
@@ -325,30 +326,29 @@ print(lcm(1071, 1029))  # 52479
 
 ```python
 def find_all_divisors_of_a_number(x):
-    result = []
-    for i in range(1, int(x**1/2) + 1):
+    result = set()
+    for i in range(1, int(x**0.5) + 1):
         if x % i == 0:
-            result.append(i)
-            if i * i != x:
-                result.append(x // i)
-    return result
+            result |= {i, x // i}
+
+    return list(sorted(result))
 
 print(find_all_divisors_of_a_number(12))
-# [1, 12, 2, 6, 3, 4]
+# [1, 2, 3, 4, 6, 12]
 ```
 
 ## 소수(Check Prime Number)
 
 ```python
-def is_prime_number(x):
-    if x == 1:
+def is_prime(x):
+    if x < 2:
         return False
     for i in range(2, int(x**0.5) + 1):
         if x % i == 0:
             return False
     return True
 
-print(is_prime_number(7))
+print(is_prime(7))
 # True
 ```
 
@@ -440,24 +440,21 @@ print(prime_factorization(75))
 
 ## 에라토스테네스의 체(Sieve of Eratosthenes)
 
-non-function(from 0 to n)
-
 ```python
-num = 53
-sieve = [False, False] + [True] * (num-1)
-ns = int(num ** 0.5)
-for i in range(2, ns + 1):
+# non-function(from 0 to n)
+N = 53
+sieve = [False, False] + [True] * (N-1)
+for i in range(2, int(N ** 0.5) + 1):
     if sieve[i]:
-        for j in range(i+i, num+1, i):
+        for j in range(i+i, N+1, i):
             sieve[j] = False
 
-print([i for i in range(num+1) if sieve[i]])
+print([i for i in range(N+1) if sieve[i]])
 # [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53]
 ```
 
-function(from 0 to n)
-
 ``` python
+# function(from 0 to n)
 def prime_list(n):
     sieve = [False, False] + [True] * (n-1)
     m = int(n ** 0.5)
@@ -470,23 +467,6 @@ def prime_list(n):
 
 print(prime_list(53))
 # [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53]
-```
-
-function(from 2 to less than n)
-
-```python
-def prime_list(n):
-    sieve = [True] * n
-    m = int(n ** 0.5)
-    for i in range(2, m + 1):
-        if sieve[i]:
-            for j in range(i+i, n, i):
-                sieve[j] = False
-
-    return [i for i in range(2, n) if sieve[i]]
-
-print(prime_list(53))
-# [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47]
 ```
 
 ## 나머지 분배법칙
@@ -1278,12 +1258,12 @@ print(len(tmp), tmp)  # 4 [0, 1, 2, 7]
 
 # Solve2: N^2
 dp = [1] * N
-for n in range(N):
-    for i in range(n):
-        if nums[i] < nums[n]:
-            dp[n] = max(dp[n], dp[i] + 1)
+for i in range(N):
+    for j in range(i):
+        if nums[j] < nums[i]:
+            dp[i] = max(dp[i], dp[j] + 1)
 
-print(max(dp))  # 4
+print(max(dp), dp)  # 4 [1, 2, 2, 3, 3, 3, 4]
 ```
 
 ## LCS(Longest Common Subsequence)
@@ -1856,7 +1836,7 @@ sys.setrecursionlimit(10**6)
 
 ### 알파벳 대소문자 변경
 
-- 백준[브론즈2] `2744: 대소문자 바꾸기` 를 풀면서 [링크](../BAEKJOON/problems/2744.md)
+백준 2744 대소문자 바꾸기
 
 ```python
 S = "WrongAnswer"
@@ -1865,7 +1845,7 @@ s2 = S.swapcase()  # wRONGaNSWER
 
 ### 2차원 list의 총 합, 같은 2차원 list 더하기, 행렬 회전
 
-- 백준[골드4] `17144: 미세먼지 안녕!` 을 풀면서 [링크](../BAEKJOON/problems/17144.md)
+백준 17144 미세먼지 안녕!
 
 ```python
 # 2차원 list의 총 합
@@ -1882,7 +1862,7 @@ list1 = [[1, 2], [3, 4]]
 list2 = [[10, 20], [30, 40]]
 new_list = [[sum(x) for x in zip(list1[i], list2[i])] for i in range(N))]
 
-# 회전 반시계
+# 회전 반시계 돌면서 값 바꿔주기
 y, x = cleaner_loc[0]
 now_v = _list[y][x]
 # temp = 0
@@ -1904,7 +1884,7 @@ for dy, dx in((0, 1), (-1, 0), (0, -1), (1, 0)):
 
 ### 숫자를 문자로 바꾼 후 알파벳 순으로 정렬
 
-- 백준 [실버4] `1755: 숫자놀이` 를 풀면서 [링크](../BAEKJOON/problems/1755.md)
+백준 1755 숫자놀이
 
 ```python
 dic = {
@@ -1940,7 +1920,7 @@ for i in range(0, N, 10):
 
 ### 파이썬 토글(toggle)
 
-- 백준 [실버4] `1244: 스위치 켜고 끄기` 를 풀면서 [링크](../BAEKJOON/problems/1244.md)
+백준 1244 스위치 켜고 끄기
 
 ``` python
 a, b = 1, 0
@@ -1951,7 +1931,7 @@ b = 1 - b
 
 ### 배열 돌리기 여러가지 스킬
 
-- 백준 [골드4] `17406: 배열 돌리기 4` 를 풀면서 [링크](../BAEKJOON/problems/17406.md)
+백준 17406 배열 돌리기 4
 
 2차원 리스트 deepcopy without deepcopy module
 
@@ -2040,7 +2020,7 @@ length=3
 
 ### 정렬 2번째 요소도 고려
 
-백준 11650번 좌표 정렬하기
+백준 11650 좌표 정렬하기
 
 ```python
 lst.sort(key=lambda x: (x[0], x[1]))
@@ -2048,7 +2028,7 @@ lst.sort(key=lambda x: (x[0], x[1]))
 
 ### 정렬 문자로 된 숫자
 
-백준 1427번 소트 인사이드
+백준 1427 소트 인사이드
 
 [sorted docs](https://docs.python.org/3/howto/sorting.html)
 
@@ -2058,7 +2038,7 @@ sorted(N)[::-1]  # sorted는 아스키 기준으로 정렬하는거 같음
 
 ### 단어 중복 체크, 연속된 단어는 허용
 
-백준 1316번 그룹 단어 체커
+백준 1316 그룹 단어 체커
 
 짧은 코드
 
@@ -2083,7 +2063,7 @@ else:
 
 ### 특정 문자를 지정 문자로 바꿔서 처리하면 편함
 
-백준 2941번 크로아티아 알파벳
+백준 2941 크로아티아 알파벳
 
 ```python
 croatian = ['c=', 'c-', 'dz=', 'd-', 'lj', 'nj', 's=', 'z=']
@@ -2093,7 +2073,7 @@ for cr in croatian:
 
 ### 알파벳 찾기, find와 index의 차이 익히기
 
-백준 10809번 알파벳 찾기
+백준 10809 알파벳 찾기
 
 ```python
 # A~Z까지 다 찾기
@@ -2111,4 +2091,68 @@ for i, v in enumerate(S):
 
 for i in lst:
     print(i, end=' ')
+```
+
+### 둘 다 홀수일때만 최솟값 구하기
+
+백준 8674 Tabliczka
+
+```python
+min(a % 2 * b, b % 2 * a)
+```
+
+### 몫 나눈 뒤 올림, 내림, 반올림 하는 법
+
+> 출처: <https://xy-plane.tistory.com/11>
+
+```python
+# 내림
+share = b//a
+share = int(b/a)
+# 올림
+share = (b+a-1) // a
+share = (b-1) // a + 1
+# 반올림
+share = (b + a / 2) // a
+```
+
+### 다중조건이 True 일 때 쓰면 좋음
+
+백준 16017 Telemarketer or not?
+
+```python
+a, b, c, d = [int(input()) for _ in range(4)]
+if all((b==c, a>7, d>7)):
+    print("ignore")
+else:
+    print("answer")
+```
+
+### 튜플 비교
+
+백준 16199 나이 계산하기
+
+> 튜플 비교 원리: <https://howtodoinjava.com/misc/compare-tuples/>
+
+```python
+# 만 나이 계산
+old = ny - by - ((bm, bd) > (nm, nd))
+```
+
+### (a - b) // c 를 올림, a - b 가 0보다 작으면
+
+```python
+- min(0, (a-b)//-c)
+```
+
+### 빠른 시간 계산(Overflow 적용)
+
+```python
+h1, m1, s1 = map(int, input().split(":"))
+h2, m2, s2 = map(int, input().split(":"))
+t = (h2-h1) * 3600 + (m2-m1) * 60 + (s2-s1)
+# overflow(1일)
+if t < 0:
+    t += 3600 * 24
+print(t)
 ```
