@@ -47,3 +47,53 @@ print(top())
 print(lst)
 
 ####################################################################################################
+
+# 문자열은 이상하게 안했네?ㅋㅋ 파이썬이랑 다른점
+"""
+arr = "1234" 넣으면 5개가 들어감 (1234 + null)
+생각해보니까 옛날에 배웠네ㅋㅋ
+"""
+
+####################################################################################################
+
+lst = [[0] * 3 for _ in range(3)]
+t = 1
+for i in range(2, -1, -1):
+    for j in range(2, -1, -1):
+        lst[i][j] = t
+        t += 1
+
+for i in lst:
+    print(*i, end=" ")
+print()
+
+
+lst = [[0] * 3 for _ in range(3)]
+t = 1
+for y in range(2, -1, -1):
+    for x in range(y, 3):
+        lst[y][x] = t
+        t += 1
+
+for i in lst:
+    print(*i, end="")
+print()
+
+lst = [[0] * 3 for _ in range(3)]
+t = 1
+for y in range(2, -1, -1):
+    for x in range(2-y):
+        lst[y][x] = t
+        t += 1
+
+for i in lst:
+    print(*i, end=" ")
+print()
+
+
+"""
+코테에서 Linbrary 쓸때는
+Library를 안쓰면 구현이 너무 지겨울 때부터
+그래야 실력이 늠
+"""
+

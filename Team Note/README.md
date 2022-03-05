@@ -1067,9 +1067,9 @@ indegree = [0] * (v + 1)
 graph = [[] for i in range(v + 1)]
 
 for _ in range(e):
-   a, b = map(int, input().split())
-   graph[a].append(b)
-   indegree[b] += 1
+    a, b = map(int, input().split())
+    graph[a].append(b)
+    indegree[b] += 1
 
 ''' Topology Sort '''
 def topology_sort():
