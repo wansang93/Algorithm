@@ -1224,7 +1224,45 @@ print(manacher(s))
 ## KMP
 
 ```python
+def kmp(text, pattern):
+    N = len(text)
+    M = len(pattern)
 
+    # 실패 함수 테이블 만들기
+    table = [0] * M
+    j = 0
+    for i in range(1, M):
+        # i와 j가 일치하지 않으면 j를 바로 뒤의 값으로 변경
+        while j > 0 and pattern[i] != pattern[j]:
+            j = table[j - 1]
+        # i와 j가 일치하면 i, j 모두 1씩 이동하게 됨
+        if pattern[i] == pattern[j]:
+            j += 1
+            table[i] = j
+    # print(table)
+    
+    count = 0  # 맞은 갯수
+    loc = []  # 시작 인덱스 저장 위치
+    j = 0
+    for i in range(N):
+        while j > 0 and text[i] != pattern[j]:
+            j = table[j - 1]
+        if text[i] == pattern[j]:
+            # 전체가 매칭 되면
+            if j == (M - 1):
+                count += 1
+                loc.append(i - M + 2)
+                # 찾은 뒤 점프
+                j = table[j]
+            # 부분 매칭만 되면
+            else:
+                j += 1
+    print(count)
+    print(*loc)
+
+T = input()
+P = input()
+kmp(T, P)
 ```
 
 ## Trie
