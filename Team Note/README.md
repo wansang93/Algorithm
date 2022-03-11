@@ -1306,8 +1306,36 @@ print(max(dp), dp)  # 4 [1, 2, 2, 3, 3, 3, 4]
 
 ## LCS(Longest Common Subsequence)
 
-```python
+> <https://www.geeksforgeeks.org/longest-common-subsequence-dp-4/>
 
+```python
+def lcs(X, Y):
+    # find the length of the strings
+    m = len(X)
+    n = len(Y)
+
+    # declaring the array for storing the dp values
+    L = [[None]*(n+1) for i in range(m+1)]
+
+    """Following steps build L[m+1][n+1] in bottom up fashion
+    Note: L[i][j] contains length of LCS of X[0..i-1]
+    and Y[0..j-1]"""
+    for i in range(m+1):
+        for j in range(n+1):
+            if i == 0 or j == 0 :
+                L[i][j] = 0
+            elif X[i-1] == Y[j-1]:
+                L[i][j] = L[i-1][j-1]+1
+            else:
+                L[i][j] = max(L[i-1][j] , L[i][j-1])
+
+    # L[m][n] contains the length of LCS of X[0..n-1] & Y[0..m-1]
+    return L[m][n]
+#end of function lcs
+
+A = input()
+B = input()
+print(lcs(A, B))
 ```
 
 ## Matrix Chain Multiplication
@@ -2193,4 +2221,26 @@ t = (h2-h1) * 3600 + (m2-m1) * 60 + (s2-s1)
 if t < 0:
     t += 3600 * 24
 print(t)
+```
+
+### 다각형의 면적 구하기
+
+백준 2166
+
+```python
+N = int(input())
+corners = [tuple(map(int, input().split())) for _ in range(N)]
+
+# e.g. corners = [(2.0, 1.0), (4.0, 5.0), (7.0, 8.0)]
+def area(corners):
+    n = len(corners) # of corners
+    area = 0
+    for i in range(n):
+        j = (i + 1) % n
+        area += corners[i][0] * corners[j][1]
+        area -= corners[j][0] * corners[i][1]
+    area = abs(area) / 2
+    return area
+
+print(round(area(corners), 1))
 ```
