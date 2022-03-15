@@ -1450,34 +1450,34 @@ DFS로 푸는 순열(num_in_same_depth 지울 것!)
 비오름차순 정렬 추가(같은 깊이의 숫자 중복은 제거하는 코드 추가)
 
 ```python
-N, M = map(int, input().split())
+N, R = map(int, input().split())
 answer = []
-lst = sorted(list(map(int ,input().split())))
-is_visted = [False] * N
+lst = list(sorted(input()))
+is_visited = [False] * N
 
 def permutation(cnt):
-    if cnt == M:
+    if cnt == R:
         print(*answer)
         return
 
     # check num in same depth
     num_in_same_depth = -1
     for i in range(N):
-        if is_visted[i] or num_in_same_depth == lst[i]:
+        if is_visited[i] or num_in_same_depth == lst[i]:
             continue
         answer.append(lst[i])
-        is_visted[i] = True
+        is_visited[i] = True
         num_in_same_depth = lst[i]
         permutation(cnt+1)
         answer.pop()
-        is_visted[i] = False
+        is_visited[i] = False
 
 permutation(0)
 
 '''
 num_in_same_depth 를 지운 경우
 [Input Example 1]
-3
+3 3
 ABC
 [Output Example 1]
 A B C
@@ -1496,12 +1496,12 @@ DFS로 푸는 조합(num_in_same_depth 지울 것!)
 비오름차순 정렬 추가(같은 깊이의 숫자 중복은 제거하는 코드 추가)
 
 ```python
-N, M = map(int, input().split())
+N, R = map(int, input().split())
 answer = []
-lst = sorted(list(map(int ,input().split())))
+lst = list(sorted(input()))
 
 def combination(cnt, start):
-    if cnt == M:
+    if cnt == R:
         print(*answer)
         return
 
@@ -1517,12 +1517,10 @@ def combination(cnt, start):
 
 combination(0, 0)
 
-
 '''
 num_in_same_depth 를 지운 경우
 [Input Example 1]
-4
-2
+4 2
 ABCD
 [Output Example 1]
 A B
@@ -1541,15 +1539,16 @@ DFS로 푸는 중복순열(num_in_same_depth 지울 것!)
 비오름차순 정렬 추가(같은 깊이의 숫자 중복은 제거하는 코드 추가)
 
 ```python
-N, M = map(int, input().split())
+N, R = map(int, input().split())
 answer = []
-lst = sorted(list(map(int ,input().split())))
+lst = list(sorted(input()))
 
 def permutation_repetition(cnt):
-    if cnt == M:
+    if cnt == R:
         print(*answer)
         return
 
+    # check num in same depth
     num_in_same_depth = -1
     for i in range(N):
         if num_in_same_depth == lst[i]:
@@ -1561,11 +1560,10 @@ def permutation_repetition(cnt):
 
 permutation_repetition(0)
 
-
 '''
 num_in_same_depth 를 지운 경우
 [Input Example 1]
-3
+3 3
 ABC
 [Output Example 1]
 A A A
@@ -1577,6 +1575,20 @@ A B C
 A C A
 A C B
 A C C
+B A A
+B A B
+B A C
+B B A
+B B B
+B B C
+B C A
+B C B
+B C C
+C A A
+C A B
+C A C
+C B A
+C B B
 C B C
 C C A
 C C B
@@ -1591,12 +1603,12 @@ DFS로 푸는 중복조합(num_in_same_depth 지울 것!)
 비오름차순 정렬 추가(같은 깊이의 숫자 중복은 제거하는 코드 추가)
 
 ```python
-N, M = map(int, input().split())
+N, R = map(int, input().split())
 answer = []
-lst = sorted(list(map(int ,input().split())))
+lst = list(sorted(input()))
 
 def combination_repetition(cnt, start):
-    if cnt == M:
+    if cnt == R:
         print(*answer)
         return
 
@@ -1612,12 +1624,10 @@ def combination_repetition(cnt, start):
 
 combination_repetition(0, 0)
 
-
 '''
 num_in_same_depth 를 지운 경우
 [Input Example 1]
-4
-2
+4 2
 ABCD
 [Output Example 1]
 A A
@@ -1661,9 +1671,6 @@ for i in lst:
 
 print(subsets)
 # [[], [1], [2], [1, 2], [3], [1, 3], [2, 3], [1, 2, 3]]
-
-
-# 재귀
 ```
 
 ## 다음 순열(Next Permutation)
@@ -1924,9 +1931,11 @@ sum(map(sum, lst))
 list(map(sum, lst))
 
 # 2개의 2차원 list의 합
+N= 2
 list1 = [[1, 2], [3, 4]]
 list2 = [[10, 20], [30, 40]]
-new_list = [[sum(x) for x in zip(list1[i], list2[i])] for i in range(N))]
+new_list = [[sum(x) for x in zip(list1[i], list2[i])] for i in range(N)]
+print(new_list)  # [[11, 22], [33, 44]]
 
 # 회전 반시계 돌면서 값 바꿔주기
 y, x = cleaner_loc[0]

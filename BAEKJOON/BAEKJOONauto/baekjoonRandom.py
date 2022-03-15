@@ -40,10 +40,5 @@ cookies = pickle.load(open("cookies.pkl", "rb"))
 for cookie in cookies:
     driver.add_cookie(cookie)
 
-
-
-
-
-
 while True:
-    pass
+    break
