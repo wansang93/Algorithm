@@ -1128,8 +1128,7 @@ for row in range(1, V+1):
 
 for _ in range(E):
     start, end, distance = map(int, input().split())
-    graph[start][end] = distance
-
+    graph[start][end] = min(distance, graph[start][end])
 
 for k in range(1, V+1):
     for a in range(1, V+1):
@@ -1273,7 +1272,7 @@ kmp(T, P)
 
 # 동적 프로그래밍(Dynamic Programming)
 
-목차: LIS, LCS, Matrix Chain Multiplication
+목차: LIS, LCS, 0-1-knapsack, Matrix Chain Multiplication
 
 ## 가장 긴 증가하는 부분 수열(LIS: Longest Increasing Subsequence)
 
@@ -1336,6 +1335,32 @@ def lcs(X, Y):
 A = input()
 B = input()
 print(lcs(A, B))
+```
+
+## 배낭문제(0-1-knapsack)
+
+> <https://github.com/wansang93/Algorithm/tree/master/BAEKJOON/problems/12865.md>
+
+```python
+import sys
+input = sys.stdin.readline
+
+N, K = map(int, input().split())
+stuff = [[0, 0]]
+dp = [0 for _ in range(K+1)]
+
+for _ in range(N):
+    stuff.append(list(map(int, input().split())))
+
+for i in range(1, N+1):
+    for j in range(K, 0, -1):
+        weight = stuff[i][0]
+        value = stuff[i][1]
+
+        if weight <= j:
+            dp[j] = max(value + dp[j-weight], dp[j])
+
+print(dp[K])
 ```
 
 ## Matrix Chain Multiplication
