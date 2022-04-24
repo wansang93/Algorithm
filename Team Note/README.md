@@ -696,6 +696,11 @@ else:
 
 ## 분할정복을 이용한 거듭제곱(Power with divide and conquer)
 
+```python
+# A ** B % C
+pow(2, 3, 5)  # 3  
+```
+
 Time complex: log(N)
 
 Use recursive function
@@ -816,9 +821,13 @@ for _ in range(m):
 for e in graph:
     e.sort()
 
+# dfs 풀이
 visited = [False] * (n + 1)
 dfs(start)
+
 print()
+
+# bfs 풀이
 visited = [False] * (n + 1)
 bfs(start)
 
