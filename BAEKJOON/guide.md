@@ -25,21 +25,28 @@
 
 - 실수 자료형(소숫점)
   - [1008](https://boj.kr/1008) | `A/B` | [⭐](./problems/1008.md)
+  - [24183](https://boj.kr/24183) | `Affischutskicket` | [⭐](./problems/24183.md)
+
 - 정수(40억), 절댓값
   - [2420](https://boj.kr/2420) | `사파리월드` | [⭐](./problems/2420.md)
+
 - 시간 계산
   - [2525](https://boj.kr/2525) | `오븐 시계` | [⭐](./problems/2525.md)
   - [2530](https://boj.kr/2530) | `인공지능 시계` | [⭐](./problems/2530.md)
   - [2588](https://boj.kr/2588) | `곱셈` | [⭐](./problems/2588.md)
+
 - 배열 정렬
   - [2752](https://boj.kr/2752) | `세수정렬` | [⭐](./problems/2752.md)
+
 - 조건문
   - [1330](https://boj.kr/1330) | `두 수 비교하기` | [⭐](./problems/1330.md)
   - [2480](https://boj.kr/2480) | `주사위 세개` | [⭐](./problems/2480.md)
+
 - 날짜 / 시간
   - [2753](https://boj.kr/2753) | `윤년` | [⭐](./problems/2753.md)
   - [5575](https://boj.kr/5575) | `타임 카드` | [⭐](./problems/5575.md)
   - [5928](https://boj.kr/5928) | `Contest Timing` | [⭐](./problems/5928.md)
+
 - 구현
   - [1297](https://boj.kr/1297) | `TV 크기` | [⭐](./problems/1297.md)
   - [1712](https://boj.kr/1712) | `손익분기점` | [⭐](./problems/1712.md)
@@ -51,14 +58,18 @@
   - [8674](https://boj.kr/8674) | `Tabliczka` | [⭐](./problems/8674.md)
   - [8710](https://boj.kr/8710) | `Koszykarz` | [⭐](./problems/8710.md)
   - [8718](https://boj.kr/8718) | `Bałwanek` | [⭐⭐](./problems/8718.md)
+
 - 시뮬레이션(조건)
   - [6778](https://boj.kr/6778) | `Which Alien?` | [⭐](./problems/6778.md)
   - [6810](https://boj.kr/6810) | `ISBN` | [⭐](./problems/6810.md)
+
 - 최대 최소
   - [5532](https://boj.kr/5532) | `방학 숙제` | [⭐](./problems/5532.md)
   - [5543](https://boj.kr/5543) | `상근날드` | [⭐](./problems/5543.md)
+
 - 진법
   - [5893](https://boj.kr/5893) | `17배` | [⭐](./problems/5893.md)
+
 - 분류중
   - [8723](https://boj.kr/8723) | `Patyki` | [⭐](./problems/8723.md)
   - [9498](https://boj.kr/9498) | `시험 성적` | [⭐](./problems/9498.md)
@@ -185,6 +196,8 @@
   - [18096](https://boj.kr/18096) | `Арифметическая магия` | [⭐](./problems/18096.md)
   - [24078](https://boj.kr/24078) | `余り (Remainder)` | [⭐](./problems/24078.md)
   - [24218](https://boj.kr/24218) | `Double Crypt 1` | [⭐](./problems/24218.md)
+  - [24900](https://boj.kr/24900) | `한별 찍기` | [⭐](./problems/24900.md)
+  - [25083](https://boj.kr/25083) | `새싹` | [⭐](./problems/25083.md)
 
 - 복잡한 문자 여러줄 출력
   - [5337](https://boj.kr/5337) | `웰컴` | [⭐](./problems/5337.md)
@@ -264,9 +277,7 @@
   - [24082](https://boj.kr/24082) | `立方体 (Cube)` | [⭐](./problems/24082.md)
   - [24086](https://boj.kr/24086) | `身長 (Height)` | [⭐](./problems/24086.md)
   - [24262](https://boj.kr/24262) | `알고리즘 수업 - 알고리즘의 수행 시간 1` | [⭐](./problems/24262.md)
-
-- 브5 문제가 아님 이건(실수 연산은 브5가 될 수 없음)
-  - [24183](https://boj.kr/24183) | `Affischutskicket` | [⭐](./problems/24183.md)
+  - [24736](https://boj.kr/24736) | `Football Scoring` | [⭐](./problems/24736.md)
 
 ## 하루 100문제를 풀면서(22/02/26)
 
