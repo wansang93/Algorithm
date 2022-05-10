@@ -2287,3 +2287,12 @@ def area(corners):
 
 print(round(area(corners), 1))
 ```
+
+### 2의 제곱수 판단 비트연산
+
+백준 11966 2의 제곱인가?
+
+```python
+n & -n == n
+# 2의 제곱수면 True 아니면 False
+```
