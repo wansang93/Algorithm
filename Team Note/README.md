@@ -1808,6 +1808,10 @@ num = 0
 # 모든 비트 켜기(n = bit_size)
 n = 32
 num = num | (2**n - 1)
+
+# 모든 비트 반전
+n = 32
+num = ~n
 ```
 
 # 잡기술(Miscellaneous)

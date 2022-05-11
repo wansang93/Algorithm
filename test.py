@@ -1,5 +1,6 @@
 # I/O template
 import sys
+from zoneinfo import available_timezones
 
 FILE_INPUT_PATH = (
     r'C:/Users/wansang/Desktop/Gitrep/Algorithm/' +
