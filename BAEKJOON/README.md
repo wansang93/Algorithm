@@ -289,6 +289,7 @@
 - [5354](./problems/5354.md)
 - [5355](./problems/5355.md)
 - [5522](./problems/5522.md)
+- [5523](./problems/5523.md)
 - [5532](./problems/5532.md)
 - [5543](./problems/5543.md)
 - [5554](./problems/5554.md)

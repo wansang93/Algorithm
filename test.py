@@ -7,5 +7,3 @@ FILE_INPUT_PATH = (
 )
 sys.stdin = open(FILE_INPUT_PATH, 'r', encoding='utf-8')
 
-# Solve here
-
