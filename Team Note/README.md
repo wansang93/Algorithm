@@ -8,7 +8,7 @@
 
 ## Contents
 
-[기본](#파이썬-기본-문법), [자료구조](#자료구조data-structure), [수론](#수론number-theory), [정렬](#정렬sorting), [탐색](#탐색searching), [그래프](#그래프graph), [문자열](#문자열string), [동적 프로그래밍(DP)](#동적-프로그래밍dynamic-programming), [기하](#기하geometry), [통계](), [확률이론](#확률이론probability-theory), [신호 처리](#신호-처리signal-processing), [잡기술](#잡기술miscellaneous)
+[기본](#파이썬-기본-문법), [자료구조](#자료구조data-structure), [수론](#수론number-theory), [정렬](#정렬sorting), [탐색](#탐색searching), [그래프](#그래프graph), [문자열](#문자열string), [동적 프로그래밍(DP)](#동적-프로그래밍dynamic-programming), [기하](#기하geometry), [통계](#통계statistics), [확률이론](#확률이론probability-theory), [신호 처리](#신호-처리signal-processing), [잡기술](#잡기술miscellaneous)
 
 # 파이썬 기본 문법
 
@@ -1736,8 +1736,8 @@ N = int(input())
 lst = list(map(int, input().split()))
 
 def next_permutation(lst):
-    N = len(lst)
-    i, j, k = [N-1] * 3
+    N = len(lst) - 1
+    i, j, k = [N] * 3
 
     while i > 0 and lst[i-1] >= lst[i]:
         i -= 1
@@ -1815,6 +1815,23 @@ num = ~n
 ```
 
 # 잡기술(Miscellaneous)
+
+## 두 행렬 곱(multiply two matrices without numpy)
+
+```python
+def multifly_matrix(lst1, lst2, mod=1):
+    ans = []
+    for i in range(len(lst1)):
+        temp = []
+        for j in range(len(lst2[0])):
+            s = 0
+            for k in range(len(lst1[0])):
+                s += lst1[i][k] * lst2[k][j]
+            temp.append(s % mod)
+        ans.append(temp)
+
+    return ans
+```
 
 ## 투 포인터(Two Pointers)
 
