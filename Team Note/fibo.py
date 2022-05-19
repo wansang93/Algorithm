@@ -44,6 +44,7 @@ def pisano(num):
     0 1 1 2 3 5 8 13 ...
     (f(n-2) % m + f(n-1) % m) % m = f(n) % m
     """
+    # pisano 주기는 mod 0, mod 1이 들어갈 수 없다.
     if num <= 1:
         return -1
 
@@ -111,3 +112,13 @@ print("피사노 주기로 풀기")
 for n in range(K):
     print(fibo3(n), end=" ")
 print()
+
+"""
+$F_{2n-1} = F_n^2 + F_{n-1}^2$
+$F_{2n} = (F_{n-1} + F_{n+1})F_n = (2F_{n-1} + F_n)F_n$
+$\sum_{i=1}^{n}{F_i} = F_{n+2} - 1$
+$\sum_{i=1}^{n}{F_{2i}} = F_{2n+1} - 1$
+$\sum_{i=0}^{n}{F_{2i+1}} = F_{2n}$
+$\sum_{i=1}^{n}{F_i^2} = F_nF_{n+1}$
+$gcd(F_n,F_m) = F_{gcd(n,m)}$
+"""
