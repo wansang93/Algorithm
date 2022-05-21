@@ -254,7 +254,7 @@ Parent Table: 1 1 1 1 5 5
 
 # 수론(Number Theory)
 
-목차: N진법 변환, 최대 공약수, 최소 공배수, 모든 약수 찾기, 소수, 가장 큰 소인수, 소인수분해, 에라토스테네스의 체, 나머지 분배법칙
+목차: N진법 변환, 최대 공약수, 최소 공배수, 모든 약수 찾기, 소수, 가장 큰 소인수, 소인수분해, 에라토스테네스의 체, 나머지 분배법칙, 피보나치 수
 
 ## N(2~16)진법 변환(Convert an integer to a string in any base)
 
@@ -274,8 +274,9 @@ print(''.join(answer)[::-1])
 
 # 방법 2: Recursion
 # WARNING: maximum recursion depth
-def baseN(num, b, numerals="0123456789ABCDEF"):
-    return ((num == 0) and numerals[0]) or (baseN(num // b, b, numerals).lstrip(numerals[0]) + numerals[num % b])
+def baseN(num, b, numerals="0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"):
+    return ((num == 0) and numerals[0]) or \
+        (baseN(num // b, b, numerals).lstrip(numerals[0]) + numerals[num % b])
 
 # 2, 8, 16진수는 빠르게 변환 가능
 n = 100
@@ -482,6 +483,8 @@ print((x + y) % m == (x % m) + (y % m))
 print((x - y) % m == ((x % m) - (y % m) + m) % m)
 print((x * y) % m == ((x % m) * (y % m)) % m)
 ```
+
+## [피보나치 수(Fibonacci)](./fibo.md)
 
 # 정렬(Sorting)
 
@@ -1911,7 +1914,7 @@ for _ in range(K):
 ### 바이너리 인덱스 트리(Binary Indexed Tree(Fenwick Tree))
 
 ```python
-
+test
 ```
 
 ## 회전 행렬(Rotation Matrix)
@@ -2316,4 +2319,28 @@ print(round(area(corners), 1))
 ```python
 n & -n == n
 # 2의 제곱수면 True 아니면 False
+```
+
+### 2진수의 마지막 비트 찾기
+
+백준 17119 비트가 넘쳐흘러
+
+나중에 Fenwick Tree에서 사용
+
+K & -K
+
+```python
+for K in range(9):
+    print(K, "의 마지막 비트:", K & -K)
+"""
+0 의 마지막 비트: 0
+1 의 마지막 비트: 1
+2 의 마지막 비트: 2
+3 의 마지막 비트: 1
+4 의 마지막 비트: 4
+5 의 마지막 비트: 1
+6 의 마지막 비트: 2
+7 의 마지막 비트: 1
+8 의 마지막 비트: 8
+"""
 ```
