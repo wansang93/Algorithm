@@ -1771,7 +1771,7 @@ print(*answer)
 
 ```
 
-# 비트 마스크(Bit Mask)
+# 비트 마스킹(Bit Masking)
 
 ```python
 """
@@ -2343,4 +2343,54 @@ for K in range(9):
 7 의 마지막 비트: 1
 8 의 마지막 비트: 8
 """
+```
+
+### 속도 방향이 있는 좌표 한번에 이동하기
+
+백준 17143 낚시왕
+
+```python
+# row, column, speed, direction
+def get_next_loc(r, c, s, d):
+    global R, C
+    # 축(aixs)별 사이클(cycle) 구하기
+    # 1이 위, 2가 아래
+    if d == 1 or d == 2:
+        cycle = (R - 1) * 2
+        # 방향(d)에 따른 인덱스 가중치 더하기
+        if d == 1:
+            s += cycle - r
+        else:
+            s += r
+        # 유효한 범위만 계산
+        s %= cycle
+        
+        # r은 s좌표, d는 양수
+        d = 2
+        r = s
+        # 축보다 밖에 있으면 음수 방향으로 출발
+        if s >= R:
+            d = 1
+            r = cycle - s
+        return (r, c, d)
+
+    # 3이 오른쪽, 4가 왼쪽
+    if d == 3 or d == 4:
+        cycle = (C - 1) * 2
+        # 방향(d)에 따른 인덱스 가중치 더하기
+        if d == 4:
+            s += cycle - c
+        else:
+            s += c
+        # 유효한 범위만 계산
+        s %= cycle
+        
+        # c은 s좌표, d는 양수
+        d = 3
+        c = s
+        # 축보다 밖에 있으면 음수 방향으로 출발
+        if s >= C:
+            d = 4
+            c = cycle - s
+        return (r, c, d)
 ```
