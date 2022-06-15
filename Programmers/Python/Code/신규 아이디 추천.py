@@ -20,3 +20,39 @@ def solution(new_id):
         result += result[-1]
 
     return result
+
+
+# 2번째 풀이
+def solution2(new_id):
+    answer = new_id
+    
+    # 1단계
+    answer = new_id.lower()
+    # 2단계
+    temp = []
+    for c in answer:
+        if c.islower() or c.isdecimal() or c in ("-", "_", "."):
+            temp.append(c)
+    answer = "".join(temp)
+    # 3단계
+    while '..' in answer:
+        answer = answer.replace("..", ".")
+    # 4단계
+    if answer.startswith("."):
+        answer = answer[1:]
+    if answer.endswith("."):
+        answer = answer[:-1]
+    # 5단계
+    if answer == "":
+        answer = "a"
+    # 6단계
+    if len(answer) >= 16:
+        answer = answer[:15]
+        if answer.endswith("."):
+            answer = answer[:-1]
+    # 7단계
+    if len(answer) <= 2:
+        while len(answer) < 3:
+            answer = answer + answer[-1]
+    
+    return answer
