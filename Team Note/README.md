@@ -619,8 +619,66 @@ print(quick_sort(array, 0, len(array)-1))
 
 ## 병합 정렬(Merge Sort)
 
-```python
+메모리 복제 방식(메모리 효율 저하)
 
+```python
+def merge_sort(arr):
+    if len(arr) < 2:
+        return arr
+
+    mid = len(arr) // 2
+    low_arr = merge_sort(arr[:mid])
+    high_arr = merge_sort(arr[mid:])
+
+    merged_arr = []
+    l = h = 0
+    while l < len(low_arr) and h < len(high_arr):
+        if low_arr[l] < high_arr[h]:
+            merged_arr.append(low_arr[l])
+            l += 1
+        else:
+            merged_arr.append(high_arr[h])
+            h += 1
+    merged_arr += low_arr[l:]
+    merged_arr += high_arr[h:]
+    return merged_arr
+```
+
+메모리 효율 최적화(인덱스 탐색)
+
+```python
+def merge_sort(arr):
+    def sort(low, high):
+        if high - low < 2:
+            return
+        mid = (low + high) // 2
+        sort(low, mid)
+        sort(mid, high)
+        merge(low, mid, high)
+
+    def merge(low, mid, high):
+        temp = []
+        l, h = low, mid
+
+        while l < mid and h < high:
+            if arr[l] < arr[h]:
+                temp.append(arr[l])
+                l += 1
+            else:
+                temp.append(arr[h])
+                h += 1
+
+        while l < mid:
+            temp.append(arr[l])
+            l += 1
+        while h < high:
+            temp.append(arr[h])
+            h += 1
+
+        for i in range(low, high):
+            arr[i] = temp[i - low]
+
+    return sort(0, len(arr))
 ```
 
 ## 힙 정렬(Heap Sort)
@@ -1289,27 +1347,33 @@ kmp(T, P)
 ## 가장 긴 증가하는 부분 수열(LIS: Longest Increasing Subsequence)
 
 ```python
-nums = [0, 3, 1, 6, 2, 2, 7]
-N = len(nums)
+lst = [0, 3, 1, 6, 2, 2, 7]
+N = len(lst)
 
 # Solve1: NlogN
 from bisect import bisect_left
 
-tmp = [nums[0]]
-for n in nums:
-    x = bisect_left(tmp, n)
-    if x == len(tmp):
-        tmp.append(n)
-    elif tmp[x] > n:
-        tmp[x] = n
+MIN_VAL = int(-10e10)
+dp = [0] * N
+tmp = [MIN_VAL]
 
-print(len(tmp), tmp)  # 4 [0, 1, 2, 7]
+max_v = 0
+for i in range(N):
+    if tmp[-1] < lst[i]:
+        tmp.append(lst[i])
+        max_v += 1
+        dp[i] = max_v
+    else:
+        dp[i] = bisect_left(tmp, lst[i])
+        tmp[dp[i]] = lst[i]
+
+print(max_v, dp)  # 4 [1, 2, 2, 3, 3, 3, 4]
 
 # Solve2: N^2
 dp = [1] * N
 for i in range(N):
     for j in range(i):
-        if nums[j] < nums[i]:
+        if lst[j] < lst[i]:
             dp[i] = max(dp[i], dp[j] + 1)
 
 print(max(dp), dp)  # 4 [1, 2, 2, 3, 3, 3, 4]
@@ -1320,29 +1384,23 @@ print(max(dp), dp)  # 4 [1, 2, 2, 3, 3, 3, 4]
 > <https://www.geeksforgeeks.org/longest-common-subsequence-dp-4/>
 
 ```python
-def lcs(X, Y):
-    # find the length of the strings
-    m = len(X)
-    n = len(Y)
-
-    # declaring the array for storing the dp values
-    L = [[None]*(n+1) for i in range(m+1)]
-
-    """Following steps build L[m+1][n+1] in bottom up fashion
-    Note: L[i][j] contains length of LCS of X[0..i-1]
-    and Y[0..j-1]"""
-    for i in range(m+1):
-        for j in range(n+1):
-            if i == 0 or j == 0 :
-                L[i][j] = 0
-            elif X[i-1] == Y[j-1]:
-                L[i][j] = L[i-1][j-1]+1
+def lcs(A, B):
+    A = [" "] + list(A)
+    B = [" "] + list(B)
+    la = len(A)
+    lb = len(B)
+    dp = [[""] * lb for _ in range(la)]
+    for i in range(1, la):
+        for j in range(1, lb):
+            if A[i] == B[j]:
+                dp[i][j] = dp[i-1][j-1] + A[i]
             else:
-                L[i][j] = max(L[i-1][j] , L[i][j-1])
+                if len(dp[i-1][j]) > len(dp[i][j-1]):
+                    dp[i][j] = dp[i-1][j]
+                else:
+                    dp[i][j] = dp[i][j-1]
 
-    # L[m][n] contains the length of LCS of X[0..n-1] & Y[0..m-1]
-    return L[m][n]
-#end of function lcs
+    return dp[la-1][lb-1]
 
 A = input()
 B = input()
@@ -1394,7 +1452,29 @@ print(dp[K])
 ## CCW
 
 ```python
+p1 = map(int, input().split())
+p2 = map(int, input().split())
+p3 = map(int, input().split())
 
+def ccw(p1, p2, p3):
+    x1, y1 = p1
+    x2, y2 = p2
+    x3, y3 = p3
+    return (x1 * y2 + x2 * y3 + x3 * y1) - (x2 * y1 + x3 * y2 + x1 * y3)
+
+result = ccw(p1, p2, p3)
+if result > 0:
+    print(1)  # 반시계
+elif result < 0:
+    print(-1)  # 시계
+else:
+    print(0)  # 일직선
+
+"""input
+1 1
+5 5
+7 3
+"""
 ```
 
 ## Convex Hull
