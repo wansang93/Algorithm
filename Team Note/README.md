@@ -2503,3 +2503,26 @@ for _ in range(4):
     else:
         print('b')
 ```
+
+### 순위 동률 구하기(index, gold, silver, bronze)
+
+백준 8979 올림픽
+
+```python
+# K가 찾고자 하는 index 번호
+N, K = map(int, input().split())
+lst = [list(map(int, input().split())) for _ in range(N)]
+lst.sort(key=lambda x: (x[1], x[2], x[3]), reverse=True)
+
+# 인덱스 빨리찾기
+idx = [lst[i][0] for i in range(N)].index(K)
+
+rank = -1
+for i in range(N):
+    if lst[idx][1:] == lst[i][1:]:
+        rank = i + 1
+        break
+
+print(rank)
+
+```
