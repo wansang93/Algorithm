@@ -2526,3 +2526,26 @@ for i in range(N):
 print(rank)
 
 ```
+
+### 여러가지 조건으로 정렬하기
+
+백준 1431 시리얼 넘버
+
+```python
+N = int(input())
+lst = [input() for _ in range(N)]
+
+def get_sum(string):
+    res = 0
+    for c in string:
+        if c.isdigit():
+            res += int(c)
+    
+    return res
+
+# 이 부분
+lst.sort(key= lambda x: (len(x), get_sum(x), x))
+for s in lst:
+    print(s)
+
+```
