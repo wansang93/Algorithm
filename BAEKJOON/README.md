@@ -528,6 +528,7 @@
 - [8974](./problems/8974.md)
 - [8979](./problems/8979.md)
 - [9012](./problems/9012.md)
+- [9019](./problems/9019.md)
 - [9020](./problems/9020.md)
 - [9076](./problems/9076.md)
 - [9079](./problems/9079.md)

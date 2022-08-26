@@ -789,7 +789,7 @@ def fpow(base, exponent):
             res *= base
         base *= base
         # same as exponent = exponent//2
-        exponent >> 1
+        exponent >>= 1
 
     return res
 ```
