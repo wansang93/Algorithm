@@ -2,9 +2,9 @@
 
 $F_{n} = F_{n-1} + F_{n-2}$
 
-## Fibonacci 수 구하기
-
 결론 fibo(N)은 logN의 시간복잡도로 구할 수 있다.
+
+## Fibonacci 수 구하기
 
 ```python
 def fibo(n):
@@ -112,7 +112,9 @@ def pisano(num):
 
 ### 4. Matrix products
 
-$\begin{pmatrix} F_{n+1}&F_n \\ F_n&F_{n-1} \end{pmatrix} = \begin{pmatrix} 1&1\\1&0 \end{pmatrix} ^ n$
+$$
+\begin{pmatrix} F_{n+1}&F_n\\\\F_n&F_{n-1} \end{pmatrix} = \begin{pmatrix} 1&1\\\\1&0 \end{pmatrix} ^ n
+$$
 
 ```python
 # N=10**18; 행렬 곱, O(logN)

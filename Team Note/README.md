@@ -1460,7 +1460,7 @@ def ccw(p1, p2, p3):
     x1, y1 = p1
     x2, y2 = p2
     x3, y3 = p3
-    return (x1 * y2 + x2 * y3 + x3 * y1) - (x2 * y1 + x3 * y2 + x1 * y3)
+    return (x1*y2 + x2*y3 + x3*y1) - (x2*y1 + x3*y2 + x1*y3)
 
 result = ccw(p1, p2, p3)
 if result > 0:
@@ -2253,15 +2253,11 @@ sorted(N)[::-1]  # sorted는 아스키 기준으로 정렬하는거 같음
 
 백준 1316 그룹 단어 체커
 
-짧은 코드
-
 ```python
+# 짧은 코드
 cnt += list(word) == sorted(word, key=word.find)
-```
 
-긴 코드
-
-```python
+# 긴 코드
 temp = []
 now_chr = ' '
 for c in s:
@@ -2324,9 +2320,9 @@ share = b//a
 share = int(b/a)
 # 올림
 share = (b+a-1) // a
-share = (b-1) // a + 1
+share = (b-1) // a+1
 # 반올림
-share = (b + a / 2) // a
+share = (b+a/2) // a
 ```
 
 ### 다중조건이 True 일 때 쓰면 좋음
@@ -2548,4 +2544,19 @@ lst.sort(key= lambda x: (len(x), get_sum(x), x))
 for s in lst:
     print(s)
 
+```
+
+### 토너먼트 몇 번째에서 만나는지 확인하는 방법
+
+백준 1057 토너먼트
+
+```python
+N, a, b = map(int, input().split())
+cnt = 0
+while a != b:
+    cnt += 1
+    a -= a // 2
+    b -= b // 2
+
+print(cnt)
 ```
