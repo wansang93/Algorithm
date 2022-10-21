@@ -19,28 +19,51 @@ __진행중__
     - 2번 루프로 이동
 """
 
+
+# import requests
+# from bs4 import BeautifulSoup as bs
+
+# headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'}
+
+# LOGIN_INFO = {"login_user_id":"wansang93", "login_password":""}
+# boj_url = "https://www.acmicpc.net/signin"
+
+# with requests.Session() as sess:
+#     sess.post(boj_url, data=LOGIN_INFO)
+#     soup = bs(sess.get(boj_url).text, 'html.parser')
+#     print(soup)
+#     if soup.find('a', {'class': 'username'}) is None:
+#         print("Invalid login info")
+#     else:
+#         print(soup.find('a', {'class': 'username'}))
+
 import time
 from selenium import webdriver
 
-PROBLEM_NUMBER = 10944
-URL_10944_SUBMIT = f"https://www.acmicpc.net/submit/{PROBLEM_NUMBER}/44444443"
+def selenium():
+    BOJ_URL = "https://www.acmicpc.net"
+    ACTION = "submit"
+    PROBLEM_NUMBER = 10944
+    SUBMIT_NUMBER = 44444443
+    DO_URL = f"{BOJ_URL}/{ACTION}/{PROBLEM_NUMBER}/{SUBMIT_NUMBER}"
 
-driver = webdriver.Chrome()
+    driver = webdriver.Chrome()
 
-# TODO: 1-1. 로그인 한번 하기(세션 생성)
+    # TODO: 1-1. 로그인 한번 하기(세션 생성)
 
-# TODO: 1-2. 로그인 쿠키 저장
-driver.add_cookie()
+    # TODO: 1-2. 로그인 쿠키 저장
+    while True:
+        # 2. 5초 계산 프로그램
+        driver.get(DO_URL)
+        time.sleep(15)
+        driver.get("https://www.acmicpc.net/submit/10944/44444443")
+        time.sleep(4)
+        # TODO: 문제 정답인지 확인
 
-while True:
-    # 2. 5초 계산 프로그램
-    time.sleep(5)
-    break
+        # 문제 들어가기(풀이 포함)
 
-    # TODO: 문제 정답인지 확인
+        # 문제 제출하기
+        driver.find_element(by=id, value='submit_button').click()
 
-    # 문제 들어가기(풀이 포함)
-    driver.get(URL_10944_SUBMIT)
-
-    # 문제 제출하기
-    driver.find_element('submit_button').click()
+if __name__ == "__main__":
+    selenium()
