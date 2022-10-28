@@ -1843,6 +1843,37 @@ answer = next_permutation(lst)
 print(*answer)
 ```
 
+## 이전 순열(Prev Permutation)
+
+```python
+N = int(input())
+lst = list(map(int, input().split()))
+
+def prev_permutation(lst):
+    L = len(lst) - 1
+    i, j, k = [L] * 3
+    
+    while i > 0 and lst[i-1] <= lst[i]:
+        i -= 1
+    if i == 0:
+        return [-1]
+    
+    while lst[i-1] <= lst[j]:
+        j -= 1
+    
+    lst[i-1], lst[j] = lst[j], lst[i-1]
+    
+    while i < k:
+        lst[i], lst[k] = lst[k], lst[i]
+        i += 1
+        k -= 1
+    
+    return lst
+
+answer = prev_permutation(lst)
+print(*ans)
+```
+
 # 신호 처리(Signal Processing)
 
 ## 고속 푸리에 변환(FFT(Fast Fourier Transform))
