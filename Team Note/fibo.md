@@ -124,31 +124,27 @@ $$
 def fibo4(n, mod=1_000_000_007):
     if n <= 1:
         return n
-    
+
     ans = [[1, 0], [0, 1]]
     a = [[1, 1], [1, 0]]
-    while True:
-        if n <= 0:
-            break
+    while n:
         if n % 2 == 1:
-            ans = multifly_matrix(ans, a, mod)
-        a = multifly_matrix(a, a, mod)
+            ans = multiply_matrix(ans, a, mod)
+        a = multiply_matrix(a, a, mod)
         n //= 2
     
     return ans[0][1]
 
 
-def multifly_matrix(lst1, lst2, mod=1):
-    ans = []
-    for i in range(0, len(lst1)):
-        temp = []
-        for j in range(0, len(lst2[0])):
-            s = 0
-            for k in range(0, len(lst1[0])):
-                s += lst1[i][k] * lst2[k][j]
-            temp.append(s % mod)
-        ans.append(temp)
-
+def multiply_matrix(lst1, lst2, mod):
+    R, C, S = len(lst1), len(lst2[0]), len(lst2)
+    ans = [[0] * C for _ in range(R)]
+    for i in range(R):
+        for j in range(C):
+            for k in range(S):
+                ans[i][j] += lst1[i][k] * lst2[k][j] % mod
+            ans[i][j] %= mod
+    
     return ans
 
 ```
