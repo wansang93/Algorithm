@@ -2591,3 +2591,16 @@ while a != b:
 
 print(cnt)
 ```
+
+### 테스트 케이스가 없는 경우
+
+백준 4375 1
+
+```python
+while True:
+    try:
+        N = int(input())
+    except:
+        break
+    # 로직 처리는 밑에 작성하면 더 깔끔함
+```
