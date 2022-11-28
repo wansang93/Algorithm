@@ -2604,3 +2604,21 @@ while True:
         break
     # 로직 처리는 밑에 작성하면 더 깔끔함
 ```
+
+### 여러줄 입력 & 가장 긴 단어 찾기
+
+백준 5637 가장 긴 단어
+
+```python
+import re
+
+# 여러줄 입력
+file = open(0).read()[:-1]
+
+# 긴 단어 찾기
+lst = re.findall('[A-Z\-a-z]+', file)
+lst.sort(key=len, reverse=True)
+
+print(lst[0].lower())
+
+```
