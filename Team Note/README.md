@@ -484,6 +484,8 @@ print((x - y) % m == ((x % m) - (y % m) + m) % m)
 print((x * y) % m == ((x % m) * (y % m)) % m)
 ```
 
+## [팩토리얼(Factorial)과 이항 계수(Binomial Coefficient)](./facto.md)
+
 ## [피보나치 수(Fibonacci)](./fibo.md)
 
 # 정렬(Sorting)
@@ -703,6 +705,15 @@ for i in range(len(count)):
     for j in range(count[i]):
         print(i, end=' ')
 # 0 0 1 1 2 2 3 4 5 5 6 7 8 9 9
+```
+
+## 빈도 정렬(Frequency Sort)
+
+```python
+lst = [11, 33, 11, 77, 54, 11, 25, 25, 33]
+st = sorted(lst, key=lambda x: (-lst.count(x), lst.index(x)))
+
+print(*st)  # 11 11 11 33 33 25 25 77 54
 ```
 
 # 탐색(Searching)
@@ -2551,7 +2562,6 @@ for i in range(N):
         break
 
 print(rank)
-
 ```
 
 ### 여러가지 조건으로 정렬하기
@@ -2574,7 +2584,6 @@ def get_sum(string):
 lst.sort(key= lambda x: (len(x), get_sum(x), x))
 for s in lst:
     print(s)
-
 ```
 
 ### 토너먼트 몇 번째에서 만나는지 확인하는 방법
@@ -2620,5 +2629,4 @@ lst = re.findall('[A-Z\-a-z]+', file)
 lst.sort(key=len, reverse=True)
 
 print(lst[0].lower())
-
 ```

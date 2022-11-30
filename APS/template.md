@@ -1,28 +1,24 @@
 # CodingTest is Template
 
-## List
-
-TODO: Add list
-
 ## 0. Basic
 
 ### 0-1. I/O
 
 ```python
 # 문자 받기
-_string = input()
+string_ = input()
 
 # int형 1개 받기
-_int = int(input())
+int_ = int(input())
 
 # 문자열 띄어쓰기 기준으로 받기
-_string = input().split()
+string_ = input().split()
 
 # int형 띄어쓰기 기준으로 3개 받기
 a, b, c = map(int, input().split())
 
-# 1줄을 리스트로 받기
-lst = list(map(int ,input().split()))
+# int형 1줄을 리스트로 받기
+lst = list(map(int, input().split()))
 
 # 2차원 리스트 만들어서 넣기
 """Input
@@ -32,7 +28,7 @@ lst = list(map(int ,input().split()))
 8 9 10 11
 """
 R, C = map(int, input().split())
-lst2d = [list(map(int, input().split()) for _ in range())]
+lst2d = [list(map(int, input().split()) for _ in range(R))]
 ```
 
 ### 0-2. Condition
@@ -50,7 +46,7 @@ lst2d = [list(map(int, input().split()) for _ in range())]
 
 # 별 1, 2, 3, 4, 5 찍기
 
-# 99단 찍기
+# 구구단 찍기
 ```
 
 ### 0-4. While Loop
