@@ -2630,3 +2630,12 @@ lst.sort(key=len, reverse=True)
 
 print(lst[0].lower())
 ```
+
+### 평평한 문자 행렬화 후 행렬 회전(기본기 문제)
+
+백준 5426 비밀 편지
+
+```python
+# n*n행렬 -90도 회전
+p = [s[n-i-1::n] for i in range(n)]
+```

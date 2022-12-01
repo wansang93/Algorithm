@@ -85,11 +85,10 @@ def write_on_md_file():
     with open(MD_FILE, 'w', encoding='utf-8') as f:
         f.writelines(template)
         for i, v in enumerate(solved_BAEKJOON_list, 1):
-            f.writelines(f'[{v}](./problems/{v}.md)')
-            if i % 10 == 0:
-                f.writelines(f'\n\n')
-            else:
-                f.writelines(f', ')
+            f.writelines(f'[{v}](./problems/{v}.md) ')
+            if i % 12 == 0:
+                f.writelines(f' \n')
+        f.writelines('\n')
 
 
 if __name__ == "__main__":
