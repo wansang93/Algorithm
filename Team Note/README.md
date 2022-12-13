@@ -1925,7 +1925,7 @@ num = num ^ (1 << i)
 num = num ^ (1 << i)
 # before: 0b1000
 # after:  0b1100 (2^i의 비트가 켜짐)
-# after:  0b1100 (2^i의 비트가 꺼짐)
+# after:  0b1000 (2^i의 비트가 꺼짐)
 
 # 모든 비트 끄기
 num = 0
@@ -2638,4 +2638,26 @@ print(lst[0].lower())
 ```python
 # n*n행렬 -90도 회전
 p = [s[n-i-1::n] for i in range(n)]
+```
+
+### 보이어-무어 다수결 투표 알고리즘(Boyer–Moore Majority Vote Algorithm)
+
+백준 1270 전쟁 - 땅따먹기
+
+참고 링크 -> [Find majority element](https://www.techiedelight.com/find-majority-element-in-an-array-boyer-moore-majority-vote-algorithm/)
+
+```python
+# 다수결 후보 찾기(리턴 값은 최고 투표자 후보일 뿐)
+def find_majority_element(lst):
+    m = -1
+    i = 0
+    for j in range(len(lst)):
+        if i == 0:
+            m = lst[j]
+            i = 1
+        elif m == lst[j]:
+            i += 1
+        else:
+            i -= 1
+    return m
 ```
