@@ -2661,3 +2661,15 @@ def find_majority_element(lst):
             i -= 1
     return m
 ```
+
+### 배스킨라빈스 게임 이기는 법
+
+백준 25179 - 배스킨라빈스~N~귀엽고~깜찍하게~
+
+```python
+N, M = map(int, input().split())
+if (N-1) % (M+1) == 0:
+    print("Can't win")
+else:
+    print("Can win")
+```
