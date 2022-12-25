@@ -2673,3 +2673,183 @@ if (N-1) % (M+1) == 0:
 else:
     print("Can win")
 ```
+
+### 최대 부분배열 문제(Maximum subarray problem)
+
+백준 10211 - Maximum Subarray
+
+```python
+N = int(input())
+lst = list(map(int, input().split()))
+
+dp = [0] * N
+dp[0] = lst[0]
+for i in range(1, N):
+    dp[i] = max(dp[i-1]+lst[i], lst[i])
+
+print(max(dp))
+```
+
+### 스택을 활용한 쌍 찾기
+
+백준 3015 - 오아시스 재결합
+
+```python
+H, CNT = 0, 1
+
+N = int(input())
+lst = [int(input()) for _ in range(N)]
+
+stack = []
+ans = 0
+for v in lst:
+    # 자신보다 작은 키만 만나는 경우
+    while stack and stack[-1][H] < v:
+        ans += stack.pop()[CNT]
+    # 자신보다 작은 사람이 없으면
+    if not stack:
+        stack.append((v, 1))
+    # 자신보다 큰 키를 만난 경우
+    elif stack[-1][H] > v:
+        stack.append((v, 1))
+        ans += 1
+    # 자신이랑 같은 키를 만난 경우
+    elif stack[-1][H] == v:
+        tmp = stack.pop()[CNT]
+        ans += tmp
+        # 왼쪽에 사람이 있으면 +1
+        if stack:
+            ans += 1
+        stack.append((v, tmp+1))
+
+print(ans)
+
+```
+
+### bfs 빡구현
+
+백준 2933 - 미네랄
+
+```python
+from collections import deque
+import sys
+input = sys.stdin.readline
+
+dr = (0, 1, 0, -1)
+dc = (1, 0, -1, 0)
+
+def is_invalid_range(r, c):
+    return r < 0 or r >= R or c < 0 or c >= C
+
+def find_cluster(sr, sc):
+    visit[sr][sc] = 1
+    cluster = [(sr, sc)]
+    q = deque([(sr, sc)])
+    while q:
+        r, c = q.popleft()
+        for d in range(4):
+            nr = r + dr[d]
+            nc = c + dc[d]
+            if is_invalid_range(nr, nc):
+                continue
+            if visit[nr][nc] or lst[nr][nc] == '.':
+                continue
+            # 공중 클러스터가 아니면 False return
+            if lst[nr][nc] == 'x' and nr == R-1:
+                return []
+            visit[nr][nc] = 1
+            q.append((nr, nc))
+            cluster.append((nr, nc))
+
+    return cluster
+
+def move_cluster(cluster):
+    # column 기준으로 정렬하고 큰 숫자 아래로
+    cluster.sort(key=lambda x: (x[1], -x[0]))
+    mv = 1_000_000_000
+    nc = -1
+    for cr, cc in cluster:
+        # 해당 칼럼의 최솟값 탐색 했으면 continue
+        if nc == cc:
+            continue
+        nc = cc
+        # min_v값 찾기
+        cnt = 0
+        while True:
+            cr += 1
+            if cr >= R or lst[cr][cc] == 'x':
+                break
+            cnt += 1
+        mv = min(cnt, mv)
+
+    for cr, cc in cluster:
+        lst[cr+mv][cc] = 'x'
+        lst[cr][cc] = '.'
+    
+    return True
+
+R, C = map(int, input().split())
+lst = [list(input().strip()) for _ in range(R)]
+N = int(input())
+stick = list(map(int, input().split()))
+
+for i, v in enumerate(stick):
+    # 1. 총알 쏘기
+    r = R - v
+    for j in range(C):
+        c = (j, C-1-j)[i%2]
+        if lst[r][c] == 'x':
+            lst[r][c] = '.'
+            break
+    else:
+        continue
+    
+    # 2. 클러스터 찾기
+    for d in range(4):
+        nr = r + dr[d]
+        nc = c + dc[d]
+        if is_invalid_range(nr, nc):
+            continue
+        if lst[nr][nc] == 'x':
+            visit = [[0] * C for _ in range(R)]
+            # 공중 클러스터 존재하면 클러스터 옮기기
+            cluster = find_cluster(nr, nc)
+            if cluster:
+                move_cluster(cluster)
+                break
+
+for l in lst:
+    print(''.join(l))
+
+```
+
+### 숫자 1부터 n까지의 나오는 모든 숫자 카운트
+
+백준 1019 - 책 페이지
+
+```python
+N = int(input())
+
+ans = [0] * 10
+digit = 1
+while N:
+    while N % 10 != 9:
+        for i in str(N):
+            ans[int(i)] += digit
+        N -= 1
+    if N < 10:
+        for i in range(N+1):
+            ans[i] += digit
+        ans[0] -= digit
+        break
+    else:
+        for i in range(10):
+            ans[i] += (N//10+1) * digit
+    
+    ans[0] -= digit
+    digit *= 10
+    N //= 10
+
+print(*ans)
+
+```
