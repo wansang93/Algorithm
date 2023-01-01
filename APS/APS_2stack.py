@@ -1,5 +1,6 @@
 # C언어 Python으로 연습하기
 
+################################################################################
 # stack
 """
 stack은 리스트, 배열 아무거나 구현 가능
@@ -49,43 +50,6 @@ print(lst)
 arr = "1234" 넣으면 5개가 들어감 (1234 + null)
 생각해보니까 옛날에 배웠네ㅋㅋ
 """
-
-################################################################################
-
-lst = [[0] * 3 for _ in range(3)]
-t = 1
-for i in range(2, -1, -1):
-    for j in range(2, -1, -1):
-        lst[i][j] = t
-        t += 1
-
-for i in lst:
-    print(*i, end=" ")
-print()
-
-
-lst = [[0] * 3 for _ in range(3)]
-t = 1
-for y in range(2, -1, -1):
-    for x in range(y, 3):
-        lst[y][x] = t
-        t += 1
-
-for i in lst:
-    print(*i, end="")
-print()
-
-lst = [[0] * 3 for _ in range(3)]
-t = 1
-for y in range(2, -1, -1):
-    for x in range(2-y):
-        lst[y][x] = t
-        t += 1
-
-for i in lst:
-    print(*i, end=" ")
-print()
-
 
 """
 코테에서 Linbrary 쓸때는

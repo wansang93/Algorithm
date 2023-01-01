@@ -1890,6 +1890,38 @@ print(*ans)
 ## 고속 푸리에 변환(FFT(Fast Fourier Transform))
 
 ```python
+def FFT(L, invert=False):
+    j = 0
+    n = len(L)
+    for i in range(1, n):
+        bit = n >> 1
+        while j >= bit:
+            j -= bit
+            bit >>= 1
+        j += bit
+        if i < j:
+            L[i], L[j] = L[j], L[i]
+
+    m = 2
+    while m <= n:
+        u = pow(3, P//m, P)
+        if invert:
+            u = pow(u, P-2, P)
+        for i in range(0, n, m):
+            w = 1
+            for k in range(i, i + m // 2):
+                tmp = L[k+m//2] * w
+                L[k+m//2] = (L[k] - tmp) % P
+                L[k] += tmp
+                L[k] %= P
+                w *= u
+                w %= P
+        m *= 2
+
+    if invert:
+        invertedN = P - (P - 1) // n
+        for i in range(n):
+            L[i] = (L[i] * invertedN) % P
 
 ```
 
@@ -2013,24 +2045,18 @@ print(interval_sum([10, 20, 30, 40, 50], [(3, 4), (2, 3), (1, 4)]))
 ### 누적 합(Prefix Sum) 2차원
 
 ```python
-N, M = map(int, input().split())
-lst = []
-for _ in range(N):
-    lst.append(list(map(int, input().split())))
+R, C, Q = map(int, input().split())
+lst = [list(map(int, input().split())) for _ in range(R)]
+querys = [list(map(int, input().split())) for _ in range(Q)]
 
-dp = [[0] * (M+1) for _ in range(N+1)]
+dp = [[0] * (C+1) for _ in range(R+1)]
+for i in range(R):
+    for j in range(C):
+        dp[i+1][j+1] = lst[i][j] + dp[i+1][j] + dp[i][j+1] - dp[i][j]
 
-for i in range(N):
-    for j in range(M):
-        dp[i+1][j+1] += lst[i][j] + dp[i+1][j] + dp[i][j+1] - dp[i][j]
-
-# for row in dp:
-#     print(*row)
-
-K = int(input())
-for _ in range(K):
-    y2, x2, y1, x1 = map(int, input().split())
-    print(dp[y1][x1] - dp[y1][x2 - 1] - dp[y2 - 1][x1] + dp[y2 - 1][x2 - 1])
+for query in querys:
+    r1, c1, r2, c2 = query
+    sum_ = dp[r2][c2] - dp[r2][c1-1] - dp[r1-1][c2]+ dp[r1-1][c1-1]
 ```
 
 ### 바이너리 인덱스 트리(Binary Indexed Tree(Fenwick Tree))

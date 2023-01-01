@@ -68,8 +68,8 @@ def count_files_in_my_folder():
 
 # 2-1. 백준 파일과 나의 파일 목록 확인하기
 def check_what_is_diff():
-    none_files_list = list(set(solved_BAEKJOON_list) - set(my_files_list))
-    none_baek_list = list(set(my_files_list) - set(solved_BAEKJOON_list))
+    none_files_list = sorted(set(solved_BAEKJOON_list) - set(my_files_list))
+    none_baek_list = sorted(set(my_files_list) - set(solved_BAEKJOON_list))
     print('  백준의 파일 갯수:', len(solved_BAEKJOON_list), '개')
     print('내폴더의 파일 갯수:', len(my_files_list), '개')
     print('  백준에 없는 파일:', none_baek_list)
