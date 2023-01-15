@@ -2879,3 +2879,13 @@ while N:
 print(*ans)
 
 ```
+
+### deepcopy 3d list without deepcopy modules
+
+백준 19236 - 청소년 상어
+
+2d copy로 햇갈려서 깊은 복사가 안됨을 주의!!
+
+```python
+[[l[:] for l in li] for li in lst]
+```
