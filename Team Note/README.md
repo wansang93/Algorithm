@@ -154,32 +154,22 @@ print(dict(counter))  # {'a': 3, 'b': 2, 'c': 2, 'd': 1}
 ## 서로소 집합(Disjoint-Set (Union-Find))
 
 ```python
-# 특정 원소가 속한 집합을 찾기
-def find_parent(parent, x):
-    if parent[x] != x:
-        parent[x] = find_parent(parent, parent[x])
-    return parent[x]
+def find(x):
+    if parents[x] != x:
+        parents[x] = find(parents[x])
+    return parents[x]
 
-# 두 원소가 속한 집합 합치기
-def union_parent(parent, a, b):
-    a = find_parent(parent, a)
-    b = find_parent(parent, b)
+def union(a, b):
+    a, b = find(a), find(b)
     if a < b:
-        parent[b] = a
+        parents[b] = a
     else:
-        parent[a] = b
+        parents[a] = b
 
 v, e = map(int, input().split())
-parent = [0] * (v + 1)
 
 # 부모를 자신으로 초기화
-for i in range(1, v+1):
-    parent[i] = i
-
-# # 입력 받은 두 원소를 유니온 하기
-# for i in range(e):
-#     a, b = map(int, input().split())
-#     union_parent(parent, a, b)
+parents = [i for i in range(N+1)]
 
 # 사이클을 판별하면서 union 연산 수행
 cycle = False
@@ -188,17 +178,6 @@ for i in range(e):
     if find_parent(parent, a) == find_parent(parent, b):
         cycle = True
     union_parent(parent, a, b)
-
-print(cycle)
-# 각 원소 집합 출력하기
-for i in range(1, v+1):
-    print(find_parent(parent, i), end=' ')
-print()
-
-# 부모 테이블 내용 출력하기
-for i in range(1, v+1):
-    print(f'{i} -> {parent[i]}')
-
 ```
 
 동빈나 코드
@@ -2888,4 +2867,99 @@ print(*ans)
 
 ```python
 [[l[:] for l in li] for li in lst]
+```
+
+### 2048 move and score algorithm
+
+백준 18382 - 2048
+
+```python
+SIZE = 4
+
+def can_move_2048(d, lst):
+    global ans
+    ret = [l[:] for l in lst]
+
+    # left
+    if d == 'L':
+        for i in range(SIZE):
+            last_idx = 0
+            for j in range(1, SIZE):
+                if ret[i][j] == 0:
+                    continue
+                if ret[i][last_idx] == 0:
+                    ret[i][last_idx] = ret[i][j]
+                    ret[i][j] = 0
+                elif ret[i][last_idx] == ret[i][j]:
+                    ret[i][last_idx] *= 2
+                    ans += ret[i][last_idx]
+                    ret[i][j] = 0
+                    last_idx += 1
+                else:
+                    last_idx += 1
+                    ret[i][last_idx] = ret[i][j]
+                    if last_idx != j:
+                        ret[i][j] = 0
+    # right
+    elif d == 'R':
+        for i in range(SIZE):
+            last_idx = SIZE-1
+            for j in range(SIZE-2, -1, -1):
+                if ret[i][j] == 0:
+                    continue
+                if ret[i][last_idx] == 0:
+                    ret[i][last_idx] = ret[i][j]
+                    ret[i][j] = 0
+                elif ret[i][last_idx] == ret[i][j]:
+                    ret[i][last_idx] *= 2
+                    ans += ret[i][last_idx]
+                    ret[i][j] = 0
+                    last_idx -= 1
+                else:
+                    last_idx -= 1
+                    ret[i][last_idx] = ret[i][j]
+                    if last_idx != j:
+                        ret[i][j] = 0
+    # up
+    elif d == 'U':
+        for i in range(SIZE):
+            last_idx = 0
+            for j in range(1, SIZE):
+                if ret[j][i] == 0:
+                    continue
+                if ret[last_idx][i] == 0:
+                    ret[last_idx][i] = ret[j][i]
+                    ret[j][i] = 0
+                elif ret[last_idx][i] == ret[j][i]:
+                    ret[last_idx][i] *= 2
+                    ans += ret[last_idx][i]
+                    ret[j][i] = 0
+                    last_idx += 1
+                else:
+                    last_idx += 1
+                    ret[last_idx][i] = ret[j][i]
+                    if last_idx != j:
+                        ret[j][i] = 0
+    # down
+    elif d == 'D':
+        for i in range(SIZE):
+            last_idx = SIZE-1
+            for j in range(SIZE-2, -1, -1):
+                if ret[j][i] == 0:
+                    continue
+                if ret[last_idx][i] == 0:
+                    ret[last_idx][i] = ret[j][i]
+                    ret[j][i] = 0
+                elif ret[last_idx][i] == ret[j][i]:
+                    ret[last_idx][i] *= 2
+                    ans += ret[last_idx][i]
+                    ret[j][i] = 0
+                    last_idx -= 1
+                else:
+                    last_idx -= 1
+                    ret[last_idx][i] = ret[j][i]
+                    if last_idx != j:
+                        ret[j][i] = 0
+
+    return ret
 ```
