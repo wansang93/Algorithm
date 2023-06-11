@@ -80,7 +80,7 @@ def check_what_is_diff():
 def write_on_md_file():
     with open(MD_FILE, 'r', encoding='utf-8') as f:
         lst_of_lines = f.readlines()
-        template = lst_of_lines[:16]
+        template = lst_of_lines[:18]
 
     with open(MD_FILE, 'w', encoding='utf-8') as f:
         f.writelines(template)

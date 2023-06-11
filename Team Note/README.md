@@ -1397,11 +1397,12 @@ B = input()
 print(lcs(A, B))
 ```
 
-## 배낭문제(0-1-knapsack)
+## 배낭문제(0-1-knapsack, aka 냅색)
 
 > <https://github.com/wansang93/Algorithm/tree/master/BAEKJOON/problems/12865.md>
 
 ```python
+# 메모리 최적화(1차원 배열)
 import sys
 input = sys.stdin.readline
 
@@ -1995,8 +1996,7 @@ def two_pointer(lst, m):
 
     return count
 
-print(two_pointer([1, 2, 3, 2, 5], 5))
-# 3
+print(two_pointer([1, 2, 3, 2, 5], 5))  # 3
 ```
 
 ## 구간 합(Interval Sum)
@@ -2041,7 +2041,40 @@ for query in querys:
 ### 바이너리 인덱스 트리(Binary Indexed Tree(Fenwick Tree))
 
 ```python
-test
+def prefix_sum(i):
+    res = 0
+    while i > 0:
+        res += tree[i]
+        i -= (i & -i)
+    return res
+
+# update BIT tree
+def update(i, v):
+    while i <= N:
+        tree[i] += v
+        i += (i & -i)
+
+def interval_sum(start, end):
+    return prefix_sum(end) - prefix_sum(start-1)
+
+N, M, K = map(int, input().split())
+
+lst = [0] * (N+1)
+tree = [0] * (N+1)
+
+for i in range(1, N+1):
+    x = int(input())
+    lst[i] = x
+    update(i, x)
+
+for i in range(M+K):
+    a, b, c = map(int, input().split())
+    if a == 1:
+        update(b, c - lst[b])
+        lst[b] = c
+    else:
+        print(interval_sum(b, c))
+
 ```
 
 ## 회전 행렬(Rotation Matrix)
@@ -2962,4 +2995,42 @@ def can_move_2048(d, lst):
                         ret[j][i] = 0
 
     return ret
+```
+
+### 좌표 이동, 좌표 회전 및 회오리 이동 알고리즘
+
+백준 20057 - 마법사 상어와 토네이도
+
+```python
+# 좌표 이동 및 회전하여 direction info에 저장
+left = [
+    (2, 0, 0.02), (-2, 0, 0.02), (0, -2, 0.05),
+    (-1, -1, 0.1), (-1, 0, 0.07), (-1, 1, 0.01),
+    (1, -1, 0.1), (1, 0, 0.07), (1, 1, 0.01),
+]
+down = [(-x, y, z) for y, x, z in left]
+right = [(y, -x, z) for y, x, z in left]
+up = [(x, y, z) for y, x, z in left]
+d_info = [left, down, right, up]
+dr = (0, 1, 0, -1)
+dc = (-1, 0, 1, 0)
+
+# 회오리 알고리즘
+r, c, d = N // 2, N // 2, -1
+time = 0
+# r == 0 and c == 0이면 종료
+while True:
+    d = (d + 1) % 4
+    if d == 0 or d == 2:
+        time += 1
+    for i in range(time):
+        r += dr[d]
+        c += dc[d]
+        move_sand(r, c, d)
+        if r == 0 and c == 0:
+            break
+    else:
+        continue
+    break
+
 ```

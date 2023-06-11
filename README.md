@@ -1,6 +1,8 @@
 # Daily Algorithm
 
-[TEAM NOTE](./Team%20Note/README.md)
+## [TEAM NOTE](./Team%20Note/README.md)
+
+족보입니다.
 
 ## PS 사이트
 
