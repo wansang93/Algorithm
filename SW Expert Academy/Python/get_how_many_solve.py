@@ -9,6 +9,6 @@ def get_files_count(folder_path):
 	return len(dirListing)
 	
 if __name__ == "__main__":
-	print(get_files_count(D3_path))
-	print(get_files_count(D2_path))
-	print(get_files_count(D1_path))
+	print('D3 -', get_files_count(D3_path))
+	print('D2 -', get_files_count(D2_path))
+	print('D1 -', get_files_count(D1_path))
