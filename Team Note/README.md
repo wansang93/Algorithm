@@ -233,7 +233,14 @@ Parent Table: 1 1 1 1 5 5
 
 # 수론(Number Theory)
 
-목차: N진법 변환, 최대 공약수, 최소 공배수, 모든 약수 찾기, 소수, 가장 큰 소인수, 소인수분해, 에라토스테네스의 체, 나머지 분배법칙, 피보나치 수
+목차: 반올림, N진법 변환, 최대 공약수, 최소 공배수, 모든 약수 찾기, 소수, 가장 큰 소인수, 소인수분해, 에라토스테네스의 체, 나머지 분배법칙, 피보나치 수
+
+## 반올림
+
+```python
+def round_traditional(val, digits):
+    return round(val+10**(-len(str(val))-1), digits)
+```
 
 ## N(2~16)진법 변환(Convert an integer to a string in any base)
 
@@ -948,7 +955,7 @@ print(*bfs())
 
 # 그래프(Graph)
 
-목차: 다익스트라, 최소 신장 트리, 위상 정렬, 플로이드 와샬 알고리즘, 이분 매칭
+목차: 다익스트라, 최소 신장 트리, 위상 정렬, 플로이드 와샬 알고리즘, 벨만 포드, 최소 공통 조상, 이분 매칭
 
 ## 다익스트라(Dijkstra Shortest Path)
 
@@ -1181,10 +1188,8 @@ INF = int(1e9)
 
 # 그래프 선언 후 초기화
 graph = [[INF] * (V+1) for _ in range(V+1)]
-for row in range(1, V+1):
-    for col in range(1, V+1):
-        if row == col:
-            graph[row][col] = 0
+for i in range(1, V+1):
+    graph[i][i] = 0
 
 for _ in range(E):
     start, end, distance = map(int, input().split())
@@ -1226,6 +1231,122 @@ for a in range(1, V+1):
 2 에서 2 까지 거리는 0 입니다.
 ...
 '''
+```
+
+## 벨만-포드 알고리즘(Bellman-Ford Algorithm)
+
+음수 가중치 사용 가능, 음의 사이클 판별
+
+```python
+
+```
+
+## 최소 공통 조상(Lowest Common Ancestor, LCA)
+
+O(logNM), O(NM) 시간복잡도(N은 depth, M은 쿼리의 수)
+
+백준 11437 LCA  
+백준 11438 LCA2
+
+```python
+# O(logNM) 풀이
+LOG = 21  # 2^20는 약 1_000_000
+
+def dfs(now, depth):
+    visit[now] = 1
+    dis[now] = depth
+    for nxt in graph[now]:
+        if visit[nxt]:
+            continue
+        parent[nxt][0] = now
+        dfs(nxt, depth+1)
+
+def set_parent():
+    dfs(1, 0)
+    for i in range(1, LOG):
+        for j in range(1, N+1):
+            parent[j][i] = parent[parent[j][i-1]][i-1]
+
+def lca(a, b):
+    if dis[a] > dis[b]:
+        a, b = b, a
+
+    for i in range(LOG-1, -1, -1):
+        if dis[b] - dis[a] >= (1<<i):
+            b = parent[b][i]
+
+    if a == b:
+        return a
+
+    for i in range(LOG-1, -1, -1):
+        if parent[a][i] != parent[b][i]:
+            a = parent[a][i]
+            b = parent[b][i]
+
+    return parent[a][0]
+
+N = int(input())
+graph = [[] for _ in range(N+1)]
+
+for _ in range(N-1):
+    a, b = map(int, input().split())
+    graph[a].append(b)
+    graph[b].append(a)
+
+parent = [[0] * LOG for _ in range(N+1)]
+visit = [0] * (N+1)
+dis = [0] * (N+1)
+
+set_parent()
+
+M = int(input())
+for _ in range(M):
+    a, b = map(int, input().split())
+    print(lca(a, b))
+```
+
+```python
+# O(NM) 풀이, 참고로 재귀 재한에 따라 메모리 초과 발생 가능성 있음
+def dfs(now, depth):
+    visit[now] = 1
+    dis[now] = depth
+    for nxt in graph[now]:
+        if visit[nxt]:
+            continue
+        parent[nxt] = now
+        dfs(nxt, depth+1)
+
+def lca(a, b):
+    while dis[a] != dis[b]:
+        if dis[a] > dis[b]:
+            a = parent[a]
+        else:
+            b = parent[b]
+    
+    while a != b:
+        a = parent[a]
+        b = parent[b]
+    
+    return a
+
+N = int(input())
+graph = [[] for _ in range(N+1)]
+for _ in range(N-1):
+    a, b = map(int, input().split())
+    graph[a].append(b)
+    graph[b].append(a)
+
+parent = [0] * (N+1)
+dis = [0] * (N+1)
+visit = [0] * (N+1)
+
+dfs(1, 0)
+
+M = int(input())
+for _ in range(M):
+    a, b = map(int, input().split())
+    print(lca(a, b))
+
 ```
 
 ## 이분 매칭(Bipartite Matching)
@@ -2399,8 +2520,7 @@ min(a % 2 * b, b % 2 * a)
 share = b//a
 share = int(b/a)
 # 올림
-share = (b+a-1) // a
-share = (b-1) // a+1
+share = -(-b // a)
 # 반올림
 share = (b+a/2) // a
 ```
