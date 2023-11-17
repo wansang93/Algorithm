@@ -27,15 +27,17 @@ import os
 import requests
 from bs4 import BeautifulSoup
 
-
+# 링크 정보
 USER_NAME = 'wansang93'
 LINK = 'https://www.acmicpc.net/user/' + USER_NAME
 headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'}
-solved_BAEKJOON_list = []
 
-TARGET_DIR = r"C:/Users/wansang/Desktop/Gitrep/Algorithm/BAEKJOON/problems"
+# 리스트 전역변수
+solved_BAEKJOON_list = []
 my_files_list = []
 
+# 폴더 링크
+TARGET_DIR = r"C:/Users/wansang/Desktop/Gitrep/Algorithm/BAEKJOON/problems"
 MD_FILE = r'C:/Users/wansang/Desktop/Gitrep/Algorithm/BAEKJOON/README.md'
 
 
@@ -70,10 +72,10 @@ def count_files_in_my_folder():
 def check_what_is_diff():
     none_files_list = sorted(set(solved_BAEKJOON_list) - set(my_files_list))
     none_baek_list = sorted(set(my_files_list) - set(solved_BAEKJOON_list))
-    print('  백준의 파일 갯수:', len(solved_BAEKJOON_list), '개')
-    print('내폴더의 파일 갯수:', len(my_files_list), '개')
-    print('  백준에 없는 파일:', none_baek_list)
-    print('내폴더에 없는 파일:', none_files_list)
+    print(f'  백준의 파일 갯수: {len(solved_BAEKJOON_list):04,d}개')
+    print(f'내폴더의 파일 갯수: {len(my_files_list):04,d}개')
+    print(f'  백준에 없는 파일: {len(none_baek_list):04,d}개', none_baek_list)
+    print(f'내폴더에 없는 파일: {len(none_files_list):04,d}개', none_files_list)
 
 
 # 3. TODO: 삭제 후 지우기가 아닌 덮어쓰기 형식으로 변경하기

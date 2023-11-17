@@ -1235,18 +1235,42 @@ for a in range(1, V+1):
 
 ## 벨만-포드 알고리즘(Bellman-Ford Algorithm)
 
-음수 가중치 사용 가능, 음의 사이클 판별
+음수 가중치 사용 가능, 음의 사이클 판별, 시간복잡도 O(|V-1|*|E|) = O(VE)
+
+- 백준 11657 타임머신
+- 백준 1865 웜홀
 
 ```python
+def bf(start):
+    dist[start] = 0
+    for _ in range(N-1):
+        for j in range(M):
+            now, nxt, cost = edges[j]
+            if dist[now] != INF and dist[nxt] > dist[now] + cost:
+                dist[nxt] = dist[now] + cost
 
+    for now, nxt, cost in edges:
+        if dist[now] != INF and dist[nxt] > dist[now] + cost:
+            return True
+    return False
+
+# 입력부
+N, M = map(int, input().split())
+edges = []
+for _ in range(M):
+    A, B, C = map(int, input().split())
+    edges.append((A, B, C))
+
+dist = [INF] * (N+1)
+negative_cycle = bf(1)
 ```
 
 ## 최소 공통 조상(Lowest Common Ancestor, LCA)
 
 O(logNM), O(NM) 시간복잡도(N은 depth, M은 쿼리의 수)
 
-백준 11437 LCA  
-백준 11438 LCA2
+- 백준 11437 LCA
+- 백준 11438 LCA2
 
 ```python
 # O(logNM) 풀이
@@ -1357,7 +1381,7 @@ for _ in range(M):
 
 # 문자열(String)
 
-목차: Manacher Algorithm, Rabin-Karp, KMP, Trie
+목차: Manacher Algorithm, Rabin-Karp, KMP, Trie, Myers Algorithm
 
 ## Manacher Algorithm
 
@@ -1446,6 +1470,16 @@ kmp(T, P)
 ```
 
 ## Trie
+
+```python
+
+```
+
+## Myers Algorithm(맨버-마이어스 알고리즘)
+
+파일 비교, Git 버전 관리 비교 알고리즘
+
+백준 5582 공통 부분 문자열
 
 ```python
 
@@ -1561,7 +1595,7 @@ print(dp[K])
 
 ```
 
-## CCW
+## [CCW](./ccw.md)
 
 ```python
 p1 = map(int, input().split())
@@ -3153,4 +3187,19 @@ while True:
         continue
     break
 
+```
+
+### 리스트의 왼쪽부터 오름차순 길이 구하기
+
+백준 1668 - 트로피 진열
+
+```python
+# 왼쪽부터의 오름차순 길이 구하기
+def get_v(lst):
+    ret = 0
+    tmp = [ret := v for v in lst if v > ret]
+
+    return len(tmp)
+
+# ex) in: [1, 2, 5, 3, 7], out: 4
 ```
