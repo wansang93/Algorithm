@@ -43,7 +43,7 @@ MD_FILE = r'C:/Users/wansang/Desktop/Gitrep/Algorithm/BAEKJOON/README.md'
 
 # 1. Check how many solved problems in BAEKJOON
 def count_solved_in_BAEKJOON():
-    response = requests.get(LINK, headers=headers)
+    response = requests.get(LINK, headers=headers, verify=False)
     soup = BeautifulSoup(response.content, 'html.parser')
     baekjoon_lst = soup.find('div', class_='problem-list')
     for atag in baekjoon_lst:

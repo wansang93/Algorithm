@@ -1554,7 +1554,7 @@ print(lcs(A, B))
 
 ## 배낭문제(0-1-knapsack, aka 냅색)
 
-> <https://github.com/wansang93/Algorithm/tree/master/BAEKJOON/problems/12865.md>
+[다양한 풀이](https://github.com/wansang93/Algorithm/tree/master/BAEKJOON/problems/12865.md)
 
 ```python
 # 메모리 최적화(1차원 배열)
