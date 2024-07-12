@@ -33,7 +33,7 @@ LINK = 'https://www.acmicpc.net/user/' + USER_NAME
 headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'}
 
 # 리스트 전역변수
-solved_BAEKJOON_list = []
+solved_baekjoon_list = []
 my_files_list = []
 
 # 폴더 링크
@@ -50,7 +50,7 @@ def count_solved_in_BAEKJOON():
         # print(atag)
         string = atag.string
         if string.isdecimal():
-            solved_BAEKJOON_list.append(int(string))
+            solved_baekjoon_list.append(int(string))
 
     # print(solved_BAEKJOON_list, "갯수:", len(solved_BAEKJOON_list))
 
@@ -70,9 +70,9 @@ def count_files_in_my_folder():
 
 # 2-1. 백준 파일과 나의 파일 목록 확인하기
 def check_what_is_diff():
-    none_files_list = sorted(set(solved_BAEKJOON_list) - set(my_files_list))
-    none_baek_list = sorted(set(my_files_list) - set(solved_BAEKJOON_list))
-    print(f'  백준의 파일 갯수: {len(solved_BAEKJOON_list):04,d}개')
+    none_files_list = sorted(set(solved_baekjoon_list) - set(my_files_list))
+    none_baek_list = sorted(set(my_files_list) - set(solved_baekjoon_list))
+    print(f'  백준의 파일 갯수: {len(solved_baekjoon_list):04,d}개')
     print(f'내폴더의 파일 갯수: {len(my_files_list):04,d}개')
     print(f'  백준에 없는 파일: {len(none_baek_list):04,d}개', none_baek_list)
     print(f'내폴더에 없는 파일: {len(none_files_list):04,d}개', none_files_list)
@@ -86,10 +86,13 @@ def write_on_md_file():
 
     with open(MD_FILE, 'w', encoding='utf-8') as f:
         f.writelines(template)
-        for i, v in enumerate(solved_BAEKJOON_list, 1):
-            f.writelines(f'[{v}](./problems/{v}.md) ')
-            if i % 12 == 0:
-                f.writelines(f' \n')
+        for i, v in enumerate(solved_baekjoon_list, 1):
+            if 1000 <= v < 10000:
+                f.writelines(f'&nbsp;&nbsp;&nbsp;[{v}](./problems/{v}.md)')
+            else:
+                f.writelines(f'&nbsp;[{v}](./problems/{v}.md)')
+            if i % 10 == 0:
+                f.writelines(f'\n\n')
         f.writelines('\n')
 
 

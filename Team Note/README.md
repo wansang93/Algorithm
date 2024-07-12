@@ -166,18 +166,18 @@ def union(a, b):
     else:
         parents[a] = b
 
-v, e = map(int, input().split())
+N, M = map(int, input().split())
 
 # 부모를 자신으로 초기화
 parents = [i for i in range(N+1)]
 
 # 사이클을 판별하면서 union 연산 수행
 cycle = False
-for i in range(e):
+for i in range(M):
     a, b = map(int, input().split())
-    if find_parent(parent, a) == find_parent(parent, b):
+    if find(a) == find(b):
         cycle = True
-    union_parent(parent, a, b)
+    union(a, b)
 ```
 
 동빈나 코드
