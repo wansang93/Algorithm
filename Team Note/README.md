@@ -1012,29 +1012,26 @@ print(distance)  # [1000000000, 0, 2, 3, 7, 1000000000]
 
 ```python
 # 특정 원소가 속한 집합을 찾기
-def find_parent(parent, x):
-    if parent[x] != x:
-        parent[x] = find_parent(parent, parent[x])
-    return parent[x]
+def find(x):
+    if parents[x] != x:
+        parents[x] = find(parents[x])
+    return parents[x]
 
 # 두 원소가 속한 집합 합치기
-def union_parent(parent, a, b):
-    a = find_parent(parent, a)
-    b = find_parent(parent, b)
+def union(a, b):
+    a, b = find(a), find(b)
     if a < b:
-        parent[b] = a
+        parents[b] = a
     else:
-        parent[a] = b
+        parents[a] = b
 
 v, e = map(int, input().split())
-parent = [0] * (v + 1)
-
+parents = [0] * (v + 1)
 edges = []
-result = 0
 
 # 부모를 자신으로 초기화
 for i in range(1, v+1):
-    parent[i] = i
+    parents[i] = i
 
 # 간선 정보 입력 받기
 for i in range(e):
@@ -1043,11 +1040,12 @@ for i in range(e):
 
 edges.sort()
 
+result = 0
 for edge in edges:
     cost, a, b = edge
     # 사이클 발생하지 않은 경우만
-    if find_parent(parent, a) != find_parent(parent, b):
-        union_parent(parent, a, b)
+    if find(a) != find(b):
+        union(a, b)
         result += cost
 
 print(result)

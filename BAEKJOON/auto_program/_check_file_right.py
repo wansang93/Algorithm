@@ -30,20 +30,29 @@ from bs4 import BeautifulSoup
 # 링크 정보
 USER_NAME = 'wansang93'
 LINK = 'https://www.acmicpc.net/user/' + USER_NAME
-headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'}
+HEADER_INFO = {
+    'User-Agent': (
+        'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) '
+        'AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'
+    )
+}
+
+# 폴더 링크
+ROOT_DIR = r"C:/Users/wansang/Desktop/Gitrep/Algorithm/BAEKJOON/"
+TARGET_DIR = ROOT_DIR + r"problems"
+MD_FILE_LOC = ROOT_DIR + r'README.md'
+
+# 전역 변수
+TEMPLATE_LINE_NUMBER = 20
 
 # 리스트 전역변수
 solved_baekjoon_list = []
 my_files_list = []
 
-# 폴더 링크
-TARGET_DIR = r"C:/Users/wansang/Desktop/Gitrep/Algorithm/BAEKJOON/problems"
-MD_FILE = r'C:/Users/wansang/Desktop/Gitrep/Algorithm/BAEKJOON/README.md'
-
 
 # 1. Check how many solved problems in BAEKJOON
 def count_solved_in_BAEKJOON():
-    response = requests.get(LINK, headers=headers, verify=False)
+    response = requests.get(LINK, headers=HEADER_INFO, verify=False)
     soup = BeautifulSoup(response.content, 'html.parser')
     baekjoon_lst = soup.find('div', class_='problem-list')
     for atag in baekjoon_lst:
@@ -80,21 +89,19 @@ def check_what_is_diff():
 
 # 3. TODO: 삭제 후 지우기가 아닌 덮어쓰기 형식으로 변경하기
 def write_on_md_file():
-    with open(MD_FILE, 'r', encoding='utf-8') as f:
+    with open(MD_FILE_LOC, 'r', encoding='utf-8') as f:
         lst_of_lines = f.readlines()
-        template = lst_of_lines[:19]
+        template = lst_of_lines[:TEMPLATE_LINE_NUMBER]
 
-    with open(MD_FILE, 'w', encoding='utf-8') as f:
+    with open(MD_FILE_LOC, 'w', encoding='utf-8') as f:
         f.writelines(template)
         for i, v in enumerate(solved_baekjoon_list, 1):
             if 1000 <= v < 10000:
-                f.writelines(f'&nbsp;&nbsp;&nbsp;[{v}](./problems/{v}.md)')
+                f.writelines(f'&nbsp;&nbsp;&nbsp;[{v}](./problems/{v}.md)\n')
             else:
-                f.writelines(f'&nbsp;[{v}](./problems/{v}.md)')
+                f.writelines(f'&nbsp;[{v}](./problems/{v}.md)\n')
             if i % 10 == 0:
-                f.writelines(f'\n\n')
-        f.writelines('\n')
-
+                f.writelines(f'\n')
 
 if __name__ == "__main__":
     count_solved_in_BAEKJOON()
