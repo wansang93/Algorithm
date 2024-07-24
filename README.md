@@ -57,3 +57,9 @@
 [https://codeup.kr/](https://codeup.kr/)
 
 코드 업 알고리즘 사이트 입니다. 100문제 풀기를 추천받아서 풀었습니다.
+
+### 8. [향해 99](./hanghae99/README.md)
+
+1일 1코딩 챌린지에 도전했습니다.
+
+[https://hanghae99.spartacodingclub.kr/99club-codingtest](https://hanghae99.spartacodingclub.kr/99club-codingtest)

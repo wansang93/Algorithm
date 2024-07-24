@@ -1,3 +1,7 @@
+# 풀이2
+def solution(strings, n):
+    return sorted(strings, key=lambda x: (x[n], x))
+
 # 풀이1
 def solution(strings, n):
     nst = []
