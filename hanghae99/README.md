@@ -6,22 +6,32 @@
 
 ## 문제 풀이
 
+### 99클럽 코테 스터디 5일차 TIL
+
+- [[비기너 Day 5] 완주하지 못한 선수](../Programmers/Python/Code/완주하지%20못한%20선수.py)
+- [[미들러 Day 5] 전화번호 목록](../Programmers/Python/Code/전화번호%20목록.py)
+- [[챌린저 Day 5] 베스트 앨범](../Programmers/Python/Code/베스트앨범.py)
+  - Keyword: hash
+  - Think What:
+  - Think How:
+  - New Known: nothing
+
 ### 99클럽 코테 스터디 4일차 TIL
 
 - [[비기너 Day 4] 문자열을 정수로 바꾸기](../Programmers/Python/Code/문자열을%20정수로%20바꾸기.py)
 - [[미들러 Day 4] JadenCase 문자열 만들기](../Programmers/Python/Code/JadenCase%20문자열%20만들기.py)
 - [[챌린저 Day 4] 문자열 압축](../Programmers/Python/Code/문자열%20압축.py)
-  - Keyword:
+  - Keyword: string
   - Think What:
   - Think How:
-  - New Known:
+  - New Known: nonthing
 
 ### 99클럽 코테 스터디 3일차 TIL
 
 - [[비기너 Day 3] 문자열 내 p와 y의 개수](../Programmers/Python/Code/문자열%20내%20p와%20y의%20개수.py)
 - [[미들러 Day 3] 문자열 내 마음대로 정렬하기](../Programmers/Python/Code/문자열%20내%20마음대로%20정렬하기.py)
 - [[챌린저 Day 3] 숫자 문자열과 영단어](../Programmers/Python/Code/숫자%20문자열과%20영단어.py)
-  - Keyword: string, dict, replace
+  - Keyword: string, hash, replace
   - Think What: Replace string
   - Think How: seperate data and function
   - New Known: nothing
