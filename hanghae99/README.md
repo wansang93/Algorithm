@@ -6,14 +6,24 @@
 
 ## 문제 풀이
 
+### 99클럽 코테 스터디 4일차 TIL
+
+- [[비기너 Day 4] 문자열을 정수로 바꾸기](../Programmers/Python/Code/문자열을%20정수로%20바꾸기.py)
+- [[미들러 Day 4] JadenCase 문자열 만들기](../Programmers/Python/Code/JadenCase%20문자열%20만들기.py)
+- [[챌린저 Day 4] 문자열 압축](../Programmers/Python/Code/문자열%20압축.py)
+  - Keyword:
+  - Think What:
+  - Think How:
+  - New Known:
+
 ### 99클럽 코테 스터디 3일차 TIL
 
 - [[비기너 Day 3] 문자열 내 p와 y의 개수](../Programmers/Python/Code/문자열%20내%20p와%20y의%20개수.py)
 - [[미들러 Day 3] 문자열 내 마음대로 정렬하기](../Programmers/Python/Code/문자열%20내%20마음대로%20정렬하기.py)
 - [[챌린저 Day 3] 숫자 문자열과 영단어](../Programmers/Python/Code/숫자%20문자열과%20영단어.py)
-  - Keyword: dict, replace
-  - Think What: replace string
-  - Think How: Data and function seperate
+  - Keyword: string, dict, replace
+  - Think What: Replace string
+  - Think How: seperate data and function
   - New Known: nothing
 
 ### 99클럽 코테 스터디 2일차 TIL
@@ -21,9 +31,9 @@
 - [[비기너 Day 2] 평균 구하기](../Programmers/Python/Code/평균%20구하기.py)
 - [[미들러 Day 2] x만큼 간격이 있는 n 개의 숫자](../Programmers/Python/Code/x만큼%20간격이%20있는%20n개의%20숫자.py)
 - [[챌린저 Day 2] 숫자 카드 나누기](../Programmers/Python/Code/숫자%20카드%20나누기.py)
-  - Keyword: gcd, reduce(instand of for loop)
+  - Keyword: gcd, Reduce(instand of for loop)
   - Think What: gcd, for loop
-  - Think How: Calculate the GCD using a for loop, return true or false based on the condition of the GCD, and extract the answer
+  - Think How: calculate the GCD using a for loop, return true or false based on the condition of the GCD, and extract the answer
   - New Known: reduce function
 
 ### 99클럽 코테 스터디 1일차 TIL
