@@ -1,10 +1,25 @@
 # 향해99
 
 - 기간: 2024-07-22 ~ 2024-09-02
-- 수강: 99클럽 코딩테스트 스터디 3기
-- 정보: 파이썬 / 챌린저
+- 수강: 99클럽 코딩테스트 스터디 3기(파이썬 / 챌린저)
+
+```text
+#99클럽 #코딩테스트준비 #개발자취업 #항해99 #TIL
+```
+
+![hanghae_til_photo.png](./hanghae_til_photo.png)
 
 ## 문제 풀이
+
+### 99클럽 코테 스터디 8일차 TIL
+
+- [[비기너 Day 8] 올바른 괄호](../Programmers/Python/Code/올바른%20괄호.py)
+- [[미들러 Day 8] 기능 개발](../Programmers/Python/Code/기능개발.py)
+- [[챌린저 Day 8] 두 큐 합 같게 만들기](../Programmers/Python/Code/두%20큐%20합%20같게%20만들기.py)
+  - Keywords: two pointer
+  - How to think: If the sum is odd -> return -1. No need to use a queue, use two pointers instead. The termination condition can be tricky.
+  - How to do it: Combine the queues into a single list. The termination condition is when both the start and end pointers reach the end of the list.
+  - New realization: Implement the solution.
 
 ### 99클럽 코테 스터디 7일차 TIL
 
@@ -75,9 +90,3 @@
   - Think What: approach from back to front
   - Think How: stack the biggest number and implement logic
   - New Known: nothing new
-
-```text
-#99클럽 #코딩테스트준비 #개발자취업 #항해99 #TIL
-```
-
-![hanghae_til_photo.png](./hanghae_til_photo.png)
