@@ -6,6 +6,26 @@
 
 ## 문제 풀이
 
+### 99클럽 코테 스터디 7일차 TIL
+
+- [[비기너 Day 7] 같은 숫자는 싫어](../Programmers/Python/Code/같은%20숫자는%20싫어.py)
+- [[미들러 Day 7] 하노이의 탑](../Programmers/Python/Code/하노이의%20탑.py)
+- [[챌린저 Day 7] 과제 진행하기](../Programmers/Python/Code/과제%20진행하기.py)
+  - Keywords: stack, sort, simulation
+  - How to think: think step by step, use a stack
+  - How to do it: process the data first, then apply the logic, time calculations take a long time
+  - New realization: I need to think slowly and solve the problem carefully
+
+### 99클럽 코테 스터디 6일차 TIL
+
+- [[비기너 Day 6] 폰켓몬](../Programmers/Python/Code/폰켓몬.py)
+- [[미들러 Day 6] 의상](../Programmers/Python/Code/의상.py)
+- [[챌린저 Day 6] 테이블 해시 함수](../Programmers/Python/Code/테이블%20해시%20함수.py)
+  - Keyword: sort, xor
+  - Think What: test
+  - Think How: sort first, then calculate
+  - New Known: sort on a 2D list
+
 ### 99클럽 코테 스터디 5일차 TIL
 
 - [[비기너 Day 5] 완주하지 못한 선수](../Programmers/Python/Code/완주하지%20못한%20선수.py)
@@ -14,7 +34,7 @@
   - Keyword: hash
   - Think What:
   - Think How:
-  - New Known: nothing
+  - New Known: nothing new
 
 ### 99클럽 코테 스터디 4일차 TIL
 
@@ -24,7 +44,7 @@
   - Keyword: string
   - Think What:
   - Think How:
-  - New Known: nonthing
+  - New Known: nothing new
 
 ### 99클럽 코테 스터디 3일차 TIL
 
@@ -33,18 +53,18 @@
 - [[챌린저 Day 3] 숫자 문자열과 영단어](../Programmers/Python/Code/숫자%20문자열과%20영단어.py)
   - Keyword: string, hash, replace
   - Think What: Replace string
-  - Think How: seperate data and function
-  - New Known: nothing
+  - Think How: seperate data and functions
+  - New Known: nothing new
 
 ### 99클럽 코테 스터디 2일차 TIL
 
 - [[비기너 Day 2] 평균 구하기](../Programmers/Python/Code/평균%20구하기.py)
 - [[미들러 Day 2] x만큼 간격이 있는 n 개의 숫자](../Programmers/Python/Code/x만큼%20간격이%20있는%20n개의%20숫자.py)
 - [[챌린저 Day 2] 숫자 카드 나누기](../Programmers/Python/Code/숫자%20카드%20나누기.py)
-  - Keyword: gcd, Reduce(instand of for loop)
-  - Think What: gcd, for loop
+  - Keyword: GCD, reduce(instand of for loop)
+  - Think What: GCD, for loop
   - Think How: calculate the GCD using a for loop, return true or false based on the condition of the GCD, and extract the answer
-  - New Known: reduce function
+  - New Known: the reduce function
 
 ### 99클럽 코테 스터디 1일차 TIL
 
@@ -52,9 +72,9 @@
 - [[미들러 Day 1] n^2 배열 자르기](../Programmers/Python/Code/n^2%20배열%20자르기.py)
 - [[챌린저 Day 1] 뒤에 있는 큰 수 찾기](../Programmers/Python/Code/뒤에%20있는%20큰%20수%20찾기.py)
   - Keyword: stack
-  - Think What: approach back to front
+  - Think What: approach from back to front
   - Think How: stack the biggest number and implement logic
-  - New Known: nothing
+  - New Known: nothing new
 
 ```text
 #99클럽 #코딩테스트준비 #개발자취업 #항해99 #TIL
