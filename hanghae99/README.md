@@ -1,4 +1,4 @@
-# 향해99
+# 향해99 99클럽 코딩테스트 스터디 3기
 
 - 기간: 2024-07-22 ~ 2024-09-02
 - 수강: 99클럽 코딩테스트 스터디 3기(파이썬 / 챌린저)
@@ -10,6 +10,16 @@
 ![hanghae_til_photo.png](./hanghae_til_photo.png)
 
 ## 문제 풀이
+
+### 99클럽 코테 스터디 9일차 TIL
+
+- [[비기너 Day 9] Relative Ranks](../Leetcode/problems/506.%20Relative%20Ranks.md)
+- [[미들러 Day 9] 더 맵게](../Programmers/Python/Code/더%20맵게.py)
+- [[챌린저 Day 9] 최소 힙](../BAEKJOON/problems/1927.md)
+  - Keywords: heap
+  - How to think: Use a min heap
+  - How to do it: Just implement a heap(since heaps in Python are basically min heaps)
+  - New realization: Nothing new
 
 ### 99클럽 코테 스터디 8일차 TIL
 
