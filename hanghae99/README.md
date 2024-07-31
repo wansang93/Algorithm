@@ -7,9 +7,21 @@
 #99클럽 #코딩테스트준비 #개발자취업 #항해99 #TIL
 ```
 
+▞▞ (✿◠‿◠) (っ◔◡◔)っ (๑◕‿◕๑) ⎝ᑒ⎠ ᕦ(ò_óˇ)ᕤ ( ･ิᴥ･ิ) ▚▚
+
 ![hanghae_til_photo.png](./hanghae_til_photo.png)
 
 ## 문제 풀이
+
+### 99클럽 코테 스터디 10일차 TIL
+
+- [[비기너 Day 10] Kth Largest Element in a Stream](../Leetcode/problems/703.%20Kth%20Largest%20Element%20in%20a%20Stream.md)
+- [[미들러 Day 10] 이중 우선순위 큐](../Programmers/Python/Code/이중우선순위큐.py)
+- [[챌린저 Day 10] 최대 힙](../BAEKJOON/problems/11279.md)
+  - Keywords: heap
+  - How to think: Use a min heap with minus
+  - How to do it: implement a max heap by using a min heap with minus
+  - New realization: Nothing new
 
 ### 99클럽 코테 스터디 9일차 TIL
 
