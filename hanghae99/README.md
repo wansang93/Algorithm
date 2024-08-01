@@ -13,6 +13,16 @@
 
 ## 문제 풀이
 
+### 99클럽 코테 스터디 11일차 TIL
+
+- [[비기너 Day 11] 정수 내림차순으로 배치하기](../Programmers/Python/Code/정수%20내림차순으로%20배치하기.py)
+- [[미들러 Day 11] 카드 뭉치](../Programmers/Python/Code/카드%20뭉치.py)
+- [[챌린저 Day 11] 가장 큰 수](../Programmers/Python/Code/가장%20큰%20수.py)
+  - Keywords: sorting
+  - How to think: using sort with some logic
+  - How to do it: repeatedly sort by digit count three times
+  - New realization: sort by digit count
+
 ### 99클럽 코테 스터디 10일차 TIL
 
 - [[비기너 Day 10] Kth Largest Element in a Stream](../Leetcode/problems/703.%20Kth%20Largest%20Element%20in%20a%20Stream.md)
