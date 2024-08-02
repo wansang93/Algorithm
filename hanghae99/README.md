@@ -13,6 +13,18 @@
 
 ## 문제 풀이
 
+### 99클럽 코테 스터디 12일차 TIL
+
+- [[비기너 Day 12] 문자열 내림차순으로 배치하기](../Programmers/Python/Code/문자열%20내림차순으로%20배치하기.py)
+- [[미들러 Day 12] H-Index](../Programmers/Python/Code/H-Index.py)
+- [[챌린저 Day 12] 뉴스 전하기](../Programmers/Python/Code/)
+  - Keywords: tree, DFS, graph search
+  - How to think: using count, DFS, graph search
+  - How to do it: accumulates the time while traversing the tree using DFS
+  - New realization: DP On Trees
+
+[비기너 Day 12] 문자열 내림차순으로 배치하기
+
 ### 99클럽 코테 스터디 11일차 TIL
 
 - [[비기너 Day 11] 정수 내림차순으로 배치하기](../Programmers/Python/Code/정수%20내림차순으로%20배치하기.py)
