@@ -13,17 +13,35 @@
 
 ## 문제 풀이
 
+### 99클럽 코테 스터디 14일차 TIL
+
+- [[비기너 Day 14] Symmetric Tree](../Leetcode/problems/101.%20Symmetric%20Tree.md)
+- [[미들러 Day 14] 숫자 카드2](../BAEKJOON/problems/10816.md)
+- [[챌린저 Day 14] 징검다리](../Programmers/Python/Code/징검다리.py)
+  - Keywords: binary search
+  - How to think: 
+  - How to do it: 
+  - New realization: 
+
+### 99클럽 코테 스터디 13일차 TIL
+
+- [[비기너 Day 13] Search in a Binary Search Tree](../Leetcode/problems/700.%20Search%20in%20a%20Binary%20Search%20Tree.md)
+- [[미들러 Day 13] 숫자 카드](../BAEKJOON/problems/10815.md)
+- [[챌린저 Day 13] 입국 심사](../Programmers/Python/Code/입국심사.py)
+  - Keywords: binary search
+  - How to think: 
+  - How to do it: 
+  - New realization: 
+
 ### 99클럽 코테 스터디 12일차 TIL
 
 - [[비기너 Day 12] 문자열 내림차순으로 배치하기](../Programmers/Python/Code/문자열%20내림차순으로%20배치하기.py)
 - [[미들러 Day 12] H-Index](../Programmers/Python/Code/H-Index.py)
-- [[챌린저 Day 12] 뉴스 전하기](../Programmers/Python/Code/)
+- [[챌린저 Day 12] 뉴스 전하기](../BAEKJOON/problems/1135.md)
   - Keywords: tree, DFS, graph search
   - How to think: using count, DFS, graph search
   - How to do it: accumulates the time while traversing the tree using DFS
   - New realization: DP On Trees
-
-[비기너 Day 12] 문자열 내림차순으로 배치하기
 
 ### 99클럽 코테 스터디 11일차 TIL
 
