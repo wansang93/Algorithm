@@ -5,33 +5,42 @@
 
 ```text
 #99클럽 #코딩테스트준비 #개발자취업 #항해99 #TIL
+▞▞ (✿◠‿◠) (っ◔◡◔)っ (๑◕‿◕๑) ᕦ(ò_óˇ)ᕤ ( ･ิᴥ･ิ) ⎝ᑒ⎠ ▚▚
 ```
-
-▞▞ (✿◠‿◠) (っ◔◡◔)っ (๑◕‿◕๑) ⎝ᑒ⎠ ᕦ(ò_óˇ)ᕤ ( ･ิᴥ･ิ) ▚▚
 
 ![hanghae_til_photo.png](./hanghae_til_photo.png)
 
 ## 문제 풀이
+
+### 99클럽 코테 스터디 17일차 TIL
+
+- [[비기너 Day 17] Binary Tree Inorder Traversal](../Leetcode/problems/)
+- [[미들러 Day 17] 촌수 계산](../BAEKJOON/problems/2644.md)
+- [[챌린저 Day 17] 사자와 토끼](../BAEKJOON/problems/)
+
+### 99클럽 코테 스터디 16일차 TIL
+
+- [[비기너 Day 16] 최소 직사각형](../Programmers/Python/Code/)
+- [[미들러 Day 16] 모음 사전](../Programmers/Python/Code/)
+- [[챌린저 Day 16] N-Queen](../Programmers/Python/Code/N-Queen.py)
+
+### 99클럽 코테 스터디 15일차 TIL
+
+- [[비기너 Day 15] 모의고사](../Programmers/Python/Code/모의고사.py)
+- [[미들러 Day 15] Prefix and Suffix Search](../Leetcode/problems/745.%20Prefix%20and%20Suffix%20Search.md)
+- [[챌린저 Day 15] 소수찾기](../Programmers/Python/Code/소수%20찾기2.py)
 
 ### 99클럽 코테 스터디 14일차 TIL
 
 - [[비기너 Day 14] Symmetric Tree](../Leetcode/problems/101.%20Symmetric%20Tree.md)
 - [[미들러 Day 14] 숫자 카드2](../BAEKJOON/problems/10816.md)
 - [[챌린저 Day 14] 징검다리](../Programmers/Python/Code/징검다리.py)
-  - Keywords: binary search
-  - How to think: 
-  - How to do it: 
-  - New realization: 
 
 ### 99클럽 코테 스터디 13일차 TIL
 
 - [[비기너 Day 13] Search in a Binary Search Tree](../Leetcode/problems/700.%20Search%20in%20a%20Binary%20Search%20Tree.md)
 - [[미들러 Day 13] 숫자 카드](../BAEKJOON/problems/10815.md)
 - [[챌린저 Day 13] 입국 심사](../Programmers/Python/Code/입국심사.py)
-  - Keywords: binary search
-  - How to think: 
-  - How to do it: 
-  - New realization: 
 
 ### 99클럽 코테 스터디 12일차 TIL
 
