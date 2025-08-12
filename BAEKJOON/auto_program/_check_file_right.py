@@ -26,6 +26,9 @@
 import os
 import requests
 from bs4 import BeautifulSoup
+import urllib3
+
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 # 링크 정보
 USER_NAME = 'wansang93'

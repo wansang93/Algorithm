@@ -1,6 +1,6 @@
 # 향해99 99클럽 코딩테스트 스터디 3기
 
-- 기간: 2024-07-22 ~ 2024-09-02
+- 기간: 2024-07-22 ~ 2024-09-02(5주)
 - 수강: 99클럽 코딩테스트 스터디 3기(파이썬 / 챌린저)
 
 ```text
@@ -12,7 +12,21 @@
 
 ## 문제 풀이
 
+### 99클럽 코테 스터디 20일차 TIL
+
+- [[챌린저 Day 20] 섬 연결하기](../Programmers/Python/Code/섬%20연결하기.py)
+- [[미들러 Day 20] 큰 수 만들기](../Programmers/Python/Code/큰%20수%20만들기.py)
+- [[비기너 Day 20] 체육복](../Programmers/Python/Code/체육복.py)
+
+### 99클럽 코테 스터디 19일차 TIL
+
+- [[챌린저 Day 19] 조이스틱](../Programmers/Python/Code/조이스틱.py)
+- [[미들러 Day 19] 구명보트](../Programmers/Python/Code/구명보트.py)
+- [[비기너 Day 19] 과일 장수](../Programmers/Python/Code/과일%20장수.py)
+
 ### 99클럽 코테 스터디 18일차 TIL
+
+TODO: 비기너(LeetCode)
 
 - [[비기너 Day 18] Increasing Order Search Tree](../Leetcode/problems/897.%20Increasing%20Order%20Search%20Tree.md)
 - [[미들러 Day 18] 단지 번호 붙이](../BAEKJOON/problems/2667.md)
@@ -20,13 +34,15 @@
 
 ### 99클럽 코테 스터디 17일차 TIL
 
-- [[비기너 Day 17] Binary Tree Inorder Traversal](../Leetcode/problems/)
+TODO: 비기너(LeetCode)
+
+- [[비기너 Day 17] Binary Tree Inorder Traversal](../Leetcode/problems/94.%20Binary%20Tree%20Inorder%20Traversal.md)
 - [[미들러 Day 17] 촌수 계산](../BAEKJOON/problems/2644.md)
 - [[챌린저 Day 17] 사자와 토끼](../BAEKJOON/problems/17834.md)
 
 ### 99클럽 코테 스터디 16일차 TIL
 
-TODO: 비기너, 미들러, 챌린저(다시풀기)
+TODO: 미들러(LeetCode)
 
 - [[비기너 Day 16] 최소 직사각형](../Programmers/Python/Code/최소직사각형.py)
 - [[미들러 Day 16] 모음 사전](../Programmers/Python/Code/모음%20사전.py)
@@ -34,15 +50,13 @@ TODO: 비기너, 미들러, 챌린저(다시풀기)
 
 ### 99클럽 코테 스터디 15일차 TIL
 
-TODO: 미들러
+TODO: 미들러(LeetCode)
 
 - [[비기너 Day 15] 모의고사](../Programmers/Python/Code/모의고사.py)
 - [[미들러 Day 15] Prefix and Suffix Search](../Leetcode/problems/745.%20Prefix%20and%20Suffix%20Search.md)
 - [[챌린저 Day 15] 소수찾기](../Programmers/Python/Code/소수%20찾기2.py)
 
 ### 99클럽 코테 스터디 14일차 TIL
-
-TODO: 비기너
 
 - [[비기너 Day 14] Symmetric Tree](../Leetcode/problems/101.%20Symmetric%20Tree.md)
 - [[미들러 Day 14] 숫자 카드2](../BAEKJOON/problems/10816.md)
